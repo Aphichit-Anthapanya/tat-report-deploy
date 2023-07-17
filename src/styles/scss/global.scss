@@ -7,277 +7,244 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 @font-face {
-    font-family: 'tatsanachon';
-    src: url('/assets/fonts/TATSanaChon-Reg.ttf') format('truetype');
-    font-weight: normal;
+  font-family: "tatsanachon";
+  src: url("/assets/fonts/TATSanaChon-Reg.ttf") format("truetype");
+  font-weight: normal;
 }
 
 @font-face {
-    font-family: 'tatsanachon';
-    src: url('/assets/fonts/TATSanaChon-Lig.ttf') format('truetype');
-    font-weight: light;
+  font-family: "tatsanachon";
+  src: url("/assets/fonts/TATSanaChon-Lig.ttf") format("truetype");
+  font-weight: light;
 }
 
 @font-face {
-    font-family: 'tatsanachon';
-    src: url('/assets/fonts/TATSanaChon-Bld.ttf') format('truetype');
-    font-weight: bold;
+  font-family: "tatsanachon";
+  src: url("/assets/fonts/TATSanaChon-Bld.ttf") format("truetype");
+  font-weight: bold;
 }
 
 @font-face {
-    font-family: 'tatsanasuksa';
-    src: url('/assets/fonts/TATSanaSuksa-BldIta.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-BldIta.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'tatsanasuksa';
-    src: url('/assets/fonts/TATSanaSuksa-Ita.ttf') format('truetype');
-    font-weight: nomal;
-    font-style: italic;
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-Ita.ttf") format("truetype");
+  font-weight: nomal;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'tatsanasuksa';
-    src: url('/assets/fonts/TATSanaSuksa-Lig.ttf') format('truetype');
-    font-weight: light;
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-Lig.ttf") format("truetype");
+  font-weight: light;
 }
 
 @font-face {
-    font-family: 'tatsanasuksa';
-    src: url('/assets/fonts/TATSanaSuksa-LigIta.ttf') format('truetype');
-    font-weight: light;
-    font-style: italic;
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-LigIta.ttf") format("truetype");
+  font-weight: light;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'tatsanasuksa';
-    src: url('/assets/fonts/TATSanaSuksa-Reg.ttf') format('truetype');
-    font-weight: normal;
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-Reg.ttf") format("truetype");
+  font-weight: normal;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: tatsanasuksa!important;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: tatsanasuksa !important;
 }
 
 .btn {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 .btn-primary {
-    background-color: #1890FF;
+  background-color: #1890ff;
 }
 
 .btn-secondary {
-    background-color: white;
-    border-color: #40A9FF;
-    color: #40A9FF;
+  background-color: white;
+  border-color: #40a9ff;
+  color: #40a9ff;
 }
 
 .btn-secondary:hover {
-    background-color: rgb(243, 242, 242);
-    border-color: #40A9FF;
-    color: #40A9FF;
+  background-color: rgb(243, 242, 242);
+  border-color: #40a9ff;
+  color: #40a9ff;
 }
 
 .top-header {
-    background: #1967B2;
-    padding: 11px 0px 11px 16px;
-    position: fixed;
-    z-index: 2;
-    width: 100%;
+  background: #1967b2;
+  padding: 11px 0px 11px 16px;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .header-text {
-    color: white;
-    margin-top: 25px;
-    margin-left: 23px;
+  color: white;
+  margin-top: 8px;
+  margin-left: 23px;
 }
 
 .user-name-text {
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    margin-top: 14px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 14px;
 }
 
 .logo_help_wrapper {
-    margin-top: 11px;
+  margin-top: 11px;
 }
 
-.logo_help{
-    cursor: pointer;
+.logo_help {
+  cursor: pointer;
 }
 
 .logo_logout_wrapper {
-    margin-top: 11px;
+  margin-top: 11px;
 }
 
 .logo_logout {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .side-navigation {
-    width: 296px;
-    height: 100%;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-    position: fixed;
-    top: 0px;
-    padding-top: 119px;
-    z-index: 1;
-    left: 0px;
-    transition: left 0.3s;
+  width: 296px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0px;
+  padding-top: 119px;
+  z-index: 1;
+  left: 0px;
+  transition: left 0.3s;
 }
 
 .side-navigation.small-side {
-    left: -265px;
+  left: -265px;
 }
 
-.side-nav:hover{
-    background-color: #1890ff29;
-    cursor: pointer;
+.side-nav:hover {
+  background-color: #1890ff29;
+  cursor: pointer;
 }
 
-.side-nav.active{
-    background-color: #1890ff29;
+.side-nav.active {
+  background-color: #1890ff29;
 }
 
 .side-nav > .bi-chevron-right {
-    font-size: 14px;
-    margin: auto;
+  font-size: 14px;
+  margin: auto;
 }
 
 .user-name-texxt-chev {
-    font-size: 13px;
-    position: relative;
-    top: -1px;
+  font-size: 13px;
+  position: relative;
+  top: -1px;
 }
 
 .side-chev-wrapper > i {
-    margin: auto;
+  margin: auto;
 }
 
 .close-sidebar-but-wrapper {
-    border-bottom: 13px solid #ffff;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    height: 0;
-    width: 72px;
-    filter: drop-shadow(0px -2px 2px rgba(0, 0, 0, 0.15));
-    transform: rotate(90deg);
-    z-index: 0;
-    position: absolute;
-    top: 564px;
-    left: 266px;
-    cursor: pointer;
+  border-bottom: 13px solid #ffff;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  height: 0;
+  width: 72px;
+  filter: drop-shadow(0px -2px 2px rgba(0, 0, 0, 0.15));
+  transform: rotate(90deg);
+  z-index: 0;
+  position: absolute;
+  top: 564px;
+  left: 266px;
+  cursor: pointer;
 }
 
 .close-sidebar-but {
-    font-size: 12px;
-    position: relative;
-    left: 19px;
-    top: -4px;
+  font-size: 12px;
+  position: relative;
+  left: 19px;
+  top: -4px;
 }
 
 .side-nav-text-wrapper {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 .iconSmallNav {
-    margin-top: 5px!important;
-    margin-bottom: 5px!important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
 }
 
 .icon-small-nav-top {
-    position: absolute;
-    right: 5px;
-    top: 128px;
+  position: absolute;
+  right: 5px;
+  top: 128px;
 }
 
 .nav-header > span {
-    position: relative;
-    left: 6px;
-    top: 2px;
-    font-weight: bold;
+  position: relative;
+  left: 6px;
+  top: 2px;
+  font-weight: bold;
 }
 
 .content-body-wrapper {
-    min-height: 300px;
-    float: right;
-    width: 75%;
-    padding-right: 65px;
-    position: relative;
-    top: 103px;
+  min-height: 300px;
+  float: right;
+  width: 75%;
+  padding-right: 65px;
+  position: relative;
+  top: 103px;
 }
 
 .content-body-wrapper.small-nav {
-    width: 95%;
+  width: 95%;
 }
 
 .hide {
-    display: none
+  display: none;
 }
 
-.sidebar-item{
-    display: block;
-    transition: background-color .15s;
-    border-radius: 5px;
-}
-  
-.sidebar-title{
-    display: flex;
-    font-size: 1.2em;
-    justify-content: space-between;
-}
-.sidebar-title span i{
-    display: inline-block;
-    width: 1.5em;
-}
-.sidebar-title .toggle-btn{
-    cursor: pointer;
-    transition: transform .3s;
-}
-.sidebar-item.open > .sidebar-title .toggle-btn{
-    transform: rotate(180deg);
-}
-.sidebar-item.opens > .sidebar-title .toggle-btn{
-    transform: rotate(180deg);
-}
-.sidebar-item.openss > .sidebar-title .toggle-btn{
-    transform: rotate(180deg);
+.justify-content-right {
+  justify-content: right;
 }
 
-.sidebar-content{
-    padding-left: 30px;
-    height: 0;
-    overflow: hidden;
+.justify-content-spacebetween {
+  justify-content: space-between;
 }
-.sidebar-item.open > .sidebar-content{
-    height: auto;
+
+.invalid-text {
+  span {
+    font-size: 12px !important;
+  }
 }
-.sidebar-item.opens > .sidebar-content{
-    height: auto;
+
+.alterisk {
+  color: red;
 }
-.sidebar-item.openss > .sidebar-content{
-    height: auto;
-}
-  
-.sidebar-item.plain{
-    color: #fff;
-    text-decoration: none;
-}
-.sidebar-item.plain:hover{
-    text-decoration: underline;
-}
-.sidebar-item.plain i{
-    display: inline-block;
-    width: 1.7em;
+
+.breadcrumb-zone{
+  margin-top: 20px;
 }
