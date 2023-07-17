@@ -13,7 +13,7 @@ export default function Home() {
       <h1>-----</h1>
       <Link href="/purcase-system/add-action">add-system</Link>
       <h1>-----</h1>
-      <Link href="/purcase-system/add-action">add-system(Calendar)</Link>
+      <Link href="/purcase-system/add-action/calendar">add-system(Calendar)</Link>
     </Container>
   );
 }
