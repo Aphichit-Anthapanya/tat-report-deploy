@@ -1,0 +1,10 @@
+.btn {
+  font-size: 20px;
+
+  background-color: #1967b2;
+
+  &:focus,
+  &:hover {
+    background-color: #1968b2e0;
+  }
+}

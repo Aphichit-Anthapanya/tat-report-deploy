@@ -5,11 +5,8 @@ import ReactECharts from "echarts-for-react";
 import { Container, Row } from "react-bootstrap";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { useGetProfileQuery } from "@/redux/services";
 
 export default function Page() {
-  const { data } = useGetProfileQuery();
-
   const option = {
     xAxis: {
       type: "category",
@@ -80,7 +77,6 @@ export default function Page() {
           </Form>
         )}
       </Formik>
-      userid: {data?.userId}
     </Container>
   );
 }
