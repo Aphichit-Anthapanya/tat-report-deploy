@@ -14,6 +14,8 @@ export default function Home() {
       <Link href="/purcase-system/add-action">add-system</Link>
       <h1>-----</h1>
       <Link href="/purcase-system/add-action/calendar">add-system(Calendar)</Link>
+      <h1>-----</h1>
+      <Link href="/view-project">view-project</Link>
     </Container>
   );
 }
