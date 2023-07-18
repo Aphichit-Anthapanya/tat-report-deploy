@@ -334,6 +334,11 @@ td {
   width: auto;
 }
 
+.years > .box {
+  margin-right: 10px;
+}
+
+
 .search-wrapper-section {
   width: 100%;
   background-color: white;
@@ -356,8 +361,21 @@ td {
   padding-left: 20px;
 }
 
-.filter-field {
-  width: 500px;
+.filter-field{
+  width: 200px;
+}
+
+.box > .filter-field {
+  width: 400px;
+}
+
+
+.content-search-box > .boxs{
+  margin-left: 10px;
+}
+
+.boxs > .filter-field {
+  width: 200px;
 }
 
 .add-infor-box {
@@ -397,3 +415,67 @@ td {
   width: 400px;
 }
 
+.table > tbody > tr > th > .name-project{
+  width: 350px;
+}
+
+.table > tbody > tr > th > .sub-process-project {
+  width: 130px;
+}
+
+.table > tbody > tr > th > .process-project{
+  width: 200px;
+}
+
+.table > tbody > tr > th > .detail-money {
+  width: 100px;
+}
+
+.table > tbody > tr > th > .detail{
+  font-weight: normal;
+}
+
+.table > tbody > tr > th > .year-quarter {
+  width: 100px;
+}
+
+.table > tbody > tr > th > .project-area {
+  width: 220px;
+}
+
+.table > tbody > tr > th > .responsible-person {
+  width: 150px;
+}
+
+.table > tbody > tr > th > .planNproject {
+  width: 380px;
+}
+
+.table > tbody > tr > th > .indicator {
+  width: 380px;
+}
+
+.table > tbody > tr > th > .indicators {
+  width: 300px;
+}
+
+.table > tbody > tr > th > .indicators-number {
+  width: 80px;
+}
+
+.table > tbody > tr > th > .overall-strategy {
+  width: 380px;
+  font-weight: normal;
+}
+
+.table > tbody > tr > th > .overall-strategy > .overall-strategys {
+  width: 120px;
+}
+
+.table > tbody > tr > th > .overall-strategy > .overall-sub-strategys {
+  width: 260px;
+}
+
+.normalText {
+  font-weight: normal;
+}

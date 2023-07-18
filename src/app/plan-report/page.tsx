@@ -30,12 +30,12 @@ export default function Page() {
             <div className='d-flex flex-column' style={{width: '100%'}}>
                 <div className="breadcrumb-zone">รายงานจัดซื้อจัดจ้าง {'>'} <span className="bread-crumb-page-name">รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง ประจำปีงบประมาณ 25XX </span> {'>'} <span className="bread-crumb-page-name">งบรายได้</span></div>
                     <div className='search-wrapper-section d-flex flex-column'>
-                        <div className="d-flex justify-content-between justify-content-center align-items-center">
+                        <div className="d-flex flex-row justify-content-around">
                             <div className="content-search-box d-flex p-2 justify-content-center align-items-center">
-                                <div className="box">
+                                <div className="boxs">
                                     <label>ปีงบประมาณ:</label>
                                 </div>
-                                <div className="box">
+                                <div className="boxs">
                                     <div className="filter-field">
                                         <select className="form-select" aria-label="Default select example">
                                             <option selected>  -- เลือก --  </option>
@@ -53,10 +53,10 @@ export default function Page() {
                                 </div>
                             </div>
                                 <div className="content-search-box d-flex p-2 justify-content-between justify-content-center align-items-center">
-                                    <div className="box">
+                                    <div className="boxs">
                                         <label>สถานะงาน:</label>
                                     </div>
-                                    <div className="box">
+                                    <div className="boxs">
                                     <div className="filter-field">
                                         <select className="form-select" aria-label="Default select example">
                                             <option selected>  -- เลือกทั้งหมด --  </option>
@@ -68,10 +68,10 @@ export default function Page() {
                                     </div>
                                 </div>
                                 <div className="content-search-box d-flex p-2 justify-content-between justify-content-center align-items-center">
-                                    <div className="box">
+                                    <div className="boxs">
                                         <label>หน่วยงาน:</label>
                                     </div>
-                                    <div className="box">
+                                    <div className="boxs">
                                         <div className="filter-field">
                                         <input type="text" className="form-control" placeholder="" id="filterOverall" />
                                         </div>
