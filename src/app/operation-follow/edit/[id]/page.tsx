@@ -8,32 +8,32 @@ import Section3 from "@/components/OperationFollow/Section3";
 import Section4 from "@/components/OperationFollow/Section4";
 import Section5 from "@/components/OperationFollow/Section5";
 import { useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams } from 'next/navigation';
 import { resetNew, updateFormById } from "@/redux/OperationFollow/service";
-import EditOperationFollow from "@/components/OperationFollow/Edit/EditOperationFollow";
 
 export default function Page() {
-  const [sectionNumber, setSectionNumber] = useState(1);
-  const dispatch = useDispatch();
-  let id = 0;
-  let mode = 0;
-  const params = useParams();
 
-  const handleSection = (value: number) => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setSectionNumber(value);
-  };
+    const [sectionNumber, setSectionNumber] = useState(1);
+    const dispatch = useDispatch()
+    let id = 0
+    let mode = 0
+    const params = useParams();
 
-  useEffect(() => {
-    // id = typeof params?.id === "string" ? parseInt(params?.id) : 0;
-    // if (id != 0) {
-    //   updateFormById(id, dispatch);
-    // }
-  }, []);
+    const handleSection = (value: number) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setSectionNumber(value)
+    };
 
-  return (
-    <>
-      {/* <div className='d-flex flex-column' style={{width: '100%'}}>
+    useEffect(() => {
+        id = typeof params?.id === 'string' ? parseInt(params?.id) : 0;
+        if(id != 0){
+            updateFormById(id,dispatch)
+        }
+    },[]);
+
+    return (
+        <>
+        <div className='d-flex flex-column' style={{width: '100%'}}>
         <div className="breadcrumb-zone">นำเข้าข้อมูล {'>'} <span className="bread-crumb-page-name">ข้อมูลโครงการด้านบริหารจัดการองค์กร </span> {'>'} <span className="bread-crumb-page-name">งานระบบสารสนเทศแบบองค์กร</span></div>
             <div className="flow-indicator-wrapper">
             <div className="flow-indicator d-flex justify-content-center">
@@ -84,8 +84,7 @@ export default function Page() {
                 {sectionNumber === 4 && <Section4 changeSectionHandle={handleSection} />}
                 {sectionNumber === 5 && <Section5 changeSectionHandle={handleSection} />}
             </div>
-        </div> */}
-      <EditOperationFollow />
-    </>
-  );
+        </div>
+        </>
+    )
 }
