@@ -357,7 +357,24 @@ td {
 }
 
 .filter-field {
-  width: 300px;
+  width: 500px;
+}
+
+.add-infor-box {
+  background-color: #f6f6f9;
+  width: 700px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+}
+
+.sub-box {
+  margin: 5px;
+}
+
+.filter-field-index {
+  width: 500px;
+  margin-left: 10px;
 }
 
 .add-action-box > .filter-field{
@@ -375,3 +392,8 @@ td {
   min-width: none;
   margin-top: 20px;
 }
+
+.table > thead > tr > th > .process{
+  width: 400px;
+}
+
