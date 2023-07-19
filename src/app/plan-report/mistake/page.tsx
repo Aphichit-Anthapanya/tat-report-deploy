@@ -114,7 +114,7 @@ export default function Page() {
                                                         <div className="project-area d-flex justify-content-center align-items-center">ประเด็นข้อผิดพลาด</div>
                                                     </th>
                                                     <th>
-                                                        <div className="d-flex justify-content-center align-items-center">ข้อเสนอแนะล่าสุด</div>
+                                                        <div className="d-flex justify-content-center align-items-center">รายละเอียดข้อผิดพลาด</div>
                                                     </th>
                                                 </tr>
 
