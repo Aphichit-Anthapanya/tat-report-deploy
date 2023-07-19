@@ -31,45 +31,46 @@ export default function Page() {
                 <div className="breadcrumb-zone">รายงานแผนปฏิบัติการและการดำเนินงาน {'>'} <span className="bread-crumb-page-name"><b>รายงานสรุปแผนปฏิบัติการ ททท.(รวมเล่ม)</b></span></div>
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="d-flex flex-row justify-content-around">
-                            <div className="content-search-box d-flex p-2 justify-content-center align-items-center">
-                                <div className="boxs">
-                                    <label>ปีงบประมาณ:</label>
-                                </div>
-                                <div className="boxs">
-                                    <div className="filter-field">
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option selected>  -- เลือก --  </option>
-                                            <option value="1">2566</option>
-                                            <option value="2">2565</option>
-                                            <option value="3">2564</option>
-                                            <option value="4">2563</option>
-                                            <option value="5">2562</option>
-                                            <option value="6">2561</option>
-                                            <option value="7">2560</option>
-                                            <option value="8">2559</option>
-                                            <option value="9">2558</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                                <div className="content-search-box d-flex p-2 justify-content-between justify-content-center align-items-center">
+                            <div className="d-flex flex-column">
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
                                     <div className="boxs">
-                                        <label>สถานะงาน:</label>
+                                        <b>ด้าน:</b>
                                     </div>
                                     <div className="boxs">
-                                    <div className="filter-field">
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option selected>  -- เลือกทั้งหมด --  </option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="content-search-box d-flex p-2 justify-content-between justify-content-center align-items-center">
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
                                     <div className="boxs">
-                                        <label>หน่วยงาน:</label>
+                                        <b>ฝ่าย/สำนัก:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>กอง/กลุ่ม:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>หน่วยงาน:</b>
                                     </div>
                                     <div className="boxs">
                                         <div className="filter-field">
@@ -77,6 +78,128 @@ export default function Page() {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="d-flex flex-column">
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>ปีงบประมาณ:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือก --  </option>
+                                                <option value="1">2566</option>
+                                                <option value="2">2565</option>
+                                                <option value="3">2564</option>
+                                                <option value="4">2563</option>
+                                                <option value="5">2562</option>
+                                                <option value="6">2561</option>
+                                                <option value="7">2560</option>
+                                                <option value="8">2559</option>
+                                                <option value="9">2558</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>ชื่อแผน:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>ประเด็นยุทธศาสตร์</option>
+                                                <option value="1">ตลาดต่างประเทศ</option>
+                                                <option value="2">ตลาดในประเทศ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>ประเด็นยุทธศาสตร์:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>ชื่อกลยุทธ์ภาพรวม:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div className="d-flex flex-column">
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>กลยุทธ์ภูมิภาค:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>ชื่อแผนงาน:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>ตลาด:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>โครงการหลัก:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="boxs">
+                                        <b>โครงการ:</b>
+                                    </div>
+                                    <div className="boxs">
+                                        <div className="filter-field">
+                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                             <div className="d-flex filter-project-button justify-content-center">
