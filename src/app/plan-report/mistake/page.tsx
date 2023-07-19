@@ -91,10 +91,6 @@ export default function Page() {
                                 <div className="box">
                                     <b>รายงานสรุปสถิติของหัวข้อที่เกิดความผิดพลาดบ่อยครั้ง</b>
                                 </div>
-                                <div className="box d-flex">
-                                    <div className="content"><b>หน่วยงาน:</b></div>
-                                    <div className="content"><p></p></div>
-                                </div>
 
                                 <div className="boxes d-flex justify-content-center align-items-center">
                                     <div className="table-area-plan-report d-flex flex-row justify-content-center align-items-center">
