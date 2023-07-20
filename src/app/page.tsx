@@ -14,6 +14,7 @@ export default function Home() {
       <Link href="/plan-report/group">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน/งาน</Link>
       <Link href="/plan-report/summary">รายงานสรุปแผนปฏิบัติการ ททท รวมเล่ม</Link>
       <Link href="/plan-report/mistake">รายงานสรุปสถิติของหัวข้อที่เกิดความผิดพลาดบ่อยครั้ง</Link>
+      <Link href="/plan-report/output">รายงานสรุปผลการดำเนินงานตามตัวชี้วัดกิจกรรม Output</Link>
       <Link href="/purcase-system">ระบบจัดซื้อจัดจ้าง</Link>
       <Link href="/purcase-system/add-action">เพิ่มงบ</Link>
       <Link href="/purcase-system/add-action">เพิ่มงบ(Calendar)</Link>
