@@ -465,7 +465,6 @@ td {
 
 .table > tbody > tr > th > .overall-strategy {
   width: 380px;
-  font-weight: normal;
 }
 
 .table > tbody > tr > th > .overall-strategy > .overall-strategys {
@@ -480,6 +479,26 @@ td {
   width: 50px;
 }
 
+.table > tbody > tr > th > .twoH {
+  width: 200px;
+}
+
+.table > tbody > tr > th > .oneH {
+  width: 100px;
+}
+
+.table > tbody > tr > th > .oneHfour {
+  width: 140px;
+}
+
+.table > tbody > tr > th > .oneHeight {
+  width: 180px;
+}
+
 .normalText {
   font-weight: normal;
+}
+
+.pr-2 {
+  padding-right: 10px;
 }

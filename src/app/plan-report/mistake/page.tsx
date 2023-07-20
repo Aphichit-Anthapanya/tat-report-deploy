@@ -77,8 +77,7 @@ export default function Page() {
                                         </div>
                                     </div>
                                 </div>
-                        </div>
-                        
+                        </div>                       
                             <div className="d-flex filter-project-button justify-content-center">
                                 <div className="p-2"><button className="btn btn-primary">ดูรายงาน</button></div>
                                 <div className="p-2"><button className="btn btn-secondary">ล้างค่า</button></div>
