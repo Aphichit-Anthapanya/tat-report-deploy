@@ -19,7 +19,7 @@ export default function Home() {
       <>ระบบจัดซื้อจัดจ้าง</>
       <Link href="/purcase-system">หน้า search โครงการจัดซื้อจัดจ้าง</Link>
       <Link href="/purcase-system/add-action">เพิ่มงบ</Link>
-      <Link href="/purcase-system/add-action">เพิ่มงบ(Calendar)</Link>
+      <Link href="/purcase-system/add-action/calendar">เพิ่มงบ(Calendar)</Link>
       <Link href="/purcase-system/view-project">view-โครงการจัดซื้อจัดจ้าง</Link>
     </Container>
   );
