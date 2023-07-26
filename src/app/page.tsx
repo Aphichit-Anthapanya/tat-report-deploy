@@ -22,7 +22,7 @@ export default function Home() {
       <Link href="/purcase-system/add-action/calendar">เพิ่มงบ(Calendar)</Link>
       <Link href="/purcase-system/view-project">view-โครงการจัดซื้อจัดจ้าง</Link>
       <>ระบบรายงานจัดซื้อจัดจ้าง</>
-      <Link href="/report">view-โครงการจัดซื้อจัดจ้าง</Link>
+      <Link href="/report">รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง ประจำปีงบประมาณ 25XX - งบรายได้</Link>
     </Container>
   );
 }
