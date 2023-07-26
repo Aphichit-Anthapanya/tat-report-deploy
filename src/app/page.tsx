@@ -19,10 +19,48 @@ export default function Home() {
       <>ระบบจัดซื้อจัดจ้าง</>
       <Link href="/purcase-system">หน้า search โครงการจัดซื้อจัดจ้าง</Link>
       <Link href="/purcase-system/add-action">เพิ่มงบ</Link>
-      <Link href="/purcase-system/add-action/calendar">เพิ่มงบ(Calendar)</Link>
+      <Link href="/purcase-system/add-action">เพิ่มงบ(Calendar)</Link>
       <Link href="/purcase-system/view-project">view-โครงการจัดซื้อจัดจ้าง</Link>
       <>ระบบรายงานจัดซื้อจัดจ้าง</>
-      <Link href="/report">รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง ประจำปีงบประมาณ 25XX - งบรายได้</Link>
+      <div className="ml-20 d-flex flex-column">
+        <div className="d-flex flex-column">
+          <Link href="">1. รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง ประจำปีงบประมาณ25XX</Link>
+          <div className="d-flex flex-column ml-20 mb-10">
+            <Link href="/purchase-report/report-1/report-1-1">- งบลงทุน (เงินงบประมาณ)</Link>
+            <Link href="/purchase-report/report-1/report-1-2">- งบสำรองกรณีจำเป็นเร่งด่วน</Link>
+            <Link href="/purchase-report/report-1/report-1-3">- งบอุดหนุน</Link>
+            <Link href="/purchase-report/report-1/report-1-4">- งบรายได้</Link>
+            <Link href="/purchase-report/report-1/report-1-5">- งบอื่นๆ</Link>
+          </div>
+        </div>
+        <div className="mb-10"><Link href="/purchase-report/report-2">2. รายงานสรุปแผนปฏิบัติการจัดซื้อจัดจ้าง(รายโครงการ) ประจำปีงบประมาณ 25XX</Link></div>
+        <div className="mb-10"><Link href="/purchase-report/report-3">3. รายงานสรุปแผนปฏิบัติการจัดซื้อจัดจ้าง(ระดับฝ่าย) ประจำปีงบประมาณ 25XX</Link></div>
+        <div className="d-flex flex-column mb-10">
+          <Link href="">4. รายงานแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง ประจำปีงบประมาณ 25XX ไตรมาสที่</Link>
+          <div className="d-flex flex-column ml-20">
+            <Link href="/purchase-report/report-4/report-4-1">- งบลงทุน (เงินงบประมาณ)</Link>
+            <Link href="/purchase-report/report-4/report-4-2">- งบสำรองกรณีจำเป็นเร่งด่วน</Link>
+            <Link href="/purchase-report/report-4/report-4-3">- งบอุดหนุน</Link>
+            <Link href="/purchase-report/report-4/report-4-4">- งบรายได้</Link>
+            <Link href="/purchase-report/report-4/report-4-5">- งบอื่นๆ</Link>
+          </div>
+        </div>
+        <div className="mb-10"><Link href="/purchase-report/report-5">5. รายงานสรุปแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง (รายโครงการ) ประจำปีงบประมาณ 25XX</Link></div>
+        <div className="mb-10"><Link href="/purchase-report/report-6">6. รายงานสรุปแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง (รายโครงการ) ประจำปีงบประมาณ 25XX ดำเนินการต่อในปีงบประมาณ 25xx+1</Link></div>
+        <div className="d-flex flex-column mb-10">
+          <Link href="/purchase-report/report-7">7. รายงานสรุปแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง (ระดับฝ่าย) ประจำปีงบประมาณ 25XX ไตรมาสที่ X</Link>
+          <>(แสดงข้อมูลจำนวนรายการ และ หมายเหตุแสดงจำนวนรายการเพิ่มแผนในแต่ละไตรมาส)</>
+        </div>
+        <div className="mb-10"><Link href="/purchase-report/report-8">8. รายงานสรุปวิธีการจัดซื้อจัดจ้าง หรือการจัดหาพัสดุ ประจำปีงบประมาณ 25XX ไตรมาสที่ X</Link></div>
+        <div className="mb-10"><Link href="/purchase-report/report-9">9. รายงานกราฟสรุปวิธีการจัดซื้อจัดจ้าง หรือการจัดหาพัสดุ ประจำปีงบประมาณ 25XX ไตรมาสที่ X</Link></div>
+        <div className="d-flex flex-column mb-10">
+          <Link href="/purchase-report/report-10">10. รายงานสรุปแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง (ระดับฝ่าย) ประจำปีงบประมาณ 25XX ไตรมาสที่ X</Link>
+          <>(แสดงข้อมูลจำนวนเงิน)</>
+        </div>
+        <div className="mb-10"><Link href="/purchase-report/report-11">11. รายงานกราฟสรุปแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง (ประเภทงบประมาณ) ประจำปีงบประมาณ 25XX ไตรมาสที่ X</Link></div>
+        <div className="mb-10"><Link href="/purchase-report/report-12">12. รายงานแบบติดตามรายงานความก้าวหน้าของกิจกรรม / งาน / โครงการฯ...ปี XXXX (งบลงทุน)</Link></div>
+        <div className="mb-10"><Link href="/purchase-report/report-13">13. รายงานแบบติดตามรายงานความก้าวหน้าของกิจกรรม / งาน / โครงการฯ...ปี XXXX (งบอุดหนุน)</Link></div>
+      </div>
     </Container>
   );
 }
