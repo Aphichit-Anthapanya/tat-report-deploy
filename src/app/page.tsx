@@ -12,10 +12,11 @@ export default function Home() {
       <>ระบบแผนผล</>
       <Link href="/plan-report">plan-report</Link>
       <Link href="/plan-report/cpwm">รายงานสรุปงบประมาณรายโครงการเปรียบเทียบรายเดือน</Link>
-      <Link href="/plan-report/group">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน/งาน</Link>
+      <Link href="/plan-report/group">รายงานสรุปงบประมาณรายเดือนตามหมวด พ.ร.บ.งบประมาณ</Link>
       <Link href="/plan-report/summary">รายงานสรุปแผนปฏิบัติการ ททท รวมเล่ม</Link>
       <Link href="/plan-report/mistake">รายงานสรุปสถิติของหัวข้อที่เกิดความผิดพลาดบ่อยครั้ง</Link>
       <Link href="/plan-report/output">รายงานสรุปผลการดำเนินงานตามตัวชี้วัดกิจกรรม Output</Link>
+      <Link href="/plan-report/new">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน ปีงบประมาณ 25XX </Link>
       <>ระบบจัดซื้อจัดจ้าง</>
       <Link href="/purcase-system">หน้า search โครงการจัดซื้อจัดจ้าง</Link>
       <Link href="/purcase-system/add-action">เพิ่มงบ</Link>

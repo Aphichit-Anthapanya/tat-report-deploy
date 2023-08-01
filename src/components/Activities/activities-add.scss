@@ -495,10 +495,66 @@ td {
   width: 180px;
 }
 
+.table > tbody > tr > th > .numbers {
+  width: 50px;
+}
+
 .normalText {
   font-weight: normal;
 }
 
 .pr-2 {
   padding-right: 10px;
+}
+
+.table > tbody > tr > th > .wd-25 {
+  min-width: 25px;
+}
+
+.table > tbody > tr > th > .wd-50 {
+  min-width: 50px;
+}
+
+.table > tbody > tr > th > .wd-30 {
+  min-width: 30px;
+}
+
+.table > tbody > tr > th > .wd-200 {
+  min-width: 200px;
+}
+
+.table > tbody > tr > th > .wd-260 {
+  min-width: 260px;
+}
+
+.table > tbody > tr > th > .wd-300 {
+  min-width: 300px;
+}
+
+.table > tbody > tr > th > .wd-400 {
+  min-width: 400px;
+}
+
+.table > tbody > tr > th > .wd-100 {
+  min-width: 100px;
+}
+
+.table > tbody > tr > th > .wd-120 {
+  min-width: 120px;
+}
+
+.table > tbody > tr > th > .wd-140 {
+  min-width: 140px;
+}
+
+.table > tbody > tr > th > .wd-160 {
+  min-width: 160px;
+}
+
+.table > tbody > tr > th > .wd-180 {
+  min-width: 180px;
+}
+
+.table > tbody > tr > th > .bg-1 {
+  background: #000;
 }
