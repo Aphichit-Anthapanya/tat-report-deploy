@@ -7,12 +7,13 @@ import {
   Action,
   Middleware,
 } from "@reduxjs/toolkit";
-import config from "@config";
+import config from "@/config/env";
 
 /* import reducer here */
 import { userApi } from "./services/user";
-import { counterSlice } from "./countersSlice/counterSlice"
-import operationFollowFormReducer from  "./OperationFollow/reducer"
+import { counterSlice } from "./countersSlice/counterSlice";
+import operationFollowFormReducer from "./OperationFollow/reducer";
+import operationFollowTableReducer from "./OperationFollowTable/reducer";
 
 let additionalMiddleware: Middleware[] = [userApi.middleware];
 
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   /* add reducer here */
   [userApi.reducerPath]: userApi.reducer,
   counter: counterSlice.reducer,
-  operationFollowForm: operationFollowFormReducer
+  operationFollowForm: operationFollowFormReducer,
+  operationFollowTable: operationFollowTableReducer,
 });
 
 function makeStore() {

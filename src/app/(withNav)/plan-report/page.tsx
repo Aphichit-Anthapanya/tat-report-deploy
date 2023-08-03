@@ -35,6 +35,7 @@ export default function Page() {
                                 <div className="boxs">
                                     <label>ปีงบประมาณ:</label>
                                 </div>
+
                                 <div className="boxs">
                                     <div className="filter-field">
                                         <select className="form-select" aria-label="Default select example">
@@ -52,25 +53,29 @@ export default function Page() {
                                     </div>
                                 </div>
                             </div>
+
                                 <div className="content-search-box d-flex p-2 justify-content-between justify-content-center align-items-center">
                                     <div className="boxs">
                                         <label>สถานะงาน:</label>
                                     </div>
+
                                     <div className="boxs">
-                                    <div className="filter-field">
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option selected>  -- เลือกทั้งหมด --  </option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือกทั้งหมด --  </option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
+
                                 <div className="content-search-box d-flex p-2 justify-content-between justify-content-center align-items-center">
                                     <div className="boxs">
                                         <label>หน่วยงาน:</label>
                                     </div>
+
                                     <div className="boxs">
                                         <div className="filter-field">
                                         <input type="text" className="form-control" placeholder="" id="filterOverall" />
@@ -79,10 +84,10 @@ export default function Page() {
                                 </div>
                         </div>
                         
-                            <div className="d-flex filter-project-button justify-content-center">
-                                <div className="p-2"><button className="btn btn-primary">ดูรายงาน</button></div>
-                                <div className="p-2"><button className="btn btn-secondary">ล้างค่า</button></div>
-                            </div>    
+                        <div className="d-flex filter-project-button justify-content-center">
+                            <div className="p-2"><button className="btn btn-primary">ดูรายงาน</button></div>
+                            <div className="p-2"><button className="btn btn-secondary">ล้างค่า</button></div>
+                        </div>    
                     </div>
                     
                     <div className='form-wrapper-section d-flex flex-column'>

@@ -1,22 +1,21 @@
-import { updateSection4 } from '../reducer';
-import { sampleData } from '../../SampleData/sample_data';
+import { updateSection4 } from "../reducer";
+import { sampleData } from "../../SampleData/sample_data";
 
-export const fetchSection4dataService = async (id:number,dispatchs:any) => {
+export const fetchSection4dataService = async (id: number, dispatchs: any) => {
   try {
     // Fetch data from the API
     // const response = await fetch('your-api-endpoint');
     // const data = await response.json();
-    const data = sampleData.operationFollowForm.section4
+    const data = sampleData.operationFollowForm.section4;
 
-    console.log(data)
+    console.log(data);
 
     // Dispatch the action to update Redux store
     dispatchs(updateSection4(data));
   } catch (error) {
     // Handle any errors that occur during the API request
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
   }
-
 };
 
 const searchIdFromStateList = (id: number, data: any) => {

@@ -1,0 +1,57 @@
+body {
+  background-color: #f6f4f4;
+}
+
+.add-worth-activities-wrapper {
+  .breadcrumb-zone {
+    font-weight: bold;
+    color: #32324d;
+
+    .present-page {
+      color: #1967b2;
+    }
+  }
+
+  .add-worth-menu-wrapper {
+    position: relative;
+    top: 66px;
+
+    .header {
+      font-weight: bold;
+    }
+
+    .content {
+      margin-top: 10px;
+      .form-label {
+        width: 197px;
+
+        label {
+          float: right;
+        }
+      }
+
+      .form-field {
+        margin-left: 10px;
+        width: 100%;
+      }
+
+      .checkbox-selection {
+        background-color: #ffff;
+        width: 100%;
+        min-height: 94px;
+      }
+    }
+
+    .button-section {
+      clear: both;
+      float: right;
+      margin-top: 60px;
+      margin-right: 13px;
+      margin-bottom: 60px;
+
+      button {
+        background-color: #0050b3;
+      }
+    }
+  }
+}

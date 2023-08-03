@@ -1,0 +1,280 @@
+body {
+  width: 1628px;
+}
+
+.upper-menu-text {
+  padding-left: 15px;
+}
+
+.upper-menu-text h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 27px;
+}
+
+.upper-menu-text > h4 {
+  font-size: 20px;
+}
+
+.upper-menu-button > div {
+  margin-top: 35px;
+}
+
+.breadcrumb-zone {
+  margin-top: 13px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #91d5ff;
+  padding: 13px;
+  font-size: 15px;
+}
+
+.badge-status {
+  border-color: #e6e6e7;
+  border-style: solid;
+  border-width: 2px;
+  padding: 7px;
+  color: #7a7ab1;
+  position: relative;
+  top: 15px;
+  cursor: pointer;
+}
+
+.left-section-form {
+  width: 50%;
+  position: relative;
+  margin-right: 30px;
+}
+
+.right-section-form {
+  width: 50%;
+}
+
+.form-wrapper {
+  margin-top: 31px;
+}
+
+.form-label {
+  width: 30%;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 19px;
+  font-size: 14px;
+}
+
+.form-field > input {
+  width: 100%;
+}
+
+.table-summary-wrapper {
+  margin: auto;
+  width: 90%;
+}
+
+.table-summary-wrapper-right {
+  margin: auto;
+  width: 90%;
+}
+
+.table-summary-header {
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.table-summary-content > table {
+  width: 100%;
+}
+
+.table-summary-content > table > thead {
+  background-color: #d9f2cd;
+}
+
+.table-summary-content.table-right-section > table > thead > tr > th {
+  background-color: #90bcd1;
+}
+
+.table-summary-content > table > thead > tr > th {
+  background-color: #d9f2cd;
+}
+
+.table-summary-content.table-right-section > table > tbody > tr > td,
+.table-summary-content > table > tbody > tr > td {
+  background-color: #f0f0f0;
+}
+
+.table-summary-content > table > tbody {
+  background-color: #f0f0f0 !important;
+}
+
+.summary-monthly {
+  background-color: #dedeff;
+  color: blue;
+}
+
+.summary-result {
+  margin-left: 35px;
+  margin-right: 41px;
+}
+
+.outside-compatable-header {
+  background-color: #d9d9d9;
+  position: relative;
+  height: 42px;
+  padding-top: 12px;
+}
+
+.outside-compatable-header > button {
+  position: absolute;
+  right: 13px;
+  font-size: 11px;
+  background-color: #2f6ab3;
+  border-radius: 7px;
+  top: 5px;
+}
+
+.outside-content {
+  background-color: #d9d9d9;
+
+  .content-header {
+    &.right-content {
+      background-color: #91d5ff;
+    }
+
+    background-color: #d9f2cd;
+  }
+}
+
+.upper-menu-button .btn {
+  font-size: 13px;
+}
+
+.badge-status {
+  font-size: 13px;
+}
+
+.form-wrapper {
+  font-size: 12px;
+}
+
+.flex-row {
+  flex: 1;
+  text-align: center;
+}
+
+.area-operation-field {
+  width: 43px;
+  height: 29px;
+  position: relative;
+  top: 6px;
+  font-size: 10px;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.upload-font-size {
+  font-size: 14px;
+}
+
+.report-activities-wrapper {
+  color: white;
+  font-size: 14px;
+
+  .activity-sqheader {
+    background-color: #fa8c16;
+    padding: 14px;
+  }
+
+  .activity-content {
+    color: black;
+    width: 31%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-color: white;
+  }
+
+  .left {
+    width: 50%;
+    text-align: right;
+  }
+
+  .right {
+    width: 50%;
+    text-align: left;
+    margin-left: 10px;
+  }
+}
+
+.activities-half-wrapper {
+  .half-left {
+    width: 50%;
+  }
+
+  .half-right {
+    width: 50%;
+  }
+}
+
+.activities-content-wrapper {
+  width: 100%;
+
+  .half-left {
+    width: 50%;
+  }
+
+  .half-right {
+    width: 50%;
+  }
+
+  .activity-table-wrapper {
+    background-color: #d9d9d9;
+
+    .table-header {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+
+      button {
+        position: absolute;
+        right: 13px;
+        font-size: 11px;
+        background-color: #2f6ab3;
+        border-radius: 7px;
+        top: 5px;
+      }
+    }
+
+    tr {
+      th {
+        background-color: #fda64e;
+        padding: 5px;
+        font-size: 11px;
+      }
+    }
+
+    i {
+      color: blue;
+      cursor: pointer;
+    }
+  }
+
+  .form-label {
+    width: 30%;
+  }
+
+  .edit-update-text {
+    text-align: center;
+    position: relative;
+    top: 8px;
+    margin-bottom: 30px;
+    color: #999999;
+  }
+}

@@ -1,0 +1,112 @@
+.impression-form-wrapper {
+  margin-top: 39px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(212, 212, 212);
+
+  .half-left {
+    width: 50%;
+
+    &.split-3 {
+      width: 33.33%;
+    }
+
+    .form-label {
+      width: 20% !important;
+      text-align: right;
+      font-weight: bold;
+      font-size: 14px;
+      &.split-3 {
+        width: 35% !important;
+      }
+    }
+
+    .form-field {
+      margin-left: 17px;
+      width: 77%;
+      padding-right: 10px;
+    }
+  }
+
+  .half-right {
+    width: 50%;
+
+    &.split-3 {
+      width: 33.33%;
+    }
+
+    .form-label {
+      width: 20% !important;
+      text-align: right;
+      font-weight: bold;
+      font-size: 14px;
+
+      &.split-3 {
+        width: 35% !important;
+      }
+    }
+
+    .form-field {
+      margin-left: 17px;
+      width: 77%;
+      padding-right: 10px;
+    }
+  }
+
+  .center {
+    width: 33.33%;
+
+    .form-label {
+      font-size: 14px;
+      &.split-3 {
+        width: 35% !important;
+      }
+    }
+  }
+
+  .single-column {
+    width: 100%;
+    .form-label {
+      width: 11% !important;
+      text-align: right;
+      font-weight: bold;
+      font-size: 14px;
+
+      &.split-3 {
+        width: 35% !important;
+      }
+    }
+
+    .form-field {
+      margin-left: 17px;
+      width: 84% !important;
+      padding-right: 10px;
+    }
+  }
+}
+
+.add-export-button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: right;
+
+  .enable-export {
+    background-color: #66c4ea;
+    border-radius: 10px;
+    color: black;
+    border-color: #66c4ea;
+    margin-right: 10px;
+  }
+
+  .enable-export:hover {
+    background-color: #90d7f3;
+    color: black;
+    border-color: #90d7f3;
+  }
+}
+
+.button-section {
+  margin-right: 0 !important;
+  margin-bottom: 30px !important;
+  padding-bottom: 80px;
+}

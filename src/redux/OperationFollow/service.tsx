@@ -1,30 +1,28 @@
+import { appendOperationFollowTable, editTableById } from '../OperationFollowTable/reducer';
 import store from '../store';
-import { resetForm, submitFormData,updateFormField } from './reducer';
+import { resetForm, submitFormData,submitReportData,updateDataList,updateFormField } from './reducer';
+import { FormState } from './types';
 
 export const saveCurrentForm = async (dispatchs:any,data:any) => {
   try {
-
-    const tempData = { ...data };
-
-    tempData.id = generateRandomNumber()
-    
-    const submitData = {
-        data: tempData,
-        dataTable: {
-            id: tempData.id,
-            idx: '',
-            status: 'อยู่ระหว่างดำเนินการ',
-            project_status: 'รายงานผล',
-            project_year: data.section1.yearBudget,
-            project_seq: generateRandomNumber(),
-            project_name: data.section1.project_name,
-            project_edit_status: 'แก้ไขส่วนกิจกรรมรายได้',
-            project_edit_detail: '',
-            department_name: 'ททท' 
-        }
+    let id = generateRandomNumber()
+    let tableData = store.getState().operationFollowTable.data
+    let formInfo = {
+      id: id,
+      section1: data.section1,
+      section2: data.section2,
+      section3: data.section3,
+      section4: data.section4,
+      section5: data.section5,
+      activitiesList: data.activitiesList,
+      status: 'รอดำเนินการ',
+      project_status: 'รอดำเนินการ',
+      project_edit_status: 'รอดำเนินการ',
+      project_edit_detail: 'รอดำเนินการ',
     }
-    // Dispatch the action to update Redux store
-    dispatchs(submitFormData(submitData));
+
+    dispatchs(appendOperationFollowTable(formInfo))
+
   } catch (error) {
     // Handle any errors that occur during the API request
     console.error('Error fetching data:', error);
@@ -44,10 +42,28 @@ export const searchIdInJsonArray = (id: number, data: any): number | null => {
 };
 
 export const updateFormById = async(id:number, dispatchs:any) =>{
-    const data: any[] = store.getState().operationFollowForm.operationFollowList
-    dispatchs(updateFormField(data.find((item: { id: number }) => item.id === id)))
+    let data: any[] = store.getState().operationFollowForm.dataList
+    const tableList: any[] = store.getState().operationFollowForm.operationFollowList
+    let _data: FormState = data.find((item: { id: number }) => item.id === id)
+    _data = {
+      ..._data,
+      operationFollowList: tableList
+    }
+    dispatchs(updateFormField(_data))
 }
 
 export const resetNew = async(dispatchs:any) => {
   dispatchs(resetForm())
+}
+
+export const submitReportDataService = async(dispatch:any, id: number, newData: FormData) => {
+  const data: any[] = store.getState().operationFollowForm.dataList
+}
+
+export const editSubmit= async(id:number, dispatchs:any, formData: any) =>{
+
+    dispatchs(editTableById({
+      id: id,
+      data: formData,
+    }));
 }

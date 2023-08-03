@@ -120,6 +120,119 @@ const initialState: FormState = {
       section1: {
         project_type: []
       }
+    },
+
+    operationReport: {
+      section1: {
+        yearBudget: '',
+        budgetSource: '',
+        paymentList: '',
+        organizationManageMent: '',
+        act_group: '',
+        strategic_goal: '',
+        strategic: '',
+        planning: '',
+        project_type: '',
+        project_name: '',
+      },
+      section2: {
+        budget: '',
+        quarter: {
+          quarter1: {
+            month1: '',
+            month2: '',
+            month3: '',
+            total: '',
+            porportion: '',
+          },
+          quarter2: {
+            month1: '',
+            month2: '',
+            month3: '',
+            total: '',
+            porportion: '',
+          },
+          quarter3: {
+            month1: '',
+            month2: '',
+            month3: '',
+            total: '',
+            porportion: '',
+          },
+          quarter4: {
+            month1: '',
+            month2: '',
+            month3: '',
+            total: '',
+            porportion: '',
+          }
+        },
+        suite_outside_policy: {
+          isFlagship: false,
+          isSla: false,
+          isMainPlan: false,
+          isPAIndicator: false,
+          isClosedGap: false,
+          isNone: false,
+          isCsrProcess: false,
+        },
+        stakeHolder_Group: {
+          isTatStaff: false,
+          isCustomer: false,
+          isGovernmentAudit: false,
+          isSender: false,
+          isProviderCustomer: false,
+          isWorkingUnit: false
+        }
+      },
+      section3: {
+        principal_reason: '',
+        project_objective: {
+          objective1:'',
+          objective2:'',
+          objective3:'',
+          objective4:'',
+        },
+        list_operation_area: [],
+        project_outcome: [],
+        project_outcome_field: '',
+        project_target: []
+      },
+      section4: {
+        project_start: '',
+        project_end: '',
+        flagship_risk: '',
+        risk_prevention: '',
+        benefit: '',
+      },
+      section5: {
+        return_roi: '',
+        project_type: '',
+        goverment_bond: '',
+        internal_government_bond: '',
+        sepa_protocal: '',
+        working_system_suite: '',
+        govenment_image: '',
+        support_information: '',
+        other: '',
+        project_risk: '',
+      },
+      activitiesList: [],
+      activityForm: {
+        id: 0,
+        budget: '',
+        catname: '',
+        activity_type: '',
+        activity_order: '',
+        activity_name: '',
+        activity_description: '',
+        activity_shared: '',
+        activity_shared_by_project: '',
+        activity_start: '',
+        activity_end: '',
+        project_outcome: [],
+        list_operation_area:[]
+      }
     }  
 };
 
@@ -131,7 +244,16 @@ const operationFollowFormSlice = createSlice({
       return {
         ...state,
         ...action.payload,
+        dataList: state.dataList
       };
+    },
+    updateDataList(state, action: PayloadAction<any>){
+      return {
+        ...state,
+        ...action.payload.dataList,
+        id: action.payload.id,
+        operationFollowList: action.payload.tableList
+      }
     },
     resetForm(state) {
       let data = {
@@ -345,6 +467,14 @@ const operationFollowFormSlice = createSlice({
           }
         }
       }
+    },
+    submitReportData(state,action: PayloadAction<any>){
+      return {
+        ...state,
+        operationReport: {
+          ...action.payload
+        }
+      }
     }
   },
 });
@@ -370,6 +500,8 @@ export const {
   removeTableProjectGoalById,
   removeTableProjectIndicatorActivityById,
   removeTableOperationAreaActivityById,
-  fetchMasterDataSection1 
+  fetchMasterDataSection1,
+  submitReportData,
+  updateDataList 
 } = operationFollowFormSlice.actions;
 export default operationFollowFormSlice.reducer;

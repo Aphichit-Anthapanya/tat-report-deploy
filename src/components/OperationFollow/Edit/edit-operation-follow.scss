@@ -1,0 +1,208 @@
+.operationfollow-edit-wrapper {
+  .header-text {
+    color: black;
+
+    h3 {
+      font-size: 22px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+
+  .button-zone {
+    position: relative;
+    top: 22px;
+
+    .btn {
+      font-size: 13px;
+      border-radius: 10px;
+    }
+
+    .btn-primary {
+      background-color: #0050b3;
+    }
+  }
+
+  .breadcrumb-zone {
+    background-color: #91d5ff;
+    padding: 20px;
+    position: relative;
+    top: 22px;
+  }
+
+  .form-zone {
+    margin-top: 47px;
+
+    .form-label {
+      width: 35%;
+      text-align: right;
+      margin-right: 20px;
+    }
+
+    .form-field {
+      width: 37%;
+    }
+  }
+
+  .table-summary-wrapper {
+    width: 56%;
+    margin: auto;
+    margin-top: 26px;
+
+    .table-summary-header {
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    th {
+      background-color: #91d5ff;
+    }
+
+    td {
+      background-color: #f0f0f0;
+      text-align: center;
+      position: relative;
+
+      input {
+        margin: auto;
+      }
+
+      i {
+        color: blue;
+        position: absolute;
+        right: 14px;
+        cursor: pointer;
+        top: 15px;
+      }
+    }
+
+    .summary-monthly {
+      background-color: #f0f0f0;
+      color: blue;
+      padding-left: 14px;
+      position: relative;
+      top: -14px;
+
+      span.summary-result {
+        margin-left: 14px;
+        margin-right: 14px;
+      }
+    }
+  }
+
+  .table-project-target-wrapper {
+    width: 56%;
+    margin: auto;
+    margin-top: 26px;
+
+    .table-summary-header {
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    th {
+      background-color: #91d5ff;
+    }
+
+    td {
+      background-color: #f0f0f0;
+      text-align: center;
+      position: relative;
+
+      input {
+        margin: auto;
+      }
+
+      i {
+        color: blue;
+        position: absolute;
+        right: 14px;
+        cursor: pointer;
+        top: 15px;
+      }
+    }
+
+    .summary-monthly {
+      background-color: #f0f0f0;
+      color: blue;
+      padding-left: 14px;
+      position: relative;
+      top: -14px;
+
+      span.summary-result {
+        margin-left: 14px;
+        margin-right: 14px;
+      }
+    }
+  }
+
+  .table-policy-suite-wrapper {
+    width: 56%;
+    margin: auto;
+
+    .table-summary-header {
+      background-color: #91d5ff;
+      text-align: center;
+    }
+
+    td {
+      background-color: #f0f0f0;
+    }
+  }
+
+  .table-project-target-wrapper {
+    width: 56%;
+    margin: auto;
+
+    .bi-trash-fill {
+      color: red;
+    }
+  }
+
+  .file-add-wrapper {
+    width: 56%;
+    margin: auto;
+
+    .right-section-table-header {
+      background-color: #d9d9d9;
+    }
+
+    .outside-content-row {
+      background-color: #d9d9d9;
+    }
+
+    .content-header {
+      background-color: #91d5ff;
+    }
+  }
+
+  .edit-date-zone {
+    width: fit-content;
+    margin: auto;
+    padding: 13px;
+    color: #999999;
+  }
+
+  .mode-select-button {
+    width: 54px;
+    text-align: center;
+    height: 28px;
+    border-style: solid;
+    border-width: 1px;
+    margin-right: -1px;
+    cursor: pointer;
+    border-color: #91bfff;
+    color: #91bfff;
+  }
+
+  .mode-select {
+    position: relative;
+    top: 42px;
+  }
+
+  .mode-select-button.active {
+    background-color: #e0eaf9;
+  }
+}

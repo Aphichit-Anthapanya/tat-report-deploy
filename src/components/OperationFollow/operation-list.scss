@@ -1,95 +1,96 @@
 .content-body-wrapper {
-    min-height: 300px;
-    float: right;
-    width: 77%;
-    padding-right: 65px;
+  min-height: 300px;
+  float: right;
+  width: 77%;
+  padding-right: 65px;
 }
 
 .filter-project-header {
-    background-color: #1890FF;
-    margin-bottom: 24px;
-    margin-left: -18px;
-    margin-right: -18px;
-    margin-top: -18px;
-    padding: 13px;
-    padding-left: 20px;
-    color: #4f5153;
+  background-color: #91d5ff;
+  margin-bottom: 24px;
+  margin-left: -18px;
+  margin-right: -18px;
+  margin-top: -18px;
+  padding: 13px;
+  padding-left: 20px;
+  color: black;
+  padding-top: 18px;
 }
 
 .filter-project-header h4 {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 .filter-project-wrapper {
-    background-color: #F6F6F9;
-    margin-top: 20px;
-    min-height: 100px;
-    padding: 20px;
+  background-color: #f6f6f9;
+  margin-top: 20px;
+  min-height: 100px;
+  padding: 20px;
 }
 
 .filter-project-button {
-    margin-bottom: 17px;
+  margin-bottom: 17px;
 }
 
 .form-left-section {
-    width: 50%;
+  width: 50%;
 }
 
 .form-right-section {
-    width: 50%;
+  width: 50%;
 }
 
 .form-left-section-label {
-    width: 25%;
-    margin-bottom: 40px;
+  width: 25%;
+  margin-bottom: 40px;
 }
 
 .form-left-section-field {
-    width: 70%;
+  width: 70%;
 }
 
 .form-right-section-label {
-    width: 25%;
+  width: 25%;
 }
 
 .puchasing-separate {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .btn-tab-zone {
-    background-color: #0050B3;
-    border-radius: 5px;
-    font-size: 14px;
+  background-color: #0050b3;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .btn-tab-zone2 {
-    font-size: 13px;
-    background-color: white;
-    color: #0050B3;
-    border-color: #0050B3;
-    border-radius: 7px;
+  font-size: 13px;
+  background-color: white;
+  color: #0050b3;
+  border-color: #0050b3;
+  border-radius: 7px;
 }
 
 .table-wrapper {
-    margin-top: 21px;
+  margin-top: 21px;
 }
 
 td {
-    background-color: #F6F6F9!important;
-    text-align: center;
-    vertical-align: middle;
+  background-color: #f6f6f9 !important;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .pagination-status {
-    position: relative;
-    top: 6px;
+  position: relative;
+  top: 6px;
 }
 
 .bi-pencil-square {
-    color: #0050B3;
-    cursor: pointer;
+  color: #0050b3;
+  cursor: pointer;
 }
 
 table.table.policy-table > tbody > tr > td {
-    text-align: left!important;
+  text-align: left !important;
 }

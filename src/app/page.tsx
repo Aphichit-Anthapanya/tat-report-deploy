@@ -9,7 +9,6 @@ export default function Home() {
     <Container as="main" className="d-flex content-body-wrapper d-flex flex-column">
       {/* and also work with module.scss (page.module.scss) */}
       <h1 className={styles["custom-text-green"]}>Home Page</h1>
-      <Link href="/dashboard-v2">Dashboard</Link>
       <>ระบบแผนผล</>
       <Link href="/plan-report">plan-report</Link>
       <Link href="/plan-report/cpwm">รายงานสรุปงบประมาณรายโครงการเปรียบเทียบรายเดือน</Link>
@@ -17,7 +16,7 @@ export default function Home() {
       <Link href="/plan-report/summary">รายงานสรุปแผนปฏิบัติการ ททท รวมเล่ม</Link>
       <Link href="/plan-report/mistake">รายงานสรุปสถิติของหัวข้อที่เกิดความผิดพลาดบ่อยครั้ง</Link>
       <Link href="/plan-report/output">รายงานสรุปผลการดำเนินงานตามตัวชี้วัดกิจกรรม Output</Link>
-      <Link href="/plan-report/new">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน ปีงบประมาณ 25XX </Link>
+      <Link href="/plan-report/output">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน ปีงบประมาณ 25XX</Link>
       <>ระบบจัดซื้อจัดจ้าง</>
       <Link href="/purcase-system">หน้า search โครงการจัดซื้อจัดจ้าง</Link>
       <Link href="/purcase-system/add-action">เพิ่มงบ</Link>

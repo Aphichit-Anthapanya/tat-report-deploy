@@ -1,3 +1,4 @@
+import CustomLoader from "./CustomLoader";
 import Providers from "./Provider";
 
-export { Providers };
+export { CustomLoader, Providers };
