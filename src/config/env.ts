@@ -4,5 +4,5 @@ export default class EnvConfig {
 
   static apiUrl: string = process.env.NEXT_PUBLIC_API_JS_URL ?? "";
 
-  static isNoAuth: boolean = process.env.NEXT_PUBLIC_NO_AUTH === "true";
+  static isNoAuth: boolean = true;
 }
