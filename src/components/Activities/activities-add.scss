@@ -342,7 +342,7 @@ td {
 .search-wrapper-section {
   width: 100%;
   background-color: white;
-  min-height: 170px;
+  min-height: 100px;
   margin-top: 40px;
   margin-bottom: 20px;
   padding-left: 20px;
@@ -359,10 +359,6 @@ td {
 
 .sub-check-box{
   padding-left: 20px;
-}
-
-.filter-field{
-  width: 200px;
 }
 
 .box > .filter-field {
@@ -388,6 +384,11 @@ td {
 
 .sub-box {
   margin: 5px;
+}
+
+.purchase-report > .filter-field {
+  width: 200px;
+  margin-left: 10px;
 }
 
 .filter-field-index {
@@ -475,38 +476,6 @@ td {
   width: 260px;
 }
 
-.table > tbody > tr > th > .numbers {
-  width: 50px;
-}
-
-.table > tbody > tr > th > .twoH {
-  width: 200px;
-}
-
-.table > tbody > tr > th > .oneH {
-  width: 100px;
-}
-
-.table > tbody > tr > th > .oneHfour {
-  width: 140px;
-}
-
-.table > tbody > tr > th > .oneHeight {
-  width: 180px;
-}
-
-.table > tbody > tr > th > .numbers {
-  width: 50px;
-}
-
-.normalText {
-  font-weight: normal;
-}
-
-.pr-2 {
-  padding-right: 10px;
-}
-
 .table > tbody > tr > th > .wd-25 {
   min-width: 25px;
 }
@@ -529,10 +498,6 @@ td {
 
 .table > tbody > tr > th > .wd-300 {
   min-width: 300px;
-}
-
-.table > tbody > tr > th > .wd-400 {
-  min-width: 400px;
 }
 
 .table > tbody > tr > th > .wd-100 {
@@ -558,3 +523,34 @@ td {
 .table > tbody > tr > th > .bg-1 {
   background: #000;
 }
+
+
+.normalText {
+  font-weight: normal;
+}
+
+.fz-14 {
+  font-size: 14px;
+}
+
+.pr-2 {
+  padding-right: 10px;
+}
+
+.pie-chart-box > .filter-field {
+  width: 200px;
+}
+
+.pie-chart {
+  min-width: 480px;
+  min-height: 480px;
+}
+
+.bar-chart-quarter {
+  min-width: 400px;
+}
+
+.bar-chart-month {
+  min-width: 800px;
+}
+

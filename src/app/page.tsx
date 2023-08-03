@@ -9,6 +9,7 @@ export default function Home() {
     <Container as="main" className="d-flex content-body-wrapper d-flex flex-column">
       {/* and also work with module.scss (page.module.scss) */}
       <h1 className={styles["custom-text-green"]}>Home Page</h1>
+      <Link href="/dashboard-v2">Dashboard</Link>
       <>ระบบแผนผล</>
       <Link href="/plan-report">plan-report</Link>
       <Link href="/plan-report/cpwm">รายงานสรุปงบประมาณรายโครงการเปรียบเทียบรายเดือน</Link>
