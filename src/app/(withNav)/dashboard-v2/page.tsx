@@ -6,6 +6,7 @@ import AddActivities from "@components/Activities/Add-Activities";
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { MyContext } from "../../MyContext";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart, ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from "chart.js";
