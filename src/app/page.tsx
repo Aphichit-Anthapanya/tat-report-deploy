@@ -10,6 +10,7 @@ export default function Home() {
       {/* and also work with module.scss (page.module.scss) */}
       <h1 className={styles["custom-text-green"]}>Home Page</h1>
       <>ระบบแผนผล</>
+      <Link href="/dashboard-v2">Dashboard</Link>
       <Link href="/plan-report">plan-report</Link>
       <Link href="/plan-report/cpwm">รายงานสรุปงบประมาณรายโครงการเปรียบเทียบรายเดือน</Link>
       <Link href="/plan-report/group">รายงานสรุปงบประมาณรายเดือนตามหมวด พ.ร.บ.งบประมาณ</Link>
