@@ -91,253 +91,327 @@ var dataListsResult12M = [] as any;
 
 export default function DashboardPage() {
 
-  const [selectedValueBar, setSelectedValueBar] = useState("1");
-  const handleDropdownBar = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setSelectedValueBar(event.target.value);
-  };
-  // Function to get the content based on the selected value
-  const getContentBar = () => {
-    switch (selectedValueBar) {
-      case "1":
-        return dataListsPlan = [12, 83, 89, 99], dataListsResult = [24, 45, 55, 70],
-        dataListVisiterPlan = [76, 23, 87, 56], dataListVisiterResult = [95, 21, 45, 70],
-        dataListAlliesPlan = [67, 54, 87, 61], dataListAlliesResult = [88, 42, 63, 98], 
-        dataListPaxPlan = [87, 42, 63, 89], dataListPaxResult = [65, 80, 67, 43],
-
-        dataListsPlan12M = [12, 83, 89, 99, 24, 45, 55, 70, 95, 21, 45, 70], 
-        dataListsResult12M = [24, 45, 55, 70, 95, 21, 45, 70, 12, 83, 89, 99,],
-        dataListVisiterPlan12M = [76, 23, 87, 56, 95, 21, 45, 70, 87, 42, 63, 89], 
-        dataListVisiterResult12M = [95, 21, 45, 70, 65, 80, 67, 43, 67, 54, 87, 61],
-        dataListAlliesPlan12M = [67, 54, 87, 61, 65, 80, 67, 43, 70, 65, 80, 67,], 
-        dataListAlliesResult12M = [88, 42, 63, 98, 45, 55, 70, 95, 21, 99, 24, 45], 
-        dataListPaxPlan12M = [87, 42, 63, 89, 70, 95, 21, 99, 24, 45, 67, 54], 
-        dataListPaxResult12M = [65, 80, 67, 43, 25, 36, 65, 87, 86, 63, 14, 53];
-      case "2":
-        return dataListsPlan = [83, 27, 40, 60], dataListsResult = [41, 76, 43, 87],
-        dataListVisiterPlan = [25, 36, 65, 87], dataListVisiterResult = [52, 12, 69, 80],
-        dataListAlliesPlan = [65, 97, 34, 56], dataListAlliesResult = [85, 64, 34, 52], 
-        dataListPaxPlan = [15, 45, 25, 64], dataListPaxResult = [86, 63, 14, 53],
-
-        dataListsPlan12M = [83, 27, 40, 60, 61, 65, 80, 67, 43, 70, 65, 86], 
-        dataListsResult12M = [41, 76, 43, 87, 63, 89, 70, 95, 21, 99, 24, 65],
-        dataListVisiterPlan12M = [25, 36, 65, 87, 42, 63, 89, 70, 95, 21, 99, 46], 
-        dataListVisiterResult12M = [52, 12, 69, 80, 55, 70, 95, 21, 99, 32, 63, 71],
-        dataListAlliesPlan12M = [65, 97, 34, 56, 70, 95, 21, 45, 70, 59, 69, 24], 
-        dataListAlliesResult12M = [85, 64, 34, 52, 25, 36, 65, 87, 86, 63, 21, 45], 
-        dataListPaxPlan12M = [15, 45, 25, 64, 95, 21, 45, 70, 65, 80, 67, 43], 
-        dataListPaxResult12M = [86, 63, 14, 53, 24, 45, 55, 70, 95, 21, 45, 70];
-      case "3":
-        return dataListsPlan = [21, 55, 31, 76], dataListsResult = [51, 45, 42, 51],
-        dataListVisiterPlan = [85, 22, 86, 17], dataListVisiterResult = [72, 21, 41, 30],
-        dataListAlliesPlan = [56, 91, 24, 71], dataListAlliesResult = [15, 54, 84, 82], 
-        dataListPaxPlan = [51, 34, 75, 14], dataListPaxResult = [26, 53, 84, 93],
-
-        dataListsPlan12M = [21, 55, 31, 76, 63, 89, 70, 95, 21, 99, 24, 45], 
-        dataListsResult12M = [51, 45, 42, 51, 12, 69, 80, 55, 63, 14, 53, 24],
-        dataListVisiterPlan12M = [85, 22, 86, 17, 70, 95, 21, 45, 70, 89, 70, 95,], 
-        dataListVisiterResult12M = [72, 21, 41, 30, 70, 65, 80, 67, 43, 67, 54, 73],
-        dataListAlliesPlan12M = [56, 91, 24, 71, 21, 45, 70, 59, 69, 21, 99, 24], 
-        dataListAlliesResult12M = [15, 54, 84, 82, 65, 80, 67, 43, 25, 67, 43, 70], 
-        dataListPaxPlan12M = [51, 34, 75, 14, 80, 67, 43, 25, 36, 70, 95, 21], 
-        dataListPaxResult12M = [26, 53, 84, 93, 70, 95, 21, 99, 46, 86, 63, 14];  
-      default:
-        return <p>Error</p>;
-    }
-  };
+  const color4plan = [
+    "rgba(255, 99, 132, 0.2)",
+    "rgba(255, 99, 132, 0.2)",
+    "rgba(255, 99, 132, 0.2)",
+    "rgba(255, 99, 132, 0.2)",
+  ];
+  const color4Result = ["rgb(75, 192, 192)",
+  "rgb(75, 192, 192)",
+  "rgb(75, 192, 192)",
+  "rgb(75, 192, 192)"];
 
   const barLabels = ["1", "2", "3", "4"];
-  // Bar-Chart (Quarter)
-  const barDataQ = {
-    labels: barLabels,
-    datasets: [{
-      label:"แผน",
-      data: dataListsPlan,
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-      ],
-      borderColor: [
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-      ],
-      borderWidth: 2,
-    }, {
-      label:"ผล",
-      data: dataListsResult,
-      backgroundColor: [
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-      ],
-      borderColor: [
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-      ],
-      borderWidth: 2,
-    }]
-  };
+  const [selectedValueBar, setSelectedValueBar] = useState("1");
+  var dataListBarState, dataListBarQState, dataListBarAState, dataListBarPAXState;
+  const handleDropdownBar = (e : any) => {
+    const {name, value} = e.target;
+    if(value == "1") {
+      // Budget
+      dataListBarState = [{
+        label:"แผน",
+        data: [12, 83, 89, 99],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [24, 45, 55, 70],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataState({
+        ...barDataState,
+        datasets: dataListBarState
+      }),
 
-  // Bar-Chart (Goal)
-  const barDataG = {
-    labels: barLabels,
-    datasets: [{
-      label:"แผน",
-      data: dataListVisiterPlan,
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-      ],
-      borderColor: [
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-      ],
-      borderWidth: 2,
-    }, {
-      label:"ผล",
-      data: dataListVisiterResult,
-      backgroundColor: [
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-      ],
-      borderColor: [
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-      ],
-      borderWidth: 2,
-    }]
-  };
+      //Quater
+      dataListBarQState = [{
+        label:"แผน",
+        data: [76, 23, 87, 56],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [95, 21, 45, 70],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataQState({
+        ...barDataQState,
+        datasets: dataListBarQState
+      }),
 
-  // Bar-Chart (Allies)
-  const barDataA = {
-    labels: barLabels,
-    datasets: [{
-      label:"แผน",
-      data: dataListAlliesPlan,
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-      ],
-      borderColor: [
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-      ],
-      borderWidth: 2,
-    }, {
-      label:"ผล",
-      data: dataListAlliesResult,
-      backgroundColor: [
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-      ],
-      borderColor: [
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-      ],
-      borderWidth: 2,
-    }]
-  };
+      //Allies
+      dataListBarAState = [{
+        label:"แผน",
+        data: [67, 54, 87, 61],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [88, 42, 63, 98],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataAState({
+        ...barDataAState,
+        datasets: dataListBarAState
+      }),
 
-  // Bar-Chart (PAX)
-  const barDataPAX = {
+      //PAX
+      dataListBarPAXState = [{
+        label:"แผน",
+        data: [87, 42, 63, 89],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [65, 80, 67, 43],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataPAXState({
+        ...barDataPAXState,
+        datasets: dataListBarPAXState
+      });
+      
+    } else if(value == "2") {
+      // Budget
+      dataListBarState = [{
+        label:"แผน",
+        data: [83, 27, 40, 60],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [52, 12, 69, 80],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }];
+      setbarDataState({
+        ...barDataState,
+        datasets: dataListBarState
+      }),
+      
+      //Quater
+      dataListBarQState = [{
+        label:"แผน",
+        data: [85, 22, 86, 17],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [72, 21, 41, 30],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataQState({
+        ...barDataQState,
+        datasets: dataListBarQState
+      }),
+
+      //Allies
+      dataListBarAState = [{
+        label:"แผน",
+        data: [65, 97, 34, 56],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [85, 64, 34, 52],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataAState({
+        ...barDataAState,
+        datasets: dataListBarAState
+      }),
+
+      //PAX
+      dataListBarPAXState = [{
+        label:"แผน",
+        data: [15, 45, 25, 64],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [86, 63, 14, 53],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataPAXState({
+        ...barDataPAXState,
+        datasets: dataListBarPAXState
+      });
+    } else if(value =="3") {
+      // Budget
+      dataListBarState = [{
+        label:"แผน",
+        data: [21, 55, 31, 76],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [24, 45, 55, 70],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }];
+      setbarDataState({
+        ...barDataState,
+        datasets: dataListBarState
+      }),
+
+      //Quater
+      dataListBarQState = [{
+        label:"แผน",
+        data: [25, 36, 65, 87],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [52, 12, 69, 80],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataQState({
+        ...barDataQState,
+        datasets: dataListBarQState
+      }),
+
+      //Allies
+      dataListBarAState = [{
+        label:"แผน",
+        data: [56, 91, 24, 71],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [15, 54, 84, 82],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataAState({
+        ...barDataAState,
+        datasets: dataListBarAState
+      }),
+
+      //PAX
+      dataListBarPAXState = [{
+        label:"แผน",
+        data: [51, 34, 75, 14],
+        backgroundColor: color4plan,
+        borderColor: color4plan,
+        borderWidth: 2,
+      }, {
+        label:"ผล",
+        data: [26, 53, 84, 93],
+        backgroundColor: color4Result,
+        borderColor: color4Result,
+        borderWidth: 2,
+      }]
+      setbarDataPAXState({
+        ...barDataPAXState,
+        datasets: dataListBarPAXState
+      });
+    } 
+    setSelectedValueBar(value)
+  }; 
+
+
+  const [barDataState, setbarDataState] = useState({
     labels: barLabels,
     datasets: [{
       label:"แผน",
-      data: dataListPaxPlan,
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 99, 132, 0.2)",
-      ],
-      borderColor: [
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-        "rgb(255, 99, 132)",
-      ],
+      data: [12, 83, 89, 99],
+      backgroundColor: color4plan,
+      borderColor: color4plan,
       borderWidth: 2,
     }, {
       label:"ผล",
-      data: dataListPaxResult,
-      backgroundColor: [
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-      ],
-      borderColor: [
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-        "rgb(75, 192, 192)",
-      ],
+      data: [24, 45, 55, 70],
+      backgroundColor: color4Result,
+      borderColor: color4Result,
       borderWidth: 2,
-    }]
-  };
+    }],
+  });
+
+  const [barDataQState, setbarDataQState] = useState({
+    labels: barLabels,
+    datasets: [{
+      label:"แผน",
+      data: [76, 23, 87, 56],
+      backgroundColor: color4plan,
+      borderColor: color4plan,
+      borderWidth: 2,
+    }, {
+      label:"ผล",
+      data: [95, 21, 45, 70],
+      backgroundColor: color4Result,
+      borderColor: color4Result,
+      borderWidth: 2,
+    }],
+  });
+
+  const [barDataAState, setbarDataAState] = useState({
+    labels: barLabels,
+    datasets: [{
+      label:"แผน",
+      data: [67, 54, 87, 61],
+      backgroundColor: color4plan,
+      borderColor: color4plan,
+      borderWidth: 2,
+    }, {
+      label:"ผล",
+      data: [88, 42, 63, 98],
+      backgroundColor: color4Result,
+      borderColor: color4Result,
+      borderWidth: 2,
+    }],
+  });
+
+  const [barDataPAXState, setbarDataPAXState] = useState({
+    labels: barLabels,
+    datasets: [{
+      label:"แผน",
+      data: [87, 42, 63, 89],
+      backgroundColor: color4plan,
+      borderColor: color4plan,
+      borderWidth: 2,
+    }, {
+      label:"ผล",
+      data: [65, 80, 67, 43],
+      backgroundColor: color4Result,
+      borderColor: color4Result,
+      borderWidth: 2,
+    }],
+  });
+
 
   // Bar-Chart-12M (Budget)
-const barLabels2 = ["ต.ค.", "พ.ย.", "ธ.ค.", "ม.ค.","ก.พ.", "มี.ค.", "เม.ย", "พ.ค.","มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย."];
-const barDataB12M = {
-  labels: barLabels2,
-  datasets: [{
-    label:"แผน",
-    data: dataListsPlan12M,
-    backgroundColor: [
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)"
-    ],
-    borderColor: [
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)"
-    ],
-    borderWidth: 2,
-  }, {
-    label:"ผล",
-    data: dataListsResult12M,
-    backgroundColor: [
+const colorPlan = [
       "rgba(75, 192, 192, 0.2)",
       "rgba(75, 192, 192, 0.2)",
       "rgba(75, 192, 192, 0.2)",
@@ -350,20 +424,42 @@ const barDataB12M = {
       "rgba(75, 192, 192, 0.2)",
       "rgba(75, 192, 192, 0.2)",
       "rgba(75, 192, 192, 0.2)"
+]
+const colorResult = [
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)",
+      "rgb(255, 99, 132)"
+    ];
+const barLabels2 = ["ต.ค.", "พ.ย.", "ธ.ค.", "ม.ค.","ก.พ.", "มี.ค.", "เม.ย", "พ.ค.","มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย."];
+const barDataB12M = {
+  labels: barLabels2,
+  datasets: [{
+    label:"แผน",
+    data: dataListsPlan12M,
+    backgroundColor: [
+      colorPlan
     ],
     borderColor: [
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)"
+      colorPlan
+    ],
+    borderWidth: 2,
+  }, {
+    label:"ผล",
+    data: dataListsResult12M,
+    backgroundColor: [
+      colorResult
+    ],
+    borderColor: [
+      colorResult
     ],
     borderWidth: 2,
   }]
@@ -376,64 +472,20 @@ const barDataG12M = {
     label:"แผน",
     data: dataListVisiterPlan12M,
     backgroundColor: [
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)"
+      colorPlan
     ],
     borderColor: [
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)"
+      colorPlan
     ],
     borderWidth: 2,
   }, {
     label:"ผล",
     data: dataListVisiterResult12M,
     backgroundColor: [
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)"
+      colorResult
     ],
     borderColor: [
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)"
+      colorResult
     ],
     borderWidth: 2,
   }]
@@ -446,64 +498,20 @@ const barDataA12M = {
     label:"แผน",
     data: dataListAlliesPlan12M,
     backgroundColor: [
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)"
+      colorPlan
     ],
     borderColor: [
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)"
+      colorPlan
     ],
     borderWidth: 2,
   }, {
     label:"ผล",
     data: dataListAlliesResult12M,
     backgroundColor: [
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)"
+      colorResult
     ],
     borderColor: [
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)"
+      colorResult
     ],
     borderWidth: 2,
   }]
@@ -516,64 +524,20 @@ const barDataPAX12M = {
     label:"แผน",
     data: dataListPaxPlan12M,
     backgroundColor: [
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)",
-      "rgba(255, 99, 132, 0.2)"
+      colorPlan
     ],
     borderColor: [
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)",
-      "rgb(255, 99, 132)"
+      colorPlan
     ],
     borderWidth: 2,
   }, {
     label:"ผล",
     data: dataListPaxResult12M,
     backgroundColor: [
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)",
-      "rgba(75, 192, 192, 0.2)"
+      colorResult
     ],
     borderColor: [
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)",
-      "rgb(75, 192, 192)"
+      colorResult
     ],
     borderWidth: 2,
   }]
@@ -652,7 +616,6 @@ const barDataPAX12M = {
     setSelectedValueDepartment(value)
   }; 
 
-
   const pieLabels = ["ดำเนินการแล้วเสร็จสิ้น", "ระหว่างดำเนินการ", "ยังไม่ดำเนินการ"];
   const [pieDataState, setPieDataState] = useState({
     labels: pieLabels,
@@ -672,25 +635,6 @@ const barDataPAX12M = {
       borderWidth: 1,
     }],
   });
-
-  // Function to get the content based on the selected value
-  const getContentDepartment = () => {
-    switch (selectedValueDepartment) {
-      case "1":
-        return dataListsPie = [20, 44, 36]; 
-      case "2":
-        return dataListsPie = [40, 26, 34];
-      case "3":
-        return dataListsPie = [62, 18, 20];
-      default:
-        return <p>Error</p>;
-    }
-  };
-
-  const pieData = {
-  labels: pieLabels,
-  datasets: dataListPieState
-};
 
 const [selectedValueBudget, setSelectedValueBudget] = useState("1");
 var dataListBudgetState;
@@ -783,11 +727,6 @@ var dataListBudgetState;
       borderWidth: 1,
     }],
   });
-
-const pieData2 = {
-labels: pieLabels,
-datasets: dataListBudgetState
-};
   
     return (
         <>
@@ -953,7 +892,7 @@ datasets: dataListBudgetState
                                             <option value={indexNumber}>{buddhistYear}</option>
                                           );
                                         })}  
-                                      {getContentBar()}
+                                      
                                       </select>                            
                                   </div>
                               </div>
@@ -963,7 +902,7 @@ datasets: dataListBudgetState
                               <div className="d-flex flex-column justify-content-around align-items-center">
                                   <div className="bar-chart-quarter">
                                       <Bar
-                                        data={barDataQ}
+                                        data={barDataState}
                                         options={{
                                           maintainAspectRatio: true,
                                           plugins: {
@@ -971,7 +910,6 @@ datasets: dataListBudgetState
                                               display: true,
                                               position: "top"
                                             },
-                                            
                                           },
                                         }}
                                       />
@@ -984,18 +922,7 @@ datasets: dataListBudgetState
                               <div className="mr-10"><p>บาท</p></div>
                               <div className="d-flex flex-column justify-content-around align-items-center">
                                   <div className="bar-chart-month">
-                                      <Bar
-                                        data={barDataB12M}
-                                        options={{
-                                          maintainAspectRatio: true,
-                                          plugins: {
-                                            legend: {
-                                              display: true,
-                                              position: "top"
-                                            },
-                                          },
-                                        }}
-                                      />
+                                      
                                   </div>
                                   <p className="text-center">เดือน</p>
                               </div>
@@ -1009,29 +936,8 @@ datasets: dataListBudgetState
                                 <div className="mr-10"><p>คน-ครั้ง</p></div>
                                 <div className="d-flex flex-column justify-content-around align-items-center">
                                     <div className="bar-chart-quarter">
-                                        <Bar
-                                          data={barDataG}
-                                          options={{
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                              legend: {
-                                                display: true,
-                                                position: "top"
-                                              },
-                                            },
-                                          }}
-                                        />
-                                    </div>
-                                    <p className="text-center">ไตรมาส</p>
-                                </div>
-                            </div>
-
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
-                              <div className="mr-10"><p>คน-ครั้ง</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
-                                  <div className="bar-chart-month">
-                                      <Bar
-                                        data={barDataG12M}
+                                    <Bar
+                                        data={barDataQState}
                                         options={{
                                           maintainAspectRatio: true,
                                           plugins: {
@@ -1042,6 +948,16 @@ datasets: dataListBudgetState
                                           },
                                         }}
                                       />
+                                    </div>
+                                    <p className="text-center">ไตรมาส</p>
+                                </div>
+                            </div>
+
+                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                              <div className="mr-10"><p>คน-ครั้ง</p></div>
+                              <div className="d-flex flex-column justify-content-around align-items-center">
+                                  <div className="bar-chart-month">
+                                      
                                   </div>
                                   <p className="text-center">เดือน</p>
                               </div>
@@ -1054,29 +970,8 @@ datasets: dataListBudgetState
                                 <div className="mr-10"><p>คน-ครั้ง</p></div>
                                 <div className="d-flex flex-column justify-content-around align-items-center">
                                     <div className="bar-chart-quarter">
-                                        <Bar
-                                          data={barDataA}
-                                          options={{
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                              legend: {
-                                                display: true,
-                                                position: "top"
-                                              },
-                                            },
-                                          }}
-                                        />
-                                    </div>
-                                    <p className="text-center">ไตรมาส</p>
-                                </div>
-                            </div>
-
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
-                              <div className="mr-10"><p>คน-ครั้ง</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
-                                  <div className="bar-chart-month">
                                       <Bar
-                                        data={barDataA12M}
+                                        data={barDataAState}
                                         options={{
                                           maintainAspectRatio: true,
                                           plugins: {
@@ -1087,6 +982,16 @@ datasets: dataListBudgetState
                                           },
                                         }}
                                       />
+                                    </div>
+                                    <p className="text-center">ไตรมาส</p>
+                                </div>
+                            </div>
+
+                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                              <div className="mr-10"><p>คน-ครั้ง</p></div>
+                              <div className="d-flex flex-column justify-content-around align-items-center">
+                                  <div className="bar-chart-month">
+                                      
                                   </div>
                                   <p className="text-center">เดือน</p>
                               </div>
@@ -1099,29 +1004,8 @@ datasets: dataListBudgetState
                                 <div className="mr-10"><p>คน-ครั้ง</p></div>
                                 <div className="d-flex flex-column justify-content-around align-items-center">
                                     <div className="bar-chart-quarter">
-                                        <Bar
-                                          data={barDataPAX}
-                                          options={{
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                              legend: {
-                                                display: true,
-                                                position: "top"
-                                              },
-                                            },
-                                          }}
-                                        />
-                                    </div>
-                                    <p className="text-center">ไตรมาส</p>
-                                </div>
-                            </div>
-
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
-                              <div className="mr-10"><p>คน-ครั้ง</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
-                                  <div className="bar-chart-month">
                                       <Bar
-                                        data={barDataPAX12M}
+                                        data={barDataPAXState}
                                         options={{
                                           maintainAspectRatio: true,
                                           plugins: {
@@ -1132,6 +1016,16 @@ datasets: dataListBudgetState
                                           },
                                         }}
                                       />
+                                    </div>
+                                    <p className="text-center">ไตรมาส</p>
+                                </div>
+                            </div>
+
+                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                              <div className="mr-10"><p>คน-ครั้ง</p></div>
+                              <div className="d-flex flex-column justify-content-around align-items-center">
+                                  <div className="bar-chart-month">
+                                      
                                   </div>
                                   <p className="text-center">เดือน</p>
                               </div>
