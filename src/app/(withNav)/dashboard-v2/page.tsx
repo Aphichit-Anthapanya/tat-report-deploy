@@ -704,7 +704,7 @@ datasets: [{
                                       })}
                                       {getContentDepartment()}  
                                       </select>
-                                                           
+                                      {getContentDepartment()}                     
                                   </div>
                               </div>
                           </div>
@@ -763,7 +763,8 @@ datasets: [{
                                         );
                                       })}
                                       {getContentBudget()}   
-                                      </select>                         
+                                      </select>
+                                      {getContentBudget()}                          
                                   </div>
                               </div>
                           </div>
