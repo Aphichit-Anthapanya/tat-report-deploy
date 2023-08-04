@@ -779,11 +779,6 @@ datasets: [{
                                     position: "bottom",
                                   },
                                   datalabels: {
-                                    // anchor: "center",
-                                    // formatter: ((context: any, args: any) => {
-                                    //   const index = args.dataIndex;
-                                    //   return `${args.chart.data.[index]}`;
-                                    // }),
                                     formatter: (val, ctx: any) => {
                                       // Grab the label for this value
                                       const label = ctx.chart.data.labels[ctx.dataIndex];
