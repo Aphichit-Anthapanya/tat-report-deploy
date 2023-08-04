@@ -693,39 +693,100 @@ const barDataPAX12M = {
 };
 
 const [selectedValueBudget, setSelectedValueBudget] = useState("1");
-const handleDropdownChangeBudget = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-  setSelectedValueBudget(event.target.value);
-};
-// Function to get the content based on the selected value
-const getContentBudget = () => {
-  switch (selectedValueBudget) {
-    case "1":
-      return dataListsPie2 = [34, 41, 88]; 
-    case "2":
-      return dataListsPie2 = [60, 79, 10];
-    case "3":
-      return dataListsPie2 = [52, 14, 50];
-    default:
-      return <p>Error</p>;
-  }
-};
+var dataListBudgetState;
+  const handleDropdownChangeBudget = (e : any) => {
+    console.log('test')
+    const {name, value} = e.target;
+    console.log(value)
+    if(value == "1") {
+      console.log(value)
+      dataListBudgetState = [{
+        label: "Percentage",
+        data: [34, 41, 88],
+        backgroundColor: [
+          "rgb(51, 194, 156)",
+          "rgb(255, 255, 142)",
+          "rgb(255, 66, 54)",
+        ],
+        borderColor: [
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+        ],
+        borderWidth: 1,
+      }];
+      setPieDataBudgetState({
+        ...pieDataState,
+        datasets: dataListBudgetState
+      });
+    } else if(value == "2") {
+      console.log(value)
+      dataListBudgetState = [{
+        label: "Percentage",
+        data: [60, 79, 10],
+        backgroundColor: [
+          "rgb(51, 194, 156)",
+          "rgb(255, 255, 142)",
+          "rgb(255, 66, 54)",
+        ],
+        borderColor: [
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+        ],
+        borderWidth: 1,
+      }];
+      setPieDataBudgetState({
+        ...pieDataState,
+        datasets: dataListBudgetState
+      });
+    } else if(value =="3") {
+      console.log(value)
+      dataListBudgetState = [{
+        label: "Percentage",
+        data: [52, 14, 50],
+        backgroundColor: [
+          "rgb(51, 194, 156)",
+          "rgb(255, 255, 142)",
+          "rgb(255, 66, 54)",
+        ],
+        borderColor: [
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+        ],
+        borderWidth: 1,
+      }];
+      setPieDataBudgetState({
+        ...pieDataState,
+        datasets: dataListBudgetState
+      });
+    } 
+    setSelectedValueBudget(value)
+  };
+
+  const [pieDataBudgetState, setPieDataBudgetState] = useState({
+    labels: pieLabels,
+    datasets: [{
+      label: "Percentage",
+      data: [34, 41, 88],
+      backgroundColor: [
+        "rgb(51, 194, 156)",
+        "rgb(255, 255, 142)",
+        "rgb(255, 66, 54)",
+      ],
+      borderColor: [
+        "rgb(255, 255, 255)",
+        "rgb(255, 255, 255)",
+        "rgb(255, 255, 255)",
+      ],
+      borderWidth: 1,
+    }],
+  });
+
 const pieData2 = {
 labels: pieLabels,
-datasets: [{
-  label: "Percentage",
-  data: dataListsPie2,
-  backgroundColor: [
-    "rgb(51, 194, 156)",
-    "rgb(255, 255, 142)",
-    "rgb(255, 66, 54)",
-  ],
-  borderColor: [
-    "rgb(255, 255, 255)",
-    "rgb(255, 255, 255)",
-    "rgb(255, 255, 255)",
-  ],
-  borderWidth: 1,
-}],
+datasets: dataListBudgetState
 };
   
     return (
@@ -772,17 +833,7 @@ datasets: [{
                                           {items}
                                         </option>
                                       ))}
-                                      
-                                      {/* {Array.from({ length: 50 }, (_, index) => {
-                                        const department = departments[index]
-                                        const indexs = index+1
-                                        const indexNumber = indexs.toString();
-                                        return (
-                                          <option value={indexNumber}>{department}</option>
-                                        );
-                                      })}  */}
-                                      </select>
-                                      {getContentDepartment()}                     
+                                      </select>                 
                                   </div>
                               </div>
                           </div>
@@ -833,23 +884,19 @@ datasets: [{
                               <div className="pie-chart-box">
                                   <div className="filter-field">
                                   <select className="form-select" value={selectedValueBudget} onChange={handleDropdownChangeBudget}>
-                                      {Array.from({ length: 14 }, (_, index) => {
-                                        const budgetFroms = budgetFrom[index]
-                                        const indexs = index+1
-                                        const indexNumber = indexs.toString();
-                                        return (
-                                          <option value={indexNumber}>{budgetFroms}</option>
-                                        );
-                                      })}  
-                                      </select>
-                                      {getContentBudget()}                          
+                                      {budgetFrom?.map((items:any, index: number) => (
+                                        <option key={index} value={index+1}>
+                                          {items}
+                                        </option>
+                                      ))}
+                                      </select>                         
                                   </div>
                               </div>
                           </div>
 
                           <div className="mt-10 pie-chart">
                             <Pie       
-                              data={pieData2}
+                              data={pieDataBudgetState}
                               options={{
                                 maintainAspectRatio: true,
                                 plugins: {
