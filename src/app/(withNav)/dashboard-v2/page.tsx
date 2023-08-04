@@ -580,9 +580,99 @@ const barDataPAX12M = {
 };
 
   const [selectedValueDepartment, setSelectedValueDepartment] = useState("1");
-  const handleDropdownChangeDepartment = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setSelectedValueDepartment(event.target.value);
-  };
+  var dataListPieState;
+  const handleDropdownChangeDepartment = (e : any) => {
+    console.log('test')
+    const {name, value} = e.target;
+    console.log(value)
+    if(value == "1") {
+      console.log(value)
+      dataListPieState = [{
+        label: "Percentage",
+        data: [20, 44, 36],
+        backgroundColor: [
+          "rgb(51, 194, 156)",
+          "rgb(255, 255, 142)",
+          "rgb(255, 66, 54)",
+        ],
+        borderColor: [
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+        ],
+        borderWidth: 1,
+      }];
+      setPieDataState({
+        ...pieDataState,
+        datasets: dataListPieState
+      });
+    } else if(value == "2") {
+      console.log(value)
+      dataListPieState = [{
+        label: "Percentage",
+        data: [40, 26, 34],
+        backgroundColor: [
+          "rgb(51, 194, 156)",
+          "rgb(255, 255, 142)",
+          "rgb(255, 66, 54)",
+        ],
+        borderColor: [
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+        ],
+        borderWidth: 1,
+      }];
+      setPieDataState({
+        ...pieDataState,
+        datasets: dataListPieState
+      });
+    } else if(value =="3") {
+      console.log(value)
+      dataListPieState = [{
+        label: "Percentage",
+        data: [62, 18, 20],
+        backgroundColor: [
+          "rgb(51, 194, 156)",
+          "rgb(255, 255, 142)",
+          "rgb(255, 66, 54)",
+        ],
+        borderColor: [
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+          "rgb(255, 255, 255)",
+        ],
+        borderWidth: 1,
+      }];
+      setPieDataState({
+        ...pieDataState,
+        datasets: dataListPieState
+      });
+    } 
+    setSelectedValueDepartment(value)
+  }; 
+
+
+  const pieLabels = ["ดำเนินการแล้วเสร็จสิ้น", "ระหว่างดำเนินการ", "ยังไม่ดำเนินการ"];
+  const [pieDataState, setPieDataState] = useState({
+    labels: pieLabels,
+    datasets: [{
+      label: "Percentage",
+      data: [20, 44, 36],
+      backgroundColor: [
+        "rgb(51, 194, 156)",
+        "rgb(255, 255, 142)",
+        "rgb(255, 66, 54)",
+      ],
+      borderColor: [
+        "rgb(255, 255, 255)",
+        "rgb(255, 255, 255)",
+        "rgb(255, 255, 255)",
+      ],
+      borderWidth: 1,
+    }],
+  });
+
   // Function to get the content based on the selected value
   const getContentDepartment = () => {
     switch (selectedValueDepartment) {
@@ -597,24 +687,9 @@ const barDataPAX12M = {
     }
   };
 
-  const pieLabels = ["ดำเนินการแล้วเสร็จสิ้น", "ระหว่างดำเนินการ", "ยังไม่ดำเนินการ"];
   const pieData = {
   labels: pieLabels,
-  datasets: [{
-    label: "Percentage",
-    data: dataListsPie,
-    backgroundColor: [
-      "rgb(51, 194, 156)",
-      "rgb(255, 255, 142)",
-      "rgb(255, 66, 54)",
-    ],
-    borderColor: [
-      "rgb(255, 255, 255)",
-      "rgb(255, 255, 255)",
-      "rgb(255, 255, 255)",
-    ],
-    borderWidth: 1,
-  }],
+  datasets: dataListPieState
 };
 
 const [selectedValueBudget, setSelectedValueBudget] = useState("1");
@@ -634,10 +709,8 @@ const getContentBudget = () => {
       return <p>Error</p>;
   }
 };
-
-const pieLabels2 = ["ดำเนินการแล้วเสร็จสิ้น", "ระหว่างดำเนินการ", "ยังไม่ดำเนินการ"];
 const pieData2 = {
-labels: pieLabels2,
+labels: pieLabels,
 datasets: [{
   label: "Percentage",
   data: dataListsPie2,
@@ -673,7 +746,7 @@ datasets: [{
                                           const currentYear = currentDate.getFullYear();
                                           const buddhistYear = currentYear + 543 - index;
                                           const indexs = index+1
-                                          const indexNumber = index.toString();
+                                          const indexNumber = indexs.toString();
                                           return (
                                             <option value={indexNumber}>{buddhistYear}</option>
                                           );
@@ -692,18 +765,22 @@ datasets: [{
                                   <label>หน่วยงาน:</label>
                               </div>
                               <div className="pie-chart-box">
-                                  <div className="filter-field">
-                                      {getContentDepartment()} 
-                                      <select className="form-select" value={selectedValueDepartment} onChange={handleDropdownChangeDepartment}>
-                                      {Array.from({ length: 50 }, (_, index) => {
+                                  <div className="filter-field"> 
+                                      <select className="form-select" value={selectedValueDepartment} onChange={(e) => handleDropdownChangeDepartment(e)}>
+                                      {departments?.map((items:any, index: number) => (
+                                        <option key={index} value={index+1}>
+                                          {items}
+                                        </option>
+                                      ))}
+                                      
+                                      {/* {Array.from({ length: 50 }, (_, index) => {
                                         const department = departments[index]
                                         const indexs = index+1
                                         const indexNumber = indexs.toString();
                                         return (
                                           <option value={indexNumber}>{department}</option>
                                         );
-                                      })}
-                                       
+                                      })}  */}
                                       </select>
                                       {getContentDepartment()}                     
                                   </div>
@@ -712,7 +789,7 @@ datasets: [{
 
                           <div className="mt-10 pie-chart">
                             <Pie       
-                              data={pieData}
+                              data={pieDataState}
                               options={{
                                 maintainAspectRatio: true,
                                 plugins: {
@@ -744,6 +821,7 @@ datasets: [{
                                 }
                               }}
                             />
+                            {}
                           </div>
                         </div>
 
@@ -762,8 +840,7 @@ datasets: [{
                                         return (
                                           <option value={indexNumber}>{budgetFroms}</option>
                                         );
-                                      })}
-                                      {getContentBudget()}   
+                                      })}  
                                       </select>
                                       {getContentBudget()}                          
                                   </div>
