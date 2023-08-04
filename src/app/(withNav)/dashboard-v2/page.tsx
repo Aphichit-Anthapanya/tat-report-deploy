@@ -579,13 +579,15 @@ const barDataPAX12M = {
   }]
 };
 
-  const [selectedValueDepartment, setSelectedValueDepartment] = useState("1");
+  const [selectedValueDepartment, setSelectedValueDepartment] = useState("");
   const handleDropdownChangeDepartment = (event: { target: { value: React.SetStateAction<string>; }; }) => {
     setSelectedValueDepartment(event.target.value);
   };
   // Function to get the content based on the selected value
   const getContentDepartment = () => {
     switch (selectedValueDepartment) {
+      case "":
+        return dataListsPie = [20, 44, 36];
       case "1":
         return dataListsPie = [20, 44, 36]; 
       case "2":
@@ -779,6 +781,11 @@ datasets: [{
                                     position: "bottom",
                                   },
                                   datalabels: {
+                                    // anchor: "center",
+                                    // formatter: ((context: any, args: any) => {
+                                    //   const index = args.dataIndex;
+                                    //   return `${args.chart.data.[index]}`;
+                                    // }),
                                     formatter: (val, ctx: any) => {
                                       // Grab the label for this value
                                       const label = ctx.chart.data.labels[ctx.dataIndex];
