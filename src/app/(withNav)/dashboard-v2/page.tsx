@@ -579,15 +579,13 @@ const barDataPAX12M = {
   }]
 };
 
-  const [selectedValueDepartment, setSelectedValueDepartment] = useState("");
+  const [selectedValueDepartment, setSelectedValueDepartment] = useState("1");
   const handleDropdownChangeDepartment = (event: { target: { value: React.SetStateAction<string>; }; }) => {
     setSelectedValueDepartment(event.target.value);
   };
   // Function to get the content based on the selected value
   const getContentDepartment = () => {
     switch (selectedValueDepartment) {
-      case "":
-        return dataListsPie = [20, 44, 36];
       case "1":
         return dataListsPie = [20, 44, 36]; 
       case "2":
@@ -703,9 +701,10 @@ datasets: [{
                                         return (
                                           <option value={indexNumber}>{department}</option>
                                         );
-                                      })} 
+                                      })}
+                                      {getContentDepartment()}  
                                       </select>
-                                      {getContentDepartment()}                          
+                                                           
                                   </div>
                               </div>
                           </div>
@@ -763,9 +762,8 @@ datasets: [{
                                           <option value={indexNumber}>{budgetFroms}</option>
                                         );
                                       })}
-                                        
-                                      </select>  
-                                      {getContentBudget()}                        
+                                      {getContentBudget()}   
+                                      </select>                         
                                   </div>
                               </div>
                           </div>
