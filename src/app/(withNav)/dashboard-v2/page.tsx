@@ -1064,7 +1064,7 @@ var dataListBudgetState;
                     <div className='search-wrapper-section d-flex flex-column'>
                     <h2>แผนเทียบผล</h2>
                       <h4>การใช้งบประมาณ</h4>
-                        <div className="d-flex flex-column justify-content-center justify-content-around align-items-center">                       
+                        <div className="d-flex flex-column justify-content-center align-items-center">                       
                         <div className="d-flex justify-content-center align-items-center">
                               <div className="mr-10">
                                   <label>ปีงบประมาณ:</label>
@@ -1087,9 +1087,9 @@ var dataListBudgetState;
                                   </div>
                               </div>
                           </div>    
-                          <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                          <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                               <div className="mr-10"><p>บาท</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
+                              <div className="d-flex flex-column justify-content-center align-items-center">
                                   <div className="bar-chart-quarter">
                                       <Bar
                                         data={barDataState}
@@ -1108,9 +1108,9 @@ var dataListBudgetState;
                               </div>
                           </div>
 
-                          <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                          <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                               <div className="mr-10"><p>บาท</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
+                              <div className="d-flex flex-column justify-content-center align-items-center">
                                   <div className="bar-chart-month">
                                     <Bar
                                         data={barDataBar12MState}
@@ -1132,10 +1132,10 @@ var dataListBudgetState;
 
                         <h4 className="mt-50">เป้าหมาย/ตัวชี้วัด</h4>
                         <h6>จำนวนการรับรู้</h6>
-                        <div className="d-flex flex-column justify-content-center justify-content-around align-items-center">                       
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                        <div className="d-flex flex-column justify-content-center align-items-center">                       
+                            <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                                 <div className="mr-10"><p>คน-ครั้ง</p></div>
-                                <div className="d-flex flex-column justify-content-around align-items-center">
+                                <div className="d-flex flex-column justify-content-center align-items-center">
                                     <div className="bar-chart-quarter">
                                       <Bar
                                         data={barDataGState}
@@ -1154,9 +1154,9 @@ var dataListBudgetState;
                                 </div>
                             </div>
 
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                            <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                               <div className="mr-10"><p>คน-ครั้ง</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
+                              <div className="d-flex flex-column justify-content-center align-items-center">
                                   <div className="bar-chart-month">
                                     <Bar
                                         data={barDataG12MState}
@@ -1177,10 +1177,10 @@ var dataListBudgetState;
                         </div>
 
                         <h6>จำนวนพันธมิตร</h6>
-                        <div className="d-flex flex-column justify-content-center justify-content-around align-items-center">                       
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                        <div className="d-flex flex-column justify-content-center align-items-center">                       
+                            <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                                 <div className="mr-10"><p>คน-ครั้ง</p></div>
-                                <div className="d-flex flex-column justify-content-around align-items-center">
+                                <div className="d-flex flex-column justify-content-center align-items-center">
                                     <div className="bar-chart-quarter">
                                       <Bar
                                         data={barDataAState}
@@ -1199,9 +1199,9 @@ var dataListBudgetState;
                                 </div>
                             </div>
 
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                            <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                               <div className="mr-10"><p>คน-ครั้ง</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
+                              <div className="d-flex flex-column justify-content-center align-items-center">
                                   <div className="bar-chart-month">
                                     <Bar
                                         data={barDataA12MState}
@@ -1222,10 +1222,10 @@ var dataListBudgetState;
                         </div>
 
                         <h6>PAX(จำนวนผู้ซื้อสินค้า)</h6>
-                        <div className="d-flex flex-column justify-content-center justify-content-around align-items-center">                       
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                        <div className="d-flex flex-column justify-content-center align-items-center">                       
+                            <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                                 <div className="mr-10"><p>คน-ครั้ง</p></div>
-                                <div className="d-flex flex-column justify-content-around align-items-center">
+                                <div className="d-flex flex-column justify-content-center align-items-center">
                                     <div className="bar-chart-quarter">
                                       <Bar
                                         data={barDataPAXState}
@@ -1244,9 +1244,9 @@ var dataListBudgetState;
                                 </div>
                             </div>
 
-                            <div className="mt-20 d-flex flex-row justify-content-around align-items-center">
+                            <div className="mt-20 d-flex flex-row justify-content-center align-items-center">
                               <div className="mr-10"><p>คน-ครั้ง</p></div>
-                              <div className="d-flex flex-column justify-content-around align-items-center">
+                              <div className="d-flex flex-column justify-content-center align-items-center">
                                   <div className="bar-chart-month">
                                     <Bar
                                         data={barDataPAX12MState}
