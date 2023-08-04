@@ -703,10 +703,9 @@ datasets: [{
                                         return (
                                           <option value={indexNumber}>{department}</option>
                                         );
-                                      })}
-                                      {getContentDepartment()}  
+                                      })} 
                                       </select>
-                                                                
+                                      {getContentDepartment()}                          
                                   </div>
                               </div>
                           </div>
@@ -764,8 +763,9 @@ datasets: [{
                                           <option value={indexNumber}>{budgetFroms}</option>
                                         );
                                       })}
-                                      {getContentBudget()}   
-                                      </select>                         
+                                        
+                                      </select>  
+                                      {getContentBudget()}                        
                                   </div>
                               </div>
                           </div>
