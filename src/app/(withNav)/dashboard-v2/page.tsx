@@ -693,6 +693,7 @@ datasets: [{
                               </div>
                               <div className="pie-chart-box">
                                   <div className="filter-field">
+                                      {getContentDepartment()} 
                                       <select className="form-select" value={selectedValueDepartment} onChange={handleDropdownChangeDepartment}>
                                       {Array.from({ length: 50 }, (_, index) => {
                                         const department = departments[index]
@@ -702,7 +703,7 @@ datasets: [{
                                           <option value={indexNumber}>{department}</option>
                                         );
                                       })}
-                                      {getContentDepartment()}  
+                                       
                                       </select>
                                       {getContentDepartment()}                     
                                   </div>
