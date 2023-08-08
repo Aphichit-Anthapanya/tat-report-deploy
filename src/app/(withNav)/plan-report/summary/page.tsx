@@ -239,7 +239,10 @@ export default function Page() {
                                                         <div className="sub-process-project d-flex justify-content-center align-items-center">ค่าเป้าหมาย</div>
                                                     </th>
                                                     <th colSpan={4}>
-                                                        <div className="d-flex justify-content-center align-items-center">ระยะเวลาดำเนินการ ปีงบประมาณ 2566</div>
+                                                        <div className="d-flex flex-column justify-content-center align-items-center">
+                                                            <div>ระยะเวลาดำเนินการ</div>
+                                                            <div>ปีงบประมาณ 2566</div> 
+                                                         </div> 
                                                     </th>
                                                 </tr>
 
