@@ -287,7 +287,7 @@ export default function Page() {
                                                         <div className="indicators-number normalText d-flex justify-content-center align-items-center">คน-ครั้ง</div>
                                                     </th>
                                                     <th>
-                                                        <div className="normalText normalText d-flex justify-content-right align-items-center">7,600,000</div>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">7,600,000</div>
                                                     </th>
                                                     <th></th>
                                                     <th></th>

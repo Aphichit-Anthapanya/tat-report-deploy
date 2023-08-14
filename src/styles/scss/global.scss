@@ -271,6 +271,14 @@ body {
   margin-left: 20px;
 }
 
+.ml-35 {
+  margin-left: 35px;
+}
+
+.ml-40 {
+  margin-left: 40px;
+}
+
 .mr-5 {
   margin-right: 5px;
 }
@@ -279,8 +287,20 @@ body {
   margin-right: 10px;
 }
 
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-100 {
+  margin-right: 100px;
+}
+
 .mb-10 {
   margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }
 
 .mb-50 {
@@ -297,4 +317,24 @@ body {
 
 .mt-50 {
   margin-top: 50px;
+}
+
+.ma {
+  margin: auto;
+}
+
+.fontColor {
+  color: red;
+}
+
+.wid {
+  width: 100%;
+}
+
+.color-org {
+  background-color: orange;
+}
+
+.color-gry {
+  background-color: #F0F0F0;
 }

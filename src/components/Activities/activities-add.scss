@@ -407,11 +407,6 @@ td {
   margin-right: auto;
 }
 
-.table {
-  min-width: none;
-  margin-top: 20px;
-}
-
 .table > thead > tr > th > .process{
   width: 400px;
 }
@@ -483,6 +478,9 @@ td {
 .table > tbody > tr > th > .wd-50 {
   min-width: 50px;
 }
+.table > tbody > tr > th > .wd-80 {
+  min-width: 80px;
+}
 
 .table > tbody > tr > th > .wd-30 {
   min-width: 30px;
@@ -498,6 +496,10 @@ td {
 
 .table > tbody > tr > th > .wd-300 {
   min-width: 300px;
+}
+
+.table > tbody > tr > th > .wd-350 {
+  min-width: 350px;
 }
 
 .table > tbody > tr > th > .wd-100 {
@@ -520,10 +522,17 @@ td {
   min-width: 180px;
 }
 
+.table > tbody > tr > th > .wd-400 {
+  min-width: 400px;
+}
+
 .table > tbody > tr > th > .bg-1 {
   background: #000;
 }
 
+.wdth-200 {
+  min-width: 300px;
+}
 
 .normalText {
   font-weight: normal;
@@ -554,3 +563,10 @@ td {
   min-width: 800px;
 }
 
+.filter-field-2 {
+  min-width: 200px;
+}
+
+.filter-field-3 {
+  min-width: 700px;
+}
