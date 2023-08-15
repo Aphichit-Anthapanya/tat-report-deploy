@@ -18,7 +18,7 @@ export default function Home() {
       <Link href="/plan-report/summary">รายงานสรุปแผนปฏิบัติการ ททท รวมเล่ม</Link>
       <Link href="/plan-report/mistake">รายงานสรุปสถิติของหัวข้อที่เกิดความผิดพลาดบ่อยครั้ง</Link>
       <Link href="/plan-report/output">รายงานสรุปผลการดำเนินงานตามตัวชี้วัดกิจกรรม Output</Link>
-      <Link href="/plan-report/output">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน ปีงบประมาณ 25XX</Link>
+      <Link href="/plan-report/new">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน ปีงบประมาณ 25XX</Link>
       <Link href="/report">รายงานผล</Link>
       <Link href="/plan-report/indicator">รายงานผลตัวชี้วัดแผนวิสาหกิจ</Link>
       <>ระบบจัดซื้อจัดจ้าง</>
