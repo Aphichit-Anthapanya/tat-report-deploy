@@ -139,7 +139,7 @@ interface OperationReport {
     total_act_budget: string;
   }>;
   activityForm: {
-    id: number;
+    id: string;
     budget: string;
     catname: string;
     activity_type: string;
@@ -169,7 +169,7 @@ interface OperationReport {
 
 export default function ReportPage(props: ReportPageProps) {
   const dispatch = useDispatch();
-  let id = 0;
+  let id = '0';
   const params = useParams();
   const formState: FormState = useSelector(
     (state: RootState) => state.operationFollowForm
@@ -277,7 +277,7 @@ export default function ReportPage(props: ReportPageProps) {
     },
     activitiesList: [],
     activityForm: {
-      id: 0,
+      id: '0',
       budget: "",
       catname: "",
       activity_type: "",
@@ -299,8 +299,8 @@ export default function ReportPage(props: ReportPageProps) {
   };
 
   useEffect(() => {
-    id = typeof params?.id === "string" ? parseInt(params?.id) : 0;
-    if (id != 0) {
+    id = typeof params?.id === "string" ? params?.id : '0';
+    if (id != '0') {
       updateFormById(id, dispatch);
     }
     setPageId(id + "");

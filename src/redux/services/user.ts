@@ -1,5 +1,5 @@
 // Need to use the React-specific entry point to import createApi
-import { EnvConfig, TextConfig, WindowConfig } from "@/config";
+import { EnvConfig } from "@/config";
 import { IUserProfile, IUserLogin, ILoginRes } from "@/interfaces";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
@@ -9,12 +9,6 @@ export const userApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: EnvConfig.apiUrl,
     credentials: "include",
-    headers: {
-      // also attach accessToken from localStorage to header. (plan B if cookies not work)
-      Authorization: `Bearer ${
-        WindowConfig.isClient && localStorage.getItem(TextConfig.accessToken)
-      }`,
-    },
   }),
 
   endpoints: (builder) => ({

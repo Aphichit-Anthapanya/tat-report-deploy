@@ -6,7 +6,12 @@ import "../operation-follow.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { appendDataToFieldSection3 } from "@/redux/OperationFollow/action";
-import { removeTableOperationAreaByIdService } from "@/redux/OperationFollow/Section3/service";
+import {
+  operationAreaService,
+  removeTableOperationAreaByIdService,
+} from "@/redux/OperationFollow/Section3/service";
+import OperationAreaSelect from "../Modal/OperationAreaSelectModal"
+import { updateFormField } from "@/redux/OperationFollow/reducer";
 
 interface FormDataItem {
   indx: string;
@@ -16,10 +21,12 @@ interface FormDataItem {
 
 interface TableOperationAreaProps {
   onChangeTableOperationArea: (data: any) => void;
+  modeSelect: string;
 }
 
 export default function TableOperationArea({
   onChangeTableOperationArea,
+  modeSelect,
 }: TableOperationAreaProps) {
   const formState: any = useSelector(
     (state: RootState) => state.operationFollowForm
@@ -32,33 +39,37 @@ export default function TableOperationArea({
     country_area: "",
     province: "",
   });
+  const { data: operationAreaData } = operationAreaService(modeSelect);
+  const [isOpenOperationAreaSelect, setOpenOperationAreaSelect] = useState(false)
 
   const handleAddFormData = () => {
-    const newData = {
-      indx: formData.length + 1 + "",
-      country_area: addField.country_area,
-      province: addField.province,
-    };
+    setOpenOperationAreaSelect(true)
+    // if (addField.country_area && addField.province) {
+    //   const newData = {
+    //     indx: formData.length + 1 + "",
+    //     country_area: addField.country_area,
+    //     province: addField.province,
+    //   };
 
-    setFormdata([...formData, newData]);
-    setAddField({
-      indx: "",
-      country_area: "",
-      province: "",
-    });
-    dispatch(
-      appendDataToFieldSection3({
-        name: "list_operation_area",
-        data: newData,
-      })
-    );
+    //   setFormdata([...formData, newData]);
+    //   setAddField({
+    //     indx: "",
+    //     country_area: "",
+    //     province: "",
+    //   });
+    //   dispatch(
+    //     appendDataToFieldSection3({
+    //       name: "list_operation_area",
+    //       data: newData,
+    //     })
+    //   );
 
-    onChangeTableOperationArea([...formData, newData]);
+    //   onChangeTableOperationArea([...formData, newData]);
+    // }
   };
 
   const handleChangeField = (event: any) => {
     const { name, value } = event.target;
-
     const updateChecked = {
       ...addField,
       [name]: value,
@@ -67,10 +78,56 @@ export default function TableOperationArea({
     setAddField(updateChecked);
   };
 
+  const handleChangeFieldByIndex = (event: any, idx: any, type: any) => {
+    const { name, value } = event.target;
+
+    const newState = formData.map((obj) => {
+      if (obj.indx == idx) {
+        return type == "country_area"
+          ? { ...obj, country_area: value }
+          : { ...obj, province: value };
+      }
+      return obj;
+    });
+
+    setFormdata(newState);
+  };
+
   const handleRemoveRow = (id: string) => {
     removeTableOperationAreaByIdService(id, dispatch);
     setFormdata(formData.filter((item: { indx: string }) => item.indx !== id));
   };
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      handleAddFormData();
+    }
+  };
+
+  const handleCloseOperationAreaSelect = () => {
+    setOpenOperationAreaSelect(false)
+  }
+
+  const handleConfirmOperationArea = (data: any) => {
+    let dataList = []
+
+    for(let i = 0; i < data.length; i++){
+      dataList.push({
+        indx: data[i].id,
+        country_area: data[i].countryarea,
+        province: data[i].province
+      })
+    }
+
+    setFormdata(dataList)
+    dispatch(updateFormField({
+      ...formState,
+      section3: {
+        ...formState.section3,
+        list_operation_area: dataList
+      }
+    }))
+  }
 
   useEffect(() => {
     setFormdata(formState.section3.list_operation_area);
@@ -78,6 +135,9 @@ export default function TableOperationArea({
 
   return (
     <>
+      <div className="operation-area-modal">
+      <OperationAreaSelect setShow={isOpenOperationAreaSelect} handleClose={handleCloseOperationAreaSelect} handleConfirmOperationArea={handleConfirmOperationArea} />
+      </div>
       <div className="table-summary-wrapper">
         <div className="table-summary-header">
           <span>พื้นที่ดำเนินโครงการ</span>
@@ -105,16 +165,46 @@ export default function TableOperationArea({
                       className="bi bi-trash-fill"
                     ></i>
                   </td>
-                  <td>{data.country_area}</td>
-                  <td>{data.province}</td>
+                  <td>
+                    {/* <input
+                      onChange={(e) =>
+                        handleChangeFieldByIndex(e, index + 1, "country_area")
+                      }
+                      type="text"
+                      name="country_area"
+                      value={formData[index].country_area}
+                      className="form-control purchase-project-feild1"
+                      placeholder=""
+                      id="filterOverall"
+                      style={{ width: "80%", margin: "auto" }}
+                    /> */}
+                    {formData[index].country_area}
+                  </td>
+                  <td>
+                    {/* <input
+                      onChange={(e) =>
+                        handleChangeFieldByIndex(e, index + 1, "province")
+                      }
+                      type="text"
+                      name="province"
+                      value={formData[index].province}
+                      className="form-control purchase-project-feild1"
+                      placeholder=""
+                      id="filterOverall"
+                      style={{ width: "80%", margin: "auto" }}
+                    /> */}
+                    {formData[index].province}
+                  </td>
                 </tr>
               ))}
-              <tr>
+              {/* <tr>
                 <td>{formData.length + 1}</td>
                 <td></td>
                 <td>
                   <input
                     onChange={(e) => handleChangeField(e)}
+                    onBlur={handleAddFormData}
+                    onKeyDown={handleKeyDown}
                     type="text"
                     name="country_area"
                     value={addField.country_area}
@@ -127,6 +217,8 @@ export default function TableOperationArea({
                 <td>
                   <input
                     onChange={(e) => handleChangeField(e)}
+                    onBlur={handleAddFormData}
+                    onKeyDown={handleKeyDown}
                     type="text"
                     name="province"
                     value={addField.province}
@@ -136,7 +228,7 @@ export default function TableOperationArea({
                     style={{ width: "80%", margin: "auto" }}
                   />
                 </td>
-              </tr>
+              </tr> */}
               <tr>
                 <td
                   style={{ textAlign: "center", fontWeight: "bold" }}

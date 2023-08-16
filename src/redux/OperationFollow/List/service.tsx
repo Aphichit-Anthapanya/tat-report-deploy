@@ -1,3 +1,4 @@
+import { removeTableById } from "@/redux/OperationFollowTable/reducer-follow-table";
 import { sampleData } from "../../SampleData/sample_data";
 import { removeById, updateOperationFollowList } from "../reducer";
 
@@ -24,15 +25,15 @@ export const submitOperationForm = async (dispatch: any) => {
   }
 };
 
-export const deleteOperationList = async (id: number, dispatch: any) => {
-  try {
-    dispatch(
-      removeById({
-        id: id,
-      })
-    );
-  } catch (error) {
-    // Handle any errors that occur during the API request
-    console.error("Error fetching data:", error);
-  }
+export const deleteOperationList = async (id: string, dispatch: any) => {
+  // try {
+  //   dispatch(
+  //     removeTableById({
+  //       id: id,
+  //     })
+  //   );
+  // } catch (error) {
+  //   // Handle any errors that occur during the API request
+  //   console.error("Error fetching data:", error);
+  // }
 };

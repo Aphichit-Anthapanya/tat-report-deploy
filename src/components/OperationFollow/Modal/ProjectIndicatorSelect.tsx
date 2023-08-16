@@ -1,0 +1,249 @@
+import { projectIndicatorFilterService } from "@/redux/OperationFollow/Section3/service";
+import { getProjectIndicatorService } from "@/redux/services/operation-follow-api";
+import React from "react";
+import { useEffect, useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+
+interface MyProps {
+    setShow: boolean;
+    handleClose: () => void;
+    handleConfirmOperationArea: (val: any) => void;
+  }
+
+export default function ProjectIndicatorSelect(props: MyProps) {
+
+
+    const [queryField, setQueryField] = useState({
+        indicatorName: '',
+        calType: ''
+    })
+
+    const [originalProjectIndicatorData, setOriginalProjectIndicatorData] = useState([])
+
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const [projectIndicatorData, setProjectIndicatorData] = useState([])
+
+    const [addedData, setAddedData] = useState([])
+
+    const [pageSize, setPageSize] = useState(10)
+    const [pageStart, setPageStart] = useState(0)
+    const [pageEnd, setPageEnd] = useState(pageStart + pageSize)
+    const [totalPages, setTotalPage] = useState(0);
+
+    const handleChangeField = (e:any) => {
+        const {name,value} = e.target
+
+        setQueryField({
+            ...queryField,
+            [name]: value
+        })
+    }
+
+    const handleClose = () => props.handleClose();
+
+    const handleConfirm = () => {
+
+        props.handleConfirmOperationArea(addedData)
+        props.handleClose()
+  
+    };
+
+    const handlePageChange = (pageNumber: number) => {
+        const newStart = (pageNumber - 1) * pageSize;
+        setPageStart(newStart);
+        setPageEnd(newStart + pageSize);
+        setCurrentPage(pageNumber);
+      };
+
+    const clearData = () => {
+        setQueryField({
+            indicatorName: '',
+            calType: ''
+        })
+    }
+
+    const searchData = () => {
+        const itemData:any = projectIndicatorFilterService(queryField, originalProjectIndicatorData)
+        setProjectIndicatorData(itemData)
+        handlePageChange(1)
+        setTotalPage((itemData.length - 1) > 19 ? 19 : itemData.length - 1)
+
+        let _addedData:any = [...addedData]
+        let _itemData:any = [...itemData]
+        for(let i = 0; i < _addedData?.length; i++){
+            const id = _addedData[i]?.id
+            const indx = _itemData.findIndex((item:any) => item.id == id)
+            if(indx != -1){
+                _itemData[i].isSelect = true
+                setProjectIndicatorData(_itemData)
+            }
+        }
+    }
+
+    const handleCheck = (e: any,data: any, index: number) => {
+        const {name, checked} = e.target
+
+        if(checked){
+            let _addedData:any = [...addedData]
+            delete data['isSelect']
+            _addedData.push(data)
+            setAddedData(_addedData)
+
+            let _projectTargetData: any = [...projectIndicatorData]
+            _projectTargetData[index].isSelect = true
+            setProjectIndicatorData(_projectTargetData)
+        }else {
+            let _addedData:any = [...addedData]
+            const filterOut = _addedData.filter((items:any) => 
+                data.id != items.id
+            )
+            setAddedData(filterOut)
+
+            let _projectTargetData: any = [...projectIndicatorData]
+            _projectTargetData[index].isSelect = false
+            setProjectIndicatorData(_projectTargetData)
+        }
+
+    }
+
+    useEffect(()=>{
+        async function getOperationArea(){
+            const response:any = await getProjectIndicatorService()
+            setOriginalProjectIndicatorData(response.data)
+            const itemData:any = projectIndicatorFilterService(queryField, response.data)
+            setTotalPage(Math.ceil((response.data?.length) / pageSize) > 19 ? 19 : Math.ceil((response.data?.length) / pageSize))
+            setProjectIndicatorData(itemData)
+        }
+        getOperationArea()
+        setAddedData([])
+    },[props.setShow])
+
+    return (
+        <>
+            <Modal size="lg" show={props.setShow} onHide={handleClose} >
+            <Modal.Header closeButton>
+            <Modal.Title>เพิ่มข้อมูล {'>'} พื้นที่สินค้าและบริการ</Modal.Title>
+            </Modal.Header>
+            <Modal.Body >
+                <div className="operation-area-search-wrapper">
+                    <div className="upper-filter">
+                        <div className="header p-2">
+                            เงื่อนไขการค้นหา
+                        </div>
+                        <div className="filter-form">
+                            <div className="d-flex">
+                                <div className="left-form d-flex">
+                                    <div className="label-form">
+                                       ตัวชี้วัด:
+                                    </div>
+                                    <div className="field-form">
+                                        <input
+                                        value={queryField.indicatorName}
+                                        name="indicatorName"
+                                        onChange={(e) => handleChangeField(e)} 
+                                        className="form-control" type="text" />
+                                    </div>        
+                                </div>
+                                <div className="right-form d-flex">
+                                <div className="label-form">
+                                       หน่วย:
+                                    </div>
+                                    <div className="field-form">
+                                        <input
+                                        value={queryField.calType}
+                                        name="calType"
+                                        onChange={(e) => handleChangeField(e)} 
+                                        className="form-control" type="text" />
+                                    </div>  
+                                </div>
+                            </div>
+                            <div className="button-zone d-flex justify-content-center">
+                                <button onClick={searchData} style={{marginRight:5}} className="btn btn-primary">ค้นหา</button>
+                                <button onClick={clearData} className="btn btn-secondary ">ล้างค่า</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="selection-table-wrapper">
+                        <table style={{width: '100%'}}>
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckDefault"
+                                    />
+                                    </th>
+                                    <th scope="col">ตัวชี้วัด</th>
+                                    <th scope="col">หน่วย</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {projectIndicatorData?.slice(pageStart,pageEnd).map((item: any, index: number) => (
+                                <tr key={item.id}>
+                                    <td>
+                                        <input
+                                        onChange={(e) => handleCheck(e,{
+                                            id: item.id,
+                                            indicatorName: item.indicatorName,
+                                            calType: item.calType,
+                                            isSelect: item.isSelect
+                                        }, index + pageStart)}
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        checked={item.isSelect}
+                                        id="flexCheckDefault"
+                                        />
+                                    </td>
+                                    <td>
+                                       {item.indicatorName}
+                                    </td>
+                                    <td>
+                                       {item.calType}
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                        <div className="pagination-wrapper d-flex">
+                            <div className="pagination-status">
+                            </div>
+                            <div className="pagination-links">
+                                <ul className="pagination">
+                                {Array.from({ length: totalPages }, (_, index) => (
+                                    <li
+                                        className={`page-item ${
+                                            currentPage === index + 1 ? "active" : ""
+                                        }`}
+                                        >
+                                        <a
+                                            onClick={() => handlePageChange(index + 1)}
+                                            className="page-link"
+                                            href="javascript:void(0)"
+                                        >
+                                            {index + 1}
+                                        </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="primary" onClick={handleConfirm}>
+                Confirm
+            </Button>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            </Modal.Footer>
+            </Modal>
+        </>
+      );
+}

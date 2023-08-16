@@ -30,6 +30,8 @@ export default function Sidebar(props: SidebarProps) {
       router.push("/dashboard");
     } else if (linkId == 2) {
       router.push("/operation-follow");
+    } else if (linkId == 3) {
+      router.push("/procurement");
     }
   };
 
@@ -61,22 +63,20 @@ export default function Sidebar(props: SidebarProps) {
               />
             </div>
           </div>
-          <div 
-              className={`side-nav ${
+          <div
+            onClick={() => navigationLink(1)}
+            className={`side-nav ${
               props.navId == 1 ? "active" : ""
-              } d-flex p-2 justify-content-between cursor-pointer`}
+            } d-flex p-2 justify-content-between cursor-pointer`}
           >
-            <div 
-              onClick={() => navigationLink(1)}
-              className="d-flex side-nav-text-wrapper"
-              >
-                <i
-                  style={{ marginRight: "10px" }}
-                  className="bi bi-house-door-fill"
-                ></i>
-                <div id="normalNavText">
-                  <span>ข้อมูล Dashboard {isSmallSideNav}</span>
-                </div>
+            <div className="d-flex side-nav-text-wrapper">
+              <i
+                style={{ marginRight: "10px" }}
+                className="bi bi-house-door-fill"
+              ></i>
+              <div id="normalNavText">
+                <span>ข้อมูล Dashboard {isSmallSideNav}</span>
+              </div>
             </div>
             <div className="d-flex side-chev-wrapper">
               <i
@@ -94,14 +94,12 @@ export default function Sidebar(props: SidebarProps) {
             </div>
           </div>
           <div
+            onClick={() => navigationLink(2)}
             className={`side-nav ${
               props.navId == 2 ? "active" : ""
             } d-flex p-2 justify-content-between cursor-pointer`}
           >
-            <div
-              onClick={() => navigationLink(2)}
-              className="d-flex side-nav-text-wrapper"
-            >
+            <div className="d-flex side-nav-text-wrapper">
               <i
                 style={{ marginRight: "10px" }}
                 className="bi bi-file-text-fill"
@@ -125,7 +123,12 @@ export default function Sidebar(props: SidebarProps) {
               ></i>
             </div>
           </div>
-          <div className="side-nav d-flex p-2 justify-content-between cursor-pointer">
+          <div
+            onClick={() => navigationLink(3)}
+            className={`side-nav ${
+              props.navId == 3 ? "active" : ""
+            } d-flex p-2 justify-content-between cursor-pointer`}
+          >
             <div className="d-flex pr-2 side-nav-text-wrapper">
               <i
                 style={{ marginRight: "10px" }}

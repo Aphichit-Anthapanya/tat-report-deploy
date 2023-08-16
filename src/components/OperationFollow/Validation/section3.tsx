@@ -143,6 +143,15 @@ export const checkValidity = (
     });
   }
 
+  console.log(
+    checkPrincipleReasonValid,
+    checkObjectiveValid, 
+    checkOperationAreaValid, 
+    checkProjectIndicatorValid, 
+    checkOutComeField,
+    checkProjectTargetValid
+  )
+
   if (
     checkPrincipleReasonValid &&
     checkObjectiveValid &&
@@ -160,16 +169,12 @@ export const checkValidity = (
 };
 
 const checkObjective = (formState: any) => {
-  const objective1 = formState.section3.project_objective.objective1 == "";
-  const objective2 = formState.section3.project_objective.objective2 == "";
-  const objective3 = formState.section3.project_objective.objective3 == "";
-  const objective4 = formState.section3.project_objective.objective4 == "";
-
-  if (objective1 && objective2 && objective3 && objective4) {
-    return false;
-  } else {
-    return true;
+  for (let i = 0; i < formState.section3.project_objective2.length; i++) {
+    if (formState.section3.project_objective2[i] === '') {
+      return false;
+    }
   }
+  return true;
 };
 
 const checkOperationArea = (formState: any) => {

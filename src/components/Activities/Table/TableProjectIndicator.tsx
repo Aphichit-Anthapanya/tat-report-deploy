@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import "../activities-add.scss";
 import React from "react";
-import { removeTableProjectIndicatorActivityByIdService } from "@/redux/OperationFollow/Section3/service";
+import { mainOutcomeService, removeTableProjectIndicatorActivityByIdService } from "@/redux/OperationFollow/Section3/service";
 import { useDispatch } from "react-redux";
+import DropdownSearch from "@/components/OperationFollow/Table/DropdownSearch";
+import MasterData from "@/components/OperationFollow/master_data";
+import DropdownSearch2 from "@/components/OperationFollow/Table/DropdownSearch2";
 
 interface TableProjectIndicatorProps {
   onChangeTableProjectIndicator: (data: any) => void;
@@ -39,12 +42,14 @@ export default function TableProjectIndicator({
     quarter3_percent: "0",
     quarter4_percent: "0",
   });
+  const { data: mainOutcomeData, isLoading: mainOutcomeLoading } = mainOutcomeService()
 
   const handleAddFormData = () => {
+    let total_percent = parseInt(addField.quarter1_percent) + parseInt(addField.quarter2_percent) + parseInt(addField.quarter3_percent) + parseInt(addField.quarter4_percent)
     const newData = {
       indx: formData.length + "",
       name_indicator: addField.name_indicator,
-      table_percent: "7",
+      table_percent: total_percent + '',
       quarter1_percent: addField.quarter1_percent,
       quarter2_percent: addField.quarter2_percent,
       quarter3_percent: addField.quarter3_percent,
@@ -80,6 +85,33 @@ export default function TableProjectIndicator({
     setFormdata(formData.filter((item: { indx: string }) => item.indx !== id));
   };
 
+  const handleSelect = (name:string) => {
+    setAddField({
+      ...addField,
+      name_indicator: name
+    })
+  }
+
+  const mergeLists = (listOfLists: any[]): any[] => {
+    if(!mainOutcomeLoading){
+      const mergedList = listOfLists?.reduce((accumulator, currentList) => {
+        return accumulator.concat(currentList);
+      }, []);
+      return mergedList; 
+    }else{
+      return []
+    }
+  }
+
+  function getTargetNameById(mainOutcomeId: string) {
+    const item = mainOutcomeData?.find((item: { mainOutcomeId: string }) => item.mainOutcomeId == mainOutcomeId);
+    return item ? item.outcomeNameTh : null;
+  }
+
+  useEffect(() => {
+    
+  })
+
   return (
     <>
       <div className="table-summary-wrapper table-project-indicator activities">
@@ -90,20 +122,20 @@ export default function TableProjectIndicator({
           <table className="table">
             <thead>
               <tr>
-                <th style={{ width: "10%" }} scope="col">
+                <th style={{ width: "10%", textAlign: "center"}} scope="col">
                   ลำดับที่
                 </th>
                 <th></th>
-                <th style={{ width: "20%" }} scope="col">
+                <th style={{ width: "20%", textAlign: "center"}} scope="col">
                   ชื่อตัวชี้วัด
                 </th>
-                <th style={{ width: "10%" }} scope="col">
-                  รวม (%)
+                <th style={{ width: "10%", textAlign: "center"}} scope="col">
+                  รวม
                 </th>
-                <th scope="col">ไตรมาสที่1 (%)</th>
-                <th scope="col">ไตรมาสที่2 (%)</th>
-                <th scope="col">ไตรมาสที่3 (%)</th>
-                <th scope="col">ไตรมาสที่4 (%)</th>
+                <th style={{textAlign: "center"}} scope="col">ไตรมาสที่1</th>
+                <th style={{textAlign: "center"}} scope="col">ไตรมาสที่2</th>
+                <th style={{textAlign: "center"}} scope="col">ไตรมาสที่3</th>
+                <th style={{textAlign: "center"}} scope="col">ไตรมาสที่4</th>
               </tr>
             </thead>
             <tbody>
@@ -117,7 +149,7 @@ export default function TableProjectIndicator({
                       className="bi bi-trash-fill"
                     ></i>
                   </td>
-                  <td>{data.name_indicator}</td>
+                  <td>{getTargetNameById(data.name_indicator)}</td>
                   <td>{data.table_percent}</td>
                   <td>{data.quarter1_percent}</td>
                   <td>{data.quarter2_percent}</td>
@@ -129,7 +161,7 @@ export default function TableProjectIndicator({
                 <td>{formData.length + 1}</td>
                 <td></td>
                 <td>
-                  <input
+                  {/* <input
                     onChange={(e) => handleChangeField(e)}
                     name="name_indicator"
                     value={addField.name_indicator}
@@ -138,7 +170,8 @@ export default function TableProjectIndicator({
                     placeholder=""
                     id="filterOverall"
                     style={{ width: "80%", margin: "auto" }}
-                  />
+                  /> */}
+                  <DropdownSearch2 dropdownName="mainOutcome" items={mergeLists(mainOutcomeData)} setAddField={handleSelect} formList={formData} />
                 </td>
                 <td></td>
                 <td>
@@ -193,7 +226,7 @@ export default function TableProjectIndicator({
               <tr>
                 <td
                   style={{ textAlign: "center", fontWeight: "bold" }}
-                  colSpan={7}
+                  colSpan={8}
                 >
                   <button
                     onClick={handleAddFormData}

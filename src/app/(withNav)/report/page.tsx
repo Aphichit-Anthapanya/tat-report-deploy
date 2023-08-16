@@ -2,12 +2,135 @@
 
 import React from "react";
 import { useState } from "react";
-import "@components/Activities/activities-add.scss";
-import Activities from "@components/Activities/Activities";
-import AddActivities from "@components/Activities/Add-Activities";
+import "@components/Report-temp/report-temp.scss";
+import TableQuarterSummary from "@components/OperationFollow/Table/TableQuarterSummary";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { updateFormField, resetForm } from "@/redux/OperationFollow/reducer";
 
 export default function Page() {
+    const formState = useSelector(
+        (state: RootState) => state.operationFollowForm
+      );
+    const dispatch = useDispatch();
+    const handleChangeField = (event: any) => {
+        const { name, value } = event.target;
     
+        dispatch(
+          updateFormField({
+            ...formState,
+            section2: {
+              ...formState.section2,
+              [name]: value.replace(',', ''),
+            },
+          })
+        );
+    
+        let sanitizedValue = value.replace(/[^0-9.]/g, '');
+        let formattedValue = sanitizedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        setBudgetTemp(formattedValue)
+        // setBudgetTemp(value)
+      };
+    const [budgetTemp, setBudgetTemp] = useState("");
+    const [quarterSelect, setQuarterSelect] = useState(1);
+    const handleQuarterSelect = (value: number) => {
+        setQuarterSelect(value);
+      };
+    const [validationState, setValidationState] = useState([
+        {
+          name: "budget",
+          alias: "งบประมาณโครงการ",
+          isValid: true,
+        },
+        {
+          name: "tableQuarterSummary",
+          alias: "งบประมาณแยกตามรายเดือน",
+          isValid: true,
+        },
+        {
+          name: "tablePolicySuite",
+          alias: "ความสอดคล้องกับนโยบาย",
+          isValid: true,
+        },
+        {
+          name: "tableStakeholder",
+          alias: "กลุ่มผู้มีส่วนได้ส่วนเสีย",
+          isValid: true,
+        },
+        {
+    
+        }
+      ]);
+      const [tempMask, setTempMask] = useState({
+        quarter1: {
+          month1: "0",
+          month2: "0",
+          month3: "0",
+          total: "0",
+          porportion: "0"
+        },
+        quarter2: {
+          month1: "0",
+          month2: "0",
+          month3: "0",
+          total: "0",
+          porportion: "0"
+        },
+        quarter3: {
+          month1: "0",
+          month2: "0",
+          month3: "0",
+          total: "0",
+          porportion: "0"
+        },
+        quarter4: {
+          month1: "0",
+          month2: "0",
+          month3: "0",
+          total: "0",
+          porportion: "0"
+        },
+      });
+    const [tableQuarterData, settableQuarterData] = useState({
+        quarter: {
+          quarter1: {
+            month1: 0,
+            month2: 0,
+            month3: 0,
+            total: 0,
+            porportion: 0,
+          },
+          quarter2: {
+            month1: 0,
+            month2: 0,
+            month3: 0,
+            total: 0,
+            porportion: 0,
+          },
+          quarter3: {
+            month1: 0,
+            month2: 0,
+            month3: 0,
+            total: 0,
+            porportion: 0,
+          },
+          quarter4: {
+            month1: 0,
+            month2: 0,
+            month3: 0,
+            total: 0,
+            porportion: 0,
+          },
+        },
+      });
+      const handleSetTempMask = (value: any) => {
+        setTempMask(value);
+      };
+    
+    const handleChangeQuarter = (data: any) => {
+        // console.log(data)
+        // settableQuarterData(data)
+      };
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
@@ -19,7 +142,7 @@ export default function Page() {
                     </div>
 
                     <div className='search-wrapper-section d-flex flex-column justify-content-center align-items-center'>
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column mr-20 ml-30">
                             <div className="wid d-flex flex-row mb-20">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ชื่อโครงการ<div className="fontColor">*</div>:</div>
                                 <div>โครงการพัฒนาระบบแพลตฟอร์มกลาง ททท. (Single Sign on)</div>
@@ -209,8 +332,8 @@ export default function Page() {
                                     </table>
                                 </div>
                             </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตัวชี้วัดระดับโครงการ(Outcome)<div className="fontColor">*</div>:</div>
+                            <div className="wid d-flex flex-column mb-20">
+                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-left">ตัวชี้วัดระดับโครงการ(Outcome)<div className="fontColor">*</div>:</div>
                                 <div className="table-responsive">
                                     <table className="table table-bordered">
                                         <tbody>
@@ -223,7 +346,7 @@ export default function Page() {
                                                 <th>
                                                     <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
                                                 </th>
-                                                <th><div className="wd-300 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
+                                                <th><div className="wd-400 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
                                                 <th><div className="wd-100 d-flex justify-content-center align-items-center">รวม (%)</div></th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
@@ -261,16 +384,31 @@ export default function Page() {
                                                     <div className="normalText d-flex justify-content-center align-items-center">100</div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">5</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        
+                                                    </div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">25</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        
+                                                    </div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">30</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        
+                                                    </div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">40</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        </div>
                                                 </th>
                                             </tr>
                                             <tr>
@@ -284,16 +422,32 @@ export default function Page() {
                                                     <div className="normalText d-flex justify-content-center align-items-center">100</div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">5</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        
+                                                    </div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">25</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        
+                                                    </div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">30</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        
+                                                    </div>
                                                 </th>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">40</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center filter-field-3">
+                                                        
+                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                                                        
+                                                    </div>
                                                 </th>
                                             </tr>
                                         </tbody>
@@ -305,186 +459,46 @@ export default function Page() {
                                 <div>อัตราความพึงพอใจของผู้ใช้งาน ไม่น้อยกว่าร้อยละ 75</div>
                             </div>
                             <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">งบประมาณโครงการ<div className="fontColor">*</div>:</div>
-                                <div className="d-flex mr-10">120,000</div>
-                                <div>บาท</div>
+                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right align-items-center">งบประมาณโครงการ<div className="fontColor">*</div>:</div>
+                                <div className="d-flex flex-column form-field-fieldzone">
+                                <div className="d-flex">
+                                    <div>
+                                    <input onChange={(e) => handleChangeField(e)} name="budget" value={budgetTemp} type="text" className="form-control" id="exampleFormControlInput1" placeholder=""/>
+                                    </div>
+                                    <div style={{ marginTop: "10px", marginLeft: "10px" }}>บาท</div>
+                                </div>
+                                <div>
+                                    {validationState[0].isValid == false && (
+                                    <div className="form-field-fieldzone invalid-text">
+                                        <span style={{ color: "red" }}>
+                                        โปรดกรอกข้อมูล{validationState[0].alias}
+                                        </span>
+                                    </div>
+                                    )}
+                                </div>
+                                </div>
                             </div>
                             <div className="wid d-flex flex-row">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">งบประมาณแยกตามรายเดือน<div className="fontColor">*</div>:</div>
                             </div>
-                            <div className="table-responsive mb-20">
-                                    <table className="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <th colSpan={8}>
-                                                    <div className="d-flex justify-content-center">งบประมาณแยกตามรายเดือน</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th colSpan={2}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ไตรมาสที่ 1</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ไตรมาสที่ 2</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ไตรมาสที่ 3</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ไตรมาสที่ 4</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">ตุลาคม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">มกราคม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">เมษายน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กรกฏาคม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">พฤศจิกายน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กุมภาพันธ์</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">พฤษภาคม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">สิงหาคม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">ธันวาคม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">มีนาคม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">มิถุนายน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กันยายน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">10,000</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th colSpan={2}>
-                                                    <div className="ml-20 d-flex justify-content-left align-items-center">ยอดรวมงบประมาณไตรมาส 1 :</div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="ml-20 d-flex justify-content-left align-items-center">ยอดรวมงบประมาณไตรมาส 2 :</div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="ml-20 d-flex justify-content-left align-items-center">ยอดรวมงบประมาณไตรมาส 3 :</div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="ml-20 d-flex justify-content-left align-items-center">ยอดรวมงบประมาณไตรมาส 4 :</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th colSpan={2}>
-                                                    <div className="d-flex justify-content-right align-items-center">30,000</div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="d-flex justify-content-right align-items-center">30,000</div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="d-flex justify-content-right align-items-center">30,000</div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="d-flex justify-content-right align-items-center">30,000</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">สัดส่วน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">25%</div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">สัดส่วน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">25%</div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">สัดส่วน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">25%</div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">สัดส่วน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">25%</div>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div className="mb-20">
+                                <TableQuarterSummary
+                                onChangeQuarter={handleChangeQuarter}
+                                quarterSelect={quarterSelect}
+                                setQuarterSelect={handleQuarterSelect}
+                                tempMask={tempMask}
+                                setTempMask={handleSetTempMask}
+                            />
                             </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">
+                            <div className="wid d-flex flex-column">
+                                <div className="wdth-200 mr-20 d-flex flex-row">
                                     <div className="d-flex flex-column">
-                                        <div className="d-flex justify-content-right">ความสอดคล้องกับนโยบาย</div>
+                                        <div className="d-flex justify-content-left">ความสอดคล้องกับนโยบาย</div>
                                         <div className="d-flex justify-content-right">(เลือกได้มากกว่า 1)</div>
                                     </div>
-                                    <div className="fontColor">*</div>:</div>
-                                <div className="table-responsive">
+                                    <div className="fontColor">*</div>:</div>                                
+                            </div>
+                            <div className="table-responsive mb-20">
                                     <table className="table table-bordered">
                                         <tbody>
                                             <tr>
@@ -587,9 +601,8 @@ export default function Page() {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">
+                            <div className="wid d-flex flex-column mb-20">
+                                <div className="wdth-200 mr-20 d-flex flex-row">
                                     <div className="d-flex flex-column">
                                         <div className="d-flex justify-content-right">กลุ่มผู้มีส่วนได้ส่วนเสีย</div>
                                         <div className="d-flex justify-content-right">(เลือกได้มากกว่า 1)</div>
@@ -1283,7 +1296,7 @@ export default function Page() {
                 
                         <div className="wid d-flex flex-column mb-20 justify-content-center">
                             <div className="d-flex justify-content-right align-items-end">
-                                <div><button className="btn color-org bi bi-file-earmark-plus">เพิ่ม</button></div>  
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
                             </div>  
                                 <div className="table-responsive">
                                     <table className="table table-bordered">
@@ -1395,7 +1408,7 @@ export default function Page() {
 
                         <div className="wid d-flex flex-column mb-20 justify-content-center">
                         <div className="d-flex justify-content-right align-items-end">
-                                <div><button className="btn color-org bi bi-file-earmark-plus">เพิ่ม</button></div>  
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
                             </div>  
                                 <div className="table-responsive">
                                     <table className="table table-bordered">
@@ -1489,7 +1502,7 @@ export default function Page() {
 
                             <div className="wid d-flex flex-column mb-20 justify-content-center">
                             <div className="d-flex justify-content-right align-items-end">
-                                <div><button className="btn color-org bi bi-file-earmark-plus">เพิ่ม</button></div>  
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
                             </div>  
                                 <div className="table-responsive">
                                     <table className="table table-bordered">
@@ -1535,7 +1548,7 @@ export default function Page() {
 
                             <div className="wid d-flex flex-column mb-20 justify-content-center">
                             <div className="d-flex justify-content-right align-items-end">
-                                <div><button className="btn color-org bi bi-file-earmark-plus">เพิ่ม</button></div>  
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
                             </div>  
                                 <div className="table-responsive">
                                     <table className="table table-bordered">

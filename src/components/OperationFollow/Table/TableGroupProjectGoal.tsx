@@ -6,11 +6,15 @@ import "../operation-follow.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { appendDataToFieldSection3 } from "@/redux/OperationFollow/action";
-import { removeTableProjectGoalByIdService } from "@/redux/OperationFollow/Section3/service";
+import { projectTargetService, removeTableProjectGoalByIdService } from "@/redux/OperationFollow/Section3/service";
+import DropdownSearch from "./DropdownSearch";
+import MasterData from "../master_data";
+import DropdownSearch2 from "./DropdownSearch2";
+import ProjectTargetSelect from "../Modal/ProjectTargetModal";
 
 interface FormDataItem {
-  indx: string;
-  target_name: string;
+  id: string;
+  targetName: string;
 }
 
 interface TableProjectIndicatorProps {
@@ -34,29 +38,42 @@ export default function TableGroupProjectGoal({
 
   const [addField, setAddField] = useState({
     indx: "",
-    target_name: "",
+    target_name: ''
   });
 
+  const [isOpenProjectTargetSelect, setIsOpenProjectTargetSelect] = useState(false)
+
+  const { data: projectTargetData, isLoading: projectTargetLoading} = projectTargetService()
+
+  const handleCloseProjectTargetSelect = () => {
+    setIsOpenProjectTargetSelect(false)
+  }
+
+  const handleConfirmProjectTargetSelect = (data: any) => {
+    setFormdata(data)
+  }
+
   const handleAddFormData = () => {
-    const newData = {
-      indx: formData.length + 1 + "",
-      target_name: addField.target_name,
-    };
+    setIsOpenProjectTargetSelect(true)
+    // const newData = {
+    //   indx: formData.length + 1 + "",
+    //   target_name: addField.target_name,
+    // };
 
-    setFormdata([...formData, newData]);
-    setAddField({
-      indx: "",
-      target_name: "",
-    });
+    // setFormdata([...formData, newData]);
+    // setAddField({
+    //   indx: "",
+    //   target_name: "",
+    // });
 
-    dispatch(
-      appendDataToFieldSection3({
-        name: "project_target",
-        data: newData,
-      })
-    );
+    // dispatch(
+    //   appendDataToFieldSection3({
+    //     name: "project_target",
+    //     data: newData,
+    //   })
+    // );
 
-    onChangeTableGroupProjectGoal([...formData, newData]);
+    // onChangeTableGroupProjectGoal([...formData, newData]);
   };
 
   const handleChangeField = (event: any) => {
@@ -71,9 +88,37 @@ export default function TableGroupProjectGoal({
   };
 
   const handleRemoveRow = (id: string) => {
-    removeTableProjectGoalByIdService(id, dispatch);
-    setFormdata(formData.filter((item: { indx: string }) => item.indx !== id));
+    let _formData = formData.filter((item: any) => 
+      item.id != id
+    )
+
+    setFormdata(_formData)
   };
+
+  const handleSelectTargetName = (item: string) => {
+    console.log(item)
+    setAddField({
+      ...addField,
+      target_name: item
+    });
+  }
+
+  function mergeLists(listOfLists: any[]): any[] {
+    if(!projectTargetLoading){
+      const mergedList = listOfLists?.reduce((accumulator, currentList) => {
+        return accumulator.concat(currentList);
+      }, []);
+    
+      return mergedList; 
+    }else{
+      return []
+    }
+  }
+
+  function getTargetNameById(targetGroupId: string) {
+    const item = projectTargetData?.find((item: { targetGroupId: string }) => item.targetGroupId == targetGroupId);
+    return item ? item.targetGroupNameTh : null;
+  }
 
   useEffect(() => {
     setFormdata(formState.section3.project_target);
@@ -81,6 +126,7 @@ export default function TableGroupProjectGoal({
 
   return (
     <>
+      <ProjectTargetSelect setShow={isOpenProjectTargetSelect} handleClose={handleCloseProjectTargetSelect} handleConfirmOperationArea={handleConfirmProjectTargetSelect} />
       <div className="table-summary-wrapper">
         <div className="table-summary-header">
           <span>กลุ่มเป้าหมายระดับโครงการ</span>
@@ -104,30 +150,21 @@ export default function TableGroupProjectGoal({
                   <td>{index + 1}</td>
                   <td>
                     <i
-                      onClick={() => handleRemoveRow(data.indx)}
+                      onClick={() => handleRemoveRow(data.id)}
                       style={{ color: "red", cursor: "pointer" }}
                       className="bi bi-trash-fill"
                     ></i>
                   </td>
-                  <td>{data.target_name}</td>
+                  <td>{data.targetName}</td>
                 </tr>
               ))}
-              <tr>
+              {/* <tr>
                 <td>{formData.length + 1}</td>
                 <td></td>
                 <td>
-                  <input
-                    onChange={(e) => handleChangeField(e)}
-                    type="text"
-                    name="target_name"
-                    value={addField.target_name}
-                    className="form-control purchase-project-feild1"
-                    placeholder=""
-                    id="filterOverall"
-                    style={{ width: "80%", margin: "auto" }}
-                  />
+                  <DropdownSearch2 formList={formData} dropdownName="projectTarget" items={mergeLists(projectTargetData)} setAddField={handleSelectTargetName} />
                 </td>
-              </tr>
+              </tr> */}
               <tr>
                 <td
                   style={{ textAlign: "center", fontWeight: "bold" }}

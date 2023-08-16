@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FormState, ActiVityForm, Section1, Section2, Section5, Section4, Section3, Activities, SampleData } from './types';
 import { stat } from 'fs';
 
-const initialState: FormState = {
-    id: 0,
+export const initialState: FormState = {
+    id: '0',
     section1: {
       yearBudget: '2566',
       budgetSource: '',
@@ -56,6 +56,29 @@ const initialState: FormState = {
         isClosedGap: false,
         isNone: false,
         isCsrProcess: false,
+        isMainPlanGroup: {
+          isStaffManagement: false,
+          isMainPlanEducation: false,
+          isDigitalEducation: false,
+          isTravelSupport: false,
+          isLongTermStrategic: false,
+          isLongTermEnvironment: false,
+          isLongTermForManagement: false,
+          isInternalCommunication: false,
+        },
+        isClosedGapGroup: {
+          isBetterVision: false,
+          isStrategicPlan: false,
+          isRiskManagementPlan: false,
+          isStakeHolderFocus: false,
+          isCustomerFocus: false,
+          isDigitalDevelopment: false,
+          isCapitalHumanManage: false,
+          isEducationManagement: false,
+          isInnovationManangement: false,
+          isInternalCheck: false
+  
+        }
       },
       stakeHolder_Group: {
         isTatStaff: false,
@@ -63,7 +86,80 @@ const initialState: FormState = {
         isGovernmentAudit: false,
         isSender: false,
         isProviderCustomer: false,
-        isWorkingUnit: false
+        isWorkingUnit: false,
+        isGovernmentAuditGroup: {
+          isMinistryFinance: false,
+          isPolicyOffice: false,
+          isTourismAndSport: false,
+          isStateAudit: false,
+          isOther: false,
+          isOtherText: '',
+        },
+        isProviderCustomerGroup: {
+          isDomestic: false,
+          isForeigner: false,
+        },
+        isCustomerGroup: {
+          isTourBusiness: false,
+          isOnlineTravelAgency: false,
+          isTravelAgency: false,
+          isHotelBusiness: false,
+          isLogisticBusiness: false,
+          isRestaurantBusiness: false,
+          isTourAreaBusiness: false,
+          isOtherBusiness: false,
+          isOtherText: '',
+        },
+        isSenderGroup: {
+          isGovernmentSender: false,
+          isGovernmentSenderGroup: {
+            isMinistryOfInterior: false,
+            isMinistryOfHealth: false,
+            isMinistryOfTour: false,
+            isMinistryOfForeign: false,
+            isMinistryOfTourAndSport: false,
+            isOther: false,
+            isOtherText: '',
+          },
+          isPrivateSender: false,
+          isPrivateSenderGroup: {
+            isEducationIns: false,
+            isResearchIns: false,
+            isConsultIns: false,
+            isOther: false,
+            isOtherText: '',
+          }
+        },
+        isWorkingUnitGroup: {
+          isSpecialAreaManagement: false,
+          isCofferenceOffice: false,
+          isTourismAsso: false,
+          isTourismAssoGroup: {
+            isAssoOfguide: false,
+            isAssoOfHotel: false,
+            isAssoOfDomesticRestaurant: false,
+            isAssoOfRestaurant: false,
+            isAssoOfDomesticTravel: false,
+            isAssoOfCommerce: false,
+            isAssoOfIndustry: false,
+            isAssoOfRetailer: false,
+            isAssoOfDomesticTourism: false,
+            isAssoOfTTA: false,
+            isPacificTravel: false,
+            isResponsibleTour: false,
+            isOtherAsso: false,
+            isOtherAssoText: ''
+          },
+          isMassMediaOnlineOfline: false,
+          isAot: false,
+          isSport: false,
+          isTourismAndSport: false,
+          isLocalAdmin: false,
+          isProvinceAdmin: false,
+          isOther: false,
+          isOtherText: ''
+        },
+        isNone: false,
       }
     },
     section3: {
@@ -74,6 +170,7 @@ const initialState: FormState = {
         objective3:'',
         objective4:'',
       },
+      project_objective2: ['','',''],
       list_operation_area: [],
       project_outcome: [],
       project_outcome_field: '',
@@ -100,7 +197,7 @@ const initialState: FormState = {
     },
     activitiesList: [],
     activityForm: {
-      id: 0,
+      id: '0',
       budget: '',
       catname: '',
       activity_type: '',
@@ -121,6 +218,8 @@ const initialState: FormState = {
         project_type: []
       }
     },
+
+    mode: 0,
 
     operationReport: {
       section1: {
@@ -193,6 +292,7 @@ const initialState: FormState = {
           objective3:'',
           objective4:'',
         },
+        project_objective2: ['','',''],
         list_operation_area: [],
         project_outcome: [],
         project_outcome_field: '',
@@ -219,7 +319,7 @@ const initialState: FormState = {
       },
       activitiesList: [],
       activityForm: {
-        id: 0,
+        id: '0',
         budget: '',
         catname: '',
         activity_type: '',
@@ -232,19 +332,19 @@ const initialState: FormState = {
         activity_end: '',
         project_outcome: [],
         list_operation_area:[]
-      }
-    }  
+      },
+    },
+    draft_section: ''  
 };
 
 const operationFollowFormSlice = createSlice({
   name: 'operationFollowForm',
   initialState,
   reducers: {
-    updateFormField(state, action: PayloadAction<FormState>) {
+    updateFormField(state, action: PayloadAction<any>) {
       return {
         ...state,
-        ...action.payload,
-        dataList: state.dataList
+        ...action.payload
       };
     },
     updateDataList(state, action: PayloadAction<any>){
@@ -263,13 +363,13 @@ const operationFollowFormSlice = createSlice({
       return data;
     },
     removeById(state,action: PayloadAction<any>){
-      const id = action.payload.id
-      let items = state.operationFollowList
-      items = items.filter((item: { id: number }) => item.id !== id);
-      return {
-        ...state,
-        operationFollowList: items
-      }
+      // const id = action.payload.id
+      // let items = state.operationFollowList
+      // items = items.filter((item: { id: number }) => item.id !== id);
+      // return {
+      //   ...state,
+      //   operationFollowList: items
+      // }
     },
     appendActivity(state, action: PayloadAction<ActiVityForm>) {
       return {
@@ -291,7 +391,8 @@ const operationFollowFormSlice = createSlice({
         section1: {
           ...state.section1,
           [action.payload.name]: action.payload.value
-        }
+        },
+        mode: action.payload.mode
       }
     }, 
     updateSection2(state, action: PayloadAction<Section2>) {
@@ -382,19 +483,19 @@ const operationFollowFormSlice = createSlice({
     },
     updateCurrentFormById(state, action: PayloadAction<any>){
 
-      function getDataById(id:number){
-        const jsondata: FormState[] = state.dataList.map((item) => item.FormState);
-        console.log(jsondata)
-        const item = jsondata.find((item: { id: number }) => item.id === id);
-        return item;
-      }
+      // function getDataById(id:number){
+      //   const jsondata: FormState[] = state.dataList.map((item) => item.FormState);
+      //   console.log(jsondata)
+      //   const item = jsondata.find((item: { id: number }) => item.id === id);
+      //   return item;
+      // }
 
-      const myData = getDataById(action.payload.id)
-      if (myData !== undefined) {
-        updateFormField(myData)
-      } else {
-        console.log('No formData available');
-      }
+      // const myData = getDataById(action.payload.id)
+      // if (myData !== undefined) {
+      //   updateFormField(myData)
+      // } else {
+      //   console.log('No formData available');
+      // }
     },
     removeTableOperationAreaById(state,action: PayloadAction<any>){
       const id = action.payload.id + ""
@@ -475,6 +576,17 @@ const operationFollowFormSlice = createSlice({
           ...action.payload
         }
       }
+    },
+    updateProjectObjective2(state,action: PayloadAction<any>){
+      const index = action.payload.index;
+
+      state.section3.project_objective2[index] = action.payload.content
+    },
+    addProjectObjective(state,action: PayloadAction<any>){
+      state.section3.project_objective2.push('')
+    },
+    removeProjectObjective(state,action: PayloadAction<any>){
+      state.section3.project_objective2.pop()
     }
   },
 });
@@ -502,6 +614,9 @@ export const {
   removeTableOperationAreaActivityById,
   fetchMasterDataSection1,
   submitReportData,
-  updateDataList 
+  updateDataList,
+  updateProjectObjective2,
+  addProjectObjective,
+  removeProjectObjective 
 } = operationFollowFormSlice.actions;
 export default operationFollowFormSlice.reducer;

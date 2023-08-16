@@ -22,10 +22,46 @@ export default function TablePolicySuite({
   const handleChangeField = (event: any) => {
     const { name, checked } = event.target;
 
-    const updateChecked = {
-      ...formState.section2.suite_outside_policy,
-      [name]: checked,
-    };
+    let updateChecked = {};
+    if (name == "isNone" && checked) {
+      updateChecked = {
+        ...formState.section2.suite_outside_policy,
+        [name]: checked,
+        isFlagship: false,
+        isCsrProcess: false,
+        isMainPlan: false,
+        isClosedGap: false,
+        isSla: false,
+        isPAIndicator: false,
+        isMainPlanGroup: {
+          isStaffManagement: false,
+          isMainPlanEducation: false,
+          isDigitalEducation: false,
+          isTravelSupport: false,
+          isLongTermStrategic: false,
+          isLongTermEnvironment: false,
+          isLongTermForManagement: false,
+          isInternalCommunication: false,
+        },
+        isClosedGapGroup: {
+          isBetterVision: false,
+          isStrategicPlan: false,
+          isRiskManagementPlan: false,
+          isStakeHolderFocus: false,
+          isCustomerFocus: false,
+          isDigitalDevelopment: false,
+          isCapitalHumanManage: false,
+          isEducationManagement: false,
+          isInnovationManangement: false,
+          isInternalCheck: false,
+        },
+      };
+    } else {
+      updateChecked = {
+        ...formState.section2.suite_outside_policy,
+        [name]: checked,
+      };
+    }
 
     // setFormdata(updateChecked);
 
@@ -40,6 +76,109 @@ export default function TablePolicySuite({
       })
     );
   };
+
+  const handleSubselect = (event: any, type: string) => {
+    const { name, checked } = event.target;
+
+    if (type == "isMainPlanGroup") {
+      const updateChecked = {
+        ...formState.section2.suite_outside_policy,
+        isMainPlanGroup: {
+          ...formState.section2.suite_outside_policy.isMainPlanGroup,
+          [name]: checked,
+        },
+      };
+
+      dispatch(
+        updateFormField({
+          ...formState,
+          section2: {
+            ...formState.section2,
+            suite_outside_policy: updateChecked,
+          },
+        })
+      );
+    }
+
+    if (type == "isClosedGapGroup") {
+      const updateChecked = {
+        ...formState.section2.suite_outside_policy,
+        isClosedGapGroup: {
+          ...formState.section2.suite_outside_policy.isClosedGapGroup,
+          [name]: checked,
+        },
+      };
+
+      dispatch(
+        updateFormField({
+          ...formState,
+          section2: {
+            ...formState.section2,
+            suite_outside_policy: updateChecked,
+          },
+        })
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (!formState.section2.suite_outside_policy.isMainPlan) {
+      const updateChecked = {
+        ...formState.section2.suite_outside_policy,
+        isMainPlanGroup: {
+          isStaffManagement: false,
+          isMainPlanEducation: false,
+          isDigitalEducation: false,
+          isTravelSupport: false,
+          isLongTermStrategic: false,
+          isLongTermEnvironment: false,
+          isLongTermForManagement: false,
+          isInternalCommunication: false,
+        },
+      };
+
+      dispatch(
+        updateFormField({
+          ...formState,
+          section2: {
+            ...formState.section2,
+            suite_outside_policy: updateChecked,
+          },
+        })
+      );
+    }
+
+    if (!formState.section2.suite_outside_policy.isClosedGap) {
+      const updateChecked = {
+        ...formState.section2.suite_outside_policy,
+        isClosedGapGroup: {
+          isBetterVision: false,
+          isStrategicPlan: false,
+          isRiskManagementPlan: false,
+          isStakeHolderFocus: false,
+          isCustomerFocus: false,
+          isDigitalDevelopment: false,
+          isCapitalHumanManage: false,
+          isEducationManagement: false,
+          isInnovationManangement: false,
+          isInternalCheck: false,
+        },
+      };
+
+      dispatch(
+        updateFormField({
+          ...formState,
+          section2: {
+            ...formState.section2,
+            suite_outside_policy: updateChecked,
+          },
+        })
+      );
+    }
+  }, [
+    formState.section2.suite_outside_policy.isClosedGap,
+    formState.section2.suite_outside_policy.isMainPlan,
+  ]);
 
   return (
     <>
@@ -57,6 +196,7 @@ export default function TablePolicySuite({
                     className="form-check-input"
                     name="isFlagship"
                     checked={formState.section2.suite_outside_policy.isFlagship}
+                    disabled={formState.section2.suite_outside_policy.isNone}
                     type="checkbox"
                     id="flexCheckChecked"
                   />
@@ -72,46 +212,11 @@ export default function TablePolicySuite({
                     onChange={(e) => handleChangeField(e)}
                     className="form-check-input"
                     type="checkbox"
-                    name="isClosedGap"
-                    checked={
-                      formState.section2.suite_outside_policy.isClosedGap
-                    }
-                    id="flexCheckChecked"
-                  />
-                  <label
-                    style={{ marginLeft: "10px" }}
-                    className="form-check-label"
-                  >
-                    แผนปิดช่องว่าง (Gaps) ตามเกณฑ์ Enablers
-                  </label>
-                </td>
-              </tr>
-              <tr>
-                <td colSpan={2}>
-                  <input
-                    onChange={(e) => handleChangeField(e)}
-                    className="form-check-input"
-                    type="checkbox"
-                    name="isMainPlan"
-                    checked={formState.section2.suite_outside_policy.isMainPlan}
-                    id="flexCheckChecked"
-                  />
-                  <label
-                    style={{ marginLeft: "10px" }}
-                    className="form-check-label"
-                  >
-                    แผนแม่บท
-                  </label>
-                </td>
-                <td colSpan={2}>
-                  <input
-                    onChange={(e) => handleChangeField(e)}
-                    className="form-check-input"
-                    type="checkbox"
                     name="isCsrProcess"
                     checked={
                       formState.section2.suite_outside_policy.isCsrProcess
                     }
+                    disabled={formState.section2.suite_outside_policy.isNone}
                     id="flexCheckChecked"
                   />
                   <label
@@ -123,6 +228,453 @@ export default function TablePolicySuite({
                 </td>
               </tr>
               <tr>
+                <td colSpan={4}>
+                  <div>
+                    <input
+                      onChange={(e) => handleChangeField(e)}
+                      className="form-check-input"
+                      type="checkbox"
+                      name="isMainPlan"
+                      checked={
+                        formState.section2.suite_outside_policy.isMainPlan
+                      }
+                      disabled={formState.section2.suite_outside_policy.isNone}
+                      id="flexCheckChecked"
+                    />
+                    <label
+                      style={{ marginLeft: "10px" }}
+                      className="form-check-label"
+                    >
+                      แผนแม่บท
+                    </label>
+                  </div>
+                  <div className={`sub-selection ${!formState.section2.suite_outside_policy.isMainPlan ? 'hide' : ''}`}>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isStaffManagement
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isStaffManagement"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนบริหารและพัฒนาทรัพยากรบุคคล ททท.
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isMainPlanEducation
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isMainPlanEducation"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนแม่บทการบริหารจัดการความรู้ ททท.
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isDigitalEducation
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isDigitalEducation"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนปฏิบัติการดิจิทัลของ ททท.
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isTravelSupport
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isTravelSupport"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนแม่บทการเสริมสร้างนวัตกรรมทางการท่องเที่ยว ททท.
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isLongTermStrategic
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isLongTermStrategic"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนยุทธศาสตร์ด้านผู้มีส่วนได้ส่วนเสียระยะยาว
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isLongTermEnvironment
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isLongTermEnvironment"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <span
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนแม่บทระยะยาวและแผนปฏิบัติการประจำปีด้านการแสดงความรับผิดชอบต่อสังคมและสิ่งแวดล้อมในกระบวนการ
+                        (CSR in Process)
+                      </span>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isLongTermForManagement
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isLongTermForManagement"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนแม่บทระยะยาวด้านการกำกับดูแลกิจการที่ดี ททท. (CG)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isMainPlanGroup.isInternalCommunication
+                        }
+                        onChange={(e) => handleSubselect(e, "isMainPlanGroup")}
+                        name="isInternalCommunication"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isMainPlan
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        แผนแม่บทและแผนปฏิบัติการการสื่อสารภายในองค์กร
+                      </label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan={4}>
+                  <div>
+                    <input
+                      onChange={(e) => handleChangeField(e)}
+                      className="form-check-input"
+                      type="checkbox"
+                      name="isClosedGap"
+                      checked={
+                        formState.section2.suite_outside_policy.isClosedGap
+                      }
+                      disabled={formState.section2.suite_outside_policy.isNone}
+                      id="flexCheckChecked"
+                    />
+                    <label
+                      style={{ marginLeft: "10px" }}
+                      className="form-check-label"
+                    >
+                      แผนปิดช่องว่าง (Gaps) ตามเกณฑ์ Enablers
+                    </label>
+                  </div>
+                  <div className={`sub-selection ${!formState.section2.suite_outside_policy.isClosedGap ? 'hide' : ''}`}>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isBetterVision
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isBetterVision"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 1 การกำกับดูแลที่ดีและการนำองค์กร (CG)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isStrategicPlan
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isStrategicPlan"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 2 การวางแผนเชิงกลยุทธ์ (SP)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isRiskManagementPlan
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isRiskManagementPlan"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 3 การบริหารความเสี่ยง และควบคุมภายใน (RM & IC)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isStakeHolderFocus
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isStakeHolderFocus"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 4.1 การมุ่งเน้นผู้มีส่วนได้ส่วนเสีย (SM)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isCustomerFocus
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isCustomerFocus"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 4.2 การมุ่งเน้นลูกค้า (CM)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isDigitalDevelopment
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isDigitalDevelopment"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 5 การพัฒนาเทคโนโลยีดิจิทัล (DT)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isCapitalHumanManage
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isCapitalHumanManage"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 6 การบริหารทุนมนุษย์ (HCM)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isEducationManagement
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isEducationManagement"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 7.1 การจัดการความรู้ (KM)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isInnovationManangement
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isInnovationManangement"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 7.2 การจัดการนวัตกรรม (IM)
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        checked={
+                          formState.section2.suite_outside_policy
+                            .isClosedGapGroup.isInternalCheck
+                        }
+                        onChange={(e) => handleSubselect(e, "isClosedGapGroup")}
+                        name="isInternalCheck"
+                        disabled={
+                          !formState.section2.suite_outside_policy.isClosedGap
+                        }
+                        className="form-check-input"
+                        type="checkbox"
+                        id="flexCheckChecked"
+                      />
+                      <label
+                        style={{ marginLeft: "10px" }}
+                        className="form-check-label"
+                      >
+                        ด้านที่ 8 การตรวจสอบภายใน (IA)
+                      </label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
                 <td colSpan={2}>
                   <input
                     onChange={(e) => handleChangeField(e)}
@@ -130,6 +682,7 @@ export default function TablePolicySuite({
                     type="checkbox"
                     name="isSla"
                     checked={formState.section2.suite_outside_policy.isSla}
+                    disabled={formState.section2.suite_outside_policy.isNone}
                     id="flexCheckChecked"
                   />
                   <label
@@ -148,6 +701,7 @@ export default function TablePolicySuite({
                     checked={
                       formState.section2.suite_outside_policy.isPAIndicator
                     }
+                    disabled={formState.section2.suite_outside_policy.isNone}
                     id="flexCheckChecked"
                   />
                   <label

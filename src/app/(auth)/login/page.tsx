@@ -1,23 +1,27 @@
 "use client";
 
-import { useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { Button, Card } from "react-bootstrap";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { IUserLogin } from "@/interfaces";
-import { useRequestLoginMutation } from "@/redux/services";
+import {
+  useFetchProfileQuery,
+  useRequestLoginMutation,
+} from "@/redux/services";
 import { CustomLoader } from "@/components";
 import { TextField } from "@/components/Forms";
 import { EnvConfig, PageConfig, TextConfig } from "@/config";
+import { useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./styles.module.scss";
 
 export default function Page() {
+  const pathname = usePathname();
   const { push } = useRouter();
-  const [requestLogin, { data, isLoading, error, isSuccess, reset }] =
+  const [requestLogin, { isLoading, isSuccess, error, reset }] =
     useRequestLoginMutation();
-
+  const { refetch } = useFetchProfileQuery();
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .max(128)
@@ -33,16 +37,12 @@ export default function Page() {
   };
 
   useEffect(() => {
-    if (isSuccess && data?.accessToken) {
-      localStorage.setItem(TextConfig.accessToken, data.accessToken);
-      window.location.reload();
-    } else if (
-      EnvConfig.isNoAuth ||
-      localStorage.getItem(TextConfig.accessToken)
-    ) {
+    if (!EnvConfig.isNoAuth && pathname === PageConfig.login && isSuccess) {
+      // refetch to update data
+      refetch();
       push(PageConfig.home);
     }
-  }, [data, isSuccess, push]);
+  }, [isSuccess, pathname, push, refetch]);
 
   if (isLoading) {
     return <CustomLoader />;
@@ -113,6 +113,9 @@ export default function Page() {
       </Card>
       <div className="text-danger text-center py-3">
         {TextConfig.loginWarning}
+      </div>
+      <div className="text-danger text-center py-3">
+        {TextConfig.appVersion}
       </div>
     </div>
   );

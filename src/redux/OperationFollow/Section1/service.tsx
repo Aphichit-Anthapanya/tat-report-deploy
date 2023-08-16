@@ -3,7 +3,7 @@ import {
   setSection1Value,
   fetchMasterDataSection1,
 } from "../reducer";
-import { sampleData } from "../../SampleData/sample_data";
+import { useGetMainPlanDataQuery, useGetStrategyGroupDataQuery } from "@/redux/services/master-data";
 
 export const fetchSection1dataService = async (
   id: number,
@@ -24,6 +24,7 @@ export const fetchSection1dataService = async (
 export const setSection1ByName = async (
   name: string,
   value: string,
+  mode: number,
   dispatchs: any
 ) => {
   try {
@@ -31,6 +32,7 @@ export const setSection1ByName = async (
       setSection1Value({
         name: name,
         value: value,
+        mode: mode
       })
     );
   } catch (error) {
@@ -77,3 +79,13 @@ export const fetchMasterDataSection1Service = async (dispatchs: any) => {
     console.error("Error fetching data:", error);
   }
 };
+
+export const getSrategicGroupService = (params: any) => {
+
+  return useGetStrategyGroupDataQuery(params);
+
+}
+
+export const getMainPlanService = (params: any) => {
+  return useGetMainPlanDataQuery(params);
+}

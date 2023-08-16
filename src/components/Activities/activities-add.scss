@@ -321,90 +321,36 @@ td {
   border-color: white !important;
 }
 
-.content-search-box {
-  min-height: 60px;
+.dropdown-menu.show {
+  height: 300px;
+  width: 617px;
+  overflow-y: scroll;
 }
 
-.content-search-box > .box{
-  margin-left: 10px;
-}
-
-.years{
-  min-height: 100px;
-  width: 100%;
-}
-
-.years > .box {
-  margin-right: 10px;
-}
-
-
-.search-wrapper-section {
-  width: 100%;
+.dropdown-search-table {
   background-color: white;
-  min-height: 100px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  position: absolute;
+  min-width: 339px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d5d3d3;
+  height: 178px;
+  overflow: scroll;
+  z-index: 2;
 }
 
-.check-box {
-  margin-right: 10px;
-  margin-left: 10px;
+.dropdown-search-selection {
+  cursor: pointer;
+  padding: 6px 1px 8px 17px;
 }
 
-.sub-check-box{
-  padding-left: 20px;
+.dropdown-search-selection:hover {
+  background-color: #e7e3e3;
 }
 
-.box > .filter-field {
-  width: 400px;
-}
-
-
-.content-search-box > .boxs{
-  margin-left: 10px;
-}
-
-.boxs > .filter-field {
-  width: 200px;
-}
-
-.add-infor-box {
-  background-color: #f6f6f9;
-  width: 700px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 20px;
-}
-
-.sub-box {
-  margin: 5px;
-}
-
-.purchase-report > .filter-field {
-  width: 200px;
-  margin-left: 10px;
-}
-
-.filter-field-index {
-  width: 500px;
-  margin-left: 10px;
-}
-
-.add-action-box > .filter-field{
-  margin-left: 10px;
-  width: 700px;
-}
-
-.add-action-space {
-  min-width: 0px;
-  margin-left: auto;
-  margin-right: auto;
+.table {
+  min-width: none;
+  margin-top: 20px;
 }
 
 .table > thead > tr > th > .process{
@@ -478,9 +424,6 @@ td {
 .table > tbody > tr > th > .wd-50 {
   min-width: 50px;
 }
-.table > tbody > tr > th > .wd-80 {
-  min-width: 80px;
-}
 
 .table > tbody > tr > th > .wd-30 {
   min-width: 30px;
@@ -496,10 +439,6 @@ td {
 
 .table > tbody > tr > th > .wd-300 {
   min-width: 300px;
-}
-
-.table > tbody > tr > th > .wd-350 {
-  min-width: 350px;
 }
 
 .table > tbody > tr > th > .wd-100 {
@@ -522,17 +461,10 @@ td {
   min-width: 180px;
 }
 
-.table > tbody > tr > th > .wd-400 {
-  min-width: 400px;
-}
-
 .table > tbody > tr > th > .bg-1 {
   background: #000;
 }
 
-.wdth-200 {
-  min-width: 300px;
-}
 
 .normalText {
   font-weight: normal;
@@ -544,29 +476,4 @@ td {
 
 .pr-2 {
   padding-right: 10px;
-}
-
-.pie-chart-box > .filter-field {
-  width: 400px;
-}
-
-.pie-chart {
-  min-width: 480px;
-  min-height: 480px;
-}
-
-.bar-chart-quarter {
-  min-width: 600px;
-}
-
-.bar-chart-month {
-  min-width: 800px;
-}
-
-.filter-field-2 {
-  min-width: 200px;
-}
-
-.filter-field-3 {
-  min-width: 700px;
 }

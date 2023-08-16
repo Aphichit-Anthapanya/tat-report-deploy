@@ -8,8 +8,6 @@ export const fetchSection4dataService = async (id: number, dispatchs: any) => {
     // const data = await response.json();
     const data = sampleData.operationFollowForm.section4;
 
-    console.log(data);
-
     // Dispatch the action to update Redux store
     dispatchs(updateSection4(data));
   } catch (error) {

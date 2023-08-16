@@ -8,6 +8,9 @@ import { saveCurrentForm } from "@/redux/OperationFollow/service";
 import "./activities-add.scss";
 import { useParams, useRouter } from "next/navigation";
 import { id } from "date-fns/locale";
+import { EnvConfig } from "@/config";
+import { approvalSendService, useApprovalSendServiceMutation, useCreateOperationFollowFormMutation } from "@/redux/services/operation-follow-api";
+import { useGetClosedGapQuery, useGetConsistencyMasterQuery, useGetConsistencyPolicyQuery, useGetStakeHolderFiveQuery, useGetStakeHolderFourQuery, useGetStakeHolderOneQuery, useGetStakeHolderThreeQuery, useGetStakeHolderTwoQuery } from "@/redux/services/master-data";
 
 interface ActivityProps {
   onChangeAddActivity: () => void;
@@ -42,8 +45,19 @@ export default function Activities({ onChangeAddActivity }: ActivityProps) {
   const router = useRouter();
   const params = useParams();
 
-  const handleSubmitForm = () => {
-    saveCurrentForm(dispatch, formState);
+  const [createOperationFollowForm, { isLoading, isError }] = useCreateOperationFollowFormMutation();
+  const [sendApprovalService] = useApprovalSendServiceMutation()
+  const { data: consistencyMasterData } = useGetConsistencyMasterQuery({})
+  const { data: consistencyPolicyData } = useGetConsistencyPolicyQuery({})
+  const { data: gapsData } = useGetClosedGapQuery({})
+  const { data: stakeHolderOneData } = useGetStakeHolderOneQuery({})
+  const { data: stakeHolderTwoData } = useGetStakeHolderTwoQuery({})
+  const { data: stakeHolderThreeData } = useGetStakeHolderThreeQuery({})
+  const { data: stakeHolderFourData } = useGetStakeHolderFourQuery({})
+  const { data: stakeHolderFiveData } = useGetStakeHolderFiveQuery({})
+
+  const handleSubmitForm = async () => {
+    sendApprovalService(formState.id)
     router.push("/operation-follow");
   };
 
@@ -138,7 +152,7 @@ export default function Activities({ onChangeAddActivity }: ActivityProps) {
                         className="btn btn-primary"
                         type="submit"
                       >
-                        <i className="bi bi-file-earmark-plus"></i> อนุมัติแผน
+                        <i className="bi bi-file-earmark-plus"></i> ส่งอนุมัติแผน
                       </button>
                     </>
                   )}
@@ -155,13 +169,16 @@ export default function Activities({ onChangeAddActivity }: ActivityProps) {
                   </button>
                 </>
               )}
-              <button
+
+              {EnvConfig.isTesting &&
+                <button
                 onClick={handleSubmitForm}
                 className="btn btn-primary"
                 type="submit"
               >
-                <i className="bi bi-file-earmark-plus"></i> อนุมัติแผน
+                <i className="bi bi-file-earmark-plus"></i> ส่งอนุมัติแผน
               </button>
+              }
             </div>
           </div>
         </div>

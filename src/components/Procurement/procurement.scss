@@ -1,0 +1,186 @@
+body {
+  background-color: #a49f9f21;
+}
+
+.formInner {
+  padding: 24px;
+  background-color: #a49f9f21;
+  border-radius: 6px;
+}
+
+.divDisabled {
+  background-color: #e9ecef;
+  cursor: context-menu;
+  height: 38.21px !important;
+}
+
+.flow-section-zone {
+  width: 114px;
+}
+
+.flow-indicator-wrapper {
+  margin-top: 24px;
+  margin-bottom: 3px;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  background: #e3e4e4;
+  color: #666687;
+  text-align: center;
+  font-weight: bold !important;
+  font: 17px Arial, sans-serif;
+  margin: auto;
+  margin-bottom: 8px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.circle.active {
+  background: #1967b2;
+  color: #ffff;
+}
+
+.section-zone-text {
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.flow-line-zone {
+  min-width: 100px;
+  border-width: 15px !important;
+  margin-left: -27px;
+  margin-right: -27px;
+}
+
+.flow-line-zone > hr {
+  border-width: 3px;
+}
+
+.form-wrapper-section {
+  width: 100%;
+  background-color: white;
+  min-height: 80px;
+  margin-top: 22px;
+  margin-bottom: 30px;
+  padding: 23px;
+}
+
+.btn-primary {
+  font-weight: normal;
+  background-color: #1967b2 !important;
+}
+.btn-danger {
+  font-weight: normal;
+  background-color: #dc3545 !important;
+  color: #ffffff;
+  border-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #ca2839 !important;
+  border-color: #ca2839;
+}
+.arrowChangeYear {
+  cursor: pointer;
+  font-size: 22px;
+}
+.titleFiscalYear {
+  vertical-align: middle;
+  width: 280px;
+  height: 70px;
+}
+.monthFiscalYear {
+  width: 70px;
+  height: 70px;
+  vertical-align: middle;
+  text-align: center;
+}
+.itemMonthFiscalYear {
+  width: 70px;
+  height: 70px;
+}
+.itemMonthFiscalYear.hasData {
+  background-color: #1967b2;
+}
+.table-fixed {
+  width: 1119px;
+}
+.isRequired {
+  color: #ef1f28;
+}
+
+.isError {
+  margin-top: 6px;
+  color: #ef1f28;
+  font-size: 12px;
+}
+.customDatepicker {
+  cursor: pointer !important;
+}
+
+.td-nowrap {
+  white-space: nowrap;
+}
+// .search_table {
+//   table-layout: fixed;
+//   width: 100%;
+// }
+// td,
+// th {
+//   vertical-align: top;
+//   border-top: 1px solid #ccc;
+//   padding: 10px;
+//   width: 100px;
+// }
+// .fix_1 {
+//   position: absolute;
+//   left: 0;
+//   width: 170px;
+// }
+// .fix_2 {
+//   position: absolute;
+//   left: 170px;
+//   width: 170px;
+// }
+// .fix_3 {
+//   position: absolute;
+//   left: 340px;
+//   width: 150px;
+// }
+// .fix_4 {
+//   position: absolute;
+//   left: 490px;
+//   width: 110px;
+// }
+// .fix_5 {
+//   position: absolute;
+//   left: 600px;
+//   width: 180px;
+// }
+// .outer {
+//   position: relative;
+// }
+// .inner {
+//   overflow-x: scroll;
+//   overflow-y: visible;
+//   width: 300px;
+//   margin-left: 780px;
+// }
+
+.search-table-icon {
+  margin-right: 8px;
+  padding: 0px 6px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  cursor: pointer;
+  color: #212529;
+}
+
+.search-table-icon:hover {
+  background-color: #fcfcfc;
+  color: #1967b2;
+}

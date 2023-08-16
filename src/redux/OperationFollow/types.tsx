@@ -11,7 +11,7 @@ export interface ActiVityForm {
 }
 
 export interface FormState {
-  id: number;
+  id: string;
   section1: {
     yearBudget: string;
     budgetSource: string;
@@ -64,6 +64,28 @@ export interface FormState {
       isClosedGap: boolean;
       isNone: boolean;
       isCsrProcess: boolean;
+      isMainPlanGroup: {
+        isStaffManagement: boolean;
+        isMainPlanEducation: boolean;
+        isDigitalEducation: boolean;
+        isTravelSupport: boolean;
+        isLongTermStrategic: boolean;
+        isLongTermEnvironment: boolean;
+        isLongTermForManagement: boolean;
+        isInternalCommunication: boolean;
+      };
+      isClosedGapGroup: {
+        isBetterVision: boolean;
+        isStrategicPlan: boolean;
+        isRiskManagementPlan: boolean;
+        isStakeHolderFocus: boolean;
+        isCustomerFocus: boolean;
+        isDigitalDevelopment: boolean;
+        isCapitalHumanManage: boolean;
+        isEducationManagement: boolean;
+        isInnovationManangement: boolean;
+        isInternalCheck: boolean;
+      };
     };
     stakeHolder_Group: {
       isTatStaff: boolean;
@@ -72,6 +94,79 @@ export interface FormState {
       isSender: boolean;
       isProviderCustomer: boolean;
       isWorkingUnit: boolean;
+      isGovernmentAuditGroup: {
+        isMinistryFinance: boolean;
+        isPolicyOffice: boolean;
+        isTourismAndSport: boolean;
+        isStateAudit: boolean;
+        isOther: boolean;
+        isOtherText: string;
+      };
+      isProviderCustomerGroup: {
+        isDomestic: boolean;
+        isForeigner: boolean;
+      };
+      isCustomerGroup: {
+        isTourBusiness: boolean;
+        isOnlineTravelAgency: boolean;
+        isTravelAgency: boolean;
+        isHotelBusiness: boolean;
+        isLogisticBusiness: boolean;
+        isRestaurantBusiness: boolean;
+        isTourAreaBusiness: boolean;
+        isOtherBusiness: boolean;
+        isOtherText: string;
+      };
+      isSenderGroup: {
+        isGovernmentSender: boolean;
+        isGovernmentSenderGroup: {
+          isMinistryOfInterior: boolean;
+          isMinistryOfHealth: boolean;
+          isMinistryOfTour: boolean;
+          isMinistryOfForeign: boolean;
+          isMinistryOfTourAndSport: boolean;
+          isOther: boolean;
+          isOtherText: string;
+        };
+        isPrivateSender: boolean;
+        isPrivateSenderGroup: {
+          isEducationIns: boolean;
+          isResearchIns: boolean;
+          isConsultIns: boolean;
+          isOther: boolean;
+          isOtherText: string;
+        };
+      };
+      isWorkingUnitGroup: {
+        isSpecialAreaManagement: boolean;
+        isCofferenceOffice: boolean;
+        isTourismAsso: boolean;
+        isTourismAssoGroup: {
+          isAssoOfguide: boolean;
+          isAssoOfHotel: boolean;
+          isAssoOfDomesticRestaurant: boolean;
+          isAssoOfRestaurant: boolean;
+          isAssoOfDomesticTravel: boolean;
+          isAssoOfCommerce: boolean;
+          isAssoOfIndustry: boolean;
+          isAssoOfRetailer: boolean;
+          isAssoOfDomesticTourism: boolean;
+          isAssoOfTTA: boolean;
+          isPacificTravel: boolean;
+          isResponsibleTour: boolean;
+          isOtherAsso: boolean;
+          isOtherAssoText: string;
+        };
+        isMassMediaOnlineOfline: boolean;
+        isAot: boolean;
+        isSport: boolean;
+        isTourismAndSport: boolean;
+        isLocalAdmin: boolean;
+        isProvinceAdmin: boolean;
+        isOther: boolean;
+        isOtherText: string;
+      };
+      isNone: boolean;
     };
   };
   section3: {
@@ -82,6 +177,7 @@ export interface FormState {
       objective3: string;
       objective4: string;
     };
+    project_objective2: Array<string>;
     list_operation_area: Array<{
       indx: string;
       country_area: string;
@@ -133,7 +229,7 @@ export interface FormState {
     total_act_budget: string;
   }>;
   activityForm: {
-    id: number;
+    id: string;
     budget: string;
     catname: string;
     activity_type: string;
@@ -160,7 +256,7 @@ export interface FormState {
     }>;
   };
   operationFollowList: Array<{
-    id: number;
+    id: string;
     idx: string;
     status: string;
     project_status: string;
@@ -182,6 +278,8 @@ export interface FormState {
       }>;
     };
   };
+
+  mode: number;
 
   operationReport: {
     section1: {
@@ -254,6 +352,7 @@ export interface FormState {
         objective3: string;
         objective4: string;
       };
+      project_objective2: Array<string>
       list_operation_area: Array<{
         indx: string;
         country_area: string;
@@ -305,7 +404,7 @@ export interface FormState {
       total_act_budget: string;
     }>;
     activityForm: {
-      id: number;
+      id: string;
       budget: string;
       catname: string;
       activity_type: string;
@@ -332,6 +431,7 @@ export interface FormState {
       }>;
     };
   };
+  draft_section: string;
 }
 
 export interface Section1 {
@@ -387,6 +487,28 @@ export interface Section2 {
     isClosedGap: boolean;
     isNone: boolean;
     isCsrProcess: boolean;
+    isMainPlanGroup: {
+      isStaffManagement: boolean;
+      isMainPlanEducation: boolean;
+      isDigitalEducation: boolean;
+      isTravelSupport: boolean;
+      isLongTermStrategic: boolean;
+      isLongTermEnvironment: boolean;
+      isLongTermForManagement: boolean;
+      isInternalCommunication: boolean;
+    };
+    isClosedGapGroup: {
+      isBetterVision: boolean;
+      isStrategicPlan: boolean;
+      isRiskManagementPlan: boolean;
+      isStakeHolderFocus: boolean;
+      isCustomerFocus: boolean;
+      isDigitalDevelopment: boolean;
+      isCapitalHumanManage: boolean;
+      isEducationManagement: boolean;
+      isInnovationManangement: boolean;
+      isInternalCheck: boolean;
+    };
   };
   stakeHolder_Group: {
     isTatStaff: boolean;
@@ -395,6 +517,79 @@ export interface Section2 {
     isSender: boolean;
     isProviderCustomer: boolean;
     isWorkingUnit: boolean;
+    isGovernmentAuditGroup: {
+      isMinistryFinance: boolean;
+      isPolicyOffice: boolean;
+      isTourismAndSport: boolean;
+      isStateAudit: boolean;
+      isOther: boolean;
+      isOtherText: string;
+    };
+    isProviderCustomerGroup: {
+      isDomestic: boolean;
+      isForeigner: boolean;
+    };
+    isCustomerGroup: {
+      isTourBusiness: boolean;
+      isOnlineTravelAgency: boolean;
+      isTravelAgency: boolean;
+      isHotelBusiness: boolean;
+      isLogisticBusiness: boolean;
+      isRestaurantBusiness: boolean;
+      isTourAreaBusiness: boolean;
+      isOtherBusiness: boolean;
+      isOtherText: string;
+    };
+    isSenderGroup: {
+      isGovernmentSender: boolean;
+      isGovernmentSenderGroup: {
+        isMinistryOfInterior: boolean;
+        isMinistryOfHealth: boolean;
+        isMinistryOfTour: boolean;
+        isMinistryOfForeign: boolean;
+        isMinistryOfTourAndSport: boolean;
+        isOther: boolean;
+        isOtherText: string;
+      };
+      isPrivateSender: boolean;
+      isPrivateSenderGroup: {
+        isEducationIns: boolean;
+        isResearchIns: boolean;
+        isConsultIns: boolean;
+        isOther: boolean;
+        isOtherText: string;
+      };
+    };
+    isWorkingUnitGroup: {
+      isSpecialAreaManagement: boolean;
+      isCofferenceOffice: boolean;
+      isTourismAsso: boolean;
+      isTourismAssoGroup: {
+        isAssoOfguide: boolean;
+        isAssoOfHotel: boolean;
+        isAssoOfDomesticRestaurant: boolean;
+        isAssoOfRestaurant: boolean;
+        isAssoOfDomesticTravel: boolean;
+        isAssoOfCommerce: boolean;
+        isAssoOfIndustry: boolean;
+        isAssoOfRetailer: boolean;
+        isAssoOfDomesticTourism: boolean;
+        isAssoOfTTA: boolean;
+        isPacificTravel: boolean;
+        isResponsibleTour: boolean;
+        isOtherAsso: boolean;
+        isOtherAssoText: string;
+      };
+      isMassMediaOnlineOfline: boolean;
+      isAot: boolean;
+      isSport: boolean;
+      isTourismAndSport: boolean;
+      isLocalAdmin: boolean;
+      isProvinceAdmin: boolean;
+      isOther: boolean;
+      isOtherText: string;
+    };
+    isNone: boolean;
   };
 }
 
@@ -406,6 +601,7 @@ export interface Section3 {
     objective3: string;
     objective4: string;
   };
+  project_objective2: Array<string>
   list_operation_area: Array<{
     indx: string;
     country_area: string;
@@ -465,7 +661,7 @@ export interface Activities {
 export interface SampleData {
   data: any;
   dataTable: {
-    id: number;
+    id: string;
     idx: string;
     status: string;
     project_status: string;

@@ -54,6 +54,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>คน</div>
@@ -69,6 +73,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>บาท</div>
@@ -123,6 +131,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>บาท</div>
@@ -143,6 +155,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>คน</div>
@@ -161,6 +177,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>บาท/คน</div>
@@ -179,6 +199,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>วัน</div>
@@ -196,6 +220,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>บาท</div>
@@ -221,6 +249,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>คน</div>
@@ -239,6 +271,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>เท่า</div>
@@ -257,6 +293,10 @@ export default function ImpressionForm() {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder=""
+                  min="0"
+                  onInput={(e: any) => {
+                    e.target.value = Math.abs(e.target.value);
+                  }}
                 />
               </div>
               <div>เท่า</div>

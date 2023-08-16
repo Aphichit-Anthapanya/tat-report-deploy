@@ -1,21 +1,36 @@
 import { FormState } from "@/redux/OperationFollow/types";
 import react, { useEffect, useState } from "react";
 import { initialState } from "../initial_state";
+import CommentModal from "../Modal/CommentModal";
+import { checkUserRoleService } from "@/redux/OperationFollow/service";
 
 interface TableQuarterProps {
-  formData: FormState;
+  formData: any;
+  setFormData: (val: string) => void;
   isEditStatus: boolean;
+  handleOpenModal: (val: string, section: number) => void;
 }
 
 export default function TableQuarterSummary(props: TableQuarterProps) {
-  const [formData, setFormData] = useState<FormState>(initialState);
+  //const [formData, setFormData] = useState<any>(initialState);
+  const formData = props.formData;
+  const setFormData = props.setFormData;
+
   const [isEditStatus, setIsEditStatus] = useState(false);
+  const [isOpenCommentModal, setOpenCommentModal] = useState(false);
+  const [commentName, setCommentName] = useState("");
+  const [commentSection, setCommentSection] = useState(0);
+
+  const handleCloseComment = () => {
+    setOpenCommentModal(false);
+  };
+
+  const role = checkUserRoleService();
 
   const handleChangeTableQuarter = (e: any, quarter: string) => {
     const { name, value } = e.target;
 
     if (quarter === "quarter1") {
-      console.log("come hter");
       setFormData({
         ...formData,
         section2: {
@@ -84,7 +99,6 @@ export default function TableQuarterSummary(props: TableQuarterProps) {
     const { name, value } = e.target;
 
     if (quarter === "quarter1") {
-      console.log("come hter");
       setFormData({
         ...formData,
         section2: {
@@ -149,17 +163,41 @@ export default function TableQuarterSummary(props: TableQuarterProps) {
     }
   };
 
-  const formattedValue = (value: string) => {
-    if (value === "" || Number.isNaN(value)) {
+  const formattedValue = (value: number) => {
+    if (value === 0 || Number.isNaN(value)) {
       return 0;
     } else {
-      value = value.replace(",", "");
-      const result = Number(value).toLocaleString("en-US", {
+      let _value = (value+'').replace(",", "");
+      const result = Number(_value).toLocaleString("en-US", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       });
       return result;
     }
+  };
+
+  const handleOpenModal = () => {
+    props.handleOpenModal("quarter", 2);
+  };
+
+  const getMonthTotal = () => {
+    return (
+      parseFloat(formData.section2?.quarter?.quarter1?.month1 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter3?.month1 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter1?.month2 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter3?.month2 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter1?.month3 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter3?.month3 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter2?.month1 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter4?.month1 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter2?.month2 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter4?.month2 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter2?.month3 || 0) +
+      parseFloat(formData.section2?.quarter?.quarter4?.month3 || 0)
+    ).toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   };
 
   useEffect(() => {
@@ -173,7 +211,23 @@ export default function TableQuarterSummary(props: TableQuarterProps) {
   return (
     <>
       <div className="table-summary-header">
-        <span>งบประมาณแยกตามรายเดือน</span>
+        <span>
+          งบประมาณแยกตามรายเดือน
+          {role == "admin" && (
+            <i
+              onClick={() => handleOpenModal()}
+              className="bi bi-pencil-fill comment-icon"
+            ></i>
+          )}
+          {role == "user" && (
+            <i
+              onClick={() => handleOpenModal()}
+              className={`bi bi-exclamation-circle-fill commentex-icon ${
+                formData.section2.comment.quarter == "" ? "hide" : ""
+              }`}
+            ></i>
+          )}
+        </span>
       </div>
       <div className="table-summary-content">
         <table className="table">
@@ -486,7 +540,7 @@ export default function TableQuarterSummary(props: TableQuarterProps) {
         </table>
         <div className="summary-monthly">
           <span>รวม</span>
-          <span className="summary-result">0.0</span>
+          <span className="summary-result">{getMonthTotal()}</span>
           <span>บาท</span>
         </div>
       </div>

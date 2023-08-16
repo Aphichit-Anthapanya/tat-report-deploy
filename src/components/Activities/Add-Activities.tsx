@@ -25,8 +25,8 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
   const [formData, setFormData] = useState({
     budget: "ในแผน",
     catname: "",
-    activity_type: "",
-    activity_order: "",
+    activity_type: "ในแผน",
+    activity_order: formState.activitiesList.length + 1 + "",
     activity_name: "",
     activity_description: "",
     activity_shared: "",
@@ -39,11 +39,6 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
     {
       name: "catname",
       alias: "หมวดกิจกรรม",
-      isValid: true,
-    },
-    {
-      name: "activity_type",
-      alias: "ประเภทกิจกรรม",
       isValid: true,
     },
     {
@@ -161,10 +156,12 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
       <div className="d-flex form-group">
         <div className="form-field-label">
           <label>
-            งบประมาณโครงการ (บาท)<span style={{ color: "red" }}> *</span>
+            งบประมาณกิจกรรม (บาท)<span style={{ color: "red" }}> *</span>
           </label>
         </div>
-        <div className="form-field-fieldzone">{formData.budget}</div>
+        <div className="form-field-fieldzone">
+          <input className="form-control" type="number" />
+        </div>
       </div>
       <div className="d-flex form-group">
         <div className="form-field-label">
@@ -175,6 +172,8 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
         <div className="d-flex flex-column form-field-fieldzone">
           <div className="">
             <input
+              style={{ width: "69px", textAlign: "center" }}
+              disabled={true}
               onChange={(e) => handleChangeField(e)}
               value={formData.activity_order}
               name="activity_order"
@@ -185,10 +184,10 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
             />
           </div>
           <div>
-            {validationState[2].isValid == false && (
+            {validationState[1].isValid == false && (
               <div className="form-field-fieldzone invalid-text">
                 <span style={{ color: "red" }}>
-                  โปรดกรอกข้อมูล{validationState[2].alias}
+                  โปรดกรอกข้อมูล{validationState[1].alias}
                 </span>
               </div>
             )}
@@ -213,10 +212,10 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
             />
           </div>
           <div>
-            {validationState[3].isValid == false && (
+            {validationState[2].isValid == false && (
               <div className="form-field-fieldzone invalid-text">
                 <span style={{ color: "red" }}>
-                  โปรดกรอกข้อมูล{validationState[3].alias}
+                  โปรดกรอกข้อมูล{validationState[2].alias}
                 </span>
               </div>
             )}
@@ -259,23 +258,26 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
         </div>
         <div className="d-flex flex-column form-field-fieldzone">
           <div className="">
-            <input
-              type="text"
+            <select
+              defaultValue={"ในแผน"}
               onChange={(e) => handleChangeField(e)}
-              value={formData.activity_type}
               name="activity_type"
-              className="form-control"
-              id="exampleFormControlTextarea1"
-            />
+              value={formData.activity_type}
+              className="form-select"
+              aria-label="Default select example"
+            >
+              <option value="ในแผน">ในแผน</option>
+              <option value="นอกแผน">นอกแผน</option>
+            </select>
           </div>
           <div>
-            {validationState[1].isValid == false && (
+            {/* {validationState[1].isValid == false && (
               <div className="form-field-fieldzone invalid-text">
                 <span style={{ color: "red" }}>
                   โปรดกรอกข้อมูล{validationState[1].alias}
                 </span>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
@@ -295,9 +297,13 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
               id="exampleFormControlTextarea1"
               rows={2}
             ></textarea>
+            <div className="text-area-control">
+              จำนวนตัวอักษรไม่เกิน 4,000 คำ{" "}
+              {formData.activity_description.length}/4000
+            </div>
           </div>
           <div>
-            {validationState[9].isValid == false && (
+            {validationState[9]?.isValid == false && (
               <div className="form-field-fieldzone invalid-text">
                 <span style={{ color: "red" }}>
                   โปรดกรอกข้อมูล{validationState[9].alias}
@@ -341,10 +347,13 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
           <div className="d-flex">
             <div className="">
               <input
+                onInput={(e: any) => {
+                  e.target.value = Math.abs(e.target.value);
+                }}
                 onChange={(e) => handleChangeField(e)}
                 value={formData.activity_shared_by_project}
                 name="activity_shared_by_project"
-                type="text"
+                type="number"
                 className="form-control"
                 id="exampleFormControlInput1"
                 placeholder=""
@@ -386,10 +395,10 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
                 placeholder=""
               />
             </div>
-            <div style={{ position: "relative", top: "10px", left: "10px" }}>
+            {/* <div style={{ position: "relative", top: "10px", left: "10px" }}>
               {" "}
               (แผน)
-            </div>
+            </div> */}
           </div>
           <div>
             {validationState[5].isValid == false && (
@@ -421,10 +430,10 @@ export default function AddActivities({ onChangeAddActivity }: ActivityProps) {
                 placeholder=""
               />
             </div>
-            <div style={{ position: "relative", top: "10px", left: "10px" }}>
+            {/* <div style={{ position: "relative", top: "10px", left: "10px" }}>
               {" "}
               (แผน)
-            </div>
+            </div> */}
           </div>
           <div>
             {validationState[6].isValid == false && (

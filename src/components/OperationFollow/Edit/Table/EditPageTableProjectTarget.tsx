@@ -2,19 +2,29 @@ import { FormState } from "@/redux/OperationFollow/types";
 import react, { useEffect, useState } from "react";
 import { initialState } from "../initial_state";
 import React from "react";
+import { checkUserRoleService } from "@/redux/OperationFollow/service";
+import DropdownSearch2 from "@/components/OperationFollow/Table/DropdownSearch2";
+import { projectTargetService } from "@/redux/OperationFollow/Section3/service";
 
 interface EditTableProjectTargetProps {
-  formData: FormState;
+  formData: any;
+  setFormData: (val:any) => void
   isEditStatus: boolean;
+  handleOpenModal: (val:string,section: number) => void;
 }
 
 export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
-  const [formData, setFormData] = useState<FormState>(initialState);
+  const formData = props.formData
+  const setFormData = props.setFormData
+  //const [formData, setFormData] = useState<any>(initialState);
   const [isEditStatus, setIsEditStatus] = useState(false);
   const [addField, setAddField] = useState({
     indx: "",
     target_name: "",
   });
+  const { data: projectTargetData, isLoading: projectTargetLoading} = projectTargetService()
+
+  const role = checkUserRoleService();
 
   const handleAddFormData = () => {
     const newData = {
@@ -63,18 +73,47 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
     });
   };
 
+  const handleOpenModal = () => {
+    props.handleOpenModal('project_target',3)
+  }
+
+  const handleSelectTargetName = (item: string) => {
+    console.log(item)
+    setAddField({
+      ...addField,
+      target_name: item
+    });
+  }
+
+
+  function mergeLists(listOfLists: any[]): any[] {
+    if(!projectTargetLoading){
+      const mergedList = listOfLists?.reduce((accumulator, currentList) => {
+        return accumulator.concat(currentList);
+      }, []);
+    
+      return mergedList; 
+    }else{
+      return []
+    }
+  }
+
+  function getTargetNameById(targetGroupId: string) {
+    const item = projectTargetData?.find((item: { targetGroupId: string }) => item.targetGroupId == targetGroupId);
+    return item ? item.targetGroupNameTh : null;
+  }
+
   useEffect(() => {
     setIsEditStatus(props.isEditStatus);
   }, [props.isEditStatus]);
 
-  useEffect(() => {
-    setFormData(props.formData);
-  }, [props.formData]);
-
   return (
     <>
       <div className="table-summary-header">
-        <span>กลุ่มเป้าหมายระดับโครงการ2</span>
+        <span>กลุ่มเป้าหมายระดับโครงการ
+          {role == 'admin' && <i onClick={() => handleOpenModal()} className="bi bi-pencil-fill comment-icon"></i>}
+          {role == 'user' && <i onClick={() => handleOpenModal()} className={`bi bi-exclamation-circle-fill commentex-icon ${formData.section3.comment.project_target == '' ? 'hide' : ''}`} ></i>}
+        </span>
       </div>
       <div className="table-summary-content">
         <table className="table">
@@ -90,7 +129,7 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
             </tr>
           </thead>
           <tbody>
-            {formData.section3.project_target.map((data, index) => (
+            {formData.section3.project_target.map((data: any, index: number) => (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>
@@ -100,23 +139,21 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
                     className="bi bi-trash-fill"
                   ></i>
                 </td>
-                <td>{data.target_name}</td>
+                <td>{getTargetNameById(data.target_name)}</td>
               </tr>
             ))}
             <tr>
-              <td>{formData.section3.project_target.length + 1}</td>
+              <td></td>
               <td></td>
               <td>
-                <input
-                  onChange={(e) => handleChangeField(e)}
-                  type="text"
-                  name="target_name"
-                  value={addField.target_name}
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                />
+                { isEditStatus &&
+                  <DropdownSearch2 formList={formData} dropdownName="projectTarget" items={mergeLists(projectTargetData)} setAddField={handleSelectTargetName} />
+                }
+                { !isEditStatus &&
+                  <>
+                    <input placeholder="ค้นหา..." className="form-control" disabled={true} type="text" />
+                  </>
+                }
               </td>
             </tr>
             <tr>
@@ -124,13 +161,15 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
                 style={{ textAlign: "center", fontWeight: "bold" }}
                 colSpan={3}
               >
-                <button
+                {isEditStatus &&
+                  <button
                   onClick={handleAddFormData}
                   className="btn btn-primary"
                   type="submit"
                 >
-                  <i className="bi bi-file-earmark-plus"></i> เพิ่ม
+                  เพิ่ม
                 </button>
+                }
               </td>
             </tr>
           </tbody>

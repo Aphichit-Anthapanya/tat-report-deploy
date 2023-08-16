@@ -4,12 +4,17 @@ export const checkValidity = (
   setValidationState: (value: any) => void,
   handleSection: (value: number) => void
 ) => {
+  const checkStartMoreThanEnd =
+    new Date(formState.section4.project_start) >
+    new Date(formState.section4.project_end);
   const checkProjectDateValid =
     formState.section4.project_start == "" ||
-    formState.section4.project_end == ""
+    formState.section4.project_end == "" ||
+    checkStartMoreThanEnd
       ? false
       : true;
-  const checkFlagshipRiskValid =
+
+  let checkFlagshipRiskValid =
     formState.section4.flagship_risk == "" ? false : true;
   const checkRiskPreventionValid =
     formState.section4.risk_prevention == "" ? false : true;
@@ -19,7 +24,11 @@ export const checkValidity = (
     setValidationState((validationState: any[]) => {
       const updatedData = validationState.map((item) => {
         if (item.name === "project_date") {
-          return { ...item, isValid: false };
+          return {
+            ...item,
+            isValid: false,
+            startMoreThanEnd: checkStartMoreThanEnd,
+          };
         }
         return item;
       });
@@ -29,7 +38,11 @@ export const checkValidity = (
     setValidationState((validationState: any[]) => {
       const updatedData = validationState.map((item) => {
         if (item.name === "project_date") {
-          return { ...item, isValid: true };
+          return {
+            ...item,
+            isValid: true,
+            startMoreThanEnd: checkStartMoreThanEnd,
+          };
         }
         return item;
       });
@@ -101,6 +114,10 @@ export const checkValidity = (
       });
       return updatedData;
     });
+  }
+
+  if (!formState.section2.suite_outside_policy.isFlagship) {
+    checkFlagshipRiskValid = true;
   }
 
   if (

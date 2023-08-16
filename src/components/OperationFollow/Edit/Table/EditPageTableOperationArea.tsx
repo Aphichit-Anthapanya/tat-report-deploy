@@ -1,20 +1,29 @@
 import { FormState } from "@/redux/OperationFollow/types";
 import react, { useEffect, useState } from "react";
 import { initialState } from "../initial_state";
+import CommentModal from "../Modal/CommentModal";
+import { checkUserRoleService } from "@/redux/OperationFollow/service";
 
 interface TableOperationAreaProps {
-  formData: FormState;
+  formData: any;
+  setFormData: (val:string) => void
   isEditStatus: boolean;
+  handleOpenModal: (val:string,section: number) => void;
 }
 
 export function EditTableOperationArea(props: TableOperationAreaProps) {
-  const [formData, setFormData] = useState<FormState>(initialState);
+  //const [formData, setFormData] = useState<any>(initialState);
+  const formData = props.formData
+  const setFormData = props.setFormData
   const [isEditStatus, setIsEditStatus] = useState(false);
   const [addField, setAddField] = useState({
     indx: "",
     country_area: "",
     province: "",
   });
+  const [isOpenCommentModal, setOpenCommentModal] = useState(false);
+  const [commentName,setCommentName] = useState('');
+  const [commentSection, setCommentSection] = useState(0);
 
   const handleRemoveRow = (id: string) => {
     let data = formData.section3.list_operation_area;
@@ -28,6 +37,8 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
       },
     });
   };
+
+  const role = checkUserRoleService();
 
   const handleAddRow = () => {
     const newData = {
@@ -65,6 +76,15 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
     setAddField(updateChecked);
   };
 
+  const handleOpenModal = () => {
+    props.handleOpenModal('list_operation_area',3)
+  }
+
+  const handleCloseComment = () => {
+    setOpenCommentModal(false)
+  }
+
+
   useEffect(() => {
     setIsEditStatus(props.isEditStatus);
   }, [props.isEditStatus]);
@@ -75,8 +95,12 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
 
   return (
     <>
+      <CommentModal setShow={isOpenCommentModal} formData={formData} setFormData={setFormData} closeModal={handleCloseComment} commentName={commentName} commentSection={commentSection}/>
       <div className="table-summary-header">
-        <span>พื้นที่ดำเนินโครงการ</span>
+        <span>พื้นที่ดำเนินโครงการ
+          {role == 'admin' && <i onClick={() => handleOpenModal()} className="bi bi-pencil-fill comment-icon"></i>}
+          {role == 'user' && <i onClick={() => handleOpenModal()} className={`bi bi-exclamation-circle-fill commentex-icon ${formData.section3.comment.list_operation_area == '' ? 'hide' : ''}`} ></i>}
+        </span>
       </div>
       <div className="table-summary-content">
         <table className="table">
@@ -91,7 +115,7 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
             </tr>
           </thead>
           <tbody>
-            {formData.section3.list_operation_area.map((data, index) => (
+            {formData.section3.list_operation_area.map((data: any, index: number) => (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>
@@ -109,7 +133,8 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
               <td></td>
               <td></td>
               <td>
-                <input
+                { isEditStatus &&
+                  <input
                   value={addField.country_area}
                   onChange={(e) => handleChangeField(e)}
                   name="country_area"
@@ -120,6 +145,8 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
                   id="filterOverall"
                   style={{ width: "80%", margin: "auto" }}
                 />
+                }
+
               </td>
               <td>
                 <input
@@ -146,7 +173,7 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
                     className="btn btn-primary"
                     type="submit"
                   >
-                    <i className="bi bi-file-earmark-plus"></i> เพิ่ม
+                     เพิ่ม
                   </button>
                 </td>
               </tr>

@@ -11,11 +11,15 @@ import config from "@/config/env";
 
 /* import reducer here */
 import { userApi } from "./services/user";
+import { procurementApi } from "./services/procurement";
+import { masterDataApi } from "./services/master-data"
+import { operationFollowApi } from "./services/operation-follow-api"
 import { counterSlice } from "./countersSlice/counterSlice";
 import operationFollowFormReducer from "./OperationFollow/reducer";
-import operationFollowTableReducer from "./OperationFollowTable/reducer";
+import operationFollowTableReducer from "./OperationFollowTable/reducer-follow-table";
+import procurementReducer from "./Procurement/reducer";
 
-let additionalMiddleware: Middleware[] = [userApi.middleware];
+let additionalMiddleware: Middleware[] = [userApi.middleware,masterDataApi.middleware,operationFollowApi.middleware];
 
 if (config.isDevEnv) {
   const logger = require("redux-logger").default;
@@ -26,9 +30,13 @@ if (config.isDevEnv) {
 const rootReducer = combineReducers({
   /* add reducer here */
   [userApi.reducerPath]: userApi.reducer,
+  [masterDataApi.reducerPath]: masterDataApi.reducer,
+  [operationFollowApi.reducerPath]: operationFollowApi.reducer,
+  [procurementApi.reducerPath]: procurementApi.reducer,
   counter: counterSlice.reducer,
   operationFollowForm: operationFollowFormReducer,
   operationFollowTable: operationFollowTableReducer,
+  procurement: procurementReducer,
 });
 
 function makeStore() {

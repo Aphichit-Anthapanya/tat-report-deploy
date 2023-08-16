@@ -2,16 +2,22 @@ import { FormState } from "@/redux/OperationFollow/types";
 import react, { useEffect, useState } from "react";
 import { initialState } from "../initial_state";
 import React from "react";
-
+import { checkUserRoleService } from "@/redux/OperationFollow/service";
+import { mainOutcomeService } from "@/redux/OperationFollow/Section3/service";
+import DropdownSearch2 from "@/components/OperationFollow/Table/DropdownSearch2";
 interface EditTableProjectIndicatorProps {
-  formData: FormState;
+  formData: any;
+  setFormData: (val:any) => void
   isEditStatus: boolean;
+  handleOpenModal: (val:string,section: number) => void;
 }
 
 export function EditTableProjectIndicator(
   props: EditTableProjectIndicatorProps
 ) {
-  const [formData, setFormData] = useState<FormState>(initialState);
+  const formData = props.formData
+  const setFormData = props.setFormData
+  //const [formData, setFormData] = useState<any>(initialState);
   const [isEditStatus, setIsEditStatus] = useState(false);
   const [addField, setAddField] = useState({
     indx: "",
@@ -23,11 +29,16 @@ export function EditTableProjectIndicator(
     quarter4_percent: "",
   });
 
+  const { data: mainOutcomeData, isLoading: mainOutcomeLoading } = mainOutcomeService()
+
+  const role = checkUserRoleService();
+
   const handleAddFormData = () => {
+    let total_percent = parseInt(addField.quarter1_percent) + parseInt(addField.quarter2_percent) + parseInt(addField.quarter3_percent) + parseInt(addField.quarter4_percent)
     const newData = {
       indx: formData.section3.project_outcome.length + 1 + "",
       name_indicator: addField.name_indicator,
-      total_percent: "7",
+      table_percent: total_percent + '',
       quarter1_percent: addField.quarter1_percent,
       quarter2_percent: addField.quarter2_percent,
       quarter3_percent: addField.quarter3_percent,
@@ -67,6 +78,13 @@ export function EditTableProjectIndicator(
     setAddField(updateChecked);
   };
 
+  const handleSelect = (name:string) => {
+    setAddField({
+      ...addField,
+      name_indicator: name
+    })
+  }
+
   const handleRemoveRow = (id: string) => {
     let data = formData.section3.project_outcome;
     data = data.filter((item: { indx: string }) => item.indx !== id);
@@ -80,6 +98,26 @@ export function EditTableProjectIndicator(
     });
   };
 
+  const handleOpenModal = () => {
+    props.handleOpenModal('project_outcome',3)
+  }
+
+  const mergeLists = (listOfLists: any[]): any[] => {
+    if(!mainOutcomeLoading){
+      const mergedList = listOfLists?.reduce((accumulator, currentList) => {
+        return accumulator.concat(currentList);
+      }, []);
+      return mergedList; 
+    }else{
+      return []
+    }
+  }
+
+  function getTargetNameById(mainOutcomeId: string) {
+    const item = mainOutcomeData?.find((item: { mainOutcomeId: string }) => item.mainOutcomeId == mainOutcomeId);
+    return item ? item.outcomeNameTh : null;
+  }
+
   useEffect(() => {
     setIsEditStatus(props.isEditStatus);
   }, [props.isEditStatus]);
@@ -91,7 +129,10 @@ export function EditTableProjectIndicator(
   return (
     <>
       <div className="table-summary-header activities">
-        <span>ตัวชี้วัดระดับกิจกรรม(Output)</span>
+        <span>ตัวชี้วัดระดับกิจกรรม(Output)
+          {role == 'admin' && <i onClick={() => handleOpenModal()} className="bi bi-pencil-fill comment-icon"></i>}
+          {role == 'user' && <i onClick={() => handleOpenModal()} className={`bi bi-exclamation-circle-fill commentex-icon ${formData.section3.comment.project_outcome == '' ? 'hide' : ''}`} ></i>}
+        </span>
       </div>
       <div className="table-summary-content">
         <table className="table">
@@ -114,7 +155,7 @@ export function EditTableProjectIndicator(
             </tr>
           </thead>
           <tbody>
-            {formData.section3.project_outcome.map((data, index) => (
+            {formData.section3.project_outcome.map((data:any, index: number) => (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>
@@ -124,7 +165,7 @@ export function EditTableProjectIndicator(
                     className="bi bi-trash-fill"
                   ></i>
                 </td>
-                <td>{data.name_indicator}</td>
+                <td>{getTargetNameById(data.name_indicator)}</td>
                 <td>{data.total_percent}</td>
                 <td>{data.quarter1_percent}</td>
                 <td>{data.quarter2_percent}</td>
@@ -136,7 +177,7 @@ export function EditTableProjectIndicator(
               <td></td>
               <td></td>
               <td>
-                <input
+                {/* <input
                   value={addField.name_indicator}
                   onChange={(e) => handleChangeField(e)}
                   name="name_indicator"
@@ -146,7 +187,11 @@ export function EditTableProjectIndicator(
                   placeholder=""
                   id="filterOverall"
                   style={{ width: "80%", margin: "auto" }}
-                />
+                /> */}
+                
+                { isEditStatus &&
+                  <DropdownSearch2 dropdownName="mainOutcome" items={mergeLists(mainOutcomeData)} setAddField={handleSelect} formList={formData} />
+                }
               </td>
               <td></td>
               <td>
@@ -207,13 +252,15 @@ export function EditTableProjectIndicator(
                 style={{ textAlign: "center", fontWeight: "bold" }}
                 colSpan={8}
               >
-                <button
-                  onClick={handleAddFormData}
-                  className="btn btn-primary"
-                  type="submit"
-                >
-                  <i className="bi bi-file-earmark-plus"></i> เพิ่ม
-                </button>
+                {isEditStatus &&
+                    <button
+                    onClick={handleAddFormData}
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                     เพิ่ม
+                  </button>
+                }
               </td>
             </tr>
           </tbody>

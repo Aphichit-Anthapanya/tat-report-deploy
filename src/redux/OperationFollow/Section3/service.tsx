@@ -1,3 +1,4 @@
+
 import {
   updateSection3,
   removeTableOperationAreaById,
@@ -7,6 +8,7 @@ import {
   removeTableOperationAreaActivityById,
 } from "../reducer";
 import { sampleData } from "../../SampleData/sample_data";
+import { useMainOutcomesQuery, useOperationAreaQuery, useProjectTargetQuery } from "@/redux/services/master-data";
 
 export const fetchSection3dataService = async (id: number, dispatchs: any) => {
   try {
@@ -112,3 +114,86 @@ export const removeTableOperationAreaActivityByIdService = (
     console.error("Error fetching data:", error);
   }
 };
+
+export const projectTargetService = () => {
+  return useProjectTargetQuery({})
+};
+
+export const operationAreaService = (mode: string) => {
+  const { data, error, isLoading } = useOperationAreaQuery({});
+  // if(mode === "1"){
+  //   data.filter((item: any) => item.someProperty === 'someValue');
+  // }else if(mode === '2'){
+  //   data.filter((item: any) => item.someProperty === 'someValue');
+  // }else {
+  //   data.filter((item: any) => item.someProperty === 'someValue');
+  // }
+
+  return useOperationAreaQuery({})
+}
+
+export const mainOutcomeService = () => {
+  return useMainOutcomesQuery({})
+}
+
+export const operationAreaFilterService = (queryField: any, areaData: any) => {
+  const filteredList = areaData?.filter(
+    (items: any) =>
+    items.oparationAreaName01Th.includes(queryField.country) &&
+    items.oparationAreaName02Th.includes(queryField.province) &&
+    queryField.projectType == items.oparationAreaType
+  )
+
+  let itemData = []
+
+  for(let i = 0; i < filteredList.length; i++){
+    itemData.push({
+      id: filteredList[i].oparationAreaId,
+      countryarea: filteredList[i].oparationAreaName01Th,
+      province: filteredList[i].oparationAreaName02Th,
+      isSelect: false
+    })
+  }
+
+  return itemData
+}
+
+export const projectTargetFilterService = (queryField: any, data: any) => {
+  const filteredList = data?.filter(
+    (items: any) =>
+    items.targetGroupNameTh.includes(queryField.targetName)
+  )
+
+  let itemData = []
+
+  for(let i = 0; i < filteredList.length; i++){
+    itemData.push({
+      id: filteredList[i].targetGroupId,
+      targetName: filteredList[i].targetGroupNameTh,
+      isSelect: false
+    })
+  }
+
+  return itemData
+}
+
+export const projectIndicatorFilterService = (queryField: any, data: any) => {
+  const filteredList = data?.filter(
+    (items: any) =>
+    items.outcomeNameTh.includes(queryField.indicatorName)
+  )
+
+  let itemData = []
+
+  for(let i = 0; i < filteredList.length; i++){
+    //console.log(filteredList[i])
+    itemData.push({
+      id: filteredList[i].mainOutcomeId,
+      indicatorName: filteredList[i].outcomeNameTh,
+      calType: '%',
+      isSelect: false
+    })
+  }
+
+  return itemData
+}

@@ -21,7 +21,6 @@ export const checkValidity = (
     formState.activity_description == "" ? false : true;
 
   if (!checkActivityDescriptionValid) {
-    console.log("come here1");
     setValidationState((validationState: any[]) => {
       const updatedData = validationState.map((item) => {
         if (item.name === "activity_description") {
@@ -32,7 +31,6 @@ export const checkValidity = (
       return updatedData;
     });
   } else {
-    console.log("come here");
     setValidationState((validationState: any[]) => {
       const updatedData = validationState.map((item) => {
         if (item.name === "activity_description") {
@@ -241,6 +239,10 @@ export const checkValidity = (
       return updatedData;
     });
   }
+
+  // console.log(    
+  //   checkActivityTypeValid 
+  // )
 
   if (
     checkCatNameValid &&

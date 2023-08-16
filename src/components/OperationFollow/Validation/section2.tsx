@@ -106,10 +106,8 @@ export const checkValidity = (
     checkPolicySuiteValid &&
     checkStakeHolderValid
   ) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     return true;
   } else {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     return false;
   }
 };
