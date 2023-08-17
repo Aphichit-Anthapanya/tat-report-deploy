@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import "@components/Activities/activities-add.scss";
+import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
 
@@ -49,10 +49,11 @@ export default function Page() {
                             </div>
                         </div>   
                     </div>
-                    <div className="wid d-flex flex-row mb-20">
-                            <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ผลจำนวนการรับรู้สื่อ<div className="fontColor">*</div>:</div>
-                                <div className="table-responsive">
-                                    <table className="table table-bordered">
+                    
+                    <div className="years d-flex flex-column mb-20">
+                    <div className="wdth-200 mr-20 d-flex flex-row justify-content-left mb-10">ผลจำนวนการรับรู้สื่อ<div className="fontColor">*</div>:</div>
+                    <div className="table-responsive">
+                        <table className="table table-bordered">
                                         <tbody>
                                             <tr>
                                                 <th colSpan={11}>
@@ -61,7 +62,7 @@ export default function Page() {
                                             </tr>
                                             <tr>
                                                 <th>
-                                                    <div className="wd-80 d-flex justify-content-center align-items-center">หน่วยงาน</div>
+                                                    <div className="wd-100 d-flex justify-content-center align-items-center">หน่วยงาน</div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-140 d-flex justify-content-center align-items-center">กลยุทธ์</div>
@@ -235,13 +236,13 @@ export default function Page() {
                                                 </th>
                                             </tr>
                                         </tbody>
-                                    </table>
-
-                                </div>
+                        </table>
                     </div>
-                    <div className="wid d-flex flex-row mb-20">
-                            <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ผลตัวชี้วัดระดับ Outcome โครงการ<div className="fontColor">*</div>:</div>
-                            <div className="table-responsive">
+                    </div>
+                    
+                    <div className="years d-flex flex-column mb-20">
+                        <div className="wdth-200 mr-20 d-flex flex-row justify-content-left mb-10">ผลตัวชี้วัดระดับ Outcome โครงการ<div className="fontColor">*</div>:</div>
+                        <div className="table-responsive">
                                     <table className="table table-bordered">
                                         <tbody>
                                             <tr>
@@ -588,7 +589,8 @@ export default function Page() {
                                         </tbody>
                                     </table>
 
-                                </div>
+                    </div>
+                            
                     </div>
             </div>
             
