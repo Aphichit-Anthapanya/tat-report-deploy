@@ -28,7 +28,7 @@ export default function Page() {
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
-                <div className="breadcrumb-zone">รายงานจัดซื้อจัดจ้าง {'>'} <span className="bread-crumb-page-name">รายงานผลปฏิบัติการจัดซื้อจัดจ้าง ประจำปีงบประมาณ 2565 ไตรมาสที่ X</span> {'>'} <span className="bread-crumb-page-name"><b>งบอุดหนุน</b></span></div>
+                <div className="breadcrumb-zone">รายงานจัดซื้อจัดจ้าง {'>'} <span className="bread-crumb-page-name">รายงานแผน/ผลปฏิบัติการจัดซื้อจัดจ้าง(งบลงทุน)  ประจำปีงบประมาณ 25XX ไตรมาสที่ X</span> {'>'} <span className="bread-crumb-page-name"><b>งบลงทุน</b></span></div>
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="d-flex justify-content-between justify-content-center align-items-center">
                             <div className="content-search-box d-flex p-2 justify-content-center align-items-center">
@@ -88,11 +88,11 @@ export default function Page() {
                         <div className="d-flex justify-content-between justify-content-center align-items-center">
                             <div className="years d-flex flex-column p-2 justify-content-center">
                                 <div className="box">
-                                    <b>รายงานผลปฏิบัติการจัดซื้อจัดจ้าง (งบอุดหนุน) ประจำปีงบประมาณ 2565 ไตรมาสที่ X</b>
+                                    <b>รายงานแผน/ผลปฏิบัติการจัดซื้อจัดจ้าง(งบลงทุน)  ประจำปีงบประมาณ 25XX ไตรมาสที่ 1</b>
                                 </div>
                                 <div className="box d-flex">
                                     <div className="content mr-5"><b>หน่วยงาน:</b></div>
-                                    <div className="content"><p>ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ</p></div>
+                                    <div className="content"><p>ฝ่ายบริหารทั่วไป</p></div>
                                 </div>
                                 <div className="table-responsive mb-20">
                                     <table className="table table-bordered">
@@ -106,34 +106,43 @@ export default function Page() {
                                                 </th>
                                                 <th rowSpan={3}>
                                                     <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เจ้าของเรื่อง</div>
+                                                        <div>ชื่อกิจกรรม/งาน</div>
                                                         <div>(2)</div>
                                                     </div>
                                                 </th>              
                                                 <th rowSpan={3}>
                                                     <div className="wd-400 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>รายการ</div>
+                                                        <div>รายการจัดซื้อ/จัดจ้าง</div>
                                                         <div>(3)</div>
                                                     </div>
                                                 </th>
-                                                <th rowSpan={3}>
-                                                    <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>จัดหาโดยใช้วิธี</div>
+                                                <th rowSpan={3}colSpan={2}>
+                                                    <div className="wd-300 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>หน่วยงานที่รับผิดชอบ</div>
                                                         <div>(4)</div>
                                                     </div>
                                                 </th>
 
                                                 <th rowSpan={3}>
                                                     <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เงินงบประมาณ</div>
+                                                        <div>จัดหาโดยใช้วิธี</div>
                                                         <div>(5)</div>
                                                     </div>
                                                 </th>
 
                                                 <th rowSpan={3}>
                                                     <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>วงเงินทำสัญญา</div>
+                                                        <div>เงินงบประมาณ</div>
                                                         <div>(6)</div>
+                                                    </div>
+                                                </th>
+
+                                                <th rowSpan={3}>
+                                                    <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>วงเงินทำสัญญา</div>
+                                                        <div>/จำนวนเงินตามงวด</div>
+                                                        <div>ที่ส่งมอบงานสะสม</div>
+                                                        <div>(7)</div>
                                                     </div>
                                                 </th>
 
@@ -144,7 +153,7 @@ export default function Page() {
                                                 <th rowSpan={3}>
                                                     <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
                                                         <div>หมายเหตุ</div>
-                                                        <div>(11)</div>
+                                                        <div>(12)</div>
                                                     </div>
                                                 </th>
                                                 </tr>
@@ -167,97 +176,97 @@ export default function Page() {
                                                     <th className="bg-info">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                             <div>เป็นไปตามแผน</div>
-                                                            <div>(7)</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-info">
-                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(8)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-info">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>แล้วเสร็จ</div>
+                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(9)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-info">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ยกเลิก</div>
+                                                            <div>แล้วเสร็จ</div>
                                                             <div>(10)</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-info">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>ยกเลิก</div>
+                                                            <div>(11)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-success">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                             <div>เป็นไปตามแผน</div>
-                                                            <div>(7)</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-success">
-                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(8)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-success">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>แล้วเสร็จ</div>
+                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(9)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-success">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ยกเลิก</div>
+                                                            <div>แล้วเสร็จ</div>
                                                             <div>(10)</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-success">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>ยกเลิก</div>
+                                                            <div>(11)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-warning">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                             <div>เป็นไปตามแผน</div>
-                                                            <div>(7)</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-warning">
-                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(8)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-warning">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>แล้วเสร็จ</div>
+                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(9)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-warning">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ยกเลิก</div>
+                                                            <div>แล้วเสร็จ</div>
                                                             <div>(10)</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-warning">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>ยกเลิก</div>
+                                                            <div>(11)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-danger">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                             <div>เป็นไปตามแผน</div>
-                                                            <div>(7)</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-danger">
-                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(8)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-danger">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>แล้วเสร็จ</div>
+                                                            <div>ไม่เป็นไปตามแผน</div>
                                                             <div>(9)</div>
                                                         </div>
                                                     </th>
                                                     <th className="bg-danger">
                                                         <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ยกเลิก</div>
+                                                            <div>แล้วเสร็จ</div>
                                                             <div>(10)</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-danger">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>ยกเลิก</div>
+                                                            <div>(11)</div>
                                                         </div>
                                                     </th>
                                                 </tr>
@@ -266,17 +275,21 @@ export default function Page() {
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">1</div>
                                                     </th>
+                                                    <th></th>
                                                     <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">งานแผนงานดิจิทัลสารสนเทศ กยท.</div>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ปรับปรุงห้องประชุมระดับฝ่ายและโถงลิฟท์ ชั้น 4,6,8 และ 14</div>
                                                     </th>
                                                     <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">โครงการจัดทำแผนปฏิบัติการดิจิทัลของการท่องเที่ยวแห่งประเทศไทย พ.ศ. 2566 - 2570</div>
+                                                        <div className="normalText wd-250 d-flex justify-content-left align-items-center">งานสถาปัตยกรรม</div>
                                                     </th>
                                                     <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">3. วิธีเฉพาะเจาะจง</div>  
+                                                        <div className="normalText wd-50 d-flex justify-content-left align-items-center">กอส.</div>
                                                     </th>
                                                     <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">2,800,000</div>  
+                                                        <div className="normalText d-flex justify-content-left align-items-center">1.วิธีประกาศเชิญชวนทั่วไป (e-Bidding)</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">6,969,000.00</div>  
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-right align-items-center">-</div>  
@@ -303,137 +316,17 @@ export default function Page() {
                                                 </tr>
 
                                                 <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">2</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">งานมาตรฐานและความมั่นคงปลอดภัยสารสนเทศ กยท.</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">โครงการบริการศูนย์คอมพิวเตอร์สำรองและสำรองระบบข้อมูล</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">3. วิธีเฉพาะเจาะจง</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">6,500,000</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">6,500,000</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">1</div>  
-                                                    </th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">3</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">งานมาตรฐานและความมั่นคงปลอดภัยสารสนเทศ กยท.</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">โครงการบริหารจัดการความมั่นคงปลอดภัยด้านสารสนเทศตามมาตรฐานสากล ISO 27001 : 2013 </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">3. วิธีเฉพาะเจาะจง</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">1,000,000</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">998,000</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">1</div>  
-                                                    </th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">4</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">งานระบบสารสนเทศองค์กร กพร.</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">โครงการจ้างบำรุงรักษาและซ่อมแซมแก้ไขฐานข้อมูล ORACLE และระบบ ERP ด้านบุคลากร</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">3. วิธีเฉพาะเจาะจง</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">3,500,000</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">3,000,000</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">1</div>
-                                                    </th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th colSpan={4}>
+                                                    <th colSpan={6}>
                                                         <div className="d-flex justify-content-center align-items-center">รวมเป็นเงินทั้งสิ้น</div>
                                                     </th>                                                  
                                                     <th>
-                                                        <div className="d-flex justify-content-right align-items-center">13,800,000</div>
+                                                        <div className="d-flex justify-content-right align-items-center">  6,969,000.00 </div>
                                                     </th>
                                                     <th>
-                                                        <div className="d-flex justify-content-right align-items-center">10,498,000</div>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>
                                                     </th>
                                                     <th>
-                                                        <div className="d-flex justify-content-center align-items-center">4</div>
+                                                        <div className="d-flex justify-content-center align-items-center">1</div>
                                                     </th>
                                                     <th><div className="d-flex justify-content-center align-items-center">-</div></th>
                                                     <th><div className="d-flex justify-content-center align-items-center">-</div></th>
@@ -454,7 +347,7 @@ export default function Page() {
                                                 </tr>
 
                                                 <tr>
-                                                    <th colSpan={4}>
+                                                    <th colSpan={6}>
                                                         <div className="d-flex justify-content-center align-items-center">คงเหลือจากการจัดซื้อจัดจ้าง</div>
                                                     </th>                                                  
                                                     <th><div className="d-flex justify-content-center align-items-center">-</div></th>
@@ -476,7 +369,7 @@ export default function Page() {
                                                     <th><div className="d-flex justify-content-center align-items-center">-</div></th>
                                                     <th><div className="d-flex justify-content-center align-items-center">-</div></th>
                                                     <th>
-                                                        <div className="d-flex justify-content-center align-items-center">3,302,000</div>
+                                                        <div className="d-flex justify-content-center align-items-center"> 6,969,000.00 </div>
                                                     </th>
                                                 </tr>
 
@@ -501,6 +394,7 @@ export default function Page() {
                                                             <div>(e-Market, e-Bidding, สอบราคา)</div>
                                                         </div> 
                                                     </th>
+                                                    <th colSpan={2}></th>
                                                     <th>
                                                         <div className="d-flex flex-column justify-content-center align-items-center">
                                                             <div>-</div>
@@ -531,6 +425,7 @@ export default function Page() {
                                                             <div>2. วิธีคัดเลือก</div>
                                                         </div> 
                                                     </th>
+                                                    <th colSpan={2}></th>
                                                     <th>
                                                         <div className="d-flex flex-column justify-content-center align-items-center">
                                                             <div>-</div>
@@ -561,26 +456,27 @@ export default function Page() {
                                                             <div>3. วิธีเฉพาะเจาะจง</div>
                                                         </div> 
                                                     </th>
+                                                    <th colSpan={2}></th>
                                                     <th>
                                                         <div className="d-flex flex-column justify-content-center align-items-center">
-                                                            <div>3</div>
+                                                            <div>1</div>
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div className="d-flex justify-content-right align-items-center">
-                                                            13,800,000
+                                                            6,969,000.00 
                                                         </div>
                                                     </th>
                                                     <th>
-                                                        <div className="d-flex justify-content-right align-items-center">
-                                                            <div>10,498,000</div>
+                                                        <div className="d-flex justify-content-center align-items-center">
+                                                            <div>-</div>
                                                         </div>
                                                     </th>
                                             
                                                     <th colSpan={16}></th>
                                                     <th>
                                                         <div className="d-flex flex-column justify-content-right align-items-center">
-                                                            <div>3,302,000</div>
+                                                            <div>6,969,000.00 </div>
                                                         </div>
                                                     </th>
                                                 </tr>
@@ -591,6 +487,7 @@ export default function Page() {
                                                             <div>4. อยู่ระหว่างดำเนินการจัดซื้อจัดจ้างตามแผน</div>
                                                         </div> 
                                                     </th>
+                                                    <th colSpan={2}></th>
                                                     <th>
                                                         <div className="d-flex flex-column justify-content-center align-items-center">
                                                             <div>-</div>
@@ -621,6 +518,7 @@ export default function Page() {
                                                             <div>5. ยกเลิก</div>
                                                         </div> 
                                                     </th>
+                                                    <th colSpan={2}></th>
                                                     <th>
                                                         <div className="d-flex flex-column justify-content-center align-items-center">
                                                             <div>-</div>
@@ -651,26 +549,27 @@ export default function Page() {
                                                             <div>รวมทั้งสิ้น</div>
                                                         </div> 
                                                     </th>
+                                                    <th colSpan={2}></th>
                                                     <th>
-                                                        <div className="d-flex flex-column justify-content-center align-items-center">
+                                                        <div className="d-flex justify-content-center align-items-center">
                                                             <div>4</div>
                                                         </div>
                                                     </th>
                                                     <th>
-                                                        <div className="d-flex flex-column justify-content-right align-items-center">
-                                                            <div>13,900,000</div>
+                                                        <div className="d-flex  justify-content-right align-items-center">
+                                                            <div>6,969,000.00</div>
                                                         </div>
                                                     </th>
                                                     <th>
-                                                        <div className="d-flex flex-column justify-content-right align-items-center">
-                                                            <div>10,498,000</div>
+                                                        <div className="d-flex justify-content-center align-items-center">
+                                                            <div>-</div>
                                                         </div>
                                                     </th>
                                             
                                                     <th colSpan={16}></th>
                                                     <th>
-                                                        <div className="d-flex flex-column justify-content-right align-items-center">
-                                                            <div>3,302,000</div>
+                                                        <div className="d-flex justify-content-center align-items-center">
+                                                            <div>6,969,000.00 </div>
                                                         </div>
                                                     </th>
                                                 </tr>

@@ -140,7 +140,6 @@ export default function Page() {
                                                 <th rowSpan={3}>
                                                     <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
                                                         <div>หมายเหตุ</div>
-                                                        <div>(11)</div>
                                                     </div>
                                                 </th>
                                                 </tr>
@@ -688,7 +687,7 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2</div>
                                                     </th>
                                                     <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">  1,700,000.00 </div>  
+                                                        <div className="normalText d-flex justify-content-right align-items-center">  1,700,000.00 </div>  
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">-</div>  
@@ -855,7 +854,96 @@ export default function Page() {
                                                         <div className="d-flex justify-content-center align-items-center">-</div>
                                                     </th>
                                                     <th></th>
-                                                </tr>                                               
+                                                </tr>          
+                                                <tr>
+                                                    <th colSpan={24}></th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th colSpan={24}>
+                                                        <div className="d-flex justify-content-left align-items-center">หมายเหตุ</div>
+                                                    </th> 
+                                                </tr>
+
+                                                <tr>
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">แผนปฏิบัติการจัดซื้อจัดจ้าง ต้นปีงบประมาณ</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">จำนวน</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">201</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">รายการ</div>
+                                                    </th>
+                                                    <th colSpan={20}></th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">เพิ่มแผนในไตรมาสที่ 1 </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">จำนวน</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">52</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">รายการ</div>
+                                                    </th>
+                                                    <th colSpan={20}></th>
+                                                </tr> 
+
+                                                <tr>
+                                                    <th colSpan={2}></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">รวม</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">253</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">รายการ</div>
+                                                    </th>
+                                                    <th colSpan={20}></th>
+                                                </tr>
+                                                <tr>
+                                                    <th colSpan={2}></th>
+                                                    <th>
+                                                        <div className="d-flex flex-column justify-content-center align-items-center">
+                                                            <div>ดำเนินการ</div>
+                                                            <div>แล้วเสร็จ</div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">1</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">รายการ</div>
+                                                    </th>
+                                                    <th colSpan={20}></th>
+                                                </tr> 
+                                                <tr>
+                                                    <th colSpan={2}></th>
+                                                    <th>
+                                                        <div className="d-flex flex-column justify-content-center align-items-center">
+                                                            <div>ดำเนินการต่อ</div>
+                                                            <div>ไตรมาสที่ 2</div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">252</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">รายการ</div>
+                                                    </th>
+                                                    <th colSpan={20}></th>
+                                                </tr>                                   
                                         </tbody>
                                     </table>
                                 </div> 
