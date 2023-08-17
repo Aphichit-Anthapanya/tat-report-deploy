@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import "@components/Activities/activities-add.scss";
+import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
 
@@ -88,7 +88,7 @@ export default function Page() {
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="years d-flex flex-column p-2 justify-content-center">
                             <div className="box">
-                                <b>รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง (งบอุดหนุน) ประจำปีงบประมาณ 2565</b>
+                                <b>รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง (งบรายได้) ประจำปีงบประมาณ 2565</b>
                             </div>
                             <div className="box d-flex">
                                 <div className="content mr-10"><b>หน่วยงาน:</b></div>

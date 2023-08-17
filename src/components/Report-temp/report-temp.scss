@@ -487,6 +487,10 @@ body {
     min-width: 200px;
   }
   
+  .table > tbody > tr > th > .wd-250 {
+    min-width: 250px;
+  }
+
   .table > tbody > tr > th > .wd-260 {
     min-width: 260px;
   }
@@ -498,6 +502,11 @@ body {
   .table > tbody > tr > th > .wd-400 {
     min-width: 400px;
   }
+
+  .table > tbody > tr > th > .wd-500 {
+    min-width: 500px;
+  }
+
   .table > tbody > tr > th > .wd-100 {
     min-width: 100px;
   }
@@ -526,6 +535,9 @@ body {
     min-width: 50px;
   }
   
+  .bg-color-cyn {
+    background-color: #91d5ff;
+  }
   
   .normalText {
     font-weight: normal;
@@ -535,6 +547,9 @@ body {
     font-size: 14px;
   }
   
+  .filter-field-search {
+    min-width: 200px;
+  }
   
   .pie-chart-box > .filter-field {
     width: 400px;
@@ -555,5 +570,13 @@ body {
   
   .wdth-200 {
     min-width: 200px;
+  }
+
+  .wdth-700 {
+    width: 700px;
+  }
+
+  .bar-chart-method {
+    min-width: 800px;
   }
   
