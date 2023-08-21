@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import "@components/Activities/activities-add.scss";
+import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
 import TableQuarterSummary from "@components/OperationFollow/Table/TableQuarterSummary";

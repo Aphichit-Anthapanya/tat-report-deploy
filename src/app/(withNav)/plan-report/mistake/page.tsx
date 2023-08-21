@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import "@components/Activities/activities-add.scss";
+import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
 
@@ -28,7 +28,7 @@ export default function Page() {
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
-                <div className="breadcrumb-zone">รายงานแผนปฏิบัติการและการดำเนินงาน {'>'} <span className="bread-crumb-page-name"><b>รายงานสรุปสถิติของหัวข้อที่เกิดความผิดพลาดบ่อยครั้ง</b></span></div>
+                <div className="breadcrumb-zone">รายงานแผนปฏิบัติการและการดำเนินงาน {'>'} <span className="bread-crumb-page-name"><b>รายงานสรุปหัวข้อที่ผิดพลาด</b></span></div>
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="d-flex flex-row justify-content-around">
                             <div className="content-search-box d-flex p-2 justify-content-center align-items-center">

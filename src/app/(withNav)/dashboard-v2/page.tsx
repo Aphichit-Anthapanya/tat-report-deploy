@@ -1,6 +1,6 @@
 "use client";
 
-import "@components/Activities/activities-add.scss";
+import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
 import React, { useEffect, useState } from "react";
