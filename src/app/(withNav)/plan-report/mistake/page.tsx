@@ -102,18 +102,21 @@ export default function Page() {
                                                     </th>
                                                     <th>
                                                         <div className="year-quarter d-flex justify-content-center align-items-center">ปีงบประมาณ</div>
-                                                    </th>              
+                                                    </th>  
                                                     <th>
-                                                        <div className="responsible-person d-flex justify-content-center align-items-center">แผนงาน</div>
+                                                        <div className="project-area d-flex justify-content-center align-items-center">ประเด็นข้อผิดพลาด</div>
+                                                    </th>            
+                                                    <th>
+                                                        <div className="responsible-person d-flex justify-content-center align-items-center">หน่วยงาน</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="responsible-person d-flex justify-content-center align-items-center">ชื่อแผน</div>
                                                     </th>
                                                     <th>
                                                         <div className="project-area d-flex justify-content-center align-items-center">จำนวนครั้งที่ผิดพลาด</div>
                                                     </th>
                                                     <th>
-                                                        <div className="project-area d-flex justify-content-center align-items-center">ประเด็นข้อผิดพลาด</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">รายละเอียดข้อผิดพลาด</div>
+                                                        <div className="d-flex justify-content-center align-items-center">ข้อเสนอแนะ</div>
                                                     </th>
                                                 </tr>
 
@@ -125,13 +128,16 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งบประมาณรายไตรมาส</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนบริหารจัดการองค์กร</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">15</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">งบประมาณรายไตรมาส</div>   
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
@@ -156,14 +162,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ตัวชี้วัด (Outcome / Output)</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนบริหารจัดการองค์กร</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">13</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">ตัวชี้วัด (Outcome / Output)</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- ไม่ระบุค่าเกณฑ์วัด</div>
@@ -182,14 +192,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">วัตถุประสงค์</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนบริหารจัดการองค์กร</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">10</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">วัตถุประสงค์</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- ตั้งวัตถุประสงค์กว้างเกินไป  เกินกว่ากิจกรรมที่ตั้งใจจะทำ</div>
@@ -205,14 +219,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">กลุ่มเป้าหมาย</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนบริหารจัดการองค์กร</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">8</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">กลุ่มเป้าหมาย</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- กำหนดกลุ่มเป้าหมายไม่สอดคล้องกับกิจกรรม เช่น กิจกรรมจัดที่ ททท. ส่วนกลาง แต่ระบุกลุ่มเป้าหมายคือ พนักงาน ททท. สำนักงานสาขาต่างประเทศ</div>
@@ -228,14 +246,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งบประมาณโครงการ</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนสนับสนุนตลาดต่างประเทศ</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">8</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">งบประมาณโครงการ</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- ห้ามทำให้เงินงบประมาณเป็นเศษสตางค์</div>
@@ -251,14 +273,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ระยะเวลาดำเนินการ</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนสนับสนุนตลาดในประเทศ</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">6</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">ระยะเวลาดำเนินการ</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- ควรระบุในกรอบปีงบประมาณ</div>
@@ -274,14 +300,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">พื้นที่ดำเนินโครงการ</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนสนับสนุนตลาดในประเทศ</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">6</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">พื้นที่ดำเนินโครงการ</div>   
-                                                    </th>
+                                                   
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- ไม่ควรระบุกว้าง เช่น ทั่วประเทศ  อย่างน้อยควรระบุเป็นภูมิภาค</div>
@@ -297,14 +327,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ปฏิทินการดำเนินงาน</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนสนับสนุนตลาดต่างประเทศ</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">6</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">ปฏิทินการดำเนินงาน</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- กระจายค่าน้ำหนักไม่ตรงกับระยะเวลาในการดำเนินกิจกรรม</div>
@@ -319,15 +353,19 @@ export default function Page() {
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
+<th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">หลักการและเหตุผล</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนสนับสนุนตลาดในประเทศ</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">5</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">หลักการและเหตุผล</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- ไม่เข้าใจวิธีการเขียนหลักการและเหตุผลของโครงการ (เอาวัตถุประสงค์ของโครงการมาเขียน)/ ส่วนใหญ่จะเลือกตัวชี้วัดที่ไม่ท้าท้ายหรือไม่เหมาะสมกับเนื้องาน</div>
@@ -343,14 +381,18 @@ export default function Page() {
                                                         <div className="normalText d-flex justify-content-center align-items-center">2567</div>
                                                     </th>
                                                     <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">สินค้าและบริการ (กิจกรรม)</div>   
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">งานเลขานุการ</div>   
+                                                    </th>
+                                                    <th>
                                                         <div className="normalText d-flex justify-content-left align-items-center">แผนสนับสนุนตลาดต่างประเทศ</div>
                                                     </th>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">4</div>
                                                     </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">สินค้าและบริการ (กิจกรรม)</div>   
-                                                    </th>
+                                                    
                                                     <th>
                                                         <div className="normalText d-flex flex-column justify-content-left">
                                                             <div>- ควรระบุุพื้นที่ทั้งหมดให้สอดคล้องกับโครงการ</div>
