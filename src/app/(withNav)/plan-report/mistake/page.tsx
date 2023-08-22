@@ -87,8 +87,8 @@ export default function Page() {
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="d-flex justify-content-between justify-content-center align-items-center overflow-auto">
                             <div className="years d-flex flex-column p-2 justify-content-center ">
-                                <div className="box">
-                                    <b>รายงานสรุปสถิติของหัวข้อที่เกิดความผิดพลาดบ่อยครั้ง</b>
+                                <div className="box mb-20">
+                                    <b>รายงานสรุปหัวข้อที่ผิดพลาด</b>
                                 </div>
 
                                 <div className="boxes d-flex justify-content-center align-items-center">
