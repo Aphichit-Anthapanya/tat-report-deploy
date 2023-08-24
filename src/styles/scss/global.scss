@@ -259,6 +259,11 @@ body {
   justify-content: center;
 }
 
+.f-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .ml-5 {
   margin-left: 5px;
 }
@@ -275,6 +280,14 @@ body {
   margin-left: 30px;
 }
 
+.ml-50 {
+  margin-left: 50px;
+}
+
+.ml-70 {
+  margin-left: 70px;
+}
+
 .mr-5 {
   margin-right: 5px;
 }
@@ -289,6 +302,10 @@ body {
 
 .mb-2 {
   margin-bottom: 2px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
 }
 
 .mb-10 {
@@ -315,10 +332,18 @@ body {
   margin-top: 50px;
 }
 
+.ma {
+  margin: auto;
+}
+
 .fontColor {
   color: red;
 }
 
 .color-org {
   background-color: orange;
+}
+
+.fz-24 {
+  font-size: 24px;
 }

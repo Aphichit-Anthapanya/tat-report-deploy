@@ -50,194 +50,194 @@ export default function Page() {
                         </div>   
                     </div>
                     
-                    <div className="years d-flex flex-column mb-20">
-                    <div className="wdth-200 mr-20 d-flex flex-row justify-content-left mb-10">ผลจำนวนการรับรู้สื่อ<div className="fontColor">*</div>:</div>
-                    <div className="table-responsive">
-                        <table className="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <th colSpan={11}>
-                                                    <div className="d-flex justify-content-center">ผลจำนวนการรับรู้สื่อ</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="wd-100 d-flex justify-content-center align-items-center">หน่วยงาน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">กลยุทธ์</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">แผนงาน</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">โครงการ</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">กิจกรรม</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">กิจกรรมย่อย</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">ช่วงเวลาดำเนินการ</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">ช่องทางย่อยระดับ 1</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">ช่องทางย่อยระดับ 2</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">ช่องทางย่อยระดับ 3</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex justify-content-center align-items-center">จำนวนการรับรู้</div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">A</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 1</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">สื่อ Online</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">Facebook</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">เพจท่องเที่ยว</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">1,957,650</div>    
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">A</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 2</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">สื่อ Online</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">Youtube</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">ช่อง Influencer</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">550,000</div>    
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">A</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.2 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 3</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">สื่อ Offline</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">สื่อโทรทัศน์</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">รายการข่าว</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">2,000,000</div>    
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">A</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.2 ...</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 1</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">สื่อ Offline</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">สื่อสิ่งพิมพ์</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">หนังสือพิมพ์</div>    
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">200,000</div>    
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                        </table>
-                    </div>
+                    <div className="set d-flex flex-column mb-20">
+                        <div className="wdth-200 mr-20 d-flex flex-row justify-content-left mb-10">ผลจำนวนการรับรู้สื่อ<div className="fontColor">*</div>:</div>
+                        <div className="table-responsive">
+                            <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th colSpan={11}>
+                                                        <div className="d-flex justify-content-center">ผลจำนวนการรับรู้สื่อ</div>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <div className="wd-100 d-flex justify-content-center align-items-center">หน่วยงาน</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">กลยุทธ์</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">แผนงาน</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">โครงการ</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">กิจกรรม</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">กิจกรรมย่อย</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">ช่วงเวลาดำเนินการ</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">ช่องทางย่อยระดับ 1</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">ช่องทางย่อยระดับ 2</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">ช่องทางย่อยระดับ 3</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex justify-content-center align-items-center">จำนวนการรับรู้</div>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">A</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 1</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">สื่อ Online</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">Facebook</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">เพจท่องเที่ยว</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">1,957,650</div>    
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">A</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 2</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">สื่อ Online</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">Youtube</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">ช่อง Influencer</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">550,000</div>    
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">A</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.2 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 3</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">สื่อ Offline</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">สื่อโทรทัศน์</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">รายการข่าว</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">2,000,000</div>    
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">A</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กลยุทธ์ 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">แผนงาน 1.1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">โครงการ 1</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรม 1 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมย่อย 1.2 ...</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">ไตรมาส 1</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">สื่อ Offline</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">สื่อสิ่งพิมพ์</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">หนังสือพิมพ์</div>    
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">200,000</div>    
+                                                    </th>
+                                                </tr>
+                                            </tbody>
+                            </table>
+                        </div>
                     </div>
                     
                     <div className="years d-flex flex-column mb-20">
