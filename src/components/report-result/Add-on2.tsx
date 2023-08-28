@@ -171,6 +171,9 @@ export default function Section5(props: Section5Props) {
                             </div>
                             
                             <div className="wid d-flex flex-column mb-20 justify-content-center"> 
+                            <div className="d-flex justify-content-right align-items-end">
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
+                            </div>
                                 <div className="table-responsive">
                                     <table className="table table-bordered">
                                         <tbody>
@@ -308,6 +311,9 @@ export default function Section5(props: Section5Props) {
                             </div>
 
                             <div className="wid d-flex flex-column mb-20 justify-content-center"> 
+                            <div className="d-flex justify-content-right align-items-end">
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
+                            </div>
                                 <div className="table-responsive">
                                     <table className="table table-bordered">
                                         <tbody>

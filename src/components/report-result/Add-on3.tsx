@@ -69,6 +69,9 @@ export default function Section5(props: Section5Props) {
         </div>
         </div>
         <div className="sets d-flex flex-column mb-20">
+                <div className="d-flex justify-content-right align-items-end">
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
+                            </div>
             <div className="wdth-200 mr-20 d-flex flex-row justify-content-left mb-10">ตัวชี้วัดระดับโครงการ (Outcome)<div className="fontColor">*</div>:</div>
                 <div className="table-responsive">
                     <table className="table table-bordered">
@@ -163,6 +166,9 @@ export default function Section5(props: Section5Props) {
         </div>
 
         <div className="sets d-flex flex-column mb-20">
+        <div className="d-flex justify-content-right align-items-end">
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
+                            </div>
             <div className="wdth-200 mr-20 d-flex flex-row justify-content-left mb-10">ตัวชี้วัดระดับกิจกรรม (Output)<div className="fontColor">*</div>:</div>
                 <div className="table-responsive">
                     <table className="table table-bordered">
