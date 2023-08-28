@@ -166,7 +166,7 @@ export default function Section2(props: Section2Props) {
                             </div>
                             <div className="wid d-flex flex-row mb-20 align-items-center">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">งบประมาณโครงการที่จัดจริง<div className="fontColor">*</div>:</div>
-                                    <div className="filter-field-4 mr-10">
+                                    <div className="filter-field-bud mr-10">
                                         <input type="text" className="form-control" placeholder="" id="filterOverall" />
                                 </div>
                                 <div>บาท</div>

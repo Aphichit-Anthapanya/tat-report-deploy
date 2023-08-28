@@ -297,7 +297,7 @@ export default function Section5(props: Section5Props) {
                                     </div>
                                 </th>
                                 <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
+                                    <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
                                 </th>
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"></div>
@@ -313,7 +313,7 @@ export default function Section5(props: Section5Props) {
                                     </div>
                                 </th>
                                 <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
+                                    <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
                                 </th>
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"></div>
@@ -329,7 +329,7 @@ export default function Section5(props: Section5Props) {
                                     </div>
                                 </th>
                                 <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
+                                    <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
                                 </th>
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"></div>

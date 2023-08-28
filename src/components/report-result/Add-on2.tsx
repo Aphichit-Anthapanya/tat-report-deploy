@@ -469,7 +469,7 @@ export default function Section5(props: Section5Props) {
 
                                             <tr>
                                                 <th>
-                                                    <div className="wd-100 normalText d-flex justify-content-center align-items-center">จัดจ้าง</div>
+                                                    <div className="wd-100 normalText d-flex justify-content-center align-items-center">จัดจริง</div>
                                                 </th>
                                                 <th><div className="wd-180 normalText d-flex justify-content-center align-items-center"></div></th> 
                                             </tr>

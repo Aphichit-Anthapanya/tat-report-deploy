@@ -271,12 +271,6 @@ export default function Section5(props: Section5Props) {
                                             </th>
                                             <th>
                                                 <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                    <div className="content-sub">ก.ย</div>
-                                                    <div className="content-sub">2565</div>
-                                                </div> 
-                                            </th>
-                                            <th>
-                                                <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
                                                     <div className="content-sub">ต.ค</div>
                                                     <div className="content-sub">2565</div>
                                                 </div>
@@ -307,7 +301,7 @@ export default function Section5(props: Section5Props) {
                                             </th>
                                             <th>
                                                 <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                    <div className="content-sub">ม.ค.</div>
+                                                    <div className="content-sub">มี.ค.</div>
                                                     <div className="content-sub">2566</div>
                                                 </div>
                                             </th>
@@ -387,7 +381,7 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                                <th></th>
+                                            
                                             
                                             </tr>
                                             <tr>
@@ -403,7 +397,7 @@ export default function Section5(props: Section5Props) {
                                                 <th className="bg-warning"></th>
                                                 <th className="bg-warning"></th>
                                                 <th className="bg-warning"></th>
-                                                <th></th>
+                                                
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -432,7 +426,7 @@ export default function Section5(props: Section5Props) {
                                                 <th className="bg-info"></th>
                                                 <th className="bg-info"></th>
                                                 <th className="bg-info"></th>
-                                                <th></th>
+                                                
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -457,7 +451,7 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                                <th></th>
+                                                
                                                 <th></th>
                                                 <th></th>
                                             </tr>
@@ -482,7 +476,7 @@ export default function Section5(props: Section5Props) {
                                                 <th className="bg-info"></th>
                                                 <th className="bg-info"></th>
                                                 <th></th>
-                                                <th></th>
+                                                
                                                 <th></th>
                                             </tr> 
                                             <tr>
@@ -507,7 +501,7 @@ export default function Section5(props: Section5Props) {
                                                 <th className="bg-warning"></th>
                                                 <th className="bg-warning"></th>
                                                 <th className="bg-warning"></th>
-                                                <th></th>
+                                                
                                             </tr>                                      
                                         </tbody>
                                     </table>
