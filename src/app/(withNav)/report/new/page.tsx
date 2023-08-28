@@ -662,7 +662,7 @@ export default function Page() {
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
+                            </div>
                             <div className="wid d-flex flex-column mb-20">
                                 <div className="wdth-200 mr-20 d-flex flex-row">
                                     <div className="d-flex flex-column">
@@ -1841,7 +1841,7 @@ export default function Page() {
                                         <tbody>
                                             <tr>
                                                 <th colSpan={2}>
-                                                    <div className="d-flex justify-content-center">กลุ่มเป้าหมายระดับโครงการ</div>
+                                                    <div className="d-flex justify-content-center">กลุ่มเป้าหมายระดับกิจกรรม</div>
                                                 </th>
                                             </tr>
                                             <tr>

@@ -21,6 +21,7 @@ export default function Home() {
       <Link href="/plan-report/new">รายงานสรุปงบประมาณตามแผนราย ด้าน ฝ่าย กอง สำนักงาน ปีงบประมาณ 25XX</Link>
       <Link href="/report">รายงานผล</Link>
       <Link href="/report/new">รายงานผล(ใหม่)</Link>
+      <Link href="/report/ball">รายงานผล(ball)</Link>
       <Link href="/plan-report/indicator">รายงานผลตัวชี้วัด</Link>
       <>ระบบจัดซื้อจัดจ้าง</>
       <Link href="/purcase-system">หน้า search โครงการจัดซื้อจัดจ้าง</Link>

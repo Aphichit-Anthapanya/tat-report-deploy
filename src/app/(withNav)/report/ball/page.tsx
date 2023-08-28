@@ -1,22 +1,15 @@
 "use client";
-import Section1 from "@/components/OperationFollow/Section1";
-import Section2 from "@/components/OperationFollow/Section2";
-import Section3 from "@/components/OperationFollow/Section3";
-import Section4 from "@/components/OperationFollow/Section4";
-import Section5 from "@/components/OperationFollow/Section5";
-import { resetNew } from "@/redux/OperationFollow/service";
+import "@components/report-result/report-result.scss";
+import Section1 from "@/components/report-result/Section1";
+import Section2 from "@/components/report-result/Section2";
+import Section3 from "@/components/report-result/Section3";
+import Section4 from "@/components/report-result/Section4";
+import Section5 from "@/components/report-result/Section5";
+import Section6 from "@/components/report-result/Section6";
 import { useEffect, useState } from "react";
-import {
-  fetchMasterDataSection1Service,
-  setSection1ByName,
-} from "@/redux/OperationFollow/Section1/service";
-import { useDispatch } from "react-redux";
-import { useParams } from "next/navigation";
 
 export default function Page() {
   const [sectionNumber, setSectionNumber] = useState(1);
-  const dispatch = useDispatch();
-  const params = useParams();
   const debugMode = true;
 
   const handleSection = (value: number, isBubble: boolean) => {
@@ -33,44 +26,9 @@ export default function Page() {
   let mode = 0;
   let id = 0;
 
-  useEffect(() => {
-    resetNew(dispatch);
-    mode = typeof params?.mode === "string" ? parseInt(params?.mode) : 0;
-    if (mode == 1) {
-      setSection1ByName(
-        "organizationManageMent",
-        "แผนสนับสนุนดำเนินงานด้านการตลาด",
-        dispatch
-      );
-    } else if (mode == 2) {
-      setSection1ByName(
-        "organizationManageMent",
-        "แผนสนับสนุนในประเทศ",
-        dispatch
-      );
-    } else if (mode == 3) {
-      setSection1ByName(
-        "organizationManageMent",
-        "แผนสนับสนุนต่างประเทศ",
-        dispatch
-      );
-    }
-    fetchMasterDataSection1Service(dispatch);
-  }, []);
-
   return (
     <>
-      <div className="d-flex flex-column" style={{ width: "100%" }}>
-        <div className="breadcrumb-zone">
-          นำเข้าข้อมูล {">"}{" "}
-          <span className="bread-crumb-page-name">
-            ข้อมูลโครงการด้านบริหารจัดการองค์กร{" "}
-          </span>{" "}
-          {">"}{" "}
-          <span className="bread-crumb-page-name">
-            งานระบบสารสนเทศแบบองค์กร
-          </span>
-        </div>
+      <div className="d-flex flex-column" style={{ width: "100%" }}>  
         <div className="flow-indicator-wrapper">
           <div className="flow-indicator d-flex justify-content-center">
             <div className="flow-section-zone">
@@ -81,7 +39,7 @@ export default function Page() {
                 1
               </div>
               <div className="section-zone-text">
-                ข้อมูลโครงการงานระบบสารสนเทศองค์กร
+                ภาพรวมโครงการ
               </div>
             </div>
             <div className="flow-line-zone">
@@ -95,7 +53,7 @@ export default function Page() {
                 2
               </div>
               <div className="section-zone-text">
-                งบประมาณโครงการและความสอดคล้องกับนโยบาย
+              แหล่งงบประมาณโครงการ และความสอดคล้องกับนโยบายเพิ่มเติม
               </div>
             </div>
             <div className="flow-line-zone">
@@ -145,25 +103,60 @@ export default function Page() {
               >
                 5
               </div>
-              <div className="section-zone-text">ความคุ้มค่าโครงการ</div>
+              <div className="section-zone-text">ภาพรวมกิจกรรม</div>
+            </div>
+            <div className="flow-line-zone">
+              <hr />
+            </div>
+            <div className="flow-section-zone">
+              <div
+                onClick={() => handleSection(6, true)}
+                className={`circle ${
+                  sectionNumber != 5 &&
+                  sectionNumber != 4 &&
+                  sectionNumber != 3 &&
+                  sectionNumber != 2 &&
+                  sectionNumber != 1
+                    ? "active"
+                    : ""
+                }`}
+              >
+                6
+              </div>
+              <div className="section-zone-text">เอกสารแนบ</div>
             </div>
           </div>
         </div>
         <div className={`form-wrapper-section`}>
           {sectionNumber === 1 && (
-            <Section1 changeSectionHandle={handleSection} />
+            <Section1 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
+              throw new Error("Function not implemented.");
+            } } />
           )}
           {sectionNumber === 2 && (
-            <Section2 changeSectionHandle={handleSection} />
+            <Section2 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
+              throw new Error("Function not implemented.");
+            } } />
           )}
           {sectionNumber === 3 && (
-            <Section3 changeSectionHandle={handleSection} />
+            <Section3 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
+              throw new Error("Function not implemented.");
+            } } />
           )}
           {sectionNumber === 4 && (
-            <Section4 changeSectionHandle={handleSection} />
+            <Section4 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
+              throw new Error("Function not implemented.");
+            } } />
           )}
           {sectionNumber === 5 && (
-            <Section5 changeSectionHandle={handleSection} />
+            <Section5 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
+              throw new Error("Function not implemented.");
+            } } />
+          )}
+          {sectionNumber === 6 && (
+            <Section6 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
+              throw new Error("Function not implemented.");
+            } } />
           )}
         </div>
       </div>

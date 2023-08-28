@@ -44,64 +44,11 @@ export default function TableOperationArea({
 
   const handleAddFormData = () => {
     setOpenOperationAreaSelect(true)
-    // if (addField.country_area && addField.province) {
-    //   const newData = {
-    //     indx: formData.length + 1 + "",
-    //     country_area: addField.country_area,
-    //     province: addField.province,
-    //   };
-
-    //   setFormdata([...formData, newData]);
-    //   setAddField({
-    //     indx: "",
-    //     country_area: "",
-    //     province: "",
-    //   });
-    //   dispatch(
-    //     appendDataToFieldSection3({
-    //       name: "list_operation_area",
-    //       data: newData,
-    //     })
-    //   );
-
-    //   onChangeTableOperationArea([...formData, newData]);
-    // }
-  };
-
-  const handleChangeField = (event: any) => {
-    const { name, value } = event.target;
-    const updateChecked = {
-      ...addField,
-      [name]: value,
-    };
-
-    setAddField(updateChecked);
-  };
-
-  const handleChangeFieldByIndex = (event: any, idx: any, type: any) => {
-    const { name, value } = event.target;
-
-    const newState = formData.map((obj) => {
-      if (obj.indx == idx) {
-        return type == "country_area"
-          ? { ...obj, country_area: value }
-          : { ...obj, province: value };
-      }
-      return obj;
-    });
-
-    setFormdata(newState);
   };
 
   const handleRemoveRow = (id: string) => {
     removeTableOperationAreaByIdService(id, dispatch);
     setFormdata(formData.filter((item: { indx: string }) => item.indx !== id));
-  };
-
-  const handleKeyDown = (event: any) => {
-    if (event.key === "Enter") {
-      handleAddFormData();
-    }
   };
 
   const handleCloseOperationAreaSelect = () => {

@@ -457,7 +457,7 @@ export default function Section2(props: Section2Props) {
 
   return (
     <>
-      <div className="d-flex form-group">
+<div className="d-flex form-group">
         <div className="form-field-label">
           <label>
           <i className="bi bi-info-circle information"></i> งบประมาณโครงการ <span style={{ color: "red" }}> *</span>

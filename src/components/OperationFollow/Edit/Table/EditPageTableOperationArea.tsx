@@ -3,6 +3,7 @@ import react, { useEffect, useState } from "react";
 import { initialState } from "../initial_state";
 import CommentModal from "../Modal/CommentModal";
 import { checkUserRoleService } from "@/redux/OperationFollow/service";
+import OperationAreaSelect from "../../Modal/OperationAreaSelectModal";
 
 interface TableOperationAreaProps {
   formData: any;
@@ -12,7 +13,6 @@ interface TableOperationAreaProps {
 }
 
 export function EditTableOperationArea(props: TableOperationAreaProps) {
-  //const [formData, setFormData] = useState<any>(initialState);
   const formData = props.formData
   const setFormData = props.setFormData
   const [isEditStatus, setIsEditStatus] = useState(false);
@@ -24,6 +24,8 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
   const [isOpenCommentModal, setOpenCommentModal] = useState(false);
   const [commentName,setCommentName] = useState('');
   const [commentSection, setCommentSection] = useState(0);
+  const [formDataTable, setFormDataTable] = useState([])
+  const [isOpenOperationAreaSelect, setOpenOperationAreaSelect] = useState(false)
 
   const handleRemoveRow = (id: string) => {
     let data = formData.section3.list_operation_area;
@@ -40,41 +42,34 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
 
   const role = checkUserRoleService();
 
-  const handleAddRow = () => {
-    const newData = {
-      indx: formData.section3.list_operation_area.length + 1 + "",
-      country_area: addField.country_area,
-      province: addField.province,
-    };
+  const handleAddFormData = () => {
+    setOpenOperationAreaSelect(true)
+  };
 
-    let data = formData.section3.list_operation_area;
-    data = [...data, newData];
+  const handleCloseOperationAreaSelect = () => {
+    setOpenOperationAreaSelect(false)
+  }
+
+  const handleConfirmOperationArea = (data: any) => {
+    let dataList = []
+
+    for(let i = 0; i < data.length; i++){
+      dataList.push({
+        indx: data[i].id,
+        country_area: data[i].countryarea,
+        province: data[i].province
+      })
+    }
 
     setFormData({
       ...formData,
       section3: {
         ...formData.section3,
-        list_operation_area: data,
-      },
-    });
+        list_operation_area: dataList
+      }     
+    })
 
-    setAddField({
-      indx: "",
-      country_area: "",
-      province: "",
-    });
-  };
-
-  const handleChangeField = (event: any) => {
-    const { name, value } = event.target;
-
-    const updateChecked = {
-      ...addField,
-      [name]: value,
-    };
-
-    setAddField(updateChecked);
-  };
+  }
 
   const handleOpenModal = () => {
     props.handleOpenModal('list_operation_area',3)
@@ -90,11 +85,12 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
   }, [props.isEditStatus]);
 
   useEffect(() => {
-    setFormData(props.formData);
-  }, [props.formData]);
+    setFormDataTable(formData.section3.list_operation_area)
+  })
 
   return (
     <>
+      <OperationAreaSelect setShow={isOpenOperationAreaSelect} handleClose={handleCloseOperationAreaSelect} handleConfirmOperationArea={handleConfirmOperationArea} />
       <CommentModal setShow={isOpenCommentModal} formData={formData} setFormData={setFormData} closeModal={handleCloseComment} commentName={commentName} commentSection={commentSection}/>
       <div className="table-summary-header">
         <span>พื้นที่ดำเนินโครงการ
@@ -115,70 +111,43 @@ export function EditTableOperationArea(props: TableOperationAreaProps) {
             </tr>
           </thead>
           <tbody>
-            {formData.section3.list_operation_area.map((data: any, index: number) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>
-                  <i
-                    onClick={() => handleRemoveRow(data.indx)}
-                    style={{ color: "red", cursor: "pointer" }}
-                    className="bi bi-trash-fill"
-                  ></i>
-                </td>
-                <td>{data.country_area}</td>
-                <td>{data.province}</td>
-              </tr>
-            ))}
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
-                { isEditStatus &&
-                  <input
-                  value={addField.country_area}
-                  onChange={(e) => handleChangeField(e)}
-                  name="country_area"
-                  disabled={!isEditStatus}
-                  type="text"
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                />
-                }
-
-              </td>
-              <td>
-                <input
-                  value={addField.province}
-                  onChange={(e) => handleChangeField(e)}
-                  name="province"
-                  disabled={!isEditStatus}
-                  type="text"
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                />
-              </td>
-            </tr>
-            {isEditStatus && (
+              {formDataTable.map((data:any, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <i
+                      onClick={() => handleRemoveRow(data.indx + "")}
+                      style={{ color: "red", cursor: "pointer" }}
+                      className="bi bi-trash-fill"
+                    ></i>
+                  </td>
+                  <td>
+                    {data.country_area}
+                  </td>
+                  <td>
+                    {data.province}
+                  </td>
+                </tr>
+              ))}
               <tr>
                 <td
                   style={{ textAlign: "center", fontWeight: "bold" }}
                   colSpan={4}
                 >
-                  <button
-                    onClick={handleAddRow}
-                    className="btn btn-primary"
-                    type="submit"
-                  >
-                     เพิ่ม
-                  </button>
+                  { isEditStatus &&
+                    <>
+                      <button
+                        onClick={handleAddFormData}
+                        className="btn btn-primary"
+                        type="submit"
+                      >
+                        เพิ่ม
+                      </button>
+                    </>  
+                  }
                 </td>
               </tr>
-            )}
-          </tbody>
+            </tbody>
         </table>
       </div>
     </>

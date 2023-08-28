@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import "../operation-follow.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import { appendDataToFieldSection3 } from "@/redux/OperationFollow/action";
+import { appendDataToFieldSection3, updateFormField } from "@/redux/OperationFollow/action";
 import { projectTargetService, removeTableProjectGoalByIdService } from "@/redux/OperationFollow/Section3/service";
 import DropdownSearch from "./DropdownSearch";
 import MasterData from "../master_data";
@@ -51,40 +51,26 @@ export default function TableGroupProjectGoal({
 
   const handleConfirmProjectTargetSelect = (data: any) => {
     setFormdata(data)
+
+    let newData = []
+    for(let i = 0; i < data.length; i++){
+      newData.push({
+        indx: i,
+        target_name: data[i].id,      
+      })
+    }
+
+    dispatch(updateFormField({
+      ...formState,
+      section3: {
+        ...formState.section3,
+        project_target: newData
+      }
+    }))
   }
 
   const handleAddFormData = () => {
     setIsOpenProjectTargetSelect(true)
-    // const newData = {
-    //   indx: formData.length + 1 + "",
-    //   target_name: addField.target_name,
-    // };
-
-    // setFormdata([...formData, newData]);
-    // setAddField({
-    //   indx: "",
-    //   target_name: "",
-    // });
-
-    // dispatch(
-    //   appendDataToFieldSection3({
-    //     name: "project_target",
-    //     data: newData,
-    //   })
-    // );
-
-    // onChangeTableGroupProjectGoal([...formData, newData]);
-  };
-
-  const handleChangeField = (event: any) => {
-    const { name, value } = event.target;
-
-    const updateChecked = {
-      ...addField,
-      [name]: value,
-    };
-
-    setAddField(updateChecked);
   };
 
   const handleRemoveRow = (id: string) => {
@@ -94,26 +80,6 @@ export default function TableGroupProjectGoal({
 
     setFormdata(_formData)
   };
-
-  const handleSelectTargetName = (item: string) => {
-    console.log(item)
-    setAddField({
-      ...addField,
-      target_name: item
-    });
-  }
-
-  function mergeLists(listOfLists: any[]): any[] {
-    if(!projectTargetLoading){
-      const mergedList = listOfLists?.reduce((accumulator, currentList) => {
-        return accumulator.concat(currentList);
-      }, []);
-    
-      return mergedList; 
-    }else{
-      return []
-    }
-  }
 
   function getTargetNameById(targetGroupId: string) {
     const item = projectTargetData?.find((item: { targetGroupId: string }) => item.targetGroupId == targetGroupId);
@@ -155,16 +121,9 @@ export default function TableGroupProjectGoal({
                       className="bi bi-trash-fill"
                     ></i>
                   </td>
-                  <td>{data.targetName}</td>
+                  <td>{getTargetNameById(data.target_name)}</td>
                 </tr>
               ))}
-              {/* <tr>
-                <td>{formData.length + 1}</td>
-                <td></td>
-                <td>
-                  <DropdownSearch2 formList={formData} dropdownName="projectTarget" items={mergeLists(projectTargetData)} setAddField={handleSelectTargetName} />
-                </td>
-              </tr> */}
               <tr>
                 <td
                   style={{ textAlign: "center", fontWeight: "bold" }}

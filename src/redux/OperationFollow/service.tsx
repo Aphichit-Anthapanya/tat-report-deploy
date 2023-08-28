@@ -76,6 +76,51 @@ export const saveCurrentForm = async (
 
 }
 
+export const paramMapActivityService = async (formInfo: any, projectId: string) => {
+
+  let project_outcome = []
+  for(let i = 0; i < formInfo.project_indicator.length; i++) {
+
+    project_outcome.push({
+      outputId: formInfo.project_indicator[i].name_indicator,
+      seqNo: i,
+      quarterAmt01: parseInt(formInfo.project_indicator[i].quarter1_percent),
+      quarterAmt02: parseInt(formInfo.project_indicator[i].quarter2_percent),
+      quarterAmt03: parseInt(formInfo.project_indicator[i].quarter3_percent),
+      quarterAmt04: parseInt(formInfo.project_indicator[i].quarter4_percent),
+      outputAmt: parseInt(formInfo.project_indicator[i].total_percent)
+    })
+
+  }
+
+  let operation_area_list = []
+
+  for(let i = 0; i < formInfo.list_operation_area
+    .length; i++) {
+
+    operation_area_list.push({
+      oparationAreaId: formInfo.list_operation_area[i].indx
+    })
+
+  }
+
+  let apiData = {
+    projectId: projectId,
+    activitySeqNo: parseInt(formInfo.activity_order),
+    activityNameTH: formInfo.activity_name,
+    activityDescription: formInfo.activity_description,
+    projectPercent: parseInt(formInfo.activity_shared),
+    planBudget: parseInt(formInfo.budget),
+    planBeginDt: formInfo.activity_start,
+    planActEndDt: formInfo.activity_end,
+    outputs: project_outcome,
+    oparationAreas: operation_area_list
+  }
+
+  return apiData
+
+}
+
 export const paramMapService = async (formInfo: any, sectionNumber: number) => {
 
   let section1data = await getSection1Data(formInfo)
@@ -750,11 +795,11 @@ const getSection3Data = (data: any) => {
     projectoutcomeList.push({
       mainOutcomeId: data.section3.project_outcome[i]['name_indicator'],
       seqNo: i + 1,
-      totalAmt: data.section3.project_outcome[i]['total_percent'],
-      quarterAmt01: data.section3.project_outcome[i]['quarter1_percent'],
-      quarterAmt02: data.section3.project_outcome[i]['quarter2_percent'],
-      quarterAmt03: data.section3.project_outcome[i]['quarter3_percent'],
-      quarterAmt04: data.section3.project_outcome[i]['quarter4_percent']
+      totalAmt: parseInt(data.section3.project_outcome[i]['total_percent']),
+      quarterAmt01: parseInt(data.section3.project_outcome[i]['quarter1_percent']),
+      quarterAmt02: parseInt(data.section3.project_outcome[i]['quarter2_percent']),
+      quarterAmt03: parseInt(data.section3.project_outcome[i]['quarter3_percent']),
+      quarterAmt04: parseInt(data.section3.project_outcome[i]['quarter4_percent'])
     })
   }
 

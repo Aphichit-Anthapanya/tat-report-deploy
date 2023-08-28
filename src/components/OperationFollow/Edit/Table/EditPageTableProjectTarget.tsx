@@ -5,6 +5,7 @@ import React from "react";
 import { checkUserRoleService } from "@/redux/OperationFollow/service";
 import DropdownSearch2 from "@/components/OperationFollow/Table/DropdownSearch2";
 import { projectTargetService } from "@/redux/OperationFollow/Section3/service";
+import ProjectTargetSelect from "../../Modal/ProjectTargetModal";
 
 interface EditTableProjectTargetProps {
   formData: any;
@@ -24,40 +25,38 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
   });
   const { data: projectTargetData, isLoading: projectTargetLoading} = projectTargetService()
 
+  const [isOpenProjectTargetSelect, setIsOpenProjectTargetSelect] = useState(false)
+
+  const [formDataTable, setFormDataTable] = useState([])
+
   const role = checkUserRoleService();
 
-  const handleAddFormData = () => {
-    const newData = {
-      indx: formData.section3.project_target.length + 1 + "",
-      target_name: addField.target_name,
-    };
+  const handleCloseProjectTargetSelect = () => {
+    setIsOpenProjectTargetSelect(false)
+  }
 
-    let data = formData.section3.project_target;
-    data = [...data, newData];
+  const handleConfirmProjectTargetSelect = (data: any) => {
+    setFormDataTable(data)
+
+    let newData = []
+    for(let i = 0; i < data.length; i++){
+      newData.push({
+        indx: i,
+        target_name: data[i].id,      
+      })
+    }
 
     setFormData({
       ...formData,
       section3: {
         ...formData.section3,
-        project_target: data,
-      },
-    });
+        project_target: newData
+      }
+    })
+  }
 
-    setAddField({
-      indx: "",
-      target_name: "",
-    });
-  };
-
-  const handleChangeField = (event: any) => {
-    const { name, value } = event.target;
-
-    const updateChecked = {
-      ...addField,
-      [name]: value,
-    };
-
-    setAddField(updateChecked);
+  const handleAddFormData = () => {
+    setIsOpenProjectTargetSelect(true)
   };
 
   const handleRemoveRow = (id: string) => {
@@ -85,19 +84,6 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
     });
   }
 
-
-  function mergeLists(listOfLists: any[]): any[] {
-    if(!projectTargetLoading){
-      const mergedList = listOfLists?.reduce((accumulator, currentList) => {
-        return accumulator.concat(currentList);
-      }, []);
-    
-      return mergedList; 
-    }else{
-      return []
-    }
-  }
-
   function getTargetNameById(targetGroupId: string) {
     const item = projectTargetData?.find((item: { targetGroupId: string }) => item.targetGroupId == targetGroupId);
     return item ? item.targetGroupNameTh : null;
@@ -107,8 +93,13 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
     setIsEditStatus(props.isEditStatus);
   }, [props.isEditStatus]);
 
+  useEffect(() => {
+    setFormDataTable(formData.section3.project_target);
+  }, []);
+
   return (
     <>
+      <ProjectTargetSelect setShow={isOpenProjectTargetSelect} handleClose={handleCloseProjectTargetSelect} handleConfirmOperationArea={handleConfirmProjectTargetSelect} />
       <div className="table-summary-header">
         <span>กลุ่มเป้าหมายระดับโครงการ
           {role == 'admin' && <i onClick={() => handleOpenModal()} className="bi bi-pencil-fill comment-icon"></i>}
@@ -129,50 +120,38 @@ export function EditTableProjectTarget(props: EditTableProjectTargetProps) {
             </tr>
           </thead>
           <tbody>
-            {formData.section3.project_target.map((data: any, index: number) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>
-                  <i
-                    onClick={() => handleRemoveRow(data.indx)}
-                    style={{ color: "red", cursor: "pointer" }}
-                    className="bi bi-trash-fill"
-                  ></i>
-                </td>
-                <td>{getTargetNameById(data.target_name)}</td>
-              </tr>
-            ))}
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
+              {formDataTable.map((data:any, index: number) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <i
+                      onClick={() => handleRemoveRow(data.id)}
+                      style={{ color: "red", cursor: "pointer" }}
+                      className="bi bi-trash-fill"
+                    ></i>
+                  </td>
+                  <td>{getTargetNameById(data.target_name)}</td>
+                </tr>
+              ))}
+              <tr>
+                <td
+                  style={{ textAlign: "center", fontWeight: "bold" }}
+                  colSpan={3}
+                >
                 { isEditStatus &&
-                  <DropdownSearch2 formList={formData} dropdownName="projectTarget" items={mergeLists(projectTargetData)} setAddField={handleSelectTargetName} />
-                }
-                { !isEditStatus &&
                   <>
-                    <input placeholder="ค้นหา..." className="form-control" disabled={true} type="text" />
+                  <button
+                    onClick={handleAddFormData}
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    เพิ่ม
+                  </button>
                   </>
                 }
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{ textAlign: "center", fontWeight: "bold" }}
-                colSpan={3}
-              >
-                {isEditStatus &&
-                  <button
-                  onClick={handleAddFormData}
-                  className="btn btn-primary"
-                  type="submit"
-                >
-                  เพิ่ม
-                </button>
-                }
-              </td>
-            </tr>
-          </tbody>
+                </td>
+              </tr>
+            </tbody>
         </table>
       </div>
     </>

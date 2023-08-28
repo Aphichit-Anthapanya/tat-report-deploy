@@ -371,7 +371,7 @@ const operationFollowFormSlice = createSlice({
       //   operationFollowList: items
       // }
     },
-    appendActivity(state, action: PayloadAction<ActiVityForm>) {
+    appendActivity(state, action: PayloadAction<any>) {
       return {
         ...state,
         activitiesList: [...state.activitiesList, action.payload],

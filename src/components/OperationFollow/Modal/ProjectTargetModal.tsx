@@ -176,7 +176,7 @@ export default function ProjectTargetSelect(props: MyProps) {
                                         <input
                                         onChange={(e) => handleCheck(e,{
                                             id: item.id,
-                                            targetName: item.targetName,
+                                            target_name: item.id,
                                             isSelect: item.isSelect
                                         }, index + pageStart)}
                                         className="form-check-input"

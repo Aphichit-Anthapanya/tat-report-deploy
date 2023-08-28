@@ -29,60 +29,167 @@ export function EditTableProjectIndicator(
     quarter4_percent: "",
   });
 
+  const [isOpenProjectIndicatorSelect, setOpenProjectIndicatorSelect] = useState(false)
+  const [formDataTable, setFormDataTable] = useState<any>([])
+
   const { data: mainOutcomeData, isLoading: mainOutcomeLoading } = mainOutcomeService()
 
   const role = checkUserRoleService();
 
   const handleAddFormData = () => {
-    let total_percent = parseInt(addField.quarter1_percent) + parseInt(addField.quarter2_percent) + parseInt(addField.quarter3_percent) + parseInt(addField.quarter4_percent)
-    const newData = {
-      indx: formData.section3.project_outcome.length + 1 + "",
-      name_indicator: addField.name_indicator,
-      table_percent: total_percent + '',
-      quarter1_percent: addField.quarter1_percent,
-      quarter2_percent: addField.quarter2_percent,
-      quarter3_percent: addField.quarter3_percent,
-      quarter4_percent: addField.quarter4_percent,
-    };
+    setOpenProjectIndicatorSelect(true)
+  };
 
-    let data = formData.section3.project_outcome;
-    data = [...data, newData];
+  const handleCloseProjectIndicatorSelect = () => {
+    setOpenProjectIndicatorSelect(false)
+  }
+
+  const handleConfirmProjectIndicatorSelect = (data: any) => {
+
+    let listData = []
+    for(let i = 0; i < data.length ; i++){
+      listData.push({
+        indx: data[i].id,
+        name_indicator: data[i].indicatorName,
+        total_percent: '',
+        quarter1_percent: "0",
+        quarter2_percent: "0",
+        quarter3_percent: "0",
+        quarter4_percent: "0",
+        calType: data[i].calType
+      })
+    }
+
+    setFormDataTable(listData)
+
+    let disPatchData = []
+    for(let i = 0; i < listData.length ; i++){
+      disPatchData.push({
+        indx: i,
+        name_indicator: listData[i].indx,
+        total_percent: '',
+        quarter1_percent: "0",
+        quarter2_percent: "0",
+        quarter3_percent: "0",
+        quarter4_percent: "0",
+      })
+    }
 
     setFormData({
       ...formData,
       section3: {
         ...formData.section3,
-        project_outcome: data,
-      },
-    });
+        project_outcome: disPatchData
+      }  
+    })
 
-    setAddField({
-      indx: "",
-      total_percent: "",
-      name_indicator: "",
-      quarter1_percent: "",
-      quarter2_percent: "",
-      quarter3_percent: "",
-      quarter4_percent: "",
-    });
-  };
+  }
 
-  const handleChangeField = (event: any) => {
+  const handleChangeField = (event: any, id: string) => {
     const { name, value } = event.target;
 
-    const updateChecked = {
-      ...addField,
-      [name]: value,
-    };
+    let index = formData.findIndex((item:any) => 
+      item.indx == id
+    )
 
-    setAddField(updateChecked);
+    if(index != -1){
+      let q1 = formData[index].quarter1_percent
+      let q2 = formData[index].quarter2_percent
+      let q3 = formData[index].quarter3_percent
+      let q4 = formData[index].quarter4_percent
+    
+      if(name == 'quarter1_percent'){
+        q1 = value
+      }else if(name == 'quarter2_percent'){
+        q2 = value
+      }else if(name == 'quarter3_percent'){
+        q3 = value
+      }else if(name == 'quarter4_percent'){
+        q4 = value
+      }
+
+      if(parseInt(q1) < 0){
+        q1 = '0'
+      }
+
+      if(parseInt(q2) < 0){
+        q2 = '0'
+      }
+
+      if(parseInt(q3) < 0){
+        q3 = '0'
+      }
+
+      if(parseInt(q4) < 0){
+        q4 = '0'
+      }
+
+      let newDataList = [...formData]
+      newDataList[index] = {
+        indx: newDataList[index].indx,
+        name_indicator: newDataList[index].name_indicator,
+        total_percent: calculatePercentHelper(q1,q2,q3,q4) + '',
+        quarter1_percent: q1 + '',
+        quarter2_percent: q2 + '',
+        quarter3_percent: q3 + '',
+        quarter4_percent: q4 + '',
+        calType: newDataList[index].calType
+      }
+
+      setFormDataTable(newDataList)
+
+      let dispatchDataList: any[] = [...formData.section3.project_outcome]
+      dispatchDataList[index] = {
+        indx: index,
+        name_indicator: newDataList[index].indx,
+        total_percent: calculatePercentHelper(q1,q2,q3,q4) + '',
+        quarter1_percent: q1 + '',
+        quarter2_percent: q2 + '',
+        quarter3_percent: q3 + '',
+        quarter4_percent: q4 + '',
+        calType: ''
+      }
+
+      for(let i = 0; i < dispatchDataList.length; i++){
+        delete dispatchDataList[i].calType
+      }
+
+      setFormData({
+        ...formData,
+        section3: {
+          ...formData.section3,
+          project_outcome: dispatchDataList
+        }  
+      })
+    
+    }
+
   };
 
-  const handleSelect = (name:string) => {
-    setAddField({
-      ...addField,
-      name_indicator: name
-    })
+  const calculatePercentHelper = (
+    q1: string,
+    q2: string,
+    q3: string,
+    q4: string
+  ) => {
+
+    if(q1 == ''){
+      q1 = '0'
+    }
+
+    if(q2 == ''){
+      q2 = '0'
+    }
+
+    if(q3 == ''){
+      q3 = '0'
+    }
+
+    if(q4 == ''){
+      q4 = '0'
+    }
+
+    return parseInt(q1) + parseInt(q2) + parseInt(q3) + parseInt(q4)
   }
 
   const handleRemoveRow = (id: string) => {
@@ -123,8 +230,8 @@ export function EditTableProjectIndicator(
   }, [props.isEditStatus]);
 
   useEffect(() => {
-    setFormData(props.formData);
-  }, [props.formData]);
+    setFormDataTable(formData.section3.project_outcome)
+  });
 
   return (
     <>
@@ -141,9 +248,12 @@ export function EditTableProjectIndicator(
               <th style={{ width: "10%" }} scope="col">
                 ลำดับที่
               </th>
-              <th style={{ width: "10%" }}></th>
+              <th></th>
               <th style={{ width: "20%" }} scope="col">
                 ชื่อตัวชี้วัด
+              </th>
+              <th style={{ width: "10%" }} scope="col">
+                หน่วย
               </th>
               <th style={{ width: "10%" }} scope="col">
                 รวม (%)
@@ -155,115 +265,92 @@ export function EditTableProjectIndicator(
             </tr>
           </thead>
           <tbody>
-            {formData.section3.project_outcome.map((data:any, index: number) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>
-                  <i
-                    onClick={() => handleRemoveRow(data.indx)}
-                    style={{ color: "red", cursor: "pointer" }}
-                    className="bi bi-trash-fill"
-                  ></i>
-                </td>
-                <td>{getTargetNameById(data.name_indicator)}</td>
-                <td>{data.total_percent}</td>
-                <td>{data.quarter1_percent}</td>
-                <td>{data.quarter2_percent}</td>
-                <td>{data.quarter3_percent}</td>
-                <td>{data.quarter4_percent}</td>
+              {formDataTable.map((data: any, index: number) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <i
+                      onClick={() => handleRemoveRow(data.indx)}
+                      style={{ color: "red", cursor: "pointer" }}
+                      className="bi bi-trash-fill"
+                    ></i>
+                  </td>
+                  <td>{getTargetNameById(data.name_indicator)}</td>
+                  <td>{data.calType}</td>
+                  <td>{data.total_percent}</td>
+                  <td>
+                    <input
+                    disabled={!isEditStatus}
+                    type="number"
+                    onChange={(e) => handleChangeField(e,data.indx)}
+                    name="quarter1_percent"
+                    value={data.quarter1_percent}
+                    className="form-control purchase-project-feild1"
+                    placeholder=""
+                    id="filterOverall"
+                    style={{ width: "80%", margin: "auto" }}
+                  />
+                  </td>
+                  <td>
+                  <input
+                    disabled={!isEditStatus}
+                    onChange={(e) => handleChangeField(e,data.indx)}
+                    type="number"
+                    name="quarter2_percent"
+                    value={data.quarter2_percent}
+                    className="form-control purchase-project-feild1"
+                    placeholder=""
+                    id="filterOverall"
+                    style={{ width: "80%", margin: "auto" }}
+                  />
+                  </td>
+                  <td>
+                  <input
+                    disabled={!isEditStatus}
+                    onChange={(e) => handleChangeField(e,data.indx)}
+                    type="number"
+                    name="quarter3_percent"
+                    value={data.quarter3_percent}
+                    className="form-control purchase-project-feild1"
+                    placeholder=""
+                    id="filterOverall"
+                    style={{ width: "80%", margin: "auto" }}
+                  />
+                  </td>
+                  <td>
+                  <input
+                    disabled={!isEditStatus}
+                    onChange={(e) => handleChangeField(e,data.indx)}
+                    type="number"
+                    name="quarter4_percent"
+                    value={data.quarter4_percent}
+                    className="form-control purchase-project-feild1"
+                    placeholder=""
+                    id="filterOverall"
+                    style={{ width: "80%", margin: "auto" }}
+                  />
+                  </td>
+                </tr>
+              ))}
+              <tr>
               </tr>
-            ))}
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
-                {/* <input
-                  value={addField.name_indicator}
-                  onChange={(e) => handleChangeField(e)}
-                  name="name_indicator"
-                  disabled={!isEditStatus}
-                  type="text"
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                /> */}
-                
-                { isEditStatus &&
-                  <DropdownSearch2 dropdownName="mainOutcome" items={mergeLists(mainOutcomeData)} setAddField={handleSelect} formList={formData} />
-                }
-              </td>
-              <td></td>
-              <td>
-                <input
-                  value={addField.quarter1_percent}
-                  onChange={(e) => handleChangeField(e)}
-                  disabled={!isEditStatus}
-                  type="text"
-                  name="quarter1_percent"
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                />
-              </td>
-              <td>
-                <input
-                  value={addField.quarter2_percent}
-                  onChange={(e) => handleChangeField(e)}
-                  disabled={!isEditStatus}
-                  type="text"
-                  name="quarter2_percent"
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                />
-              </td>
-              <td>
-                <input
-                  value={addField.quarter3_percent}
-                  onChange={(e) => handleChangeField(e)}
-                  disabled={!isEditStatus}
-                  type="text"
-                  name="quarter3_percent"
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                />
-              </td>
-              <td>
-                <input
-                  value={addField.quarter4_percent}
-                  onChange={(e) => handleChangeField(e)}
-                  disabled={!isEditStatus}
-                  type="text"
-                  name="quarter4_percent"
-                  className="form-control purchase-project-feild1"
-                  placeholder=""
-                  id="filterOverall"
-                  style={{ width: "80%", margin: "auto" }}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{ textAlign: "center", fontWeight: "bold" }}
-                colSpan={8}
-              >
-                {isEditStatus &&
+              <tr>
+                <td
+                  style={{ textAlign: "center", fontWeight: "bold" }}
+                  colSpan={8}
+                >
+                  { isEditStatus &&
                     <button
-                    onClick={handleAddFormData}
-                    className="btn btn-primary"
-                    type="submit"
-                  >
-                     เพิ่ม
-                  </button>
-                }
-              </td>
-            </tr>
-          </tbody>
+                      onClick={handleAddFormData}
+                      className="btn btn-primary"
+                      type="submit"
+                    >
+                      <i className="bi bi-file-earmark-plus"></i> เพิ่ม
+                    </button>
+                  }
+                </td>
+              </tr>
+            </tbody>
         </table>
       </div>
     </>

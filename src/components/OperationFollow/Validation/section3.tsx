@@ -143,21 +143,19 @@ export const checkValidity = (
     });
   }
 
-  console.log(
-    checkPrincipleReasonValid,
-    checkObjectiveValid, 
-    checkOperationAreaValid, 
-    checkProjectIndicatorValid, 
-    checkOutComeField,
-    checkProjectTargetValid
-  )
+  // console.log(
+  //   checkPrincipleReasonValid,
+  //   checkObjectiveValid, 
+  //   checkOperationAreaValid, 
+  //   checkProjectIndicatorValid,
+  //   checkProjectTargetValid
+  // )
 
   if (
     checkPrincipleReasonValid &&
     checkObjectiveValid &&
     checkOperationAreaValid &&
     checkProjectIndicatorValid &&
-    checkOutComeField &&
     checkProjectTargetValid
   ) {
     window.scrollTo({ top: 0, behavior: "smooth" });

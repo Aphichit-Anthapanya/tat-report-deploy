@@ -1404,7 +1404,7 @@ export default function Page() {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                        </div>
 
                         <div className="wid d-flex flex-column mb-20 justify-content-center">
                         <div className="d-flex justify-content-right align-items-end">

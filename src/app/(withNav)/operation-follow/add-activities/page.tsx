@@ -37,6 +37,7 @@ export default function Page() {
             งานระบบสารสนเทศแบบองค์กร
           </span>
         </div>
+        
         <div className="flow-indicator-wrapper">
           <div className="flow-indicator d-flex justify-content-center">
             <div className="flow-section-zone">
@@ -54,6 +55,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+
         <div
           className={`form-wrapper-section ${
             sectionNumber === 5 ? "section5" : ""

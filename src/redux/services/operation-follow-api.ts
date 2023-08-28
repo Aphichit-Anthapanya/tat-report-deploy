@@ -122,6 +122,17 @@ export const deleteProjectService = (id: string) => {
     }    
 }
 
+export const createActivitiesService = (data: any) => {
+    console.log(data);
+    try {
+        return axios.post(`${EnvConfig.apiUrl}/project-activities`, data, {
+            withCredentials: true, // Set this to include credentials in the request
+        });
+    } catch (error) {
+        throw new Error('Sorry internal server error.');
+    }
+}
+
 
 export const operationFollowApi = createApi({
     reducerPath: "operationFollowApi",

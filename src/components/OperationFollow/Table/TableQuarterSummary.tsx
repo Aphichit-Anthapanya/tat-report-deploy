@@ -461,7 +461,7 @@ export default function TableQuarterSummary(props: TableQuarterProps) {
         <div className="table-summary-content">
           <div className="small-table-wrapper">
             <div className="table-summary-header">
-              <span>งบประมาณรายเดือน</span>
+              <span><b>งบประมาณรายเดือน</b></span>
             </div>
             <div className="small-table d-flex">
               <div className="small-table-quarter-1 item-quarter">

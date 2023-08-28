@@ -101,8 +101,8 @@ td {
 }
 
 .circle {
-  border-radius: 50%;
   width: 42px;
+  border-radius: 50%;
   height: 42px;
   padding: 10px;
   background: #e3e4e4;
@@ -118,6 +118,25 @@ td {
 .circle.active {
   background: #1967b2;
   color: #ffff;
+}
+.circle-2 {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  background: #e3e4e4;
+  color: #666687;
+  text-align: center;
+  font-weight: bold !important;
+  font: 17px Arial, sans-serif;
+  margin: auto;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.circle-2.active {
+  background: #FFFF8F;
+  color: black;
 }
 
 .section-zone-text {

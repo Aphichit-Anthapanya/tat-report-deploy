@@ -217,17 +217,7 @@ export interface FormState {
     other: string;
     project_risk: string;
   };
-  activitiesList: Array<{
-    catname: string;
-    activity_type: string;
-    activity_name: string;
-    activity_order: string;
-    activity_shared: string;
-    act_status: string;
-    work_status: string;
-    budget: string;
-    total_act_budget: string;
-  }>;
+  activitiesList: Array<any>;
   activityForm: {
     id: string;
     budget: string;

@@ -16,6 +16,7 @@ import DropDownSerach from "./DropdownSearch";
 import DropdownSearch from "./DropdownSearch";
 import DropdownSearch2 from "./DropdownSearch2";
 import ProjectIndicatorSelect from "../Modal/ProjectIndicatorSelect"
+import { updateFormField } from "@/redux/OperationFollow/reducer";
 
 interface TableProjectIndicatorProps {
   onChangeTableProjectIndicator: (data: any) => void;
@@ -55,39 +56,6 @@ export default function TableProjectIndicator({
 
   const handleAddFormData = () => {
     setOpenProjectIndicatorSelect(true)
-  //   let total_percent =
-  //     parseInt(addField.quarter1_percent == '' ? '0' : addField.quarter1_percent) +
-  //     parseInt(addField.quarter2_percent == '' ? '0' : addField.quarter2_percent) +
-  //     parseInt(addField.quarter3_percent == '' ? '0' : addField.quarter3_percent) +
-  //     parseInt(addField.quarter4_percent == '' ? '0' : addField.quarter4_percent);
-  //   const newData = {
-  //     indx: formData.length + 1 + "",
-  //     name_indicator: addField.name_indicator,
-  //     total_percent: total_percent + "",
-  //     quarter1_percent: addField.quarter1_percent,
-  //     quarter2_percent: addField.quarter2_percent,
-  //     quarter3_percent: addField.quarter3_percent,
-  //     quarter4_percent: addField.quarter4_percent,
-  //   };
-
-  //   setFormdata([...formData, newData]);
-  //   setAddField({
-  //     indx: "",
-  //     name_indicator: "",
-  //     quarter1_percent: "",
-  //     quarter2_percent: "",
-  //     quarter3_percent: "",
-  //     quarter4_percent: "",
-  //   });
-
-  //   dispatch(
-  //     appendDataToFieldSection3({
-  //       name: "project_outcome",
-  //       data: newData,
-  //     })
-  //   );
-
-  //   onChangeTableProjectIndicator([...formData, newData]);
   };
 
   const handleCloseProjectIndicatorSelect = () => {
@@ -112,17 +80,31 @@ export default function TableProjectIndicator({
 
     setFormdata(listData)
 
+    let disPatchData = []
+    for(let i = 0; i < listData.length ; i++){
+      disPatchData.push({
+        indx: i,
+        name_indicator: listData[i].indx,
+        total_percent: '',
+        quarter1_percent: "0",
+        quarter2_percent: "0",
+        quarter3_percent: "0",
+        quarter4_percent: "0",
+      })
+    }
+
+    dispatch(updateFormField({
+      ...formState,
+      section3: {
+        ...formState.section3,
+        project_outcome: disPatchData
+      }
+    }))
+
   }
 
   const handleChangeField = (event: any, id: string) => {
     const { name, value } = event.target;
-
-    // const updateChecked = {
-    //   ...addField,
-    //   [name]: value,
-    // };
-
-    // setAddField(updateChecked);
 
     let index = formData.findIndex((item:any) => 
       item.indx == id
@@ -144,6 +126,22 @@ export default function TableProjectIndicator({
         q4 = value
       }
 
+      if(parseInt(q1) < 0){
+        q1 = '0'
+      }
+
+      if(parseInt(q2) < 0){
+        q2 = '0'
+      }
+
+      if(parseInt(q3) < 0){
+        q3 = '0'
+      }
+
+      if(parseInt(q4) < 0){
+        q4 = '0'
+      }
+
       let newDataList = [...formData]
       newDataList[index] = {
         indx: newDataList[index].indx,
@@ -157,6 +155,30 @@ export default function TableProjectIndicator({
       }
 
       setFormdata(newDataList)
+
+      let dispatchDataList: any[] = [...formState.section3.project_outcome]
+      dispatchDataList[index] = {
+        indx: index,
+        name_indicator: newDataList[index].indx,
+        total_percent: calculatePercentHelper(q1,q2,q3,q4) + '',
+        quarter1_percent: q1 + '',
+        quarter2_percent: q2 + '',
+        quarter3_percent: q3 + '',
+        quarter4_percent: q4 + '',
+        calType: ''
+      }
+
+      for(let i = 0; i < dispatchDataList.length; i++){
+        delete dispatchDataList[i].calType
+      }
+
+      dispatch(updateFormField({
+        ...formState,
+        section3: {
+          ...formState.section3,
+          project_outcome: dispatchDataList
+        }
+      }))
     
     }
 
@@ -220,10 +242,6 @@ export default function TableProjectIndicator({
     }
   }
 
-  useEffect(() => {
-    setFormdata(formState.section3.project_outcome);
-  }, []);
-
   const handleSelect = (name: string) => {
     setAddField({
       ...addField,
@@ -248,6 +266,10 @@ export default function TableProjectIndicator({
     );
     return item ? item.outcomeNameTh : null;
   };
+
+  useEffect(() => {
+    setFormdata(formState.section3.project_outcome);
+  }, []);
 
   return (
     <>
@@ -290,7 +312,7 @@ export default function TableProjectIndicator({
                       className="bi bi-trash-fill"
                     ></i>
                   </td>
-                  <td>{data.name_indicator}</td>
+                  <td>{getTargetNameById(data.indx)}</td>
                   <td>{data.calType}</td>
                   <td>{data.total_percent}</td>
                   <td>
@@ -344,71 +366,11 @@ export default function TableProjectIndicator({
                 </tr>
               ))}
               <tr>
-                {/* <td>{formData.length + 1}</td>
-                <td></td>
-                <td>
-                  <DropdownSearch2
-                    dropdownName="mainOutcome"
-                    items={mergeLists(mainOutcomeData)}
-                    setAddField={handleSelect}
-                    formList={formData}
-                  />
-                </td>
-                <td></td>
-                <td>
-                  <input
-                    onChange={(e) => handleChangeField(e)}
-                    type="number"
-                    name="quarter1_percent"
-                    value={addField.quarter1_percent}
-                    className="form-control purchase-project-feild1"
-                    placeholder=""
-                    id="filterOverall"
-                    style={{ width: "80%", margin: "auto" }}
-                    onBlur={(e) => handleBlurField(e)}
-                  />
-                </td>
-                <td>
-                  <input
-                    onChange={(e) => handleChangeField(e)}
-                    type="number"
-                    name="quarter2_percent"
-                    value={addField.quarter2_percent}
-                    className="form-control purchase-project-feild1"
-                    placeholder=""
-                    id="filterOverall"
-                    style={{ width: "80%", margin: "auto" }}
-                  />
-                </td>
-                <td>
-                  <input
-                    onChange={(e) => handleChangeField(e)}
-                    type="number"
-                    name="quarter3_percent"
-                    value={addField.quarter3_percent}
-                    className="form-control purchase-project-feild1"
-                    placeholder=""
-                    id="filterOverall"
-                    style={{ width: "80%", margin: "auto" }}
-                  />
-                </td>
-                <td>
-                  <input
-                    onChange={(e) => handleChangeField(e)}
-                    type="number"
-                    name="quarter4_percent"
-                    value={addField.quarter4_percent}
-                    className="form-control purchase-project-feild1"
-                    placeholder=""
-                    id="filterOverall"
-                    style={{ width: "80%", margin: "auto" }}
-                  />
-                </td> */}
               </tr>
               <tr>
                 <td
                   style={{ textAlign: "center", fontWeight: "bold" }}
-                  colSpan={8}
+                  colSpan={9}
                 >
                   <button
                     onClick={handleAddFormData}
