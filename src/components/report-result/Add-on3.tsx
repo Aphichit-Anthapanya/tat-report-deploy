@@ -268,22 +268,31 @@ export default function Section5(props: Section5Props) {
                     <table className="table table-bordered">
                         <tbody>
                             <tr>
-                                <th colSpan={4}>
+                                <th colSpan={5}>
                                     <div className="d-flex justify-content-center">ตารางแนบเอกสาร</div>
                                 </th>
                             </tr>
                             <tr>
-                                <th>
+                                <th rowSpan={2}>
                                     <div className="wd-100 d-flex justify-content-center align-items-center">ลำดับที่</div>
                                 </th>
-                                <th>
-                                    <div className="wd-180 d-flex justify-content-center align-items-center">ตัวชี้วัดที่เกี่ยวข้อง</div>
+                                <th rowSpan={2}>
+                                    <div className="wd-200 d-flex justify-content-center align-items-center">ตัวชี้วัดที่เกี่ยวข้อง</div>
                                 </th>
-                                <th>
-                                    <div className="wd-100 d-flex justify-content-center align-items-center">เอกสาร</div>
+                                <th colSpan={2}>
+                                    <div className="d-flex justify-content-center align-items-center">เอกสาร</div>
                                 </th>
-                                <th>
+                                <th rowSpan={2}>
                                     <div className="wd-100 d-flex justify-content-center align-items-center">สถานะการอัพโหลด</div>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    <div className="wd-50 d-flex justify-content-center align-items-center">อัพโหลด</div>
+                                </th>
+                                <th>
+                                    <div className="wd-80 d-flex justify-content-center align-items-center">จำนวนเอกสาร</div>
                                 </th>
                             </tr>
 
@@ -298,6 +307,9 @@ export default function Section5(props: Section5Props) {
                                 </th>
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
+                                </th>
+                                <th>
+                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
                                 </th>
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"></div>
@@ -318,6 +330,9 @@ export default function Section5(props: Section5Props) {
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"></div>
                                 </th>
+                                <th>
+                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
+                                </th>
                             </tr>
                             <tr>
                                 <th>
@@ -330,6 +345,9 @@ export default function Section5(props: Section5Props) {
                                 </th>
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
+                                </th>
+                                <th>
+                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
                                 </th>
                                 <th>
                                     <div className="normalText d-flex justify-content-center align-items-center"></div>
