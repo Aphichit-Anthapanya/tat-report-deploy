@@ -1,33 +1,27 @@
 import React from 'react';
-import * as XLSX from 'xlsx';
+import XLSX from 'xlsx';
 
-function ExportExcelButton(data : any) {
-  const exportToExcel = () => {
+const ExcelGenerator = () => {
+  const generateExcel = () => {
+    const data = [
+      ['Name', 'Age'],
+      ['John', 25],
+      ['Jane', 30],
+      // Add more data as needed
+    ];
+
+    const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
-    const ws = XLSX.utils.json_to_sheet(data);
-
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
-    var s:any;
-    // Generate a blob from the workbook
-    const blob = XLSX.write(wb, { bookType: 'xlsx', type: s });
-
-    // Create a download link
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'data.xlsx';
-    a.click();
-
-    // Clean up
-    URL.revokeObjectURL(url);
+    XLSX.writeFile(wb, 'data.xlsx');
   };
 
   return (
-    <button onClick={exportToExcel}>
-      Export to Excel
-    </button>
+    <div>
+      <button onClick={generateExcel}>Generate Excel</button>
+    </div>
   );
-}
+};
 
-export default ExportExcelButton;
+export default ExcelGenerator;
