@@ -9,7 +9,8 @@ export default function Home() {
     <Container as="main" className="d-flex content-body-wrapper d-flex flex-column">
       {/* and also work with module.scss (page.module.scss) */}
       <h1 className={styles["custom-text-green"]}>Home Page</h1>
-      <Link href="/test-function">Function</Link>
+      <Link href="/test-function/exportpdf">Test Export PDF</Link>
+      <Link href="/test-function/exportxls">Test Export XLSX</Link>
       <>ระบบแผนผล</>
       <Link href="/dashboard-v2">Dashboard</Link>
       <Link href="/plan-report">plan-report</Link>
