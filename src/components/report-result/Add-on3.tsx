@@ -2,7 +2,7 @@
 
 
 import "./report-result.scss";
-
+import { addMonths } from 'date-fns';
 import React from "react";
 import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
@@ -356,33 +356,133 @@ export default function Section5(props: Section5Props) {
                         </tbody>
                     </table>
                 </div>
-        </div>
-        <div className="d-flex flex-column mr-20 ml-70">
-        <div className="wid d-flex flex-row mb-20 justify-content-center">
-            <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">
-                <div className='f-column'>
-                    <div className='d-flex justify-content-right'>ปัญหา/อุปสรรค </div>
-                    <div className='d-flex justify-content-right'>การดำเนินงานกิจกรรม</div>
+                <div className="wid d-flex flex-row mb-20 justify-content-center mt-20">
+                    <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">
+                        <div className='f-column'>
+                            <div className='d-flex justify-content-right'>ปัญหา/อุปสรรค </div>
+                            <div className='d-flex justify-content-right'>การดำเนินงานกิจกรรม</div>
+                        </div>
+                        <div className="fontColor">*</div>:</div>
+                        <div className="filter-field-4">
+                            <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                    </div>
                 </div>
-                <div className="fontColor">*</div>:</div>
-                <div className="filter-field-4">
-                    <input type="text" className="form-control" placeholder="" id="filterOverall" />
-            </div>
-        </div>
 
-        <div className="wid d-flex flex-row mb-20 justify-content-center">
-            <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">
-                <div className='f-column'>
-                    <div className='d-flex justify-content-right'>ข้อเสนอแนะ/ปรับปรุง</div>
-                    <div className='d-flex justify-content-right'>การดำเนินงานกิจกรรม</div>
+                <div className="wid d-flex flex-row mb-20 justify-content-center">
+                    <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">
+                        <div className='f-column'>
+                            <div className='d-flex justify-content-right'>ข้อเสนอแนะ/ปรับปรุง</div>
+                            <div className='d-flex justify-content-right'>การดำเนินงานกิจกรรม</div>
+                        </div>
+                        
+                        <div className="fontColor">*</div>:</div>
+                        <div className="filter-field-4">
+                            <input type="text" className="form-control" placeholder="" id="filterOverall" />
+                    </div>
                 </div>
-                
-                <div className="fontColor">*</div>:</div>
-                <div className="filter-field-4">
-                    <input type="text" className="form-control" placeholder="" id="filterOverall" />
-            </div>
+                <div className="wid d-flex flex-column mb-20 justify-content-center">
+                            <div className="d-flex justify-content-right align-items-end">
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
+                            </div>  
+                                <div className="table-responsive">
+                                    <table className="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <th colSpan={3}>
+                                                    <div className="d-flex justify-content-center">สินค้าและบริการระดับกิจกรรม</div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
+                                                </th>
+                                                <th><div className="wd-350 d-flex justify-content-center align-items-center">พื้นที่</div></th>
+                                                <th><div className="wd-350 d-flex justify-content-center align-items-center">สินค้าและบริการ</div></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-left align-items-center">-</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div className="wid d-flex flex-column mb-20 justify-content-center">
+                            <div className="d-flex justify-content-right align-items-end">
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
+                            </div>  
+                                <div className="table-responsive">
+                                    <table className="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <th colSpan={3}>
+                                                    <div className="d-flex justify-content-center">พื้นที่ดำเนินโครงการระดับกิจกรรม</div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
+                                                </th>
+                                                <th><div className="wd-350 d-flex justify-content-center align-items-center">พื้นที่/ประเทศ</div></th>
+                                                <th><div className="wd-350 d-flex justify-content-center align-items-center">จังหวัด/เมือง</div></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-left align-items-center">-</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                </th>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div className="wid d-flex flex-column mb-20 justify-content-center">
+                            <div className="d-flex justify-content-right align-items-end">
+                                <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
+                            </div>  
+                                <div className="table-responsive">
+                                    <table className="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <th colSpan={2}>
+                                                    <div className="d-flex justify-content-center">กลุ่มเป้าหมายระดับกิจกรรม</div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
+                                                </th>
+                                                <th><div className="wd-350 d-flex justify-content-center align-items-center">กลุ่มเป้าหมาย</div></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-left align-items-center">-</div>
+                                                </th>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
         </div>
-        </div>
+        
         </div>               
                     
                     <div className="button-section">

@@ -39,7 +39,7 @@ export default function Page() {
                 1
               </div>
               <div className="section-zone-text">
-                ภาพรวมโครงการ
+              ข้อมูลแผน
               </div>
             </div>
             <div className="flow-line-zone">
@@ -53,7 +53,7 @@ export default function Page() {
                 2
               </div>
               <div className="section-zone-text">
-              แหล่งงบประมาณโครงการ และความสอดคล้องกับนโยบายเพิ่มเติม
+              ภาพรวมกิจกรรม
               </div>
             </div>
             <div className="flow-line-zone">
@@ -68,62 +68,7 @@ export default function Page() {
               >
                 3
               </div>
-              <div className="section-zone-text">รายละเอียดโครงการ</div>
-            </div>
-            <div className="flow-line-zone">
-              <hr />
-            </div>
-            <div className="flow-section-zone">
-              <div
-                onClick={() => handleSection(4, true)}
-                className={`circle ${
-                  sectionNumber != 3 && sectionNumber != 2 && sectionNumber != 1
-                    ? "active"
-                    : ""
-                }`}
-              >
-                4
-              </div>
-              <div className="section-zone-text">เวลาดำเนินโครงการ</div>
-            </div>
-            <div className="flow-line-zone">
-              <hr />
-            </div>
-            <div className="flow-section-zone">
-              <div
-                onClick={() => handleSection(5, true)}
-                className={`circle ${
-                  sectionNumber != 4 &&
-                  sectionNumber != 3 &&
-                  sectionNumber != 2 &&
-                  sectionNumber != 1
-                    ? "active"
-                    : ""
-                }`}
-              >
-                5
-              </div>
-              <div className="section-zone-text">ภาพรวมกิจกรรม</div>
-            </div>
-            <div className="flow-line-zone">
-              <hr />
-            </div>
-            <div className="flow-section-zone">
-              <div
-                onClick={() => handleSection(6, true)}
-                className={`circle ${
-                  sectionNumber != 5 &&
-                  sectionNumber != 4 &&
-                  sectionNumber != 3 &&
-                  sectionNumber != 2 &&
-                  sectionNumber != 1
-                    ? "active"
-                    : ""
-                }`}
-              >
-                6
-              </div>
-              <div className="section-zone-text">เอกสารแนบ</div>
+              <div className="section-zone-text">ภาพรวมโครงการ</div>
             </div>
           </div>
         </div>
@@ -140,21 +85,6 @@ export default function Page() {
           )}
           {sectionNumber === 3 && (
             <Section3 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
-              throw new Error("Function not implemented.");
-            } } />
-          )}
-          {sectionNumber === 4 && (
-            <Section4 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
-              throw new Error("Function not implemented.");
-            } } />
-          )}
-          {sectionNumber === 5 && (
-            <Section5 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
-              throw new Error("Function not implemented.");
-            } } />
-          )}
-          {sectionNumber === 6 && (
-            <Section6 changeSectionHandle={handleSection} setIsLoading={function (val: boolean): void {
               throw new Error("Function not implemented.");
             } } />
           )}

@@ -332,28 +332,6 @@ export default function Section5(props: Section5Props) {
                                     </table>
                                 </div>
             </div>
-            <div className="wid d-flex flex-row mb-20 align-items-center">
-                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ช่วงเวลาจัดกิจกรรม (เริ่มต้น)<div className="fontColor">*</div>:</div>
-                    <div className="date-picker-container">
-                        <DatePicker
-                        selected={selectedDate}
-                        onChange={handleDateChange}
-                        dateFormat="MM/dd/yyyy"
-                        placeholderText="Select a date"
-                        />
-                    </div>
-            </div>
-            <div className="wid d-flex flex-row mb-20 align-items-center">
-                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ช่วงเวลาจัดกิจกรรม (สิ้นสุด)<div className="fontColor">*</div>:</div>
-                    <div className="date-picker-container">
-                        <DatePicker
-                        selected={selectedDate}
-                        onChange={handleDateChange}
-                        dateFormat="MM/dd/yyyy"
-                        placeholderText="Select a date"
-                        />
-                    </div>
-            </div>
         </div>
                               
                     </div>

@@ -11,6 +11,7 @@ export default function Home() {
       <h1 className={styles["custom-text-green"]}>Home Page</h1>
       <Link href="/test-function/exportpdf">Test Export PDF</Link>
       <Link href="/test-function/exportxls">Test Export XLSX</Link>
+      <Link href="/test-function/spreadsheet">Test SpreadSheet</Link>
       <>ระบบแผนผล</>
       <Link href="/dashboard-v2">Dashboard</Link>
       <Link href="/plan-report">plan-report</Link>
