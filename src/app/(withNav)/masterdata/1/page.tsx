@@ -138,7 +138,6 @@ export default function Page() {
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
-                <div className="breadcrumb-zone">รายงานแผนปฏิบัติการและการดำเนินงาน {'>'} <span className="bread-crumb-page-name"><b>รายงานสรุปงบประมาณรายโครงการเปรียบเทียบแผน-ผล รายเดือน</b></span></div>
                 <div className='search-wrapper-section d-flex flex-column'>
                     <div className="master-data d-flex flex-column p-2 justify-content-center">
                         <div className="box mb-20 fz-32">
