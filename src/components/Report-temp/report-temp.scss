@@ -32,7 +32,7 @@ body {
   }
   
   .filter-project-button {
-    margin-bottom: 17px;
+    margin-bottom: 10px;
   }
   
   .form-left-section {
@@ -370,6 +370,18 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+
+  .section-info {
+    width: 100%;
+    background-color: white;
+    min-height: 100px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
   
   .check-box {
     margin-right: 10px;
@@ -686,7 +698,7 @@ body {
   }
   
   .popup-content {
-    min-width: 400px;
+    min-width: 00px;
     margin: 0 auto;
   }
   
@@ -699,5 +711,7 @@ body {
     margin-top: 10px;
   }
   
-
+  .colorR {
+    color: red;
+  }
   

@@ -9,16 +9,16 @@ import { useParams, useRouter } from "next/navigation";
 
 export default function Page() {
     const data = [
-        {lovType:'ACTIVITY_GROUP_TYPE', value:'00', nameT:'ในแผน', nameE:'ในแผน', con1:'0', con2:'', con3:''},
-        {lovType:'ACTIVITY_GROUP_TYPE', value:'01', nameT:'นอกแผน', nameE:'นอกแผน', con1:'0', con2:'', con3:''},
-        {lovType:'BUDGET_BALANCE_TYPE', value:'00', nameT:'ขออนุมัติจัดทำโครงการเพิ่มเติม', nameE:'ขออนุมัติจัดทำโครงการเพิ่มเติม', con1:'1', con2:'', con3:''},
-        {lovType:'BUDGET_BALANCE_TYPE', value:'01', nameT:'ไม่ใช้', nameE:'ไม่ใช้', con1:'1', con2:'', con3:''},
-        {lovType:'CONTRACT_PARTY_TYPE', value:'00', nameT:'บุคคล', nameE:'บุคคล', con1:'1', con2:'', con3:''},
-        {lovType:'CONTRACT_PARTY_TYPE', value:'01', nameT:'ห้างหุ้นส่วนจำกัด', nameE:'ห้างหุ้นส่วนจำกัด', con1:'1', con2:'', con3:''},
-        {lovType:'CONTRACT_PARTY_TYPE', value:'02', nameT:'บริษัท', nameE:'บริษัท', con1:'1', con2:'', con3:''},
-        {lovType:'CONTRACT_STATUS', value:'00', nameT:'เรียบร้อย', nameE:'เรียบร้อย', con1:'1', con2:'', con3:''},
-        {lovType:'CONTRACT_STATUS', value:'01', nameT:'อยู่ระหว่างดำเนินการร่างสัญญา', nameE:'อยู่ระหว่างดำเนินการร่างสัญญา', con1:'1', con2:'', con3:''},
-        {lovType:'CONTRACT_STATUS', value:'1001', nameT:'ตลาดต่างประเทศ', nameE:'ตลาดต่างประเทศ', con1:'1', con2:'', con3:''},
+        {uname:'rungtong.thas_delete', fname:'รุ้งทอง', lname:'ทศานนท์', status:'ปกติ', phnumber:''},
+        {uname:'supaporn.tron', fname:'supaporn', lname:'tron', status:'ปกติ', phnumber:''},
+        {uname:'thanaporn.laot', fname:'ธนภร', lname:'เหล่าธนาวิน', status:'ปกติ', phnumber:''},
+        {uname:'msdiv_delete', fname:'msdiv', lname:'msdiv', status:'ปกติ', phnumber:''},
+        {uname:'patcharee.ngam', fname:'patcharee', lname:'ngam', status:'ปกติ', phnumber:''},
+        {uname:'jira.buat', fname:'jira.buat', lname:'บัวทอง', status:'ปกติ', phnumber:''},
+        {uname:'charuchet.ruan', fname:'จารุเชฏฐ์', lname:'เรืองสุวรรณ', status:'ปกติ', phnumber:''},
+        {uname:'ap6203', fname:'งานระบบคอมพิวเตอร์และงานเครือข่าย', lname:'', status:'ปกติ', phnumber:''},
+        {uname:'ap6204', fname:'งานมาตรฐานและความมั่นคงปลอดภัยสารสนเทศ 2', lname:'', status:'ปกติ', phnumber:''},
+        {uname:'ap6205', fname:'งานระบบสารสนเทศองค์กร', lname:'', status:'ปกติ', phnumber:''},
     ];
     
     return (
@@ -29,7 +29,7 @@ export default function Page() {
                             <div className="d-flex flex-column">
                                 <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
                                 <div className="box">
-                                    <b>Lov Type:</b>
+                                    <b>ชื่อผู้ใช้งาน:</b>
                                 </div>
                                 <div className="box">
                                     <div className="filter-field">
@@ -39,7 +39,7 @@ export default function Page() {
                                 </div>
                                 <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
                                 <div className="box">
-                                    <b>Name:</b>
+                                    <b>ชื่อ:</b>
                                 </div>
                                 <div className="box">
                                     <div className="filter-field">
@@ -51,7 +51,21 @@ export default function Page() {
                             <div className="d-flex flex-column">
                                 <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
                                     <div className="box">
-                                        <b>Value:</b>
+                                        <b>สถานะ:</b>
+                                    </div>
+                                    <div className="box">
+                                        <div className="filter-field">
+                                            <select className="form-select" aria-label="Default select example">
+                                                <option selected>  -- เลือก --  </option>
+                                                <option value="1">ปกติ</option>
+                                                <option value="2">ปิดใช้งาน</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
+                                    <div className="box">
+                                        <b>นามสกุล:</b>
                                     </div>
                                     <div className="box">
                                         <div className="filter-field">
