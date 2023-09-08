@@ -3,9 +3,9 @@ import "@components/Report-temp/report-temp.scss";
 
 const ReportTable = ({data}:{data: any}) => {
   return (
-    <div className="table-responsive mb-20">
-      <table className="table table-bordered">
-        <tbody>
+    <div className="table-container mb-20">
+      <table className="table table-striped">
+        <thead>
             <tr className="table-primary">
                 <th>
                     <div className="wd-120 d-flex justify-content-center align-items-center">
@@ -49,6 +49,8 @@ const ReportTable = ({data}:{data: any}) => {
                     </div>
                 </th>
             </tr>
+        </thead>
+        <tbody>
           {data.map((items: any) => (
             <tr>
               <th>

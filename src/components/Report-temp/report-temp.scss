@@ -425,7 +425,35 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .table-container {
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  .icon-button {
+    border: none;
+    background-color: unset;
+  }
   
+  .table th {
+    border-left: 1px solid #000; 
+    border-right: 1px solid #000;/* Add borders to cells */
+    padding: 8px; /* Add padding for better spacing */
+    text-align: left;
+  }
+
+  .none-bd {
+    border-left: none; 
+    border-right: none;
+  }
+
+  .table > thead > th {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Ensure header stays on top */
+  }
+
   .table > thead > tr > th > .process{
     width: 400px;
   }
@@ -489,84 +517,89 @@ body {
   .table > tbody > tr > th > .overall-strategy > .overall-sub-strategys {
     width: 260px;
   }
+
+  .table > thead > tr {
+    position: sticky;
+    top: 0;
+  }
   
-  .table > tbody > tr > th > .wd-25 {
+  .wd-25 {
     min-width: 25px;
   }
   
-  .table > tbody > tr > th > .wd-30 {
+  .wd-30 {
     min-width: 30px;
   }
   
-  .table > tbody > tr > th > .wd-50 {
+  .wd-50 {
     min-width: 50px;
   }
 
-  .table > tbody > tr > th > .wd-80 {
+  .wd-80 {
     min-width: 80px;
   }
 
-  .table > tbody > tr > th > .wd-100 {
+  .wd-100 {
     min-width: 100px;
   }
 
-  .table > tbody > tr > th > .wd-120 {
+  .wd-120 {
     min-width: 120px;
   }
 
-  .table > tbody > tr > th > .wd-125 {
+  .wd-125 {
     min-width: 125px;
   }
 
-  .table > tbody > tr > th > .wd-130 {
+  .wd-130 {
     min-width: 130px;
   }
 
-  .table > tbody > tr > th > .wd-140 {
+  .wd-140 {
     min-width: 140px;
   }
   
-  .table > tbody > tr > th > .wd-160 {
+  .wd-160 {
     min-width: 160px;
   }
   
-  .table > tbody > tr > th > .wd-180 {
+  .wd-180 {
     min-width: 180px;
   }
 
-  .table > tbody > tr > th > .wd-200 {
+  .wd-200 {
     min-width: 200px;
   }
   
-  .table > tbody > tr > th > .wd-250 {
+  .wd-250 {
     min-width: 250px;
   }
 
-  .table > tbody > tr > th > .wd-260 {
+  .wd-260 {
     min-width: 260px;
   }
   
-  .table > tbody > tr > th > .wd-300 {
+  .wd-300 {
     min-width: 300px;
   }
 
-  .table > tbody > tr > th > .wd-350 {
+  .wd-350 {
     min-width: 350px;
   }
   
-  .table > tbody > tr > th > .wd-400 {
+  .wd-400 {
     min-width: 400px;
   }
 
-  .table > tbody > tr > th > .wd-450 {
+  .wd-450 {
     min-width: 450px;
   }
 
-  .table > tbody > tr > th > .wd-480 {
+  .wd-480 {
     min-width: 480px;
   }
 
-  .table > tbody > tr > th > .wd-500 {
+  .wd-500 {
     min-width: 500px;
   }
   
@@ -634,36 +667,37 @@ body {
     min-width: 800px;
   }
 
-  .popup-overlay {
+  .popup {
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-height: 80vh; /* Set maximum height for the pop-up */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .popup.open {
+    display: block;
   }
   
   .popup-content {
-    margin-top: 100px;
-    min-width: 800px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    max-height: 80vh; /* Set maximum height for the pop-up */
-    overflow-y: auto;
+    min-width: 400px;
+    margin: 0 auto;
   }
   
   .close-button {
-    background: none;
-    border: #000;
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     cursor: pointer;
-    top: 10px;
-    right: 10px;
+    margin-top: 10px;
   }
-
+  
 
   
