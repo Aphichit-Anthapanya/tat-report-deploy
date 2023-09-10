@@ -59,7 +59,7 @@ const Table = ({data}:any) => {
                         </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
-                                <button className="open-button icon-button bi bi-file-earmark-text-fill" onClick={() => router.push('/masterdata/new/10/10.1')}></button>
+                                <button className="open-button icon-button bi bi-file-earmark-text-fill" onClick={() => router.push('/masterdata/new/10/10.1/10.1.1')}></button>
                                 
                             </div>
                         </th>
