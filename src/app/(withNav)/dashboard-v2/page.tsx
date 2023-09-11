@@ -133,6 +133,7 @@ const barLabels2 = ["ต.ค.", "พ.ย.", "ธ.ค.", "ม.ค.","ก.พ.", "
   const barLabels = ["1", "2", "3", "4"];
   const [selectedValueBar, setSelectedValueBar] = useState("1");
   var dataListBarState, dataListBarQState, dataListBarAState, dataListBarPAXState, dataListBar12MState, dataListBarG12MState, dataListBarA12MState, dataListBarPAX12MState;
+  
   const handleDropdownBar = (e : any) => {
     const {name, value} = e.target;
     if(value == "1") {

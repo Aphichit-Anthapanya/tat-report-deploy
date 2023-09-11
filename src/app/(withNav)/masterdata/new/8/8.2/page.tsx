@@ -4,15 +4,10 @@ import React from "react";
 import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
 import { useParams, useRouter } from "next/navigation";
-import Popup2 from './popup2';
+import Table from './table';
 
 export default function Page() {
     const router = useRouter()
-
-    const [isPopupOpen2, setIsPopupOpen2] = useState(false);
-    const togglePopup2 = () => {
-        setIsPopupOpen2(!isPopupOpen2);
-      };
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
@@ -131,7 +126,7 @@ export default function Page() {
                         </div>
                     </div>
                     <div className='search-wrapper-section d-flex flex-column'>
-                        <h2>Outcome Detail (Level 2)</h2>
+                        <h2>Outcome Detail (Level 3)</h2>
                         <div className="d-flex filter-project-button justify-content-left">
                             <div className="p-2"><button className="btn btn-primary">เพิ่มข้อมูล</button></div>
                         </div>
@@ -169,25 +164,6 @@ export default function Page() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>
-                                            <div className="normalText d-flex justify-content-center align-items-center">
-                                                <button className="open-button icon-button bi bi-pencil" onClick={() => router.push('/masterdata/new/8/8.2')}></button>
-                                            </div>
-                                        </th>
-                                        <th>
-                                            <div className="normalText d-flex justify-content-center align-items-center">
-                                                <button className="open-button icon-button bi bi-trash" onClick={togglePopup2}></button>
-                                                <Popup2 isOpen={isPopupOpen2} onClose={togglePopup2}/>
-                                            </div>
-                                        </th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
                                     <tr>
                                         <th colSpan={8}>
                                             <div className="normalText colorR d-flex justify-content-center align-items-center">ไม่พบรายการข้อมูล</div>

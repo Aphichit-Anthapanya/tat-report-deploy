@@ -4,24 +4,20 @@ import React from "react";
 import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
 import { useParams, useRouter } from "next/navigation";
-import Popup2 from './popup2';
+
 
 export default function Page() {
     const router = useRouter()
-
-    const [isPopupOpen2, setIsPopupOpen2] = useState(false);
-    const togglePopup2 = () => {
-        setIsPopupOpen2(!isPopupOpen2);
-      };
+    
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
                     <div className="d-flex filter-project-button justify-content-right">
-                        <div className="p-2"><button className="btn btn-primary" onClick={() => router.push('/masterdata/new/8')}>ย้อนกลับ</button></div>
+                        <div className="p-2"><button className="btn btn-primary" onClick={() => router.push('/masterdata/new/9')}>ย้อนกลับ</button></div>
                         <div className="p-2"><button className="btn btn-primary">Submit</button></div>
                     </div>
                     <div className='search-wrapper-section d-flex flex-column'>
-                        <h2>Outcome</h2>
+                        <h2>Output</h2>
                         <div className="d-flex flex-row justify-content-around">
                             <div className="d-flex flex-column">
                                 <div className="content-search-box d-flex p-2 justify-content-right align-items-center">
@@ -58,7 +54,7 @@ export default function Page() {
                                     <div className="box">
                                         <div className="filter-field">
                                             <select className="form-select" aria-label="Default select example">
-                                                <option selected>%</option>
+                                                <option selected>Content</option>
                                                 <option value="2">คน</option>
                                                 <option value="3">PAX</option>
                                             </select>
@@ -71,7 +67,7 @@ export default function Page() {
                                     </div>
                                     <div className="box">
                                         <div className="filter-field">
-                                            <input type="text" className="form-control" placeholder="" id="filterOverall" value={'(A1 : Aware) อัตราการรับรู้ Content หลักของภูมิภาคจากการเข้าร่วมงาน '}/>
+                                            <input type="text" className="form-control" placeholder="" id="filterOverall" value={'จำนวนการจัดงานแถลงข่าว'}/>
                                         </div>
                                     </div>
                                 </div>
@@ -106,8 +102,8 @@ export default function Page() {
                                     <div className="box">
                                         <div className="filter-field">
                                             <select className="form-select" aria-label="Default select example">
-                                                <option selected>ตามสัดส่วนจำนวน</option>
-                                                <option value="1">ผลรวมจำนวน</option>
+                                                <option selected>ผลรวมจำนวน</option>
+                                                <option value="1">ตามสัดส่วนจำนวน</option>
                                             </select>
                                         </div>
                                     </div>
@@ -123,7 +119,7 @@ export default function Page() {
                                     </div>
                                     <div className="box">
                                         <div className="filter-field">
-                                            <input type="text" className="form-control" placeholder="" id="filterOverall" value={'(A1 : Aware) อัตราการรับรู้ Content หลักของภูมิภาคจากการเข้าร่วมงาน '}/>
+                                            <input type="text" className="form-control" placeholder="" id="filterOverall" value={'จำนวนการจัดงานแถลงข่าว'}/>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +127,7 @@ export default function Page() {
                         </div>
                     </div>
                     <div className='search-wrapper-section d-flex flex-column'>
-                        <h2>Outcome Detail (Level 2)</h2>
+                        <h2>Output Detail (Level 3)</h2>
                         <div className="d-flex filter-project-button justify-content-left">
                             <div className="p-2"><button className="btn btn-primary">เพิ่มข้อมูล</button></div>
                         </div>
@@ -169,25 +165,7 @@ export default function Page() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>
-                                            <div className="normalText d-flex justify-content-center align-items-center">
-                                                <button className="open-button icon-button bi bi-pencil" onClick={() => router.push('/masterdata/new/8/8.2')}></button>
-                                            </div>
-                                        </th>
-                                        <th>
-                                            <div className="normalText d-flex justify-content-center align-items-center">
-                                                <button className="open-button icon-button bi bi-trash" onClick={togglePopup2}></button>
-                                                <Popup2 isOpen={isPopupOpen2} onClose={togglePopup2}/>
-                                            </div>
-                                        </th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
+
                                     <tr>
                                         <th colSpan={8}>
                                             <div className="normalText colorR d-flex justify-content-center align-items-center">ไม่พบรายการข้อมูล</div>
@@ -198,7 +176,7 @@ export default function Page() {
                         </div>
                     </div>
                     <div className="d-flex filter-project-button justify-content-right">
-                        <div className="p-2"><button className="btn btn-primary" onClick={() => router.push('/masterdata/new/8')}>ย้อนกลับ</button></div>
+                        <div className="p-2"><button className="btn btn-primary" onClick={() => router.push('/masterdata/new/9')}>ย้อนกลับ</button></div>
                         <div className="p-2"><button className="btn btn-primary">Submit</button></div>
                     </div>
                 </div>
