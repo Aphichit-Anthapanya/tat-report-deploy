@@ -53,31 +53,18 @@ export default function Section5(props: Section5Props) {
                                     <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">สัดส่วนของกิจกรรมต่อโครงการ:</div>
                                     <div>20%</div>
                                 </div>
-                            </div>
-                            <div className="d-flex mb-20 justify-content-center">
-                                <div className="d-flex flex-row justify-content-center"><b>ผลการจัดกิจกรรม</b></div>
-                            </div>
-                            <div className="d-flex">
                                 <div className="wid d-flex flex-row mb-20">
-                                    <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">สถานะกิจกรรม:</div>
-                                    <div>อยู่ระหว่างดำเนินการ</div>
-                                </div>
-                            </div>
-                            <div className="d-flex flex-row mb-20 color-gry p-2 justify-content-center">
-                                <div className="d-flex flex-row justify-content-center"><b>รายละเอียดและผลการดำเนินงาน</b></div>
-                            </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">งบประมาณ<div className="fontColor">*</div>:</div>
-                                <div>0.00 บาท (แผน)</div>
-                            </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ช่วงเวลาจัดกิจกรรม (เริ่มต้น)<div className="fontColor">*</div>:</div>
+                                    <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">วันที่เริ่มกิจกรรม (แผน)<div className="fontColor">*</div>:</div>
                                 <div>01/12/2566  (แผน)</div>
+                                </div>
+                                <div className="wid d-flex flex-row mb-20">
+                                    <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">วันที่สิ้นสุดกิจกรรม (แผน)<div className="fontColor">*</div>:</div>
+                                    <div>28/02/2566  (แผน)</div>
+                                </div>
+                            </div>     
                             </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ช่วงเวลาจัดกิจกรรม (สิ้นสุด)<div className="fontColor">*</div>:</div>
-                                <div>28/02/2566  (แผน)</div>
-                            </div>                   
+                            
+                                     
                         </div>
 
                         <div className="wid d-flex flex-column mb-20 justify-content-center">
@@ -174,82 +161,88 @@ export default function Section5(props: Section5Props) {
                             <div className="d-flex justify-content-right align-items-end">
                                 <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
                             </div>
-                                <div className="table-responsive">
+                            <div className="table-responsive">
                                     <table className="table table-bordered">
                                         <tbody>
                                             <tr className="">
                                                 <th colSpan={9}>
-                                                    <div className="d-flex justify-content-center">ตารางตัวชี้วัดระดับโครงการและค่าเป้าหมาย</div>
+                                                    <div className="d-flex justify-content-center">ตัวชี้วัดระดับโครงการและค่าเป้าหมาย</div>
                                                 </th>
                                             </tr>
 
                                             <tr>
-                                                <th>
+                                                <th rowSpan={2}>
                                                     <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
                                                 </th>
-                                                <th><div className="wd-300 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
-                                                <th><div className="wd-80 d-flex justify-content-center align-items-center">หน่วย</div></th>
+                                                <th rowSpan={2}><div className="wd-300 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
+                                                <th rowSpan={2}><div className="wd-80 d-flex justify-content-center align-items-center">หน่วย</div></th>
+                                                <th colSpan={5}>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ตัวชี้วัดเป้าหมาย</div>
+                                                    </div>
+                                                </th>
+                                                <th colSpan={5}>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ตัวชี้วัดตามผลที่จัดจริง</div>
+                                                    </div>
+                                                </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
+                                                        <div>ผลต่าง</div>
+                                                    </div>
+                                                </th>                           
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                         <div>ไตรมาสที่ 1</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
+                                                        <div>ไตรมาสที่ 2</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 3</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 4</div>
+                                                    </div>
+                                                </th>  
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>รวม</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                         <div>ไตรมาสที่ 1</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
                                                         <div>ไตรมาสที่ 2</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
-                                                        <div>ไตรมาสที่ 2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
                                                         <div>ไตรมาสที่ 3</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
-                                                        <div>ไตรมาสที่ 3</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
                                                         <div>ไตรมาสที่ 4</div>
                                                     </div>
-                                                </th>
+                                                </th>  
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
-                                                        <div>ไตรมาสที่ 4</div>
+                                                        <div>รวม</div>
                                                     </div>
                                                 </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผลรวม</div>
-                                                        <div>เป้าหมาย</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผลรวม</div>
-                                                        <div>(ปัจจุบัน)</div>
-                                                    </div>
-                                                </th>
-                                                                                         
                                             </tr>
 
                                             <tr>
@@ -272,9 +265,11 @@ export default function Section5(props: Section5Props) {
 
                                             <tr>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">2</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">1.1</div>
                                                 </th>
-                                                <th></th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 1</div>
+                                                </th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -290,9 +285,87 @@ export default function Section5(props: Section5Props) {
 
                                             <tr>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">3</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">1.2</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
                                                 </th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">1.3</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 4</div>
+                                                </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">2</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
+                                                </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">2.1</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 2</div>
+                                                </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">2.2</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
+                                                </th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -324,72 +397,78 @@ export default function Section5(props: Section5Props) {
                                             </tr>
 
                                             <tr>
-                                                <th>
+                                                <th rowSpan={2}>
                                                     <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
                                                 </th>
-                                                <th><div className="wd-300 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
-                                                <th><div className="wd-80 d-flex justify-content-center align-items-center">หน่วย</div></th>
+                                                <th rowSpan={2}><div className="wd-300 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
+                                                <th rowSpan={2}><div className="wd-80 d-flex justify-content-center align-items-center">หน่วย</div></th>
+                                                <th colSpan={5}>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ตัวชี้วัดเป้าหมาย</div>
+                                                    </div>
+                                                </th>
+                                                <th colSpan={5}>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ตัวชี้วัดตามผลที่จัดจริง</div>
+                                                    </div>
+                                                </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
+                                                        <div>ผลต่าง</div>
+                                                    </div>
+                                                </th>                           
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                         <div>ไตรมาสที่ 1</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
+                                                        <div>ไตรมาสที่ 2</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 3</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 4</div>
+                                                    </div>
+                                                </th>  
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>รวม</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                         <div>ไตรมาสที่ 1</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
                                                         <div>ไตรมาสที่ 2</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
-                                                        <div>ไตรมาสที่ 2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
                                                         <div>ไตรมาสที่ 3</div>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
-                                                        <div>ไตรมาสที่ 3</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>เป้าหมาย</div>
                                                         <div>ไตรมาสที่ 4</div>
                                                     </div>
-                                                </th>
+                                                </th>  
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผล</div>
-                                                        <div>ไตรมาสที่ 4</div>
+                                                        <div>รวม</div>
                                                     </div>
                                                 </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผลรวม</div>
-                                                        <div>เป้าหมาย</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผลรวม</div>
-                                                        <div>(ปัจจุบัน)</div>
-                                                    </div>
-                                                </th>
-                                                                                         
                                             </tr>
 
                                             <tr>
@@ -412,9 +491,11 @@ export default function Section5(props: Section5Props) {
 
                                             <tr>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">2</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">1.1</div>
                                                 </th>
-                                                <th></th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 1</div>
+                                                </th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -430,9 +511,87 @@ export default function Section5(props: Section5Props) {
 
                                             <tr>
                                                 <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">3</div>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">1.2</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
                                                 </th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">1.3</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 4</div>
+                                                </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">2</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
+                                                </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">2.1</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 2</div>
+                                                </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">2.2</div>
+                                                </th>
+                                                <th>
+                                                    <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
+                                                </th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -547,7 +706,6 @@ export default function Section5(props: Section5Props) {
                                     </table>
                                 </div>
                             </div>
-
                             <div className="wid d-flex flex-column mb-20 justify-content-center">
                             <div className="d-flex justify-content-right align-items-end">
                                 <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
@@ -579,7 +737,6 @@ export default function Section5(props: Section5Props) {
                                     </table>
                                 </div>
                             </div>
-                    </div>
                     <div className="button-section">
                         <button type="button" className="btn btn-primary">รายงานผลกิจกรรม <i className="bi bi-chevron-right"></i></button>
                         <button type="button" className="btn btn-primary"><i className="bi bi-file-earmark mr-5"></i>บันทึกชั่วคราว</button>
