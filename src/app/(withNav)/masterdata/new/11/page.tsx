@@ -33,7 +33,6 @@ export default function Page() {
                         <div className="d-flex filter-project-button justify-content-left">
                             <div className="p-2"><button className="btn btn-primary">เพิ่มข้อมูล</button></div>
                         </div>
-                        <Table data={data}/>
                     </div>
                     <div className="d-flex filter-project-button justify-content-right">
                         <div className="p-2"><button className="btn btn-primary" >ย้อนกลับ</button></div>
