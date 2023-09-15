@@ -4,16 +4,23 @@ import {useNavigate} from 'react-router-dom';
 import Popup2 from './popup2';
 import { useState } from "react";
 import { BrowserRouter } from 'react-router-dom';
+import Router from 'next/router'
+import { Link } from 'react-router-dom';
 
 const Table = ({data}:any) => {
+    const [value, setValue] = useState('Y');
+
     const [isPopupOpen2, setIsPopupOpen2] = useState(false);
     const togglePopup2 = () => {
         setIsPopupOpen2(!isPopupOpen2);
       };
       const navigate = useNavigate();
+      var dataToSend = [{ userGroup: '', note: '' }];
         const handleClick = (items :any) => {
-            var dataToSend = [{ userGroup: '', note: '' },] as any;
             if (items.userGroup === 'บุคลากรและลูกจ้างของททท.') {
+                dataToSend = [
+                    { userGroup: '', note: '' }
+                ],
                 navigate('/masterdata/new/11/11.1', {replace: true, state: {dataToSend} })
                 window.location.reload()
             } else if (items.userGroup === 'ลูกค้า/ผู้ใช้บริการ') {
@@ -21,7 +28,10 @@ const Table = ({data}:any) => {
                     { userGroup: 'นักท่องเที่ยวชาวไทย', note: '' },
                     { userGroup: 'นักท่องเที่ยวชาวต่างชาติ', note: '' }
                 ],
-                navigate('/masterdata/new/11/11.1', {replace: true, state: {dataToSend} })
+                Router.push({
+                    pathname: '/about',
+                    query: { name: 'Sajad' },
+                  }),
                 window.location.reload()
             } else if (items.userGroup === 'หน่วยงานกำกับดูแล/ผู้ถือหุ้นภาครัฐ') {
                 dataToSend = [
@@ -64,9 +74,10 @@ const Table = ({data}:any) => {
                 ],
                 navigate('/masterdata/new/11/11.1', {replace: true, state: {dataToSend} })
                 window.location.reload()
+            } else {
+                navigate('/masterdata/new/11/11.1', {replace: true, state: {dataToSend} })
             }
         }
-
       
   return (
     <>
@@ -114,6 +125,7 @@ const Table = ({data}:any) => {
                         </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
+                                <Link to={`/next/${value}`}>Next Page</Link>
                                 <button className="open-button icon-button bi bi-file-earmark-text-fill" onClick={() => handleClick(items)}></button>
                             </div>
                         </th>

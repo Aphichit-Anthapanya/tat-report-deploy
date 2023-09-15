@@ -5,26 +5,161 @@ import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
+import ReportTable from "./table";
 
 export default function Page() {
-
-    const [isOpenAddActivity,setOpenAddActivity] = useState(false);
-
-    const [sectionNumber, setSectionNumber] = useState(1);
-    const handleSection = (value: number) => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setSectionNumber(value)
-    };
-
-    const handleAddActivity = () => {
-        setOpenAddActivity(!isOpenAddActivity)
-        if(isOpenAddActivity){
-            handleSection(1)
-        }else{
-            handleSection(2)
+    const data = [
+        {
+            total:{
+                totalItems: '208',
+                totalBudget: '529,070,003.31'
+            }
+        },
+        {
+            budget:[
+                {
+                    budgetName: 'งบลงทุน', 
+                    totalItemPerBudget: '6', 
+                    totalBudgets: '20,242,000.00',
+                    info:[
+                        {
+                            budgetNamesub: 'งบลงทุน(เงินงบประมาณ)',
+                            totalItemPerbudgetsub: '3',
+                            totalbSumBudgetsub: '17,542,000.00',
+                            subInfo: [
+                                {
+                                    number: '1',
+                                    department: 'ฝ่ายบริหารทั่วไป',
+                                    NumberItems: '1',
+                                    budget:'6,969,000.00',
+                                    activity: [
+                                        {
+                                            activityNumber:'1',
+                                            activityName:'ปรับปรุงอาคาร ททท.',
+                                            purchasement:'ปรับปรุงห้องประชุมระดัลฝ่ายและโถ่งลิฟท์ ชั้น 4,6,8',
+                                            subDepartment:'งานสถาปัตยกรรม',
+                                            departmentShort:'กอส.',
+                                            budget:'6,969,000.00'
+                                        }
+                                    ]
+                                },
+                                {
+                                    number: '2',
+                                    department: 'ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ',
+                                    NumberItems: '2',
+                                    budget:'10,573,000.00',
+                                    activity: [
+                                        {
+                                            activityNumber:'2',
+                                            activityName:'ปรับปรุงระบบภายในองค์กร',
+                                            purchasement:'โครงการจัดหาและบํารุงเครื่องคอมพิวเตอร์แม่ข่าย Oracle SPARC T๔-๔ พร้อม License',
+                                            subDepartment:'งานระบบเครือข่าย',
+                                            departmentShort:'กคค.',
+                                            budget:'5,000,000.00'
+                                        },
+                                        {
+                                            activityNumber:'3',
+                                            activityName:'ปรับปรุงระบบภายในองค์กร',
+                                            purchasement:'โครงการจัดหาเครื่องคอมพิวเตอร์และอุปกรณ์คอมพิวเตอร์',
+                                            subDepartment:'งานระบบเครือข่าย',
+                                            departmentShort:'กคค.',
+                                            budget:'5,573,000.00'
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            budgetNamesub: 'งบสำรองกรณีจำเป็นเร่งด่วน',
+                            totalItemPerbudgetsub: '3',
+                            totalbSumBudgetsub: '2,700,000.00',
+                            subInfo: [
+                                {
+                                    number: '1',
+                                    department: 'ฝ่ายบริหารทั่วไป',
+                                    NumberItems: '1',
+                                    budget:'1,000,000.00',
+                                    activity: [
+                                        {
+                                            activityNumber:'4',
+                                            activityName:'ปรับปรุงอาคาร ททท.',
+                                            purchasement:'ปรับปรุงห้องประชุมระดัลฝ่ายและโถ่งลิฟท์ ชั้น 4,6,8',
+                                            subDepartment:'งานสถาปัตยกรรม',
+                                            departmentShort:'กอส.',
+                                            budget:'6,969,000.00'
+                                        }
+                                    ]
+                                },
+                                {
+                                    number: '2',
+                                    department: 'ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ',
+                                    NumberItems: '2',
+                                    budget:'1,700,000.00',
+                                    activity: [
+                                        {
+                                            activityNumber:'5',
+                                            activityName:'',
+                                            purchasement:'',
+                                            subDepartment:'',
+                                            departmentShort:'',
+                                            budget:''
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    budgetName: 'งบอุดหนุน', 
+                    totalItemPerBudget: '198', 
+                    totalBudgets: '505,128,003.31',
+                    info:[
+                        {
+                            budgetNamesub: 'หน่วยงานผู้ว่าการ',
+                            totalItemPerbudgetsub: '3',
+                            totalbSumBudgetsub: '4,500,000.00',
+                            subInfo: [
+                                {
+                                    number: '1',
+                                    department: 'สำนักผู้ว่าการ',
+                                    NumberItems: '1',
+                                    budget:'4,500,000.00',
+                                    activity: [
+                                        {
+                                            activityNumber:'6',
+                                            activityName:'',
+                                            purchasement:'',
+                                            subDepartment:'',
+                                            departmentShort:'',
+                                            budget:''
+                                        }
+                                    ]
+                                },
+                                {
+                                    number: '1',
+                                    department: 'ฝ่ายตรวจสอบภายใน',
+                                    NumberItems: '-',
+                                    budget:'-',
+                                    activity: [
+                                        {
+                                            activityNumber:'7',
+                                            activityName:'',
+                                            purchasement:'',
+                                            subDepartment:'',
+                                            departmentShort:'',
+                                            budget:''
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]  
         }
-    }
-    
+    ];
+
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
@@ -90,264 +225,8 @@ export default function Page() {
                             <div className="box">
                                 <b>รายงานสรุปแผนปฏิบัติการจัดซื้อจัดจ้าง (รายโครงการ) ประจำปีงบประมาณ 25XX</b>
                             </div>
-
-                            <div className="table-responsive">
-                                    <table className="table table-bordered">
-                                        <tbody>
-                                            <tr className="table-primary">
-                                                <th>
-                                                    <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                        <div className="content-sub">ลำดับ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                        <div className="content-sub">ชื่อกิจกรรม</div>
-                                                        <div className="content-sub">/งาน</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-300 d-flex flex-column justify-content-center align-items-center">
-                                                        รายการจัดซื้อ/จัดจ้าง
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}>
-                                                    <div className="wd-180 d-flex flex-column justify-content-center align-items-center">
-                                                        <div className="content-sub">หน่วยงาน</div>
-                                                        <div className="content-sub">ที่รับผิดชอบ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-50 d-flex justify-content-center align-items-center">
-                                                        <div className="content-sub">จำนวนรายการ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                        <div className="content-sub">วงเงิน</div>
-                                                        <div className="content-sub">งบประมาณ</div>
-                                                        <div className="content-sub">(บาท)</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        หมายเหตุ
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr className="table-info">
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>รวมทั้งสิ้น</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>208</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>529,070,003.31</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-
-                                            <tr className="table-success">
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-left align-items-center">
-                                                        <div>1. งบลงทุน</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>6</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>20,242,000.00</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-
-                                            <tr className="table-success">
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="ml-10 d-flex justify-content-left align-items-center">
-                                                        <div>1.1 งบลงทุน (เงินงบประมาณ)</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>3</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>17,542,000.00</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-
-                                            <tr className="table-warning">
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-left align-items-center">
-                                                        <div>ฝ่ายบริหารทั่วไป</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>1</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>6,969,000.00</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                            <div>1</div>
-                                                        </div>
-                                                    </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ปรับปรุงอาคาร ททท.</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ปรับปรุงห้องประชุมระดัลฝ่ายและโถ่งลิฟท์ ชั้น 4,6,8</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>งานสถาปัตยกรรม</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-25 normalText d-flex justify-content-left align-items-center">
-                                                        <div>กอส.</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>6,969,000.00</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-
-                                            <tr className="table-warning">
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-left align-items-center">
-                                                        <div>ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={2}></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>10,573,000.00</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                            <div>2</div>
-                                                        </div>
-                                                    </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ปรับปรุงระบบภายในองค์กร</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>โครงการจัดหาและบํารุงเครื่องคอมพิวเตอร์แม่ข่าย Oracle SPARC T๔-๔ พร้อม License</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>งานระบบเครือข่าย</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-25 normalText d-flex justify-content-left align-items-center">
-                                                        <div>กคค.</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>5,000,000.00</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                            <div>3</div>
-                                                        </div>
-                                                    </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ปรับปรุงระบบภายในองค์กร</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>โครงการจัดหาเครื่องคอมพิวเตอร์และอุปกรณ์คอมพิวเตอร์</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>งานระบบเครือข่าย</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-25 normalText d-flex justify-content-left align-items-center">
-                                                        <div>กคค.</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>5,573,000.00</div>
-                                                    </div>
-                                                </th>
-                                                <th></th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
                         </div>
+                        <ReportTable data={data}/>
                     </div>
                 </div>
         </>

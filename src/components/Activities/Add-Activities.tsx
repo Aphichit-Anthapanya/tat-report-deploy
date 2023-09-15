@@ -10,6 +10,7 @@ import {
   appendActivity,
 } from "@/redux/OperationFollow/reducer";
 import { checkValidity } from "./Validation/add-activities";
+
 interface ActivityProps {
   onChangeAddActivity: () => void;
 }

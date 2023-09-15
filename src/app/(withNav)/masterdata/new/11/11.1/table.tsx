@@ -7,16 +7,19 @@ import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
 
 const Table = () => {
+    
     const [isPopupOpen2, setIsPopupOpen2] = useState(false);
     const togglePopup2 = () => {
         setIsPopupOpen2(!isPopupOpen2);
       };
       const location = useLocation();
+      var data = location.state.dataToSend;
+      const [dataTokeep, setdataTokeep] = useState(data);
       const router = useRouter();
-
       const navigate = useNavigate();
+      var dataToSend = [{ userGroup: '', note: '' },] as any;
         const handleClick = (items :any) => {
-            var dataToSend = [{ userGroup: '', note: '' },] as any;
+            
             if (items.userGroup === 'ผู้ส่งมอบภาครัฐ.') {
                 dataToSend = [
                     { userGroup: 'กระทรวงมหาดไทย', note: '' },
@@ -26,7 +29,8 @@ const Table = () => {
                     { userGroup: 'สำนักงานปลัดกระทรวงการท่องเที่ยวและกีฬา', note: '' },
                     { userGroup: 'อื่นๆ', note: '' },
                 ],
-                navigate('/masterdata/new/11/11.1', {replace: true, state: {dataToSend} })
+                setdataTokeep(data),
+                navigate('/masterdata/new/11/11.1/11.1.1', {replace: true, state: {dataToSend},  })
                 window.location.reload()
             } else if (items.userGroup === 'ผู้ส่งมอบภาคเอกชน') {
                 dataToSend = [
@@ -35,7 +39,7 @@ const Table = () => {
                     { userGroup: 'ที่ปรึกษา', note: '' },
                     { userGroup: 'อื่นๆ', note: '' },
                 ],
-                navigate('/masterdata/new/11/11.1', {replace: true, state: {dataToSend} })
+                navigate('/masterdata/new/11/11.1/11.1.1', {replace: true, state: {dataToSend} })
                 window.location.reload()
             } else if (items.userGroup === 'สมาคมที่เกี่ยวข้องกับการท่องเที่ยว') {
                 dataToSend = [
@@ -53,12 +57,11 @@ const Table = () => {
                     { userGroup: 'สมาคมไทยท่องเที่ยวอย่างรับผิดชอบ', note: '' },
                     { userGroup: 'อื่น', note: '' },
                 ],
-                navigate('/masterdata/new/11/11.1', {replace: true, state: {dataToSend} })
+                navigate('/masterdata/new/11/11.1/11.1.1', {replace: true, state: {dataToSend} })
                 window.location.reload()
             }
-        }
-
-        var data = location.state.dataToSend;
+        }   
+        
   return (
     <>
     <div className='section-info d-flex flex-column'>
@@ -85,7 +88,7 @@ const Table = () => {
                 </thead>
                 
                 <tbody>
-                {data.map((items: any) => (
+                {dataTokeep.map((items: any) => (
                     <tr>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">

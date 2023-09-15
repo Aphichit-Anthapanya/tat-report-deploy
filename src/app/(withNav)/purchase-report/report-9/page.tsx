@@ -5,13 +5,8 @@ import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
-import { Bar, Pie } from "react-chartjs-2";
-import {CategoryScale} from 'chart.js'; 
-import Chart from 'chart.js/auto';
 
 export default function Page() {
-
-    Chart.register(CategoryScale);
 
     const [isOpenAddActivity,setOpenAddActivity] = useState(false);
 
@@ -30,78 +25,10 @@ export default function Page() {
         }
     }
     
-        const barLabels = ["1. วิธีประกาศเชิญชวนทั่วไป (e-Market,e-Bidding,สอบราคา)", "2. วิธีคัดเลือก", "3. วิธีเฉพาะเจาะจง", "4. อยู่ระหว่างดำเนินการจัดซื้อจัดจ้างตามแผน", "5. ยกเลิก", "รวมทั้งสิ้น"];
-    const barData = {
-    labels: barLabels,
-    datasets: [{
-        label:"วงเงินงบประมาณ",
-        data: [0, 105069977.28, 469301007.85, 137937900, 0, 712308885.13],
-        backgroundColor: [
-        "rgb(54, 162, 235)",
-        "rgb(54, 162, 235)",
-        "rgb(54, 162, 235)",
-        "rgb(54, 162, 235)",
-        "rgb(54, 162, 235)",
-        "rgb(54, 162, 235)",
-        ],
-        borderColor: [
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        ],
-        borderWidth: 1,
-    },
-    {
-        label:"วงเงินทำสัญญา",
-        data: [0, 102436135.6, 453900066.37, 0, 0, 556336201.97],
-        backgroundColor: [
-        "rgb(136, 8, 8)",
-        "rgb(136, 8, 8)",
-        "rgb(136, 8, 8)",
-        "rgb(136, 8, 8)",
-        "rgb(136, 8, 8)",
-        "rgb(136, 8, 8)",
-        
-        ],
-        borderColor: [
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        ],
-        borderWidth: 1,
-    },
-    {
-        label:"รายการที่ยังไม่ได้ดำเนินการจัดซื้อจัดจ้าง",
-        data: [0, 0, 0, 248033800, 0, 248033800],
-        backgroundColor: [
-        "rgb(255, 159, 64)",
-        "rgb(255, 159, 64)",
-        "rgb(255, 159, 64)",
-        "rgb(255, 159, 64)",
-        "rgb(255, 159, 64)",
-        "rgb(255, 159, 64)",
-        ],
-        borderColor: [
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        "rgb(255, 255, 255)",
-        ],
-        borderWidth: 1,
-    }]
-    };
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
-                <div className="breadcrumb-zone">รายงานจัดซื้อจัดจ้าง {'>'} <span className="bread-crumb-page-name"><b>รายงานกราฟสรุปวิธีการจัดซื้อจัดจ้าง หรือการจัดหาพัสดุ ประจำปีงบประมาณ 25XX ไตรมาสที่ X</b></span></div>
+                <div className="breadcrumb-zone">รายงานจัดซื้อจัดจ้าง {'>'} <span className="bread-crumb-page-name"><b>รายงานสรุปแผน/ผลปฏิบัติการจัดซื้อจัดจ้าง (ระดับฝ่าย) ประจำปีงบประมาณ 25XX ไตรมาสที่ X (แสดงข้อมูลจำนวนเงิน)</b></span></div>
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="d-flex justify-content-between justify-content-center align-items-center">
                             <div className="content-search-box d-flex p-2 justify-content-center align-items-center">
@@ -161,22 +88,398 @@ export default function Page() {
                         <div className="d-flex justify-content-between justify-content-center align-items-center">
                             <div className="years d-flex flex-column p-2 justify-content-center">
                                 <div className="box mb-20">
-                                    <b>รายงานกราฟสรุปวิธีการจัดซื้อจัดจ้าง หรือการจัดหาพัสดุ ประจำปีงบประมาณ 25XX ไตรมาสที่ X</b>
+                                    <b>รายงานสรุปแผน/ผลปฏิบัติการจัดซื้อจัดจ้าง (ระดับฝ่าย) ประจำปีงบประมาณ 25XX ไตรมาสที่ 1 (แสดงข้อมูลจำนวนเงิน)</b>
                                 </div>
-                                    <div className="d-flex justify-content-center mt-20">
-                                        <Bar
-                                            data={barData}
-                                            options={{
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                                legend: {
-                                                display: true,
-                                                position: "bottom"
-                                                },
-                                                },
-                                            }}
-                                        />
-                                </div>  
+                                <div className="table-responsive mb-20">
+                                    <table className="table table-bordered">
+                                        <tbody>
+                                            <tr className="table-primary">
+                                                <th rowSpan={2}>
+                                                    <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ลำดับที่</div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                <th rowSpan={2}>
+                                                    <div className="wd-400 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>หน่วยงานที่รับผิดชอบ</div>
+                                                        
+                                                    </div>
+                                                </th>              
+                                                <th rowSpan={2}>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>จำนวนรายการ</div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                <th rowSpan={2}>
+                                                    <div className="wd-160 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>วงเงินทำสัญญา</div>
+                                                    </div>
+                                                </th>
+                                                <th colSpan={4}>
+                                                    <div className="d-flex justify-content-center align-items-center">ผลการดำเนินงาน(จำนวนเงิน)</div>
+                                                </th>
+                                                <th rowSpan={2}>
+                                                    <div className="wd-200 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>คงเหลือยังไม่ส่งมอบงาน</div>
+                                                    </div>
+                                                </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th className="bg-info">
+                                                        <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 1</div>
+                                                    </th>
+                                                    <th className="bg-success">
+                                                        <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 2</div>
+                                                    </th>
+                                                    <th className="bg-warning">
+                                                        <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 3</div>
+                                                    </th>
+                                                    <th className="bg-danger">
+                                                        <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 4</div>
+                                                    </th>
+                                                </tr>
+
+                                                <tr className="table-info">
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">รวมทั้งสิ้น</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">208</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center"> 529,070,003.81 </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">114,315,198.32</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">391,162,805.49 </div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr className="table-info">
+                                                    <th></th>
+                                                    <th>
+                                                            <div className="d-flex justify-content-center align-items-center">คิดเป็นร้อยละ</div>
+                                                    </th>
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">100</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">21.61</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">73.93</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr className="table-success">
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-left align-items-center">1. งบลงทุน</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">6</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">20,242,000.00</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr className="table-success">
+                                                    <th></th>
+                                                    <th>
+                                                            <div className="d-flex justify-content-center align-items-center">คิดเป็นร้อยละ</div>
+                                                    </th>
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">100</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr className="table-warning">
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-left align-items-center ml-10">1.1 งบลงทุน (เงินงบประมาณ)</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">3</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">17,542,000.00</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr className="table-warning">
+                                                    <th></th>
+                                                    <th>
+                                                            <div className="d-flex justify-content-center align-items-center">คิดเป็นร้อยละ</div>
+                                                    </th>
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">100</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">1</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ฝ่ายบริหารทั่วไป</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">  6,969,000.00 </div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">2</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">  10,573,000.00 </div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+                                                
+                                                <tr className="table-warning">
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-left align-items-center ml-10">1.2 งบสำรองกรณีจำเป็นเร่งด่วน+สำรองราคา (เงินรายได้)</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">3</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">  2,700,000.00 </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center"> -</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr className="table-warning">
+                                                    <th></th>
+                                                    <th>
+                                                            <div className="d-flex justify-content-center align-items-center">คิดเป็นร้อยละ</div>
+                                                    </th>
+                                                    <th></th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">100</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">1</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ฝ่ายบริหารทั่วไป</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">  1,000,000.00 </div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">2</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-left align-items-center">ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">  1,700,000.00 </div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                    <th>
+                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
+                                                    </th>
+                                                </tr>                                          
+                                        </tbody>
+                                    </table>
+                                </div> 
                             </div>
                         </div>
                     </div>

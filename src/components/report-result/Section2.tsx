@@ -10,7 +10,6 @@ import { updateFormField } from "@/redux/OperationFollow/reducer";
 import { FormState } from "@/redux/OperationFollow/types";
 import { useParams, useRouter } from "next/navigation";
 
-
 interface Section5Props {
   changeSectionHandle: (value: number, isBubble: boolean) => void;
   setIsLoading: (val: boolean) => void
@@ -44,8 +43,9 @@ export default function Section5(props: Section5Props) {
                                                 </div>
                                             </th>
                                             <th>
-                                                <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                    <div>หมวดกิจกรรม</div>
+                                                <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
+                                                    <div>ลำดับที่</div>
+                                                    <div>กิจกรรม</div>
                                                 </div>
                                             </th>
                                             <th>
@@ -59,9 +59,15 @@ export default function Section5(props: Section5Props) {
                                                 </div>
                                             </th>
                                             <th>
-                                                <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                    <div>ลำดับที่</div>
-                                                    <div>โครงการ</div>
+                                                <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                    <div>หมวดกิจกรรม</div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
+                                                    <div>ความคืบหน้า</div>
+                                                    <div>การดำเนินกิจกรรม</div>
+                                                    
                                                 </div>
                                             </th>
                                             <th>
@@ -73,24 +79,29 @@ export default function Section5(props: Section5Props) {
                                             </th>
                                             <th>
                                                 <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                    <div>สถานะกิจกรรม</div>
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                    <div>สถานะงาน</div>
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                    <div>งบประมาณ</div>
-                                                    <div>โครงการแผน(บาท)</div>
+                                                    <div>สถานะการ</div>
+                                                    <div>รายงานผล</div>
                                                 </div>
                                             </th>
                                             <th>
                                                 <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
                                                     <div>ยอดงบประมาณ</div>
-                                                    <div>กิจกรรม</div>
+                                                    <div>กิจกรรมตามแผน</div>
+                                                    <div>(บาท)</div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
+                                                    <div>ยอดงบประมาณ</div>
+                                                    <div>กิจกรรมตามผล</div>
+                                                    <div>(บาท)</div>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
+                                                    <div>ยอดงบประมาณ</div>
+                                                    <div>กิจกรรมคงเหลือ</div>
+                                                    <div>(บาท)</div>
                                                 </div>
                                             </th>
                                             <th>
@@ -113,11 +124,12 @@ export default function Section5(props: Section5Props) {
                                                   <button className="icon-button" onClick={() => router.push('')}><i className="bi bi-file-earmark-text-fill"></i>
                                                   </button>
                                               </div></th>
-                                            <th>
+                                              <th>
                                                 <div className="normalText d-flex justify-content-center">
-                                                    ในแผน
+                                                    1
                                                 </div>
                                             </th>
+                                           
                                             <th>
                                                 <div className="normalText d-flex justify-content-center">
                                                     สนับสนุนตลาด
@@ -130,19 +142,20 @@ export default function Section5(props: Section5Props) {
                                             </th>
                                             <th>
                                                 <div className="normalText d-flex justify-content-center">
-                                                    1
+                                                    ในแผน
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div className="normalText d-flex justify-content-center">
+                                                    อยู่ระหว่างดำเนินการ
                                                 </div>
                                             </th>
                                             <th>
                                                 <div className="normalText d-flex justify-content-center">
                                                     20
-                                                </div>
+                                                </div> 
                                             </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    อยู่ระหว่างดำเนินการ
-                                                </div>
-                                            </th>
+                                            
                                             <th>
                                                 <div className="normalText d-flex justify-content-center">
                                                     รายงานผล
@@ -153,101 +166,16 @@ export default function Section5(props: Section5Props) {
                                                     7,000,000
                                                 </div>
                                             </th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                        <tr>
-                                            <th><div className="d-flex justify-content-center bi bi-search"></div></th>
-                                            <th><div className="d-flex justify-content-center bi bi-file-earmark-text-fill"></div></th>
                                             <th>
                                                 <div className="normalText d-flex justify-content-center">
-                                                    ในแผน
+                                                    5,000,000
                                                 </div>
                                             </th>
                                             <th>
                                                 <div className="normalText d-flex justify-content-center">
-                                                    สนับสนุนตลาด
+                                                    2,000,000
                                                 </div>
                                             </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-left">
-                                                    ศึกษาความต้องการของผู้ใช้งานและดำเนินการพัฒนาระบบ
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    2
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    50
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    อยู่ระหว่างดำเนินการ
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    รายงานผล
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    7,000,000
-                                                </div>
-                                            </th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                        <tr>
-                                            <th><div className="d-flex justify-content-center bi bi-search"></div></th>
-                                            <th><div className="d-flex justify-content-center bi bi-file-earmark-text-fill"></div></th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    ในแผน
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    สนับสนุนตลาด
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-left">
-                                                    ทดสอบการใช้งาน อบรมการใช้ระบบ และเผยแพร่ประชาสัมพันธ์ระบบและตรวจรับโครงการ
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    3
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    30
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    ส่งอนุมัติ
-                                                </div>
-                                            </th>
-                                            <th>
-                                                <div className="normalText d-flex justify-content-center">
-                                                    7,000,000
-                                                </div>
-                                            </th>
-                                            <th></th>
                                             <th></th>
                                             <th></th>
                                         </tr>

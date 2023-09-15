@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import { useParams, useRouter } from "next/navigation";
-import Button from './button';
+import Button from './button'
 
 export default function Page() {
     

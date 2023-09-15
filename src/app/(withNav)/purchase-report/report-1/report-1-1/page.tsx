@@ -83,7 +83,7 @@ export default function Page() {
                                 <div className="p-2"><button className="btn btn-secondary">ล้างค่า</button></div>
                             </div>    
                     </div>
-                    <div className='search-wrapper-section d-flex flex-column'>
+                    <div className='section-info d-flex flex-column'>
                         <div className="d-flex justify-content-between justify-content-center align-items-center">
                             <div className="years d-flex flex-column p-2 justify-content-center">
                                 <div className="box">
@@ -93,10 +93,10 @@ export default function Page() {
                                     <div className="content mr-10"><b>หน่วยงาน:</b></div>
                                     <div className="content"><p>ฝ่ายบริหารทั่วไป</p></div>
                                 </div>
-                                <div>
-                                    
-                                <div className="table-responsive">
-                                    <table className="table table-bordered">
+                            </div>
+                        </div>
+                        <div className="table-responsive">
+                                    <table className="table">
                                         <tbody>
                                             <tr className="table-primary">
                                             <th rowSpan={2}>
@@ -228,7 +228,6 @@ export default function Page() {
                                                 </div>
                                             </th>
                                             </tr>
-
 
                                             <tr>
                                                 <th rowSpan={6}>
@@ -365,9 +364,6 @@ export default function Page() {
                                         </tbody>
                                     </table>
                                 </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
         </>

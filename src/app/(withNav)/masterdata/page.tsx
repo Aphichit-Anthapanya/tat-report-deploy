@@ -48,12 +48,12 @@ export default function Page() {
                     <Link href="/masterdata/new/10">link</Link>
                 </div>
                 <div className="d-flex flex-row mt-20">
-                    <div className="mr-10">11. แหล่งงบประมาณ</div>
-                    <Link href="/masterdata/new/">link</Link>
+                    <div className="mr-10">11. กลุ่มผู้มีส่วนได้ส่วนเสีย</div>
+                    <Link href="/masterdata/new/11">link</Link>
                 </div>
                 <div className="d-flex flex-row mt-20">
-                    <div className="mr-10">12. กลุ่มผู้มีส่วนได้ส่วนเสีย</div>
-                    <Link href="/masterdata/new/11">link</Link>
+                    <div className="mr-10">12. Test components</div>
+                    <Link href="/masterdata/new/12">link</Link>
                 </div>
                 <div className="d-flex flex-row mt-20">
                     <div className="mr-10">13. ไฟล์แนบ</div>

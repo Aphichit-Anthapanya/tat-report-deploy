@@ -1,30 +1,130 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
+import Table from "./table3";
+import TestTable from "./table"
 
 export default function Page() {
-
-    const [isOpenAddActivity,setOpenAddActivity] = useState(false);
-
-    const [sectionNumber, setSectionNumber] = useState(1);
-    const handleSection = (value: number) => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setSectionNumber(value)
-    };
-
-    const handleAddActivity = () => {
-        setOpenAddActivity(!isOpenAddActivity)
-        if(isOpenAddActivity){
-            handleSection(1)
-        }else{
-            handleSection(2)
+    const data = [
+        {
+            total:{
+                totalItems: '208',
+                totalBudget: '529,070,003.31'
+            }
+        },
+        {
+            budget:[
+                {
+                    budgetName: 'งบลงทุน', 
+                    totalItemPerBudget: '6', 
+                    totalBudgets: '20,242,000.00',
+                    info:[
+                        {
+                            budgetNamesub: 'งบลงทุน(เงินงบประมาณ)',
+                            totalItemPerbudgetsub: '3',
+                            totalbSumBudgetsub: '17,542,000.00',
+                            subInfo: [
+                                {
+                                    number: '1',
+                                    department: 'ฝ่ายบริหารทั่วไป',
+                                    NumberItems: '1',
+                                    budget:'6,969,000.00'
+                                },
+                                {
+                                    number: '2',
+                                    department: 'ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ',
+                                    NumberItems: '2',
+                                    budget:'10,573,000.00'
+                                }
+                            ]
+                        },
+                        {
+                            budgetNamesub: 'งบสำรองกรณีจำเป็นเร่งด่วน',
+                            totalItemPerbudgetsub: '3',
+                            totalbSumBudgetsub: '2,700,000.00',
+                            subInfo: [
+                                {
+                                    number: '1',
+                                    department: 'ฝ่ายบริหารทั่วไป',
+                                    NumberItems: '1',
+                                    budget:'1,000,000.00'
+                                },
+                                {
+                                    number: '2',
+                                    department: 'ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ',
+                                    NumberItems: '2',
+                                    budget:'1,700,000.00'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    budgetName: 'งบอุดหนุน', 
+                    totalItemPerBudget: '198', 
+                    totalBudgets: '505,128,003.31',
+                    info:[
+                        {
+                            budgetNamesub: 'หน่วยงานผู้ว่าการ',
+                            totalItemPerbudgetsub: '3',
+                            totalbSumBudgetsub: '4,500,000.00',
+                            subInfo: [
+                                {
+                                    number: '1',
+                                    department: 'สำนักผู้ว่าการ',
+                                    NumberItems: '1',
+                                    budget:'4,500,000.00'
+                                },
+                                {
+                                    number: '1',
+                                    department: 'ฝ่ายตรวจสอบภายใน',
+                                    NumberItems: '-',
+                                    budget:'-'
+                                }
+                            ]
+                        },
+                        {
+                            budgetNamesub: 'ด้านบริหาร',
+                            totalItemPerbudgetsub: '24',
+                            totalbSumBudgetsub: '142,843,237.28',
+                            subInfo: [
+                                {
+                                    number: '2',
+                                    department: 'กลุ่มงานอำนวยการด้านบริหาร',
+                                    NumberItems: '-',
+                                    budget:'-'
+                                },
+                                {
+                                    number: '2',
+                                    department: 'ฝ่ายบริหารทั่วไป',
+                                    NumberItems: '17',
+                                    budget:'76,691,400.00'
+                                },
+                                {
+                                    number: '2',
+                                    department: 'A',
+                                    NumberItems: '-',
+                                    budget:'-'
+                                },
+                                {
+                                    number: '2',
+                                    department: 'B',
+                                    NumberItems: '17',
+                                    budget:'76,691,400.00'
+                                }
+                            ]
+                        }
+                    ]
+                },
+            ]
         }
-    }
-    
+    ];
+
+
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
@@ -86,399 +186,12 @@ export default function Page() {
                     </div>
 
                     <div className='search-wrapper-section d-flex flex-column'>
-                        <div className="years d-flex flex-column p-2 justify-content-center">
+                        <div className="years d-flex flex-column p-2 justify-content-center mb-20">
                             <div className="box">
                                 <b>รายงานสรุปแผนปฏิบัติการจัดซื้อจัดจ้าง(ระดับฝ่าย) ประจำปีงบประมาณ 25XX</b>
                             </div>
-
-                            <div className="table-responsive">
-                                    <table className="table table-bordered">
-                                        <tbody>
-                                            <tr className="table-primary">
-                                                <th>
-                                                    <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                        <div className="content-sub">ลำดับ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-300 d-flex flex-column justify-content-center align-items-center">
-                                                        หน่วยงานที่รับผิดชอบ
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-50 d-flex justify-content-center align-items-center">
-                                                        <div className="content-sub">จำนวนรายการ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>วงเงินงบประมาณ(บาท)</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr className="table-info">
-                                                <th></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>รวมทั้งสิ้น</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>208</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>529,070,003.31</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr className="table-success">
-                                                <th></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-left align-items-center">
-                                                        <div>1. งบลงทุน</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>6</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>20,242,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr className="table-warning">
-                                                <th></th>
-                                                <th>
-                                                    <div className="ml-10 d-flex justify-content-left align-items-center">
-                                                        <div>1.1 งบลงทุน(เงินงบประมาณ)</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>3</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>17,542,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                            <div>1</div>
-                                                        </div>
-                                                    </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ฝ่ายบริหารทั่วไป</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>1</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>6,969,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                            <div>2</div>
-                                                        </div>
-                                                    </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>10,573,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr className="table-warning">
-                                                <th></th>
-                                                <th>
-                                                    <div className="ml-10 d-flex justify-content-left align-items-center">
-                                                        <div>1.2 งบสำรองกรณีจำเป็นเร่งด่วน+สำรองราคา(เงินรายได้)</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>3</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>2,700,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                            <div>1</div>
-                                                        </div>
-                                                    </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ฝ่ายบริหารทั่วไป</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>1</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>1,000,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                            <div>2</div>
-                                                        </div>
-                                                    </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>ฝ่ายดิจิทัลและเทคโนโลยีสารสนเทศ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>1,000,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                            
-                                            <tr className="table-success">
-                                                <th></th>
-                                                <th>
-                                                    <div className="d-flex justify-content-left align-items-center">
-                                                        <div>2. งบอุดหนุน</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>198</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>505,128,003.31</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr className="table-warning">
-                                                <th rowSpan={3}className="bg-white">
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>1</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="ml-10 d-flex justify-content-left align-items-center">
-                                                        <div>หน่วยงานผู้ว่าการ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>4,500,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>1.1 สำนักผู้ว่าการ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>4,500,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>1.2 ฝ่ายตรวจสอบภายใน</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>-</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>-</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr className="table-warning">
-                                                <th rowSpan={6}className="bg-white">
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>2</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="ml-10 d-flex justify-content-left align-items-center">
-                                                        <div>ด้านบริหาร</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                        <div>24</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="d-flex justify-content-right align-items-center">
-                                                        <div>142,843,237.28</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>2.1 กลุ่มงานอำนวยการด้านบริหาร</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>-</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>-</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>2.2 ฝ่ายบริหารทั่วไป</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>17</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>76,691,400.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>2.3 ฝ่ายทรัพยากรบุคคล</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>6</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>65,151,837.28</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>2.4 ฝ่ายบัญชีและงบประมาณ</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>-</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>-</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-left align-items-center">
-                                                        <div>2.5 ฝ่ายการเงิน</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-center align-items-center">
-                                                        <div>1</div>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="normalText d-flex justify-content-right align-items-center">
-                                                        <div>1,000,000.00</div>
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
                         </div>
+                        <TestTable data={data} />
                     </div>
                 </div>
         </>
