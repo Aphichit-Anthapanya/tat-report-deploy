@@ -78,7 +78,7 @@ export default function Section5(props: Section5Props) {
                         <tbody>
                             <tr>
                                 <th colSpan={10}>
-                                    <div className="d-flex justify-content-center">รายงานผลตัวชี้วัดระดับโครงการ</div>
+                                    <div className="d-flex justify-content-center">รายงานผลตัวชี้วัดระดับโครงการ (Outcome)</div>
                                 </th>
                                                 </tr>
                                                 <tr>
@@ -97,37 +97,34 @@ export default function Section5(props: Section5Props) {
                                                     <th>
                                                         <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
                                                             <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 1</div>
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 2</div>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 3</div>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 4</div>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>จำนวนคนที่ตอบ</div>
-                                                            <div>แบบสอบถาม</div>
+                                                            <div>จำนวนคน</div>
+                                                            <div>ที่ตอบแบบสอบถาม</div>
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
                                                             <div>รายละเอียด</div>
                                                             <div>ผลการดำเนินงาน</div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>หัวข้อไฟล์แนบ</div>
+                                                        </div>
+                                                    </th>
+                                                    <th colSpan={2}>
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>จำนวนเอกสาร</div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>สถานะ</div>
+                                                            <div>การอัพโหลด</div>
                                                         </div>
                                                     </th>
                                                 </tr>
@@ -145,11 +142,13 @@ export default function Section5(props: Section5Props) {
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
+                                                    <th></th>
                                                 </tr>
                                                 <tr>
                                                     <th>
                                                         <div className="normalText d-flex justify-content-center align-items-center">2</div>    
                                                     </th>
+                                                    <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
@@ -194,37 +193,34 @@ export default function Section5(props: Section5Props) {
                                                     <th>
                                                         <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
                                                             <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 1</div>
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 2</div>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 3</div>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>ผลตัวชี้วัด</div>
-                                                            <div>ไตรมาสที่ 4</div>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>จำนวนคนที่ตอบ</div>
-                                                            <div>แบบสอบถาม</div>
+                                                            <div>จำนวนคน</div>
+                                                            <div>ที่ตอบแบบสอบถาม</div>
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
                                                             <div>รายละเอียด</div>
                                                             <div>ผลการดำเนินงาน</div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>หัวข้อไฟล์แนบ</div>
+                                                        </div>
+                                                    </th>
+                                                    <th colSpan={2}>
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>จำนวนเอกสาร</div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div className="wd-140 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>สถานะ</div>
+                                                            <div>การอัพโหลด</div>
                                                         </div>
                                                     </th>
                                                 </tr>
@@ -263,99 +259,7 @@ export default function Section5(props: Section5Props) {
         </div>
 
         <div className="sets d-flex flex-column mb-20 mr-20 ml-20">
-            <div className="wdth-200 mr-20 d-flex flex-row justify-content-left mb-10">ตารางแนบเอกสาร<div className="fontColor">*</div>:</div>
-                <div className="table-responsive">
-                    <table className="table table-bordered">
-                        <tbody>
-                            <tr>
-                                <th colSpan={5}>
-                                    <div className="d-flex justify-content-center">ตารางแนบเอกสาร</div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th rowSpan={2}>
-                                    <div className="wd-100 d-flex justify-content-center align-items-center">ลำดับที่</div>
-                                </th>
-                                <th rowSpan={2}>
-                                    <div className="wd-200 d-flex justify-content-center align-items-center">ตัวชี้วัดที่เกี่ยวข้อง</div>
-                                </th>
-                                <th colSpan={2}>
-                                    <div className="d-flex justify-content-center align-items-center">เอกสาร</div>
-                                </th>
-                                <th rowSpan={2}>
-                                    <div className="wd-100 d-flex justify-content-center align-items-center">สถานะการอัพโหลด</div>
-                                </th>
-                            </tr>
-
-                            <tr>
-                                <th>
-                                    <div className="wd-50 d-flex justify-content-center align-items-center">อัพโหลด</div>
-                                </th>
-                                <th>
-                                    <div className="wd-80 d-flex justify-content-center align-items-center">จำนวนเอกสาร</div>
-                                </th>
-                            </tr>
-
-                            <tr>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center">1</div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center">
-
-                                    </div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center">2</div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center">
-
-                                    </div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center">3</div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center">
-
-                                    </div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"><i className="bi bi-upload"></i></div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
-                                </th>
-                                <th>
-                                    <div className="normalText d-flex justify-content-center align-items-center"></div>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                
                 <div className="wid d-flex flex-row mb-20 justify-content-center mt-20">
                     <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">
                         <div className='f-column'>

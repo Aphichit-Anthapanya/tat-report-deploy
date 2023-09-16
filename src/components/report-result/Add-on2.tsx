@@ -87,16 +87,16 @@ export default function Section5(props: Section5Props) {
                                                 <th><div className="wd-50 d-flex justify-content-center align-items-center">ดูข้อมูล</div></th>
                                                 <th><div className="wd-50 d-flex justify-content-center align-items-center">แก้ไข</div></th>
                                                 <th><div className="wd-50 d-flex justify-content-center align-items-center">ลบ</div></th>
-                                                <th><div className="wd-300 d-flex flex-column justify-content-center align-items-center">หัวข้อ</div></th>
+                                                <th><div className="wd-300 d-flex flex-column justify-content-center align-items-center">ชื่อกิจกรรมย่อย</div></th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                                         <div>งบประมาณ</div>
                                                         <div>(จัดจริง)</div>
                                                     </div>
                                                 </th>
+                                                <th><div className="wd-100 d-flex flex-column justify-content-center align-items-center">สถานะ</div></th>
                                                 <th><div className="wd-100 d-flex flex-column justify-content-center align-items-center">วันที่เริ่มต้น</div></th>
                                                 <th><div className="wd-100 d-flex flex-column justify-content-center align-items-center">วันที่สิ้นสุด</div></th>
-                                                <th><div className="wd-100 d-flex flex-column justify-content-center align-items-center">เอกสารแนบ</div></th>
                                                 <th><div className="wd-100 d-flex flex-column justify-content-center align-items-center">วันที่เริ่มต้น</div></th>
                                                 <th>
                                                     <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
