@@ -16,6 +16,7 @@ export default function Page() {
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
+                <div className="breadcrumb-zone fz-20">Master Data {'>'} <span className="bread-crumb-page-name"><b>Master Plan</b></span></div>
                     <Table data={data}/>
                 </div>
         </>

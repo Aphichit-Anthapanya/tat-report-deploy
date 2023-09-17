@@ -23,6 +23,7 @@ export default function Page() {
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
+                <div className="breadcrumb-zone fz-20">Master Data {'>'} <span className="bread-crumb-page-name"><b>กลุ่มเป้าหมาย</b></span></div>
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="d-flex flex-row justify-content-around">
                             <div className="d-flex flex-column">

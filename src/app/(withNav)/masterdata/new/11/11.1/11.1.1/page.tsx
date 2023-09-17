@@ -34,6 +34,8 @@ export default function Page() {
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
+            <div className="breadcrumb-zone fz-20">Master Data {'>'} <span className="bread-crumb-page-name"><b>กลุ่มผู้มีส่วนได้ส่วนเสีย</b></span></div>
+
                     <div className="d-flex filter-project-button justify-content-right">
                         <div className="p-2"><button className="btn btn-primary" >ย้อนกลับ</button></div>
                         <div className="p-2"><button className="btn btn-primary">Submit</button></div>
