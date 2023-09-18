@@ -1,0 +1,118 @@
+import React from 'react';
+import "@components/Report-temp/report-temp.scss";
+import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect} from "react";
+import Table from './table3';
+import Table2 from './table2';
+
+const TestTable = ({data}:any) => {
+  return (
+    <>
+        <div className="table-container mb-20">
+            <table className="table">
+                <thead>
+                <tr className="table-primary">
+                                                <th rowSpan={3}>
+                                                    <div className="wd-50 d-flex justify-content-center align-items-center">
+                                                        <div>ลำดับที่</div>
+                                                    </div>
+                                                </th>             
+                                                <th rowSpan={3}>
+                                                    <div className="wd-500 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>รายการ</div>
+                                                    </div>
+                                                </th>
+                                                <th rowSpan={3} colSpan={2}>
+                                                    <div className="wd-260 d-flex justify-content-center align-items-center">
+                                                        <div>หน่วยงานที่รับผิดชอบ</div>
+                                                    </div>
+                                                </th>
+                                                <th rowSpan={3}>
+                                                    <div className="wd-100 d-flex justify-content-center align-items-center">
+                                                        <div>จำนวนรายการ</div>
+                                                    </div>
+                                                </th>
+                                                <th rowSpan={3}>
+                                                    <div className="wd-160 d-flex justify-content-center align-items-center">
+                                                        <div>วงเงินทำสัญญา</div>
+                                                    </div>
+                                                </th>
+                                                <th colSpan={8}>
+                                                    <div className="d-flex justify-content-center align-items-center">ผลการดำเนินงาน</div>
+                                                </th>
+                                                <th rowSpan={3}>
+                                                    <div className="wd-160 d-flex justify-content-center align-items-center">
+                                                        <div>หมายเหตุ</div>
+                                                    </div>
+                                                </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th className="bg-info" colSpan={2}>
+                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 1</div>
+                                                    </th>
+                                                    <th className="bg-success" colSpan={2}>
+                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 2</div>
+                                                    </th>
+                                                    <th className="bg-warning" colSpan={2}>
+                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 3</div>
+                                                    </th>
+                                                    <th className="bg-danger" colSpan={2}>
+                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 4</div>
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th className="bg-info">
+                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>รายการ</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-info">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>จำนวนเงิน</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-success">
+                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>รายการ</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-success">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>จำนวนเงิน</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-warning">
+                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>รายการ</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-warning">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>จำนวนเงิน</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-danger">
+                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>รายการ</div>
+                                                        </div>
+                                                    </th>
+                                                    <th className="bg-danger">
+                                                        <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                            <div>จำนวนเงิน</div>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                </thead>
+                <tbody>
+                <Table2 data={data}/>
+                <Table data={data}/>
+                </tbody>
+                </table>
+            </div>
+    </>
+  );
+};
+
+export default TestTable;

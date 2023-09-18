@@ -5,25 +5,177 @@ import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
+import ReportTable from "./table";
 
 export default function Page() {
 
-    const [isOpenAddActivity,setOpenAddActivity] = useState(false);
+    const data = [
+        {
+            total:{
+                totalItems: '18',
+                totalBudget: '61,405,690.16',
+                doneInQ1:[
+                    {
+                     items:'12',
+                     budget:'41,565,440.16'   
+                    }
+                ],
+                doneInQ2:[
+                    {
+                     items:'-',
+                     budget:'-'   
+                    }
+                ],
+                doneInQ3:[
+                    {
+                     items:'-',
+                     budget:'-'   
+                    }
+                ],
+                doneInQ4:[
+                    {
+                     items:'-',
+                     budget:'-'   
+                    }
+                ],
+                note:''
 
-    const [sectionNumber, setSectionNumber] = useState(1);
-    const handleSection = (value: number) => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setSectionNumber(value)
-    };
-
-    const handleAddActivity = () => {
-        setOpenAddActivity(!isOpenAddActivity)
-        if(isOpenAddActivity){
-            handleSection(1)
-        }else{
-            handleSection(2)
+            }
+        },
+        {
+            budget:[
+                {
+                    budgetName: 'งบอุดหนุน', 
+                    totalItems: '18',
+                    totalBudget: '61,405,690.16',
+                    doneInQ1:[
+                        {
+                         items:'12',
+                         budget:'41,565,440.16'   
+                        }
+                    ],
+                    doneInQ2:[
+                        {
+                         items:'-',
+                         budget:'-'   
+                        }
+                    ],
+                    doneInQ3:[
+                        {
+                         items:'-',
+                         budget:'-'   
+                        }
+                    ],
+                    doneInQ4:[
+                        {
+                         items:'-',
+                         budget:'-'   
+                        }
+                    ],
+                    note:'',
+                    info:[
+                        {
+                            budgetNamesub: 'หน่วยงานผู้ว่าการ',
+                            totalItems: '1',
+                            totalBudget: '16,253,600',
+                            doneInQ1:[
+                                {
+                                 items:'12',
+                                 budget:'41,565,440.16'   
+                                }
+                            ],
+                            doneInQ2:[
+                                {
+                                 items:'-',
+                                 budget:'-'   
+                                }
+                            ],
+                            doneInQ3:[
+                                {
+                                 items:'-',
+                                 budget:'-'   
+                                }
+                            ],
+                            doneInQ4:[
+                                {
+                                 items:'-',
+                                 budget:'-'   
+                                }
+                            ],
+                            note:'',
+                            subInfo: [
+                                {
+                                    number: '1',
+                                    department: 'สำนักผู้ว่าการ',
+                                    totalItems: '1',
+                                    totalBudget: '16,253,600',
+                                    doneInQ1:[
+                                        {
+                                         items:'12',
+                                         budget:'41,565,440.16'   
+                                        }
+                                    ],
+                                    doneInQ2:[
+                                        {
+                                         items:'-',
+                                         budget:'-'   
+                                        }
+                                    ],
+                                    doneInQ3:[
+                                        {
+                                         items:'-',
+                                         budget:'-'   
+                                        }
+                                    ],
+                                    doneInQ4:[
+                                        {
+                                         items:'-',
+                                         budget:'-'   
+                                        }
+                                    ],
+                                    note:'',
+                                    activity: [
+                                        {
+                                            activityNumber:'1',
+                                            activityName:'โครงการปรับปรุงห้องประชุมระดับฝ่ายและโถงลิฟท์(ส่วนต่อเนื่อง) อาคาร ททท. สำนักงานใหญ่',
+                                            subDepartment:'งานสถาปัตยกรรม',
+                                            departmentShort:'กอส.',
+                                            totalBudget: '16,253,600',
+                                            doneInQ1:[
+                                                {
+                                                 items:'12',
+                                                 budget:'41,565,440.16'   
+                                                }
+                                            ],
+                                            doneInQ2:[
+                                                {
+                                                 items:'-',
+                                                 budget:'-'   
+                                                }
+                                            ],
+                                            doneInQ3:[
+                                                {
+                                                 items:'-',
+                                                 budget:'-'   
+                                                }
+                                            ],
+                                            doneInQ4:[
+                                                {
+                                                 items:'-',
+                                                 budget:'-'   
+                                                }
+                                            ],
+                                            note:'',
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+            ]  
         }
-    }
+    ];
     
     return (
         <>
@@ -90,481 +242,9 @@ export default function Page() {
                                 <div className="box mb-20">
                                     <b>รายงานสรุปแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง (รายโครงการ) ประจำปีงบประมาณ 25XX ดำเนิน การต่อในปีงบประมาณ 25xx+1</b>
                                 </div>
-                                <div className="table-responsive mb-20">
-                                    <table className="table table-bordered">
-                                        <tbody>
-                                            <tr className="table-primary">
-                                                <th rowSpan={3}>
-                                                    <div className="wd-50 d-flex justify-content-center align-items-center">
-                                                        <div>ลำดับที่</div>
-                                                    </div>
-                                                </th>             
-                                                <th rowSpan={3}>
-                                                    <div className="wd-500 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>รายการ</div>
-                                                    </div>
-                                                </th>
-                                                <th rowSpan={3} colSpan={2}>
-                                                    <div className="wd-260 d-flex justify-content-center align-items-center">
-                                                        <div>หน่วยงานที่รับผิดชอบ</div>
-                                                    </div>
-                                                </th>
-                                                <th rowSpan={3}>
-                                                    <div className="wd-100 d-flex justify-content-center align-items-center">
-                                                        <div>จำนวนรายการ</div>
-                                                    </div>
-                                                </th>
-                                                <th rowSpan={3}>
-                                                    <div className="wd-200 d-flex justify-content-center align-items-center">
-                                                        <div>วงเงินทำสัญญา</div>
-                                                    </div>
-                                                </th>
-                                                <th colSpan={8}>
-                                                    <div className="d-flex justify-content-center align-items-center">ผลการดำเนินงาน</div>
-                                                </th>
-                                                <th rowSpan={3}>
-                                                    <div className="wd-160 d-flex justify-content-center align-items-center">
-                                                        <div>หมายเหตุ</div>
-                                                    </div>
-                                                </th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th className="bg-info" colSpan={2}>
-                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 1</div>
-                                                    </th>
-                                                    <th className="bg-success" colSpan={2}>
-                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 2</div>
-                                                    </th>
-                                                    <th className="bg-warning" colSpan={2}>
-                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 3</div>
-                                                    </th>
-                                                    <th className="bg-danger" colSpan={2}>
-                                                        <div className="wd-300 d-flex justify-content-center align-items-center">แล้วเสร็จไตรมาสที่ 4</div>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th className="bg-info">
-                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>รายการ</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-info">
-                                                        <div className="wd-250 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>จำนวนเงิน</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-success">
-                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>รายการ</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-success">
-                                                        <div className="wd-250 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>จำนวนเงิน</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-warning">
-                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>รายการ</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-warning">
-                                                        <div className="wd-250 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>จำนวนเงิน</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-danger">
-                                                        <div className="wd-50 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>รายการ</div>
-                                                        </div>
-                                                    </th>
-                                                    <th className="bg-danger">
-                                                        <div className="wd-250 d-flex flex-column justify-content-center align-items-center">
-                                                            <div>จำนวนเงิน</div>
-                                                        </div>
-                                                    </th>
-                                                    
-                                                </tr>
-
-                                                <tr className="table-info">
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">รวมทั้งสิ้น</div>
-                                                    </th>
-                                                    <th colSpan={2}></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">18</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">61,405,690.16</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">12</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">41,565,440.16 </div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr className="table-success">
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-left align-items-center ml-5">2. งบอุดหนุน</div>
-                                                    </th>
-                                                    <th colSpan={2}></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">18</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">61,405,690.16</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">12</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">41,565,440.16</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr className="table-success">
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center ml-5">2. ด้านบริหาร</div>
-                                                    </th>
-                                                    <th colSpan={2}></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">5</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">7,000,547.06</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">4</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">  5,305,547.06 </div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr className="table-warning">
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-left align-items-center ml-5">2.2 ฝ่ายทรัพยากรบุคคล</div>
-                                                    </th>
-                                                    <th colSpan={2}></th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">5</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">7,000,547.06</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">4</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">  5,305,547.06 </div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-right align-items-center">-</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="d-flex justify-content-center align-items-center">-</div>
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">1</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">โครงการจัดจ้างที่ปรึกษาเพื่อทบทวนโครงสร้างองค์กร ระยะที่ 2</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">งานกลยุทธ์บริหารทรัพยากรบุคคล</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">กบค.</div>
-                                                    </th>
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">1,695,000.00</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-                                                <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">2</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">จ้างที่ปรึกษาโครงการพัฒนาระบบประเมินผลการปฏิบัติงาน(PMS)</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">งานกลยุทธ์บริหารทรัพยากรบุคคล</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">กบค.</div>
-                                                    </th>
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">2,193,500.00</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">1</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">2,193,500.00</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-                                                <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">3</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">โครงการพัฒนาระบบแผนสืบทอดตำแหน่ง (Succession Planning) ปี 2565</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">งานวางแผนการพัฒนาบุคลากร</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">กพบ.</div>
-                                                    </th>
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">  1,362,000.00 </div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">1</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">  1,362,000.00 </div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">4</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">โครงการพัฒนาระบบบริหารคนเก่ง(Talent Management) ปี 2565</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">งานวางแผนการพัฒนาบุคลากร</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">กพบ.</div>
-                                                    </th>
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">979,647.06</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">1</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">979,647.06</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">5</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-left align-items-center">หลักสูตร “การจัดปฐมนิเทศสำหรับผู้เข้าปฏิบัติงานใหม่” ประจำปี 2565</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">งานบริหารการฝึกอบรม</div>
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">กพบ.</div>
-                                                    </th>
-                                                    <th></th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">770,400.00</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">1</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">770,400.00</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-right align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th>
-                                                        <div className="normalText d-flex justify-content-center align-items-center">-</div>  
-                                                    </th>
-                                                    <th></th>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                </div> 
                             </div>
                         </div>
+                        <ReportTable data={data}/>
                     </div>
                 </div>
         </>
