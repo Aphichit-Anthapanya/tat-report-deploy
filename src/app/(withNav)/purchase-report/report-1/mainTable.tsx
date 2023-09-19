@@ -1,19 +1,13 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import "@components/Report-temp/report-temp.scss";
-import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useDownloadExcel } from 'react-export-table-to-excel';
+import InfoTable from './infoTable';
+import TotalTable from './totalTable';
 const Table = ({data}:any) => {
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-    const togglePopup = () => {
-        setIsPopupOpen(!isPopupOpen);
-      };
-
-      const router = useRouter()
   return (
     <>
         <div className="table-container mb-20">
-            <table className="table table-striped">
+            <table className="table">
                 <thead>
                         <tr className="table-primary">
                                             <th rowSpan={2}>
@@ -36,7 +30,7 @@ const Table = ({data}:any) => {
                                                 </div>
                                             </th>
                                             <th rowSpan={2}colSpan={2}>
-                                                <div className="wd-120 d-flex flex-column justify-content-center align-items-center">
+                                                <div className="wd-180 d-flex flex-column justify-content-center align-items-center">
                                                     <div>(4)</div>
                                                     <div>หน่วยงาน</div>
                                                     <div>ที่รับผิดชอบ</div>
@@ -67,7 +61,7 @@ const Table = ({data}:any) => {
                                             
                                         <tr className="table-primary">
                                             <th>
-                                                <div className="wd-200 d-flex flex-column justify-content-center align-items-center">
+                                                <div className="wd-250 d-flex flex-column justify-content-center align-items-center">
                                                     <div>ขั้นตอน</div>
                                                 </div> 
                                             </th>
@@ -146,22 +140,8 @@ const Table = ({data}:any) => {
                                         </tr>
                 </thead>
                 <tbody>
-                {data.map((items: any) => (
-                    <tr>
-                        <th>
-                            <div className="normalText d-flex justify-content-center align-items-center">{items.number}</div>
-                        </th>
-                        <th>
-                            <div className="normalText d-flex justify-content-center align-items-center">{items.name}</div>
-                        </th>
-                        <th>
-                            <div className="normalText d-flex justify-content-center align-items-center">{items.list}</div>
-                        </th>
-                        <th>
-                            <div className="normalText d-flex justify-content-left align-items-center">{items.description}</div>
-                        </th>
-                  </tr>
-                ))}
+                <InfoTable data = {data}/>
+                <TotalTable data = {data}/>
                 </tbody>
             </table>
         </div>

@@ -8,8 +8,16 @@ interface ExcelExportProps {
 }
 
 class ExcelExport extends React.Component<ExcelExportProps> {
+    
   exportToExcel = () => {
     const { data, filename } = this.props;
+    {data.map((items: any, index: any) => {
+        return items.info?.map((infoItem: any, infoIndex: any) => {
+            return infoItem.department.map((departmentItem: any, departmentIndex: any) => { 
+            return infoItem.actionPlan.map((actionPlanItem: any, actionPlanIndex:any) => {
+                        let rows = {};
+    })})})})}
+
     const headers = ['(1)ลำดับ', '(2)ชื่อกิจกรรม/งาน', '(3)รายการจัดซื้อ/จัดจ้าง', '(4)หน่วยงานที่รับผิดชอบ', '', '(5) วงเงินงบประมาณ ปี 2565(บาท)', '(6)แผนปฏิบัติการ'];
     const subheaders = ['ขั้นตอน','ต.ค.', 'พ.ย.', 'ธ.ค.', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.'];
 
