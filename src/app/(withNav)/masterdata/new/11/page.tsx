@@ -9,12 +9,237 @@ import { useParams, useRouter } from "next/navigation";
 
 export default function Page() {
     const data = [
-        { userGroup: 'บุคลากรและลูกจ้างของททท.', note: '' },
-        { userGroup: 'ลูกค้า/ผู้ใช้บริการ', note: '' },
-        { userGroup: 'หน่วยงานกำกับดูแล/ผู้ถือหุ้นภาครัฐ', note: '' },
-        { userGroup: 'คู่ค้า', note: '' },
-        { userGroup: 'ผู้ส่งมอบ', note: '' },
-        { userGroup: 'คู่ความร่วมมือ', note: '' },
+        { 
+            userGroup: 'บุคลากรและลูกจ้างของททท.', 
+            note: '', 
+            subUser:[
+                {
+                    userGroup: '', 
+                    note: '',
+                }
+            ]
+        },
+        { 
+            userGroup: 'ลูกค้า/ผู้ใช้บริการ', 
+            note: '', 
+            subUser:[
+                { 
+                    userGroup: 'นักท่องเที่ยวชาวไทย', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'นักท่องเที่ยวชาวต่างชาติ', 
+                    note: '' 
+                }
+            ] 
+        },
+        { 
+            userGroup: 'หน่วยงานกำกับดูแล/ผู้ถือหุ้นภาครัฐ', 
+            note: '',
+            level2User:[
+                { 
+                    userGroup: 'กระทรวงการคลัง.', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'สำนักงานคณะกรรมการนโยบายรัฐวิสหากิจ', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'กระทรวงการท่องเที่ยวและกีฬา', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'สำนักงานการตรวจเงินแผ่นดิน', 
+                    note: '' 
+                }
+            ] 
+        },
+        { 
+            userGroup: 'คู่ค้า', 
+            note: '', 
+            level2User:[
+                { 
+                    userGroup: 'ธุรกิจนำเที่ยว', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'Online Travel Agency (ต่างประเทศและในประเทศ)', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'ธุรกิจโรงแรมที่พัก', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'ธุรกิจขนส่ง', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'แหล่งท่องเที่ยว/สถานประกอบการ/ชุมชนเจ้าของแหล่งท่องเที่ยว', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'อื่นๆ', 
+                    note: '' 
+                }
+            ]
+        },
+        { 
+            userGroup: 'ผู้ส่งมอบ', 
+            note: '', 
+            level2User:[
+                { 
+                    userGroup: 'ผู้ส่งมอบภาครัฐ.', 
+                    note: '',
+                    level3User: [
+                        { 
+                            userGroup: 'กระทรวงมหาดไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'กระทรวงสาธารณสุข', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'กรมการท่องเที่ยว', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'กระทรวงต่างประเทศ', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สำนักงานปลัดกระทรวงการท่องเที่ยวและกีฬา', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'อื่นๆ', 
+                            note: '' 
+                        },
+                    ] 
+                },
+                { 
+                    userGroup: 'ผู้ส่งมอบภาคเอกชน', 
+                    note: '',
+                    level3User: [
+                        { 
+                            userGroup: 'สถาบันการศึกษา', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'บริษัทวิจัย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'ที่ปรึกษา', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'อื่นๆ', 
+                            note: '' 
+                        },
+                    ]  
+                },
+            ]
+        },
+        { 
+            userGroup: 'คู่ความร่วมมือ', 
+            note: '', 
+            level2User:[
+                { 
+                    userGroup: 'องค์การบริหารการพัฒนาพื้นที่พิเศษเพื่อการท่องเที่ยวอย่างยั่งยืน', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'สำนักงานส่งเสริมการจัดประชุมและนิทรรศการ', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'สื่อมวลชนทั้ง online และ offline', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'บริษัทท่าอากาศยานไทยจำกัด (มหาชน)', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'การกีฬาแห่งประเทศไทย', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'สำนักงานการท่องเทียวและกีฬา', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'องค์การบริหารส่วนตำบล (อบต.)', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'องค์การบริหารส่วนจังหวัด (อบจ.)', 
+                    note: '' 
+                },
+                { 
+                    userGroup: 'สมาคมที่เกี่ยวข้องกับการท่องเที่ยว', 
+                    note: '',
+                    level3User: [
+                        { 
+                            userGroup: 'สมาคมมัคคุเทศก์อาชีพแห่งประเทศไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมโรงแรมไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมภัตตาคารไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมผู้ประกอบการร้านค้า', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมผู้ประกอบการนำเที่ยวไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สภาหอการค้าไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สภาอุตสาหกรรมท่องเที่ยวแห่งประเทศไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมผู้ค้าปลีกไทย', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมธุรกิจท่องเที่ยวภายในประเทศ', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมไทยธุรกิจการท่องเที่ยว (Association of Thai Travel Agents: ATTA)', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมส่งเสริมการท่องเที่ยวภูมิภาคเอเชียและแปซิฟิก (Pacific Asia Travel Association: PATA)', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'สมาคมไทยท่องเที่ยวอย่างรับผิดชอบ', 
+                            note: '' 
+                        },
+                        { 
+                            userGroup: 'อื่น', 
+                            note: '' 
+                        },
+                        
+                    ] 
+                },
+            ],
+        },
     ];
     
     return (
