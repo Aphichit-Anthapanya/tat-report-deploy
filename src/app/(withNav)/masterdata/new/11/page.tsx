@@ -11,25 +11,21 @@ export default function Page() {
     const data = [
         { 
             userGroup: 'บุคลากรและลูกจ้างของททท.', 
-            note: '', 
-            subUser:[
-                {
-                    userGroup: '', 
-                    note: '',
-                }
-            ]
+            note: ''
         },
         { 
             userGroup: 'ลูกค้า/ผู้ใช้บริการ', 
             note: '', 
-            subUser:[
+            level2User:[
                 { 
                     userGroup: 'นักท่องเที่ยวชาวไทย', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'นักท่องเที่ยวชาวต่างชาติ', 
-                    note: '' 
+                    note: '',
+                    
                 }
             ] 
         },
@@ -39,19 +35,23 @@ export default function Page() {
             level2User:[
                 { 
                     userGroup: 'กระทรวงการคลัง.', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'สำนักงานคณะกรรมการนโยบายรัฐวิสหากิจ', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'กระทรวงการท่องเที่ยวและกีฬา', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'สำนักงานการตรวจเงินแผ่นดิน', 
-                    note: '' 
+                    note: '',
+                    
                 }
             ] 
         },
@@ -61,27 +61,33 @@ export default function Page() {
             level2User:[
                 { 
                     userGroup: 'ธุรกิจนำเที่ยว', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'Online Travel Agency (ต่างประเทศและในประเทศ)', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'ธุรกิจโรงแรมที่พัก', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'ธุรกิจขนส่ง', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'แหล่งท่องเที่ยว/สถานประกอบการ/ชุมชนเจ้าของแหล่งท่องเที่ยว', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'อื่นๆ', 
-                    note: '' 
+                    note: '',
+                    
                 }
             ]
         },
@@ -149,35 +155,41 @@ export default function Page() {
             level2User:[
                 { 
                     userGroup: 'องค์การบริหารการพัฒนาพื้นที่พิเศษเพื่อการท่องเที่ยวอย่างยั่งยืน', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'สำนักงานส่งเสริมการจัดประชุมและนิทรรศการ', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'สื่อมวลชนทั้ง online และ offline', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'บริษัทท่าอากาศยานไทยจำกัด (มหาชน)', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'การกีฬาแห่งประเทศไทย', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'สำนักงานการท่องเทียวและกีฬา', 
-                    note: '' 
+                    note: '',
+                    
                 },
                 { 
                     userGroup: 'องค์การบริหารส่วนตำบล (อบต.)', 
-                    note: '' 
+                    note: '' ,
                 },
                 { 
                     userGroup: 'องค์การบริหารส่วนจังหวัด (อบจ.)', 
-                    note: '' 
+                    note: '',
                 },
                 { 
                     userGroup: 'สมาคมที่เกี่ยวข้องกับการท่องเที่ยว', 

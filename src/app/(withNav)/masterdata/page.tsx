@@ -55,6 +55,10 @@ export default function Page() {
                     <div className="mr-10">12. คำนิยาม</div>
                     <Link href="/masterdata/new/12">link</Link>
                 </div>
+                <div className="d-flex flex-row mt-20">
+                    <div className="mr-10">Test</div>
+                    <Link href="/masterdata/new/13">link</Link>
+                </div>
             </div>
         </>
     )
