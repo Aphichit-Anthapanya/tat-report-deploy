@@ -18,6 +18,9 @@ const Table = ({data}:any) => {
                 <thead>
                     <tr>
                         <th>
+                            <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับ</div>
+                        </th>
+                        <th>
                             <div className="wd-50 d-flex justify-content-center align-items-center">แก้ไข</div>
                         </th>
                         <th>
@@ -38,28 +41,31 @@ const Table = ({data}:any) => {
                     </tr>
                 </thead>
                 <tbody>
-                {data.map((items: any,) => (
+                {data.map((items: any, index: number) => (
                     <tr>
-                    <th>
-                        <div className="normalText d-flex justify-content-center align-items-center">
-                            <button className="open-button icon-button bi bi-pencil" onClick={togglePopup}></button>
-                        </div>
-                    </th>
-                    <th>
-                        <div className="normalText d-flex justify-content-center align-items-center">{items.code}</div>
-                    </th>
-                    <th>
-                        <div className="normalText d-flex justify-content-center align-items-center">{items.name}</div>
-                    </th>
-                    <th>
-                        <div className="normalText d-flex justify-content-center align-items-center">{items.value}</div>
-                    </th>
-                    <th>
-                        <div className="normalText d-flex justify-content-left align-items-center">{items.desT}</div>
-                    </th>
-                    <th>
-                        <div className="normalText d-flex justify-content-left align-items-center">{items.desE}</div>
-                    </th>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{index+1}</div>
+                        </th>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">
+                                <button className="open-button icon-button bi bi-pencil" onClick={togglePopup}></button>
+                            </div>
+                        </th>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{items.code}</div>
+                        </th>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{items.name}</div>
+                        </th>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{items.value}</div>
+                        </th>
+                        <th>
+                            <div className="normalText d-flex justify-content-left align-items-center">{items.desT}</div>
+                        </th>
+                        <th>
+                            <div className="normalText d-flex justify-content-left align-items-center">{items.desE}</div>
+                        </th>
                     </tr>
                 ))}
                 </tbody>

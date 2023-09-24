@@ -20,9 +20,12 @@ const Table = ({data}:any) => {
   return (
     <div className='search-wrapper-section d-flex flex-column'>
         <div className="table-container mb-20">
-            <table className="table table-striped">
+            <table className="table">
                 <thead>
-                    <tr>
+                    <tr className='table-primary'>
+                        <th>
+                            <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับ</div>
+                        </th>
                         <th>
                             <div className="wd-50 d-flex justify-content-center align-items-center">แก้ไข</div>
                         </th>
@@ -38,8 +41,11 @@ const Table = ({data}:any) => {
                     </tr>
                 </thead>
                 <tbody>
-                {data.map((items: any,) => (
+                {data.map((items: any, index:any) => (
                     <tr>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{index+1}</div>
+                        </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
                                 <button className="open-button icon-button bi bi-pencil" onClick={togglePopup}></button>

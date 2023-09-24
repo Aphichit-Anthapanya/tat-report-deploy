@@ -83,7 +83,7 @@ const Table = ({ data }: any) => {
                     </div>
                   </th>
                   <th  className="table-warning">
-                      <div className="normalText d-flex justify-content-left align-items-center">{level2UserItem.userGroup}</div>
+                      <div className="ml-10 normalText d-flex justify-content-left align-items-center">{level2UserItem.userGroup}</div>
                   </th>
                   <th>
                       <div className="normalText d-flex justify-content-center align-items-center">{level2UserItem.note}</div>

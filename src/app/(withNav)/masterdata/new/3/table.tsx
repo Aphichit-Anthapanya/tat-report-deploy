@@ -26,6 +26,9 @@ const Table = ({data}:any) => {
                 <thead>
                     <tr className='table-primary'>
                         <th>
+                            <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับ</div>
+                        </th>
+                        <th>
                             <div className="wd-50 d-flex justify-content-center align-items-center">แก้ไข</div>
                         </th>
                         <th>
@@ -41,17 +44,20 @@ const Table = ({data}:any) => {
                             <div className="wd-300 d-flex justify-content-center align-items-center">นามสกุล</div>
                         </th>
                         <th>
-                            <div className="wd-300 d-flex justify-content-center align-items-center">สถานะ</div>
+                            <div className="wd-80 d-flex justify-content-center align-items-center">สถานะ</div>
                         </th>
                         <th>
-                            <div className="wd-50 d-flex justify-content-center align-items-center">เบอร์โทรศัพท์</div>
+                            <div className="wd-140 d-flex justify-content-center align-items-center">เบอร์โทรศัพท์</div>
                         </th>
                     </tr>
                 </thead>
                 
                 <tbody>
-                {data.map((items: any) => (
+                {data.map((items: any, index: number) => (
                     <tr>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{index+1}</div>
+                        </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
                                 <button className="open-button icon-button bi bi-pencil" onClick={() => router.push('/masterdata/new/3/3.1')}></button>
@@ -73,7 +79,7 @@ const Table = ({data}:any) => {
                             <div className="normalText d-flex justify-content-left align-items-center">{items.lname}</div>
                         </th>
                         <th>
-                            <div className="normalText d-flex justify-content-left align-items-center">{items.status}</div>
+                            <div className="normalText d-flex justify-content-center align-items-center">{items.status}</div>
                         </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">{items.phnumber}</div>

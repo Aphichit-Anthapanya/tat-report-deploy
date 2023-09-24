@@ -16,7 +16,10 @@ const Table = ({data}:any) => {
         <div className="table-container mb-20">
             <table className="table table-striped">
                 <thead>
-                    <tr>
+                    <tr className='table-primary'>
+                        <th>
+                            <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับ</div>
+                        </th>
                         <th>
                             <div className="wd-50 d-flex justify-content-center align-items-center">แก้ไข</div>
                         </th>
@@ -33,20 +36,23 @@ const Table = ({data}:any) => {
                             <div className="wd-300 d-flex justify-content-center align-items-center">Name(EN)</div>
                         </th>
                         <th>
-                            <div className="wd-50 d-flex justify-content-center align-items-center">Condition 1</div>
+                            <div className="wd-100 d-flex justify-content-center align-items-center">Condition 1</div>
                         </th>
                         <th>
-                            <div className="wd-50 d-flex justify-content-center align-items-center">Condition 2</div>
+                            <div className="wd-100 d-flex justify-content-center align-items-center">Condition 2</div>
                         </th> 
                         <th>
-                            <div className="wd-50 d-flex justify-content-center align-items-center">Condition 3</div>
+                            <div className="wd-100 d-flex justify-content-center align-items-center">Condition 3</div>
                         </th>           
                     </tr>
                 </thead>
                 
                 <tbody>
-                {data.map((items: any) => (
+                {data.map((items: any, index: number) => (
                     <tr>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{index+1}</div>
+                        </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
                                 <button className="open-button icon-button bi bi-pencil" onClick={togglePopup}></button>

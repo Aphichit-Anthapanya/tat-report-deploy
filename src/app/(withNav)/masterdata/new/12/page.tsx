@@ -11,6 +11,7 @@ import Popup from '../2/2.1/popup';
 export default function Page() {
     const data = [
         { 
+            number: 1,
             title: 'ชื่อโครงการ', 
             definition: {
                 definition1: '- ระบุชื่อโครงการให้กระชับ เข้าใจง่าย สื่อความหมายได้ชัดเจน',
@@ -19,6 +20,7 @@ export default function Page() {
             } 
         },
         { 
+            number: 3,
             title: 'งบประมาณโครงการ', 
             definition: {
                 definition1: '- ระบุให้ตรงกับงบประมาณที่ได้รับจัดสรร',
@@ -26,7 +28,7 @@ export default function Page() {
                 definition3: ''
             }
         },
-        { 
+        { number: 3,
             title: 'งบประมาณแยกตามรายเดือน', 
             definition: {
                 definition1: ' - แบ่งงบประมาณตามช่วงเวลาที่ใช้จ่ายจริง ไม่หารเท่ากันทุกเดือน และไม่ระบุเป็นเศษสตางค์',
@@ -35,6 +37,7 @@ export default function Page() {
             }
         },
         { 
+            number: 4,
             title: 'หลักการและเหตุผล', 
             definition: {
                 definition1: '- เขียนหลักการและเหตุผลที่แสดงปัญหาที่เกิดขึ้นในพื้นที่ ความจำเป็นที่ต้องแก้ไขปัญหา และนำมาสู่การดำเนินโครงการ',
@@ -43,6 +46,7 @@ export default function Page() {
             }
         },
         { 
+            number: 5,
             title: 'วัตถุประสงค์โครงการ', 
             definition: {
                 definition1: '- ระบุให้ชัดเจนและสอดคล้องกับวัตถุประสงค์ของกลยุทธ์และแผนงาน และจะต้องวัดผลความสำเร็จได้',
@@ -51,6 +55,7 @@ export default function Page() {
             }
         },
         { 
+            number: 6,
             title: 'สินค้าและบริการ', 
             definition: {
                 definition1: '- สิ่งที่โครงการจะเสนอขายให้กลุ่มเป้าหมาย  โดยต้องเหมาะสมกับความต้องการของกลุ่มเป้าหมายหรือสามารถนำส่งคุณค่าตามที่โครงการต้องการนำเสนอ',
@@ -59,6 +64,7 @@ export default function Page() {
             }
         },
         { 
+            number: 7,
             title: 'พื้นที่ดำเนินโครงการ', 
             definition: {
                 definition1: '- งานเกิดขึ้นที่ไหน สื่อครอบคลุมพื้นที่ไหน ให้ระบุจังหวัดหรือภูมิภาคนั้น',
@@ -67,6 +73,7 @@ export default function Page() {
             }
         },
         { 
+            number: 8,
             title: 'ตัวชี้วัดระดับโครงการ', 
             definition: {
                 definition1: '- ผลที่ได้จากการดำเนินโครงการ ซึ่งต้องตอบวัตถุประสงค์ของโครงการ',
@@ -75,6 +82,7 @@ export default function Page() {
             }
         },
         { 
+            number: 9,
             title: 'กลุ่มเป้าหมายระดับโครงการ', 
             definition: {
                 definition1: '- กำหนดกลุ่มเป้าหมายหลักของโครงการให้ชัดเจนและเป็นกลุ่มเป้าหมายที่ทำให้บรรลุวัตถุประสงค์ของโครงการ',
@@ -83,6 +91,7 @@ export default function Page() {
             }
         },
         { 
+            number: 10,
             title: 'วันที่เริ่มต้นโครงการ', 
             definition: {
                 definition1: '- ระบุระยะเวลาเริ่มต้นให้ชัดเจนตามที่คาดว่าจะดำเนินการจริง',
@@ -91,6 +100,7 @@ export default function Page() {
             }
         },
         { 
+            number: 11,
             title: 'วันที่สิ้นสุดโครงการ', 
             definition: {
                 definition1: '- ระบุระยะเวลาสิ้นสุดให้ชัดเจนตามที่คาดว่าจะดำเนินการจริง',
@@ -99,6 +109,7 @@ export default function Page() {
             }
         },
         { 
+            number: 12,
             title: 'ประโยชน์ที่คาดว่าจะได้รับ', 
             definition: {
                 definition1: '- ระบุผลประโยชน์หรือผลกระทบเชิงบวกระยะยาวที่คาดว่าจะเกิดขึ้นเมื่อสิ้นสุดโครงการ ทั้งทางตรงและทางอ้อม',
@@ -107,6 +118,7 @@ export default function Page() {
             }
         },
         { 
+            number: 13,
             title: 'ระบุความเสี่ยงโครงการ', 
             definition: {
                 definition1: '- ระบุปัญหา/อุปสรรคที่หากเกิดขึ้น จะไม่สามารถดำเนินโครงการนี้ต่อไปได้',
@@ -115,6 +127,7 @@ export default function Page() {
             }
         },
         { 
+            number: 14,
             title: 'มาตรการบริหารความเสี่ยง', 
             definition: {
                 definition1: '- ระบุแนวทางที่จะดำเนินการเพื่อป้องกันหรือลดโอกาสเกิด ลดผลกระทบของความเสี่ยงของโครงการที่อาจจะเกิดขึ้น',
@@ -123,6 +136,7 @@ export default function Page() {
             }
         },
         { 
+            number: 15,
             title: 'ชื่อกิจกรรม', 
             definition: {
                 definition1: '- ควรระบุเป็นข้อความที่สรุปย่อใจความของกิจกรรมเท่านั้น นอกเหนือจากนี้ควรระบุไว้ในรายละเอียดกิจกรรม',
@@ -131,6 +145,7 @@ export default function Page() {
             }
         },
         { 
+            number: 16,
             title: 'ประเภทกิจกรรม', 
             definition: {
                 definition1: '- เลือกหมวดกิจกรรมให้ถูกต้องและสอดคล้องกับกิจกรรม เช่น ประเภทโฆษณา ประชาสัมพันธ์ หรือเสนอขาย',
@@ -139,6 +154,7 @@ export default function Page() {
             }
         },
         { 
+            number: 17,
             title: 'รายละเอียดกิจกรรม', 
             definition: {
                 definition1: '- กรุณาระบุรายละเอียดกิจกรรมให้ชัดเจน ตามหลัก 5Wdefinition1H คือ ทำอะไร ทำกับใคร ทำที่ไหน ทำอย่างไร และ ทำผ่านช่องทางใด',
@@ -147,6 +163,7 @@ export default function Page() {
             }
         },
         { 
+            number: 18,
             title: 'สัดส่วนกิจกรรม', 
             definition: {
                 definition1: 'To ทีมงาน  สัดส่วนกิจกรรมให้วางไว้หลังจากหัวข้อรายละเอียดกิจกรรม',
@@ -155,6 +172,7 @@ export default function Page() {
             }
         },
         { 
+            number: 19,
             title: 'สินค้าและบริการระดับกิจกรรม', 
             definition: {
                 definition1: '- สิ่งที่จะเสนอขายให้กลุ่มเป้าหมายในกิจกรรมนั้น  ระบุให้ชัดเจนว่าจะขายอะไร ',
@@ -163,6 +181,7 @@ export default function Page() {
             }
         },
         { 
+            number: 20,
             title: 'พื้นที่ดำเนินกิจกรรม', 
             definition: {
                 definition1: '- กิจกรรมนี้เกิดขึ้นที่ไหน ให้ระบุสถานที่ จังหวัด หรือภูมิภาคนั้น',
@@ -171,6 +190,7 @@ export default function Page() {
             }
         },
         { 
+            number: 21,
             title: 'ตัวชี้วัดระดับกิจกรรม (Output)', 
             definition: {
                 definition1: '- เป็นผลที่เกิดจากการทำกิจกรรมนั้น  ต้องมีค่าเป้าหมายที่ชัดเจน',
@@ -179,6 +199,7 @@ export default function Page() {
             }
         },
         { 
+            number: 22,
             title: 'กลุ่มเป้าหมายระดับกิจกรรม', 
             definition: {
                 definition1: '- กำหนดกลุ่มเป้าหมายให้สอดคล้องกับกิจกรรมที่ดำเนินการ',
@@ -187,6 +208,7 @@ export default function Page() {
             }
         },
         { 
+            number: 23,
             title: 'ช่วงเวลาจัดกิจกรรม (เริ่มต้น)', 
             definition: {
                 definition1: '- ระบุระยะเวลาดำเนินกิจกรรมให้ชัดเจน ไม่ควรระบุทั้งปีงบประมาณ (อย่างน้อยควรระบุเป็นไตรมาส)',
@@ -195,6 +217,7 @@ export default function Page() {
             }
         },
         { 
+            number: 24,
             title: 'ช่วงเวลาจัดกิจกรรม (สิ้นสุด)', 
             definition: {
                 definition1: ' - ระบุระยะเวลาดำเนินกิจกรรมให้ชัดเจนไม่ควรระบุทั้งปีงบประมาณ (อย่างน้อยควรระบุเป็นไตรมาส)',

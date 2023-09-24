@@ -13,7 +13,6 @@ export default function Page() {
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
             <div className="breadcrumb-zone fz-20">Master Data {'>'} <span className="bread-crumb-page-name"><b>Output</b></span></div>
-
                     <div className="d-flex filter-project-button justify-content-right">
                         <div className="p-2"><button className="btn btn-primary" onClick={() => router.push('/masterdata/new/9')}>ย้อนกลับ</button></div>
                         <div className="p-2"><button className="btn btn-primary">Submit</button></div>

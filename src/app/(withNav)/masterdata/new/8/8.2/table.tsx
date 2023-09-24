@@ -19,6 +19,9 @@ const Table = ({data}:any) => {
                 <thead>
                     <tr className='table-primary'>
                         <th>
+                            <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับ</div>
+                        </th>
+                        <th>
                             <div className="wd-50 d-flex justify-content-center align-items-center">ลบ</div>
                         </th>
                         <th>
@@ -34,8 +37,11 @@ const Table = ({data}:any) => {
                 </thead>
                 
                 <tbody>
-                {data.map((items: any) => (
+                {data.map((items: any, index: number) => (
                     <tr>
+                        <th>
+                            <div className="normalText d-flex justify-content-center align-items-center">{index+1}</div>
+                        </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
                                 <button className="open-button icon-button bi bi-trash" onClick={togglePopup2}></button>

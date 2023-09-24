@@ -26,7 +26,7 @@ const Table = ({data}:any) => {
                 <thead>
                     <tr className='table-primary'>
                         <th>
-                            <div className="wd-80 d-flex justify-content-center align-items-center">ลำดับที่</div>
+                            <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
                         </th>
                         <th>
                             <div className="wd-50 d-flex justify-content-center align-items-center">แก้ไข</div>
