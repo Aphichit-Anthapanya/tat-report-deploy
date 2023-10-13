@@ -59,7 +59,7 @@ const Table = ({data}:any) => {
                         </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
-                                <button className="open-button icon-button  bi bi-pencil" onClick={togglePopup}></button>
+                                <button className="open-button icon-button bi bi-pencil" onClick={togglePopup}></button>
                                 <Popup isOpen={isPopupOpen} onClose={togglePopup}/>
                             </div>
                         </th>

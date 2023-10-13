@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Formik, Form, FormikProps, Field, FormikValues } from "formik";
 import * as Yup from "yup";
-import "@components/Report-temp/report-temp.scss";
+import "@/components/Procurement/procurement.scss";
 import axios from "../../../../../service/axios";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,9 +18,9 @@ import { RootState } from "@/redux/store";
 
 export default function Search() {
   const procurementStore = useSelector((state: RootState) => state.procurement);
+
   const initialSearchObj = {
     fiscal_year: "",
-    indicators_name: "",
     resp_agency_name: "",
     budget_investment: false,
     budget_investment_budget: false,
@@ -138,7 +138,7 @@ export default function Search() {
     let dateNow = new Date();
     let temp = [];
     for (
-      let index = dateNow.getFullYear();
+      let index = dateNow.getFullYear() + 5;
       index >= dateNow.getFullYear() - 5;
       index--
     ) {
@@ -164,7 +164,7 @@ export default function Search() {
   }
 
   return (
-      <div className="section-info">
+      <div className="container">
         <Formik
           enableReinitialize
           initialValues={searchObj}
@@ -189,42 +189,58 @@ export default function Search() {
           }) => (
             <form onSubmit={handleSubmit}>
               <div className="row">
-              <div className="col justify-content-left ml-70">
-                <div className="d-flex flex-row justify-content-left align-items-center">
-                    <div>
-                    <label htmlFor="fiscal_year" className="mr-10">
-                        ปีงบประมาณ:{" "}
-                    </label>
-                    </div>
-                    <div>
-                    <Field
-                        as="select"
-                        id="fiscal_year"
-                        className="form-select"
-                        name="fiscal_year"
-                        value={values.fiscal_year}
-                    >
-                        <option value="" style={{ color: "gray" }}>
-                        ----- เลือก -----
-                        </option>
-                        {FYSelect.map((i) => {
-                        return (
-                            <option key={i} value={i}>
-                            {i}
-                            </option>
-                        );
-                        })}
-                    </Field>
-                    </div>
-                </div>
-                <div className="d-flex flex-row justify-content-left mt-20">
-                <div>
-                  <label htmlFor="" className="mr-20">
-                    <span style={{ whiteSpace: 'nowrap' }}>ประเภทงบ</span>:{" "}
+                <div className="col-3 text-end">
+                  <label htmlFor="fiscal_year" className="mt-2">
+                    ปีงบประมาณ:{" "}
                   </label>
                 </div>
-                <div className="d-flex flex-column">
-                <div className="form-check form-check-inline">
+                <div className="col-9 col-md-3 mb-2">
+                  <Field
+                    as="select"
+                    id="fiscal_year"
+                    className="form-select"
+                    name="fiscal_year"
+                    value={values.fiscal_year}
+                  >
+                    <option value="" style={{ color: "gray" }}>
+                      ----- เลือก -----
+                    </option>
+                    {FYSelect.map((i) => {
+                      return (
+                        <option key={i} value={i}>
+                          {i}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                </div>
+                <div className="col-3 text-end">
+                  <label htmlFor="resp_agency_name" className="mt-2">
+                    ชื่อหน่วยงานที่รับผิดชอบ:{" "}
+                  </label>
+                </div>
+                <div className="col-9 col-md-3 mb-2">
+                  <Field
+                    as="select"
+                    id="resp_agency_name"
+                    className="form-select"
+                    name="resp_agency_name"
+                    value={values.resp_agency_name}
+                  >
+                    <option value="" style={{ color: "gray" }}>
+                      ----- เลือก -----
+                    </option>
+                  </Field>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-2 text-end">
+                  <label htmlFor="" className="mt-2">
+                    ประเภทงบ:{" "}
+                  </label>
+                </div>
+                <div className="col-10 col-md-4 mb-2 mt-2">
+                  <div className="form-check form-check-inline">
                     <label
                       className="form-check-label"
                       htmlFor="budget_investment"
@@ -242,6 +258,38 @@ export default function Search() {
                       &nbsp;งบลงทุน&nbsp;
                     </label>
                   </div>
+                  <div className="form-check form-check-inline">
+                    <label
+                      className="form-check-label"
+                      htmlFor="budget_support"
+                    >
+                      <Field
+                        className="form-check-input"
+                        type="checkbox"
+                        name="budget_support"
+                        id="budget_support"
+                        onChange={(e: any) => {
+                          handleChange(e);
+                        }}
+                      />
+                      งบอุดหนุน&nbsp;
+                    </label>
+                  </div>
+                  <div className="form-check form-check-inline">
+                    <label className="form-check-label" htmlFor="budget_income">
+                      <Field
+                        className="form-check-input"
+                        type="checkbox"
+                        name="budget_income"
+                        id="budget_income"
+                        onChange={(e: any) => {
+                          handleChange(e);
+                        }}
+                      />
+                      งบรายได้&nbsp;
+                    </label>
+                  </div>
+                  <br />
                   {investmentBudget && (
                     <div style={{ marginLeft: "16px" }}>
                       <div className="form-check form-check-inline">
@@ -282,37 +330,6 @@ export default function Search() {
                   )}
                   {/* {investmentBudget && <br />} */}
                   <div className="form-check form-check-inline">
-                    <label
-                      className="form-check-label"
-                      htmlFor="budget_support"
-                    >
-                      <Field
-                        className="form-check-input"
-                        type="checkbox"
-                        name="budget_support"
-                        id="budget_support"
-                        onChange={(e: any) => {
-                          handleChange(e);
-                        }}
-                      />
-                      งบอุดหนุน&nbsp;
-                    </label>
-                  </div>
-                  <div className="form-check form-check-inline">
-                    <label className="form-check-label" htmlFor="budget_income">
-                      <Field
-                        className="form-check-input"
-                        type="checkbox"
-                        name="budget_income"
-                        id="budget_income"
-                        onChange={(e: any) => {
-                          handleChange(e);
-                        }}
-                      />
-                      งบรายได้&nbsp;
-                    </label>
-                  </div>
-                  <div className="form-check form-check-inline">
                     <label className="form-check-label" htmlFor="budget_other">
                       <Field
                         className="form-check-input"
@@ -327,8 +344,9 @@ export default function Search() {
                       งบอื่น ๆ&nbsp;
                     </label>
                   </div>
+                  <br />
                   {otherBudget && (
-                    <div style={{ marginLeft: "16px" }} className="d-flex flex-column">
+                    <div style={{ marginLeft: "16px" }}>
                       <div className="form-check form-check-inline">
                         <label
                           className="form-check-label"
@@ -383,63 +401,70 @@ export default function Search() {
                     </div>
                   )}
                 </div>
+                <div className="col-3 text-end">
+                  <label htmlFor="proc_method" className="mt-2">
+                    วิธีการจัดซื้อจัดจ้าง:{" "}
+                  </label>
+                </div>
+                <div className="col-9 col-md-3">
+                  <Field
+                    as="select"
+                    id="proc_method"
+                    className="form-select"
+                    name="proc_method"
+                    value={values.proc_method}
+                  >
+                    <option value="" style={{ color: "gray" }}>
+                      ----- เลือก -----
+                    </option>
+                  </Field>
                 </div>
               </div>
-              <div className="col justify-content-left ml-70">
-              <div className="d-flex flex-row justify-content-left align-items-center">
-                    <div>
-                    <label htmlFor="resp_agency_name" className="mr-20">
-                        หน่วยงาน:{" "}
-                    </label>
-                    </div>
-                    <div>
-                    <Field
-                        as="select"
-                        id="resp_agency_name"
-                        className="form-select"
-                        name="resp_agency_name"
-                        value={values.resp_agency_name}
-                    >
-                        <option value="" style={{ color: "gray" }}>
-                        ----- เลือก -----
-                        </option>
-                    </Field>
-                    </div>
+              <div className="row">
+                <div className="col-3 text-end">
+                  <label htmlFor="proj_activ" className="mt-2">
+                    โครงการ/กิจกรรม:{" "}
+                  </label>
                 </div>
-                <div className="d-flex flex-row justify-content-left align-items-center mt-20">
-                    <div>
-                    <label htmlFor="job_status" className="mr-20">
-                        <span style={{ whiteSpace: 'nowrap' }}>สถานะงาน</span>:{" "}
-                    </label>
-                    </div>
-                    <div className="wd-200">
-                    <Field
-                        as="select"
-                        id="job_status"
-                        className="form-select"
-                        name="job_status"
-                        value={values.job_status}
-                    >
-                        <option value="" style={{ color: "gray" }}>
-                        ----- เลือก -----
-                        </option>
-                        {JSSelect.map((i, idx) => {
-                        return (
-                            <option key={idx} value={i.name}>
-                            {i.name}
-                            </option>
-                        );
-                        })}
-                    </Field>
-                    <span
-                        style={{ fontSize: "12px", color: "gray" }}
-                        className="mt-1"
-                    >
-                        {values.job_status}
-                    </span>
-                    </div>
+                <div className="col-9 col-md-3">
+                  <Field
+                    id="proj_activ"
+                    className="form-control"
+                    name="proj_activ"
+                    value={values.proj_activ}
+                  ></Field>
                 </div>
-              </div>
+                <div className="col-3 text-end">
+                  <label htmlFor="job_status" className="mt-2">
+                    สถานะงาน:{" "}
+                  </label>
+                </div>
+                <div className="col-9 col-md-3">
+                  <Field
+                    as="select"
+                    id="job_status"
+                    className="form-select"
+                    name="job_status"
+                    value={values.job_status}
+                  >
+                    <option value="" style={{ color: "gray" }}>
+                      ----- เลือก -----
+                    </option>
+                    {JSSelect.map((i, idx) => {
+                      return (
+                        <option key={idx} value={i.name}>
+                          {i.name}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                  <span
+                    style={{ fontSize: "12px", color: "gray" }}
+                    className="mt-1"
+                  >
+                    {values.job_status}
+                  </span>
+                </div>
               </div>
               <div className="row mt-4">
                 <div className="col text-center">

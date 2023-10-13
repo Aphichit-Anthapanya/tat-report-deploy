@@ -9,6 +9,9 @@ const procurementSlice = createSlice({
     updateSection(state, action: PayloadAction<any>) {
       state.section = action.payload;
     },
+    updateActionPlan(state, action: PayloadAction<any>) {
+      state.obj.add_action_plan = action.payload;
+    },
     updateSubSection3(state, action: PayloadAction<any>) {
       state.subSection3 = action.payload;
     },
@@ -22,7 +25,6 @@ const procurementSlice = createSlice({
       >
     ) {
       for (const key in action.payload) {
-        console.log(`${key}: ${action.payload[key]}`);
         (state.obj as any)[key] = action.payload[key];
       }
     },
@@ -97,11 +99,29 @@ const procurementSlice = createSlice({
       state.subSection3 = initialState.subSection3;
       state.obj = initialState.obj;
     },
+    setSearchData(state, action) {
+      state.search_data = action.payload;
+    },
+    setSearchDataCount(state, action) {
+      state.search_data_count = action.payload;
+    },
+    setSearchDataCurrentPage(state, action) {
+      state.search_data_current_page = action.payload;
+    },
+    setSearchConditions(state, action) {
+      state.search_conditions = action.payload;
+    },
+    clearSearchConditions(state) {
+      console.log("clearSearchConditions", initialState.search_conditions);
+
+      state.search_conditions = initialState.search_conditions;
+    },
   },
 });
 
 export const {
   updateSection,
+  updateActionPlan,
   updateSubSection3,
   updateProcMethod,
   updateProcMethodByKey,
@@ -109,5 +129,10 @@ export const {
   updateObjByKey,
   updateObj,
   clear,
+  setSearchData,
+  setSearchDataCount,
+  setSearchDataCurrentPage,
+  setSearchConditions,
+  clearSearchConditions,
 } = procurementSlice.actions;
 export default procurementSlice.reducer;

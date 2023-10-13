@@ -447,23 +447,22 @@ body {
     border: none;
     background-color: unset;
   }
-  
-  .table th {
-    border-left: 1px solid #000; 
-    border-right: 1px solid #000;/* Add borders to cells */
-    padding: 8px; /* Add padding for better spacing */
-    text-align: left;
-  }
 
   .none-bd {
     border-left: none; 
     border-right: none;
   }
 
-  .table > thead > th {
-    position: sticky;
-    top: 0;
-    z-index: 1; /* Ensure header stays on top */
+  .table > thead > tr > th {
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgb(0, 0, 0, 0.3);
+  }
+
+  .table > tbody > tr > th {
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
 
   .table > thead > tr > th > .process{
@@ -585,6 +584,10 @@ body {
 
   .wd-200 {
     min-width: 200px;
+  }
+
+  .wd-200px {
+    width: 200px
   }
   
   .wd-250 {

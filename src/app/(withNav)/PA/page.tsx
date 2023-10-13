@@ -3,9 +3,11 @@
 import React from "react";
 import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
-import ReportTable from '../mainTable'
-import SearchZone from "../searchZone";
+import SearchZone from "./searchZone";
 import ExportExcelButton from "@/app/(withNav)/test-function/exportxls/copy";
+import Popup from './popup';
+import Table from './table';
+
 export default function Page() {
     const data = [
         {
@@ -119,66 +121,37 @@ export default function Page() {
             ]  
         }
     ];
-    
-    const dataSet1 = [
-        {
-            name: "Johson",
-            amount: 30000,
-            sex: 'M',
-            is_married: true
-        },
-        {
-            name: "Monika",
-            amount: 355000,
-            sex: 'F',
-            is_married: false
-        },
-        {
-            name: "John",
-            amount: 250000,
-            sex: 'M',
-            is_married: false
-        },
-        {
-            name: "Josef",
-            amount: 450500,
-            sex: 'M',
-            is_married: true
-        }
-    ];
-    
-    var dataSet2 = [
-        {
-            name: "Johnson",
-            total: 25,
-            remainig: 16
-        },
-        {
-            name: "Josef",
-            total: 25,
-            remainig: 7
-        }
-    ];
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const togglePopup = () => {
+        setIsPopupOpen(!isPopupOpen);
+      };
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
-                <div className="breadcrumb-zone">รายงานจัดซื้อจัดจ้าง {'>'} <span className="bread-crumb-page-name">รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง ประจำปีงบประมาณ 25XX </span> {'>'} <span className="bread-crumb-page-name">งบลงทุน(เงินงบประมาณ)</span></div>
-                   <SearchZone/>
+                <div className="mb-10 mt-10">
+                    <h2>ระบบตัวชี้วัดบันทึกการตกลง</h2>
+                </div>
+                <SearchZone />
+                <div className="mb-10 mt-10">
+                    <h2>ตารางแสดงข้อมูลรายละเอียดตัวชี้วัด</h2>
+                </div>
                     <div className='section-info d-flex flex-column'>
-                        <div className="d-flex justify-content-between justify-content-center align-items-center">
-                            <div className="years d-flex flex-column p-2 justify-content-center">
-                                <div className="box">
-                                    <b>รายงานแผนปฏิบัติการจัดซื้อจัดจ้าง (งบลงทุน (เงินงบประมาณ)) ประจำปีงบประมาณ 2565</b>
-                                </div>
-                                <div className="box d-flex">
-                                    <div className="content mr-10"><b>หน่วยงาน:</b></div>
-                                    <div className="content"><p>ฝ่ายบริหารทั่วไป</p></div>
-                                </div>
-                            </div>
+                        <div className="d-flex justify-content-right mr-20 mb-10">
+                            <button className="btn btn-primary mr-10" type="submit">
+                                เอกสารบันทึกข้อตกลง
+                            </button>
+                            <button className="btn btn-primary" type="submit" onClick={togglePopup}>
+                                เพิ่มข้อมูลตัวชี้วัด
+                            </button>
                         </div>
-                        <ReportTable data={data}/>
+                        <div className="mr-20 ml-20">
+                            <Table/>
+                        </div>
                     </div>
                 </div>
+                <Popup isOpen={isPopupOpen} onClose={togglePopup}/>
         </>
     )
 }

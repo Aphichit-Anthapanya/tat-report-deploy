@@ -32,7 +32,7 @@ class ExcelExport extends React.Component<ExcelExportProps> {
     XLSX.utils.sheet_add_aoa(ws, [headers], { origin: 'A1' });
     // Add the sub-headers
     XLSX.utils.sheet_add_aoa(ws, [subheaders], { origin: 'F2' });
-    XLSX.utils.sheet_add_json(ws, data[0].info, { origin: 'A4', skipHeader: true });
+    XLSX.utils.sheet_add_json(ws, data[0].info[0].department, { origin: 'A4', skipHeader: true });
     // Add the worksheet to the workbook
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     

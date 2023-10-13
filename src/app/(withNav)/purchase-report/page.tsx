@@ -79,10 +79,16 @@ export default function Page() {
             </div>
             <div className="mb-10 d-flex flex-row">
                 <div className="mr-10">8. รายงานสรุปวิธีการจัดซื้อจัดจ้าง หรือการจัดหาพัสดุ ประจำปีงบประมาณ 25XX ไตรมาสที่ X</div>
-                <Link href="/purchase-report/report-8">Link</Link></div>
+                <Link href="/purchase-report/report-8">Link</Link>
+            </div>
             <div className="mb-10 d-flex flex-row">
                 <div className="mr-10">9. รายงานสรุปแผน-ผลปฏิบัติการจัดซื้อจัดจ้าง (ระดับฝ่าย) ประจำปีงบประมาณ 25XX ไตรมาสที่ X (แสดงข้อมูลจำนวนเงิน)</div>
-                <Link href="/purchase-report/report-9">Link</Link></div>
+                <Link href="/purchase-report/report-9">Link</Link>
+            </div>
+            <div className="mb-10 d-flex flex-row">
+                <div className="mr-10">Test export</div>
+                <Link href="/test-function/export1">Link</Link>
+            </div>
         </div>
         </>
     )
