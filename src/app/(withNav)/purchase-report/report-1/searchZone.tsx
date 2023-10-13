@@ -21,6 +21,7 @@ export default function Search() {
   const initialSearchObj = {
     fiscal_year: "",
     indicators_name: "",
+    indicators_number: 0,
     resp_agency_name: "",
     budget_investment: false,
     budget_investment_budget: false,
