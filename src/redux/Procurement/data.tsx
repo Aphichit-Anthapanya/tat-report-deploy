@@ -235,6 +235,7 @@ export const initialState: FormState = {
     fiscal_year: "",
     resp_agency_name: "",
     indicators_name: "",
+    indicators_number: 0,
     budget_investment: false,
     budget_investment_budget: false,
     budget_reserve_urgent: false,
