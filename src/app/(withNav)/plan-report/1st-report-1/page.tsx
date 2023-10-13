@@ -5,7 +5,6 @@ import { useState } from "react";
 import "@components/Report-temp/report-temp.scss";
 import Activities from "@components/Activities/Activities";
 import AddActivities from "@components/Activities/Add-Activities";
-import Search from "./test";
 export default function Page() {
 
     const [isOpenAddActivity,setOpenAddActivity] = useState(false);
@@ -29,7 +28,7 @@ export default function Page() {
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
                 <div className="breadcrumb-zone">รายงานแผนปฏิบัติการและการดำเนินงาน {'>'} <span className="bread-crumb-page-name"><b>รายงานรายละเอียดโครงการแผน/กิจกรรมตามที่ได้รับอนุมัติจากคณะกรรมการ ททท.</b></span></div>
-                    <Search />
+                    
                     <div className='search-wrapper-section d-flex flex-column'>
                         <div className="d-flex justify-content-between justify-content-center align-items-center overflow-auto">
                             <div className="years d-flex flex-column p-2 justify-content-center">
