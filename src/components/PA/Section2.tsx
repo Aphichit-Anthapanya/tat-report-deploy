@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import "./ball.scss";
 import { RootState } from "@/redux/store";
 import TableQuarterSummary from "@components/OperationFollow/Table/TableQuarterSummary";
-import { useEffect, useState } from "react";
 import { updateFormField } from "@/redux/OperationFollow/reducer";
 import { FormState } from "@/redux/OperationFollow/types";
 import { useParams, useRouter } from "next/navigation";
