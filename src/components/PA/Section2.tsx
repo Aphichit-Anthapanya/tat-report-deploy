@@ -37,7 +37,7 @@ export default function Section5(props: Section5Props) {
                                     บาท
                                 </div>
                             </div>
-                            <div className="wid d-flex flex-row mb-20">
+                            <div className="wid d-flex flex-row mb-10">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตารางค่าเกณฑ์วัด 2:</div>
                             </div>
                             <Table/>

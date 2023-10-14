@@ -30,10 +30,10 @@ export default function Section3(props: Section3Props) {
                                 </div>
                             </div>
                     <div className="sets d-flex flex-column mr-20 ">
-                            <div className="wid d-flex flex-row mb-20">
+                            <div className="wid d-flex flex-row mb-10">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตารางค่าเกณฑ์วัด 3:</div>
                             </div>
-                            <div className="">
+                            <div className="mb-20">
                                 <Table/>
                             </div>
                             <div className="wid d-flex flex-row mb-20">
