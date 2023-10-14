@@ -1,0 +1,411 @@
+/* import at the 1st line to change variables setting in bootstrap */
+@import "variables";
+
+/* import bootstrap from node_modules */
+@import "~bootstrap/scss/bootstrap.scss";
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+@font-face {
+  font-family: "tatsanachon";
+  src: url("/assets/fonts/TATSanaChon-Reg.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "tatsanachon";
+  src: url("/assets/fonts/TATSanaChon-Lig.ttf") format("truetype");
+  font-weight: light;
+}
+
+@font-face {
+  font-family: "tatsanachon";
+  src: url("/assets/fonts/TATSanaChon-Bld.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-BldIta.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-Ita.ttf") format("truetype");
+  font-weight: nomal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-Lig.ttf") format("truetype");
+  font-weight: light;
+}
+
+@font-face {
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-LigIta.ttf") format("truetype");
+  font-weight: light;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "tatsanasuksa";
+  src: url("/assets/fonts/TATSanaSuksa-Reg.ttf") format("truetype");
+  font-weight: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: tatsanasuksa !important;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-primary {
+  background-color: #1890ff;
+}
+
+.btn-secondary {
+  background-color: white;
+  border-color: #40a9ff;
+  color: #40a9ff;
+}
+
+.btn-secondary:hover {
+  background-color: rgb(243, 242, 242);
+  border-color: #40a9ff;
+  color: #40a9ff;
+}
+
+.top-header {
+  background: #1967b2;
+  padding: 11px 0px 11px 16px;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.header-text {
+  color: white;
+  margin-top: 8px;
+  margin-left: 23px;
+}
+
+.user-name-text {
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+.logo_help_wrapper {
+  margin-top: 11px;
+}
+
+.logo_help {
+  cursor: pointer;
+}
+
+.logo_logout_wrapper {
+  margin-top: 11px;
+}
+
+.logo_logout {
+  cursor: pointer;
+}
+
+.side-navigation {
+  width: 296px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0px;
+  padding-top: 119px;
+  z-index: 1;
+  left: 0px;
+  transition: left 0.3s;
+}
+
+.side-navigation.small-side {
+  left: -265px;
+}
+
+.side-nav:hover {
+  background-color: #1890ff29;
+  cursor: pointer;
+}
+
+.side-nav.active {
+  background-color: #1890ff29;
+}
+
+.side-nav > .bi-chevron-right {
+  font-size: 14px;
+  margin: auto;
+}
+
+.user-name-texxt-chev {
+  font-size: 13px;
+  position: relative;
+  top: -1px;
+}
+
+.side-chev-wrapper > i {
+  margin: auto;
+}
+
+.close-sidebar-but-wrapper {
+  border-bottom: 13px solid #ffff;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  height: 0;
+  width: 72px;
+  filter: drop-shadow(0px -2px 2px rgba(0, 0, 0, 0.15));
+  transform: rotate(90deg);
+  z-index: 0;
+  position: absolute;
+  top: 564px;
+  left: 266px;
+  cursor: pointer;
+}
+
+.close-sidebar-but {
+  font-size: 12px;
+  position: relative;
+  left: 19px;
+  top: -4px;
+}
+
+.side-nav-text-wrapper {
+  padding-right: 20px;
+}
+
+.iconSmallNav {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.icon-small-nav-top {
+  position: absolute;
+  right: 5px;
+  top: 128px;
+}
+
+.nav-header > span {
+  position: relative;
+  left: 6px;
+  top: 2px;
+  font-weight: bold;
+}
+
+.content-body-wrapper {
+  min-height: 300px;
+  float: right;
+  width: 75%;
+  padding-right: 65px;
+  position: relative;
+  top: 103px;
+}
+
+.content-body-wrapper.small-nav {
+  width: 95%;
+}
+
+.hide {
+  display: none;
+}
+
+.justify-content-right {
+  justify-content: right;
+}
+
+.justify-content-spacebetween {
+  justify-content: space-between;
+}
+
+.invalid-text {
+  span {
+    font-size: 12px !important;
+  }
+}
+
+.alterisk {
+  color: red;
+}
+
+.breadcrumb-zone{
+  margin-top: 20px;
+}
+
+.boxes {
+  width: 100%;
+  justify-content: center;
+}
+
+.f-column {
+  display: flex;
+  flex-direction: column;
+}
+.ml-6 {
+  margin-left: 6px;
+}
+.ml-5 {
+  margin-left: 5px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.ml-25 {
+  margin-left: 25px;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}
+
+.ml-35 {
+  margin-left: 35px;
+}
+
+.ml-40 {
+  margin-left: 40px;
+}
+
+.ml-50 {
+  margin-left: 50px;
+}
+
+.ml-70 {
+  margin-left: 70px;
+}
+
+.ml-100 {
+  margin-left: 103px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-35 {
+  margin-right: 35px;
+}
+
+.mr-50 {
+  margin-right: 50px;
+}
+
+.mr-150 {
+  margin-right: 150px;
+}
+
+.mr-200 {
+  margin-right: 200px;
+}
+
+.mb-2 {
+  margin-bottom: 2px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+.mt-500 {
+  margin-top: 500px;
+}
+
+.pl-10 {
+  padding-left: 30px;
+}
+
+.pr-10 {
+  padding-right: 30px;
+}
+
+.bordR {
+  border-radius: 5px;
+}
+
+.ma {
+  margin: auto;
+}
+
+.fontColor {
+  color: red;
+}
+
+.color-org {
+  background-color: orange;
+}
+
+.fz-24 {
+  font-size: 24px;
+}
+
+.fz-20 {
+  font-size: 20px;
+}
+
+.wh100p {
+  width: 100%;
+  height: 100%;
+}
