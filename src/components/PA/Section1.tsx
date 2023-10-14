@@ -18,75 +18,14 @@ export default function Section1(props: Section1Props) {
 
   return (
     <>
-    <div className='search-wrapper-section d-flex flex-column justify-content-center align-items-center'>
-                    <div className="d-flex flex-column mr-20 ml-70">
+    <div className='search-wrapper-section d-flex flex-column'>
+                <div className="d-flex flex-column justify-content-left">
+                                <h4><b>ตัวชี้วัดลำดับที่ 1.1 กินอาหารดีๆ ค่าน้ำหนัก 4</b></h4>
+                </div>
+                    <div className="d-flex flex-column mr-20 ml-70 ">
+                            
                             <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ปีงบประมาณ:</div>
-                                <div>2566</div>
-                            </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ลำดับตัวชี้วัด:</div>
-                                <div>1</div>
-                            </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ประเภทหมวด:</div>
-                                <div>หมวด 1</div>
-                            </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ชื่อตัวชี้วัด:</div>
-                                <div>A</div>
-                            </div>
-                            <div className="wid d-flex flex-row">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ค่าน้ำหนัก:</div>
-                                <div className="table-container">
-                                    <table className="table">
-                                        <thead>
-                                            <tr className='table-primary'>
-                                                <th>
-                                                    <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 1</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 2</div>
-                                                    </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 3</div>
-                                                </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex justify-content-center align-items-center">ไตรมาสที่ 4</div>
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <th>
-                                                    <div className="mr-10 ml-10">
-                                                        <input type="text" className="form-control left-align" placeholder="" id="filterOverall"  value={1}/>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="mr-10 ml-10">
-                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" value={1}/>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="mr-10 ml-10">
-                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" value={1}/>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div className="mr-10 ml-10">
-                                                        <input type="text" className="form-control" placeholder="" id="filterOverall" value={1}/>
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div className="wid d-flex flex-row mb-20">
-                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">คำอธิบายหัวข้อ:</div>
-                                <div></div>
+                                <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">รายละเอียดค่าเกณฑ์วัด</div>
                             </div>
                             <div className="wid d-flex flex-row mb-20">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตารางค่าเกณฑ์วัด:</div>
