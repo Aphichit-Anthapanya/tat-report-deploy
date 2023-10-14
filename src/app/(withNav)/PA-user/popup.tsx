@@ -212,12 +212,27 @@ const Popup = ({ isOpen, onClose }:any) => {
                                         </Field>
                                         </div>
                                 </div>
+                                <div className="d-flex flex-row justify-content-right align-items-center mb-20">
+                                    <div>
+                                        <label htmlFor="" className="ml-20 mr-10">
+                                            <b>การแบ่งค่าน้ำหนัก:</b>
+                                        </label>
+                                    </div>
+                                    <div className="wd-400">
+                                        <Field
+                                            type="text"
+                                            className="form-control"
+                                            placeholder=""
+                                            name="indicators_name"
+                                            id="filterOverall"
+                                            value={values.indicators_name}
+                                        >
+                                        </Field>
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </Formik>
-                </div>
-                <div className="d-flex flex-row justify-content-left mb-10">
-                    <div className="mr-10 d-flex flex-row justify-content-left"><b>การแบ่งค่าน้ำหนัก:</b></div>
                 </div>
                 <div className="table-container mb-20">
                     <table className="table">

@@ -6,6 +6,7 @@ import "@components/Report-temp/report-temp.scss";
 import SearchZone from "./searchZone";
 import ExportExcelButton from "@/app/(withNav)/test-function/exportxls/copy";
 import Popup from './popup';
+import Popup2 from './popup-2';
 import Table from './table';
 
 export default function Page() {
@@ -127,6 +128,13 @@ export default function Page() {
     const togglePopup = () => {
         setIsPopupOpen(!isPopupOpen);
       };
+
+      const [isPopupOpen2, setIsPopupOpen2] = useState(false);
+
+    const togglePopup2 = () => {
+        setIsPopupOpen2(!isPopupOpen2);
+      };
+
     return (
         <>
             <div className='d-flex flex-column' style={{width: '100%'}}>
@@ -139,7 +147,7 @@ export default function Page() {
                 </div>
                     <div className='section-info d-flex flex-column'>
                         <div className="d-flex justify-content-right mr-20 mb-10">
-                            <button className="btn btn-primary mr-10" type="submit">
+                            <button className="btn btn-primary mr-10" type="submit" onClick={togglePopup2}>
                                 เอกสารบันทึกข้อตกลง
                             </button>
                             <button className="btn btn-primary" type="submit" onClick={togglePopup}>
@@ -152,6 +160,7 @@ export default function Page() {
                     </div>
                 </div>
                 <Popup isOpen={isPopupOpen} onClose={togglePopup}/>
+                <Popup2 isOpen={isPopupOpen2} onClose={togglePopup2}/>
         </>
     )
 }
