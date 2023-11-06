@@ -33,16 +33,18 @@ export default function Section3(props: Section3Props) {
                             <div className="wid d-flex flex-row mb-10">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตารางค่าเกณฑ์วัด 3:</div>
                             </div>
-                            <div className="mb-20">
+                            <div className="ml-70 mr-20 mb-20">
                                 <Table/>
                             </div>
-                            <div className="wid d-flex flex-row mb-20">
+                            <div className="wid d-flex flex-row">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตารางเอกสารแนบ:</div>
+                            </div>
+                            <div className="mb-20 threshold-value-table ml-70">
                                 <TableForm/>
                             </div>
                             <div className="wid d-flex flex-row mb-20 align-items-center">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ปัญหา / อุปสรรค:</div>
-                                    <div className="wd-200px">
+                                    <div className="wd-400">
                                         <select className="form-select" aria-label="Default select example">
                                             <option selected>-- เลือก --</option>
                                             <option value={1}>มี</option>
@@ -52,33 +54,34 @@ export default function Section3(props: Section3Props) {
                             </div>
                             <div className="wid d-flex flex-row mb-20 align-items-center">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ระบุปัญหา / อุปสรรค:</div>
-                                <div>
+                                <div className="wd-400">
                                     <input type="text" className="form-control" placeholder="" id="filterOverall"/>
                                 </div>
                             </div>
                             <div className="wid d-flex flex-row mb-20 align-items-center">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">วิธีการแก้ไข:</div>
-                                <div>
+                                <div className="wd-400">
                                     <input type="text" className="form-control" placeholder="" id="filterOverall"/>
                                 </div>
                             </div>
                             <div className="wid d-flex flex-row mb-20 align-items-center">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ปัจจัยสนับสนุนต่อตัวชี้วัด:</div>
-                                <div>
+                                <div className="wd-400">
                                     <input type="text" className="form-control" placeholder="" id="filterOverall"/>
                                 </div>
                             </div>
                             <div className="wid d-flex flex-row mb-20 align-items-center">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ปัจจัยอุปสรรคต่อตัวชี้วัด:</div>
-                                <div>
+                                <div className="wd-400">
                                     <input type="text" className="form-control" placeholder="" id="filterOverall"/>
                                 </div>
                             </div>
                     </div>
     </div>
                     <div className="button-section">
-                        <button type="button" className="btn btn-primary">ต่อไป <i className="bi bi-chevron-right"></i></button>
-                        <button type="button" className="btn btn-primary"><i className="bi bi-file-earmark mr-5"></i>บันทึกชั่วคราว</button>
+                        <button type="button" className="btn btn-primary">อนุมัติ<i className="bi bi-chevron-right"></i></button>
+                        <button type="button" className="btn btn-primary"><i className="bi bi-file-earmark mr-5"></i>ส่งแก้ไข</button>
+                        <button type="button" className="btn btn-primary"><i className="bi bi-file-earmark mr-5"></i>ส่งอนุมัติ</button>
                         <button type="button" className="btn btn-primary">ย้อนกลับ <i className="bi bi-chevron-left"></i></button>
                     </div>
     </>

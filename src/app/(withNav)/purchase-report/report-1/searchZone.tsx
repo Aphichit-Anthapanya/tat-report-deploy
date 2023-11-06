@@ -148,13 +148,10 @@ export default function Search() {
     setFYSelect(temp);
   }
 
-  async function getSearchData(page: any = 0, value: ISearchObj) {
-    // /procurement-data?name=XXX
-    let skip = page == 0 ? 0 : (page - 1) * 10;
-    let take = 10;
+  async function getSearchData(value: ISearchObj) {
     await axios
       .get(
-        `/procurement-data?name=${value.proj_activ}&skip=${skip}&take=${take}`
+        `/procurement-data?name=${value.proj_activ}`
       )
       .then((result) => {
         console.log(result);
@@ -174,7 +171,7 @@ export default function Search() {
             console.log(values, "onSubmit");
             dispatch(setSearchConditions(values));
             dispatch(setSearchDataCurrentPage(1));
-            getSearchData(0, values);
+            getSearchData(values);
           }}
         >
           {({

@@ -27,8 +27,10 @@ export default function Section1(props: Section1Props) {
                             <div className="wid d-flex flex-row mb-20">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">รายละเอียดค่าเกณฑ์วัด</div>
                             </div>
-                            <div className="wid d-flex flex-row mb-20">
+                            <div className="wid d-flex flex-row">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตารางค่าเกณฑ์วัด:</div>
+                            </div>
+                            <div className="threshold-value-table ml-70">
                                 <TableComponent/>
                             </div>
                             <div className="wid d-flex flex-row mb-20 align-items-center">
@@ -45,10 +47,11 @@ export default function Section1(props: Section1Props) {
                             </div>
                     </div>
     </div>
-                    <div className="button-section">
-                        <button type="button" className="btn btn-primary">ต่อไป <i className="bi bi-chevron-right"></i></button>
-                    </div>
-
+        <div className="button-section">
+            <button type="button" className="btn btn-primary">ยืนยันข้อมูล<i className="bi bi-chevron-right"></i></button>
+            <button type="button" className="btn btn-primary"><i className="bi bi-file-earmark mr-5"></i>แก้ไขข้อมูล</button>
+            <button type="button" className="btn btn-primary">ย้อนกลับ <i className="bi bi-chevron-left"></i></button>
+        </div>
     </>
   );
 }

@@ -98,7 +98,7 @@ const Popup = ({ isOpen, onClose }:any) => {
     <div className={`popup ${isOpen ? 'open' : ''}`}>
       <div className="d-flex flex-column mt-10 mb-10">
             <div className="d-flex justify-content-center mb-20">
-                <h4>การเพิ่มข้อมูลตัวชี้วัดตามบันทึกข้อตกลง</h4>
+                <h4>การแก้ไขข้อมูลตัวชี้วัดตามบันทึกข้อตกลง</h4>
             </div>
             <div className="d-flex flex-column ml-50 mr-50">
                 <div className="d-flex flex-row justify-content-left">
@@ -255,7 +255,7 @@ const Popup = ({ isOpen, onClose }:any) => {
                 <div>ยกเลิก</div>
             </button>
             <button className="close-button bordR" onClick={onClose}>
-                <div>เพิ่ม</div>
+                <div>แก้ไข</div>
             </button>
         </div>
       </div>

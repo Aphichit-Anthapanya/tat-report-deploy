@@ -20,7 +20,7 @@ export default function Section5(props: Section5Props) {
       const router = useRouter()
   return (
     <>
-    <div className='search-wrapper-section d-flex flex-column'>
+        <div className='search-wrapper-section d-flex flex-column'>
                     <div className="wid d-flex flex-column mb-20">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-left">
                                     <h3><b>ตัวชี้วัดลำดับที่ 1.1 กินอาหารดีๆ ค่าน้ำหนัก 4</b></h3>
@@ -39,15 +39,16 @@ export default function Section5(props: Section5Props) {
                             <div className="wid d-flex flex-row mb-10">
                                 <div className="wdth-200 mr-20 d-flex flex-row justify-content-right">ตารางค่าเกณฑ์วัด 2:</div>
                             </div>
-                            <Table/>
+                            <div className="ml-70 mr-20"><Table/></div>
                             
                     </div>
-    </div>
-                    <div className="button-section">
-                        <button type="button" className="btn btn-primary">ต่อไป <i className="bi bi-chevron-right"></i></button>
-                        <button type="button" className="btn btn-primary" onClick={() => router.push('/report/ball/add-on/1')}><i className="bi bi-file-earmark mr-5"></i>เพิ่มกิจกรรม(นอกแผน)</button>
-                        <button type="button" className="btn btn-primary">ย้อนกลับ <i className="bi bi-chevron-left"></i></button>
-                    </div>
+        </div>
+        <div className="button-section">
+            <button type="button" className="btn btn-primary">อนุมัติ<i className="bi bi-chevron-right"></i></button>
+            <button type="button" className="btn btn-primary"><i className="bi bi-file-earmark mr-5"></i>ส่งแก้ไข</button>
+            <button type="button" className="btn btn-primary"><i className="bi bi-file-earmark mr-5"></i>ส่งอนุมัติ</button>
+            <button type="button" className="btn btn-primary">ย้อนกลับ <i className="bi bi-chevron-left"></i></button>
+        </div>
     </>
   );
 }

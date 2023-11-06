@@ -1,10 +1,16 @@
-import React, {useRef} from 'react';
+import React, {useRef,useState} from 'react';
 import "@components/Report-temp/report-temp.scss";
 import { useDownloadExcel } from 'react-export-table-to-excel';
 import { useParams, useRouter } from "next/navigation";
+import Popup from './popup-edit';
 
 const Table = ({data}:any) => {
   const router = useRouter()
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const togglePopup = () => {
+        setIsPopupOpen(!isPopupOpen);
+    };
   return (
     <>
         <div className="table-container mb-20">
@@ -28,6 +34,7 @@ const Table = ({data}:any) => {
                             <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
                                 <div>แก้ไขข้อมูล</div>
                                 <div>ตัวชี้วัด</div>
+                                
                             </div>
                         </th>
                         <th rowSpan={2}>
@@ -109,7 +116,8 @@ const Table = ({data}:any) => {
                         </th>
                         <th>
                             <div className="normalText d-flex justify-content-center align-items-center">
-                                <button className="open-button icon-button bi bi-pencil"></button>       
+                                <button className="open-button icon-button bi bi-pencil" onClick={togglePopup}></button>
+                                <Popup isOpen={isPopupOpen} onClose={togglePopup}/>       
                             </div>
                         </th>
                         <th>

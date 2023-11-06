@@ -10,9 +10,15 @@ const TableComponent = () => {
     {id: 5, name: '' },
   ]);
 
-  const handleAddRow = () => {
-    const newRow = { id: data.length + 1, name: "" };
-    setData([...data, newRow]);
+  const handleAddRow = (id: number) => {
+    const newData = data.map(item => {
+      if (item.id === id) {
+        return [{ id: item.id, name: item.name }, { id: parseFloat(`${item.id}.${data.length}`), name: item.name}]
+      }  else {
+        return item;
+      }
+    }).flat();
+    setData(newData);
   };
 
   const handleDeleteRow = (id: number) => {
@@ -37,16 +43,14 @@ const TableComponent = () => {
             {data.map((row: any) => (
                 <tr key={row.id}>
                     <th>
-                        <div className="normalText d-flex justify-content-center align-items-center">{row.id}</div>
+                        <div className="normalText d-flex justify-content-center align-items-center">{Math.floor(row.id)}</div>
                     </th>
                     <th>
-                        <div className="mr-10 ml-10">
-                        <input type="text" className="form-control" placeholder="" id="filterOverall"/>
-                        </div>
+                        <div className="normalText d-flex justify-content-center align-items-center">[ดึงค่า]</div>
                     </th>
                     <th>
                         <div className="normalText add-button d-flex justify-content-center align-items-center">
-                            <span onClick={handleAddRow} style={{cursor: 'pointer'}}>เพิ่ม</span>
+                            <span onClick={() => handleAddRow(row.id)} style={{cursor: 'pointer'}}>เพิ่ม</span>
                         </div>
                     </th>
                 </tr>
