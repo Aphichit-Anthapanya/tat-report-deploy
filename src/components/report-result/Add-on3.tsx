@@ -28,7 +28,18 @@ export default function Section5(props: Section5Props) {
   const handleDateChange = (date:any) => {
     setSelectedDate(date);
   };
-    
+  const options = [
+    "งบประมาณไม่เพียงพอ",
+    "สถานการณ์ภัยธรรมชาติ",
+    "สถานการณ์โรคระบาด",
+    "สภาพอากาศไม่เอื้ออำนวย",
+    "ความไม่พร้อมในพื้นที่", 
+    "ไม่ได้รับความร่วมมือจากหน่วยงานที่เกี่ยวข้อง",
+    "ไม่ได้รับความร่วมมือจากคนในพื้นที่",
+    "มีการปรับเปลี่ยนนโยบายจากภาครัฐ",
+    "บุคลากรไม่เพียงพอ",
+    "บุคลากรขาดความรู้/ ความเชี่ยวชาญ"
+];
   return (
     <>
     <div className='search-wrapper-section d-flex flex-column justify-content-right align-items-center'>
@@ -280,9 +291,15 @@ export default function Section5(props: Section5Props) {
                         </div>
                         
                         <div className="fontColor">*</div>:</div>
-                        <div className="filter-field-4">
-                            <input type="text" className="form-control" placeholder="" id="filterOverall" />
-                    </div>
+                        <div className="filter-field-4"> 
+                                  <select className="form-select">
+                                  {options?.map((items:any, index: number) => (
+                                    <option key={index} value={index+1}>
+                                      {items}
+                                    </option>
+                                  ))}
+                                  </select>                 
+                              </div>
                 </div>
                 <div className="wid d-flex flex-column mb-20 justify-content-center">
                             <div className="d-flex justify-content-right align-items-end">

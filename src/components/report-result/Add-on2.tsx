@@ -163,32 +163,31 @@ export default function Section5(props: Section5Props) {
                             </div>
                             <div className="table-responsive">
                                     <table className="table table-bordered">
-                                        <tbody>
-                                            <tr className="">
-                                                <th colSpan={9}>
+                                        <thead>
+                                        <tr className="">
+                                                <th colSpan={18}>
                                                     <div className="d-flex justify-content-center">ตัวชี้วัดระดับโครงการและค่าเป้าหมาย</div>
                                                 </th>
                                             </tr>
-
                                             <tr>
                                                 <th rowSpan={2}>
                                                     <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
                                                 </th>
-                                                <th rowSpan={2}><div className="wd-300 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
+                                                <th rowSpan={2}><div className="wd-300 d-flex justify-content-center align-items-center">รายการตัวชี้วัด/ชื่อกิจกรรม</div></th>
                                                 <th rowSpan={2}><div className="wd-80 d-flex justify-content-center align-items-center">หน่วย</div></th>
                                                 <th colSpan={5}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                    <div className="d-flex flex-column justify-content-center align-items-center">
                                                         <div>ตัวชี้วัดเป้าหมาย</div>
                                                     </div>
                                                 </th>
                                                 <th colSpan={5}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                    <div className="d-flex flex-column justify-content-center align-items-center">
                                                         <div>ตัวชี้วัดตามผลที่จัดจริง</div>
                                                     </div>
                                                 </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผลต่าง</div>
+                                                <th colSpan={5}>
+                                                    <div className="d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ความสำเร็จของโครงการ</div>
                                                     </div>
                                                 </th>                           
                                             </tr>
@@ -243,12 +242,43 @@ export default function Section5(props: Section5Props) {
                                                         <div>รวม</div>
                                                     </div>
                                                 </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 1</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 2</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 3</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 4</div>
+                                                    </div>
+                                                </th>  
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>รวม</div>
+                                                    </div>
+                                                </th>
                                             </tr>
-
+                                        </thead>
+                                        <tbody>
                                             <tr>
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center">1</div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -281,6 +311,11 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
 
                                             <tr>
@@ -290,6 +325,11 @@ export default function Section5(props: Section5Props) {
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -320,6 +360,11 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -328,6 +373,11 @@ export default function Section5(props: Section5Props) {
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center"></div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -358,6 +408,11 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -366,6 +421,11 @@ export default function Section5(props: Section5Props) {
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -387,34 +447,33 @@ export default function Section5(props: Section5Props) {
                             <div className="d-flex justify-content-right align-items-end">
                                 <div><button className="btn color-org bi bi-file-earmark-plus mb-2">เพิ่ม</button></div>  
                             </div>
-                                <div className="table-responsive">
+                            <div className="table-responsive">
                                     <table className="table table-bordered">
-                                        <tbody>
-                                            <tr className="">
-                                                <th colSpan={9}>
-                                                    <div className="d-flex justify-content-center">ตารางตัวชี้วัดระดับกิจกรรมและค่าเป้าหมาย</div>
+                                        <thead>
+                                        <tr className="">
+                                                <th colSpan={18}>
+                                                    <div className="d-flex justify-content-center">ตัวชี้วัดระดับกิจกรรมและค่าเป้าหมาย</div>
                                                 </th>
                                             </tr>
-
                                             <tr>
                                                 <th rowSpan={2}>
                                                     <div className="wd-50 d-flex justify-content-center align-items-center">ลำดับที่</div>
                                                 </th>
-                                                <th rowSpan={2}><div className="wd-300 d-flex justify-content-center align-items-center">ชื่อตัวชี้วัด</div></th>
+                                                <th rowSpan={2}><div className="wd-300 d-flex justify-content-center align-items-center">รายการตัวชี้วัด/ชื่อกิจกรรม</div></th>
                                                 <th rowSpan={2}><div className="wd-80 d-flex justify-content-center align-items-center">หน่วย</div></th>
                                                 <th colSpan={5}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                    <div className="d-flex flex-column justify-content-center align-items-center">
                                                         <div>ตัวชี้วัดเป้าหมาย</div>
                                                     </div>
                                                 </th>
                                                 <th colSpan={5}>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                    <div className="d-flex flex-column justify-content-center align-items-center">
                                                         <div>ตัวชี้วัดตามผลที่จัดจริง</div>
                                                     </div>
                                                 </th>
-                                                <th>
-                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
-                                                        <div>ผลต่าง</div>
+                                                <th colSpan={5}>
+                                                    <div className="d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ความสำเร็จของโครงการ</div>
                                                     </div>
                                                 </th>                           
                                             </tr>
@@ -469,12 +528,43 @@ export default function Section5(props: Section5Props) {
                                                         <div>รวม</div>
                                                     </div>
                                                 </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 1</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 2</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 3</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>ไตรมาสที่ 4</div>
+                                                    </div>
+                                                </th>  
+                                                <th>
+                                                    <div className="wd-100 d-flex flex-column justify-content-center align-items-center">
+                                                        <div>รวม</div>
+                                                    </div>
+                                                </th>
                                             </tr>
-
+                                        </thead>
+                                        <tbody>
                                             <tr>
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center">1</div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -507,6 +597,11 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
 
                                             <tr>
@@ -516,6 +611,11 @@ export default function Section5(props: Section5Props) {
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -546,6 +646,11 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -554,6 +659,11 @@ export default function Section5(props: Section5Props) {
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center"></div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -584,6 +694,11 @@ export default function Section5(props: Section5Props) {
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -592,6 +707,11 @@ export default function Section5(props: Section5Props) {
                                                 <th>
                                                     <div className="normalText d-flex justify-content-center align-items-center">กิจกรรมที่ 3</div>
                                                 </th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
